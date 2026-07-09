@@ -1,5 +1,17 @@
 # Observed Defects — First Pass
 
+## Summary
+
+Top recurring issues:
+1. Modifier-head units are split awkwardly, especially article/adjective/noun, qualifier/adjective, and verb/object groupings.
+2. Verb support structures split from the verb they govern, especially negation, modal pairs, infinitives, gerunds, and short direct objects.
+3. Connectors and punctuation attach to the wrong side of a thought, producing unnatural conceptual stops around conjunctions, transition words, quotes, colons, and semicolons.
+
+Priority for next refinement:
+- Fix modifier-head and direct-object grouping first.
+- Fix negation, modal, infinitive, and gerund attachment second.
+- Fix connector/punctuation boundary handling third.
+
 
 
 ---
