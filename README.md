@@ -2,28 +2,37 @@
 
 Semantic RSVP Reader is a mobile-first HTML5 reading prototype served by Flask. The prototype explores whether deterministic semantic chunking and rhythm control can improve reading throughput without harming comprehension.
 
-## Current Scope
+# Project Status
 
-This repository currently contains the mobile-hardened prototype foundation:
+> **Status:** 🟢 GREEN  
+> **Last Updated:** 2026-07-09  
+> **Current Phase:** Week 1 — Instrumented Defect Collection  
+> **Immediate Focus:** Slice 1: In-App Backend Defect Reporting  
 
-- Flask app factory and routes for `/`, `/health`, `/api/ingest`, and `/api/schedule`
-- Optional `/api/chunk` endpoint for chunking one sentence
-- Mobile-first HTML/CSS/vanilla JS playback loop
-- Pure-Python text normalization
-- Deterministic sentence segmentation
-- Pure-Python rule-based semantic chunking v1
-- Deterministic timing and full text-to-schedule generation
-- Touch gestures for play/pause and chunk navigation
-- Session-only speed controls
-- Session-only event tracking and debug summary
-- Session-only conservative adaptation
-- Mobile hardening for visibility, orientation, loading, errors, and timer safety
-- Pytest coverage for the web app, normalization, segmentation, ingestion API, chunking, timing, and scheduling
-- GitHub Actions CI that installs minimal dependencies and runs pytest
+## Current State: Prototype Complete
+The stable development base is finished. Text can enter the system cleanly, normalize into stable sentence units, and process through a rule-based chunking and deterministic timing engine. The mobile-first RSVP playback loop is fully operational with gesture interactions, speed controls, and local behavioral telemetry.
 
-## Non-Goals
+## Next Up: Defect Reporting Flow
+Building the `POST /api/defects` endpoint and frontend reporting UI to collapse manual validation friction. The goal is to generate `.md.gz` backend report files directly from the mobile reading session.
 
-This version does not implement persistence, accounts, databases, EPUB/PDF import, ML models, NLP services, spaCy, transformers, offline mode, service workers, or a frontend framework.
+## Completed Capabilities
+| Area | Status | Notes |
+|---|---|---|
+| Flask + CI scaffold | ✅ Done | Stable development base |
+| Mobile-first HTML5 shell | ✅ Done | App is phone-browser-first |
+| Text ingestion | ✅ Done | Text can enter the system cleanly |
+| Normalization/segmentation | ✅ Done | Raw text becomes stable sentence units |
+| Rule-based chunking | ✅ Done | First semantic chunker exists |
+| Timing engine | ✅ Done | Chunks receive deterministic durations |
+| Schedule API | ✅ Done | Backend emits frontend-ready schedule |
+| Playback loop | ✅ Done | Mobile RSVP reader works |
+| Gestures | ✅ Done | Tap/swipe/long-press interaction exists |
+| Speed controls | ✅ Done | User can adjust runtime speed |
+| Event tracking | ✅ Done | Local behavioral telemetry exists |
+| Adaptation | ✅ Done | Conservative feedback loop exists |
+| Mobile hardening | ✅ Done | Timer, loading, visibility, layout issues addressed |
+| Demo validation docs | ✅ Done | Evaluation process exists |
+| Validation corpus/taxonomy | ✅ Done | We have a way to classify defects |
 
 ## Local Setup
 
