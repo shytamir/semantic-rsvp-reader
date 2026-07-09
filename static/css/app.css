@@ -24,7 +24,7 @@ body {
   min-height: 100vh;
   min-height: 100dvh;
   display: grid;
-  padding: 18px;
+  padding: 12px;
 }
 
 .input-mode,
@@ -78,7 +78,7 @@ textarea {
 }
 
 button {
-  min-height: 48px;
+  min-height: 44px;
   border: 0;
   border-radius: 8px;
   padding: 0 16px;
@@ -108,19 +108,19 @@ textarea:focus-visible,
 }
 
 .reader-mode {
-  min-height: calc(100vh - 36px);
-  min-height: calc(100dvh - 36px);
+  min-height: calc(100vh - 24px);
+  min-height: calc(100dvh - 24px);
   display: grid;
   grid-template-rows: 1fr auto;
-  gap: 18px;
+  gap: 10px;
 }
 
 .reader-area {
   position: relative;
   display: grid;
   place-items: center;
-  min-height: 45vh;
-  padding: 20px 8px;
+  min-height: 36vh;
+  padding: 12px 6px;
   text-align: center;
   touch-action: none;
   user-select: none;
@@ -131,7 +131,7 @@ textarea:focus-visible,
 .chunk-display {
   width: 100%;
   max-width: min(92vw, 18ch);
-  min-height: 2.4em;
+  min-height: 2.1em;
   display: grid;
   place-items: center;
   margin: 0;
@@ -144,12 +144,14 @@ textarea:focus-visible,
 }
 
 .reader-footer {
+  display: grid;
+  gap: 8px;
   padding-bottom: max(8px, env(safe-area-inset-bottom));
 }
 
 .progress-indicator {
   min-height: 1.4em;
-  margin: 0 0 12px;
+  margin: 0;
   text-align: center;
   color: #3d3d38;
   font-weight: 700;
@@ -158,19 +160,25 @@ textarea:focus-visible,
 .reader-controls {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 8px;
+  gap: 6px;
+}
+
+.compact-controls button {
+  min-height: 40px;
+  padding: 0 10px;
+  font-size: 0.95rem;
 }
 
 .session-debug {
-  margin-top: 12px;
+  margin-top: 0;
   border-top: 1px solid #d5d5cc;
-  padding-top: 10px;
+  padding-top: 6px;
   color: #3d3d38;
   font-size: 0.9rem;
 }
 
 .session-debug summary {
-  min-height: 36px;
+  min-height: 30px;
   cursor: pointer;
   font-weight: 800;
 }
@@ -196,10 +204,10 @@ textarea:focus-visible,
 
 .speed-overlay {
   width: min(100%, 420px);
-  margin: 0 auto 12px;
+  margin: 0 auto;
   border: 2px solid #171717;
   border-radius: 8px;
-  padding: 14px;
+  padding: 10px;
   background: #171717;
   color: #ffffff;
   box-shadow: 0 10px 30px rgb(0 0 0 / 22%);
@@ -209,7 +217,7 @@ textarea:focus-visible,
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 8px;
 }
 
 .speed-overlay-title {
@@ -219,8 +227,8 @@ textarea:focus-visible,
 }
 
 .speed-label {
-  margin: 14px 0;
-  font-size: 2rem;
+  margin: 8px 0;
+  font-size: 1.65rem;
   font-weight: 900;
   line-height: 1;
 }
@@ -228,26 +236,28 @@ textarea:focus-visible,
 .speed-controls {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 8px;
+  gap: 6px;
 }
 
 .adaptation-controls {
   display: grid;
-  gap: 8px;
-  margin-top: 12px;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-top: 8px;
   border-top: 1px solid rgb(255 255 255 / 28%);
-  padding-top: 12px;
+  padding-top: 8px;
 }
 
 .adaptation-copy {
+  grid-column: 1 / -1;
   margin: 0;
   font-weight: 800;
   line-height: 1.35;
 }
 
 .speed-close {
-  min-height: 36px;
-  padding: 0 10px;
+  min-height: 32px;
+  padding: 0 8px;
   background: #ffffff;
   color: #171717;
   font-size: 0.9rem;
@@ -255,7 +265,8 @@ textarea:focus-visible,
 
 .speed-controls button,
 .adaptation-controls button {
-  min-height: 44px;
+  min-height: 38px;
+  padding: 0 8px;
   background: #ffffff;
   color: #171717;
   font-size: 0.92rem;
@@ -263,7 +274,7 @@ textarea:focus-visible,
 
 #back-button,
 #reset-button {
-  grid-column: span 3;
+  grid-column: auto;
 }
 
 .is-hidden {
@@ -290,5 +301,47 @@ textarea:focus-visible,
   .chunk-display {
     max-width: 94vw;
     font-size: clamp(2.2rem, 12vw, 4rem);
+  }
+}
+
+@media (max-height: 680px) {
+  .app-shell {
+    padding: 8px;
+  }
+
+  .reader-mode {
+    min-height: calc(100vh - 16px);
+    min-height: calc(100dvh - 16px);
+    gap: 6px;
+  }
+
+  .reader-area {
+    min-height: 30vh;
+    padding: 6px;
+  }
+
+  .chunk-display {
+    min-height: 1.8em;
+    font-size: clamp(2rem, 11vw, 4.2rem);
+  }
+
+  .speed-overlay {
+    padding: 8px;
+  }
+
+  .speed-label {
+    margin: 6px 0;
+    font-size: 1.35rem;
+  }
+
+  .speed-controls button,
+  .adaptation-controls button,
+  .compact-controls button {
+    min-height: 34px;
+    font-size: 0.85rem;
+  }
+
+  .session-debug summary {
+    min-height: 26px;
   }
 }
