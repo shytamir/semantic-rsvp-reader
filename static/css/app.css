@@ -110,11 +110,15 @@ textarea:focus-visible,
 }
 
 .reader-area {
+  position: relative;
   display: grid;
   place-items: center;
   min-height: 45vh;
   padding: 20px 8px;
   text-align: center;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .chunk-display {
@@ -146,6 +150,35 @@ textarea:focus-visible,
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 8px;
+}
+
+.speed-overlay {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  width: min(92%, 360px);
+  transform: translateX(-50%);
+  border: 2px solid #171717;
+  border-radius: 8px;
+  padding: 14px;
+  background: #171717;
+  color: #ffffff;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 22%);
+  z-index: 2;
+}
+
+.speed-overlay-title {
+  margin: 8px 0 0;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.speed-overlay-close {
+  min-height: 36px;
+  padding: 0 10px;
+  background: #ffffff;
+  color: #171717;
+  font-size: 0.9rem;
 }
 
 #back-button,

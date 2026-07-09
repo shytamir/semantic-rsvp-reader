@@ -1,3 +1,8 @@
+const SWIPE_MIN_DISTANCE_PX = 40;
+const SWIPE_MAX_VERTICAL_DRIFT_PX = 60;
+const LONG_PRESS_MS = 500;
+const TAP_MAX_DISTANCE_PX = 12;
+
 const inputMode = document.querySelector("#input-mode");
 const readerMode = document.querySelector("#reader-mode");
 const form = document.querySelector("#schedule-form");
@@ -11,11 +16,19 @@ const previousButton = document.querySelector("#previous-button");
 const nextButton = document.querySelector("#next-button");
 const resetButton = document.querySelector("#reset-button");
 const backButton = document.querySelector("#back-button");
+const speedOverlay = document.querySelector("#speed-overlay");
+const speedOverlayClose = document.querySelector("#speed-overlay-close");
 
 let schedule = [];
 let currentIndex = 0;
 let isPlaying = false;
 let timerId = null;
+let touchStartX = 0;
+let touchStartY = 0;
+let touchStartTime = 0;
+let longPressTimerId = null;
+let suppressNextTap = false;
+let gestureStarted = false;
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -27,10 +40,12 @@ previousButton.addEventListener("click", previousChunk);
 nextButton.addEventListener("click", () => nextChunk());
 resetButton.addEventListener("click", resetReader);
 backButton.addEventListener("click", enterInputMode);
-readerArea.addEventListener("click", togglePlayback);
+speedOverlayClose.addEventListener("click", hideSpeedOverlay);
+attachReaderGestures();
 
 async function loadSchedule(text) {
   pause();
+  hideSpeedOverlay();
   showStatus("Preparing...");
 
   try {
@@ -90,6 +105,10 @@ function pause() {
 }
 
 function togglePlayback() {
+  if (!isReaderModeActive()) {
+    return;
+  }
+
   if (isPlaying) {
     pause();
   } else {
@@ -134,6 +153,7 @@ function resetReader() {
 
 function enterInputMode() {
   pause();
+  hideSpeedOverlay();
   readerMode.classList.add("is-hidden");
   inputMode.classList.remove("is-hidden");
   showStatus("Prepare text to start reading.");
@@ -144,6 +164,7 @@ function enterReaderMode() {
   readerMode.classList.remove("is-hidden");
   isPlaying = false;
   clearPlaybackTimer();
+  hideSpeedOverlay();
   renderCurrentChunk();
   readerArea.focus();
 }
@@ -189,4 +210,120 @@ function clampIndex(index) {
     return 0;
   }
   return Math.min(Math.max(index, 0), schedule.length - 1);
+}
+
+function attachReaderGestures() {
+  readerArea.addEventListener("pointerdown", handlePointerStart);
+  readerArea.addEventListener("pointermove", handlePointerMove);
+  readerArea.addEventListener("pointerup", handlePointerEnd);
+  readerArea.addEventListener("pointercancel", cancelGesture);
+  readerArea.addEventListener("lostpointercapture", clearLongPressTimer);
+}
+
+function handlePointerStart(event) {
+  if (!isReaderModeActive() || event.target.closest("button")) {
+    return;
+  }
+
+  gestureStarted = true;
+  suppressNextTap = false;
+  touchStartX = event.clientX;
+  touchStartY = event.clientY;
+  touchStartTime = Date.now();
+  readerArea.setPointerCapture(event.pointerId);
+  clearLongPressTimer();
+  longPressTimerId = window.setTimeout(handleLongPress, LONG_PRESS_MS);
+}
+
+function handlePointerMove(event) {
+  if (!gestureStarted) {
+    return;
+  }
+
+  const deltaX = event.clientX - touchStartX;
+  const deltaY = event.clientY - touchStartY;
+  if (Math.hypot(deltaX, deltaY) > TAP_MAX_DISTANCE_PX) {
+    clearLongPressTimer();
+  }
+}
+
+function handlePointerEnd(event) {
+  if (!gestureStarted) {
+    return;
+  }
+
+  const deltaX = event.clientX - touchStartX;
+  const deltaY = event.clientY - touchStartY;
+  const elapsed = Date.now() - touchStartTime;
+  gestureStarted = false;
+  clearLongPressTimer();
+
+  if (!isReaderModeActive()) {
+    return;
+  }
+
+  if (suppressNextTap) {
+    suppressNextTap = false;
+    return;
+  }
+
+  if (isSwipe(deltaX, deltaY)) {
+    suppressNextTap = true;
+    if (deltaX < 0) {
+      previousChunk();
+    } else {
+      nextChunk();
+    }
+    window.setTimeout(() => {
+      suppressNextTap = false;
+    }, 0);
+    return;
+  }
+
+  if (Math.hypot(deltaX, deltaY) <= TAP_MAX_DISTANCE_PX && elapsed < LONG_PRESS_MS) {
+    togglePlayback();
+  }
+}
+
+function cancelGesture() {
+  gestureStarted = false;
+  suppressNextTap = false;
+  clearLongPressTimer();
+}
+
+function handleLongPress() {
+  if (!gestureStarted || !isReaderModeActive()) {
+    return;
+  }
+
+  suppressNextTap = true;
+  clearLongPressTimer();
+  toggleSpeedOverlay();
+}
+
+function isSwipe(deltaX, deltaY) {
+  return (
+    Math.abs(deltaX) >= SWIPE_MIN_DISTANCE_PX &&
+    Math.abs(deltaY) <= SWIPE_MAX_VERTICAL_DRIFT_PX &&
+    Math.abs(deltaX) > Math.abs(deltaY)
+  );
+}
+
+function toggleSpeedOverlay() {
+  speedOverlay.classList.toggle("is-hidden");
+}
+
+function hideSpeedOverlay() {
+  speedOverlay.classList.add("is-hidden");
+}
+
+function clearLongPressTimer() {
+  if (longPressTimerId !== null) {
+    window.clearTimeout(longPressTimerId);
+    longPressTimerId = null;
+  }
+}
+
+function isReaderModeActive() {
+  return !readerMode.classList.contains("is-hidden");
 }

@@ -4,7 +4,7 @@ Semantic RSVP Reader is a mobile-first HTML5 reading prototype served by Flask. 
 
 ## Current Scope
 
-This repository currently contains the Week 3 Part 2 foundation:
+This repository currently contains the Week 3/4 touch refinement foundation:
 
 - Flask app factory and routes for `/`, `/health`, `/api/ingest`, and `/api/schedule`
 - Optional `/api/chunk` endpoint for chunking one sentence
@@ -13,12 +13,14 @@ This repository currently contains the Week 3 Part 2 foundation:
 - Deterministic sentence segmentation
 - Pure-Python rule-based semantic chunking v1
 - Deterministic timing and full text-to-schedule generation
+- Touch gestures for play/pause and chunk navigation
+- Placeholder speed overlay for the next speed-control slice
 - Pytest coverage for the web app, normalization, segmentation, ingestion API, chunking, timing, and scheduling
 - GitHub Actions CI that installs minimal dependencies and runs pytest
 
 ## Non-Goals
 
-This version does not implement gestures, adaptive speed, persistence, accounts, databases, EPUB/PDF import, ML models, NLP services, spaCy, transformers, or a frontend framework.
+This version does not implement real speed controls, adaptive speed, persistence, accounts, databases, EPUB/PDF import, ML models, NLP services, spaCy, transformers, or a frontend framework.
 
 ## Local Setup
 
@@ -46,11 +48,11 @@ The repository includes `pyproject.toml` so pytest can import the local `semanti
 
 ## Next Milestones
 
-1. Touch gestures
-2. Rewind buffer refinement
-3. Speed controls
-4. Session-only adaptation
-5. Mobile hardening
+1. Real speed controls
+2. Session-only event tracking
+3. Session-only adaptation
+4. Mobile hardening
+5. Demo validation
 
 ## Manual Test Checklist
 
@@ -74,3 +76,29 @@ Mobile playback manual test:
 16. Confirm it stops cleanly.
 17. Tap Back/Edit Text.
 18. Confirm input mode returns and no timer keeps running.
+
+Touch gesture manual test:
+
+1. Open app on a phone browser.
+2. Paste a short paragraph and load it.
+3. Confirm first chunk appears centered and paused.
+4. Tap reader area.
+5. Confirm playback starts.
+6. Tap reader area again.
+7. Confirm playback pauses.
+8. Swipe left.
+9. Confirm reader moves back one chunk and pauses.
+10. Swipe right.
+11. Confirm reader moves forward one chunk and pauses.
+12. Swipe left at the first chunk.
+13. Confirm it stays on the first chunk and remains paused.
+14. Swipe right at the final chunk.
+15. Confirm it stays on the final chunk and remains paused.
+16. Long press reader area.
+17. Confirm speed overlay placeholder appears.
+18. Long press again or close overlay.
+19. Confirm overlay disappears.
+20. Confirm swipes do not accidentally toggle play/pause.
+21. Confirm long press does not accidentally toggle play/pause.
+22. Confirm buttons still work.
+23. Confirm Back/Edit Text stops playback and returns to input mode.

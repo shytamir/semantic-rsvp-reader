@@ -18,6 +18,7 @@ def test_index_includes_reader_and_input_ids(client):
         b'id="status-message"',
         b'id="reader-area"',
         b'id="chunk-display"',
+        b'id="speed-overlay"',
         b'id="progress-indicator"',
         b'id="play-pause-button"',
         b'id="previous-button"',
