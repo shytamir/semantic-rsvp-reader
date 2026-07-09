@@ -31,10 +31,10 @@ pip install -r requirements.txt
 ## Run the App
 
 ```bash
-flask --app semantic_rsvp.web:create_app run
+flask --app semantic_rsvp.web:create_app run --host 0.0.0.0
 ```
 
-Open `http://127.0.0.1:5000`.
+Open `http://127.0.0.1:5000` on the host machine, or use the host machine's LAN IP address from a phone or another device on the same network.
 
 ## Run Tests
 
