@@ -195,18 +195,14 @@ textarea:focus-visible,
 }
 
 .speed-overlay {
-  position: absolute;
-  left: 50%;
-  bottom: 18px;
-  width: min(92%, 360px);
-  transform: translateX(-50%);
+  width: min(100%, 420px);
+  margin: 0 auto 12px;
   border: 2px solid #171717;
   border-radius: 8px;
   padding: 14px;
   background: #171717;
   color: #ffffff;
   box-shadow: 0 10px 30px rgb(0 0 0 / 22%);
-  z-index: 2;
 }
 
 .speed-overlay-header {
