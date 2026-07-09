@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Semantic RSVP Reader</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="reader-panel" aria-labelledby="app-title">
+        <header class="reader-header">
+          <p class="eyebrow">Week 1 prototype</p>
+          <h1 id="app-title">Semantic RSVP Reader</h1>
+        </header>
+
+        <form id="ingest-form" class="ingest-form">
+          <label for="text-input">Paste text</label>
+          <textarea id="text-input" name="text" rows="8" placeholder="Paste a paragraph to normalize and segment."></textarea>
+          <button type="submit">Load text</button>
+        </form>
+
+        <section class="reader-display" aria-live="polite">
+          <p id="status-message">Reader playback will appear here in a later milestone.</p>
+          <ol id="sentence-list" class="sentence-list"></ol>
+        </section>
+      </section>
+    </main>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  </body>
+</html>
