@@ -171,6 +171,12 @@ def render_defect_report_markdown(
             "Viewport:",
             f"{_value(client, 'viewport_width')}x{_value(client, 'viewport_height')}",
             "",
+            "Display:",
+            f"Reader width px: {_value(client, 'display_width_px')}",
+            f"Chunk scroll width px: {_value(client, 'chunk_scroll_width_px')}",
+            f"Chunk client width px: {_value(client, 'chunk_client_width_px')}",
+            f"Chunk may overflow: {_value(client, 'chunk_may_overflow')}",
+            "",
         ]
     )
 
@@ -253,6 +259,10 @@ def _sanitize_client(client: dict) -> dict:
         "user_agent": _bounded_text(client.get("user_agent", "")),
         "viewport_width": client.get("viewport_width"),
         "viewport_height": client.get("viewport_height"),
+        "display_width_px": client.get("display_width_px"),
+        "chunk_scroll_width_px": client.get("chunk_scroll_width_px"),
+        "chunk_client_width_px": client.get("chunk_client_width_px"),
+        "chunk_may_overflow": client.get("chunk_may_overflow"),
     }
 
 

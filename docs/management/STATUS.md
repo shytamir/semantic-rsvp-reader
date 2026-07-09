@@ -1,31 +1,53 @@
 # Project Status
 
-> **Status:** 🟢 GREEN  
-> **Last Updated:** 2026-07-09  
-> **Current Phase:** Week 1 — Instrumented Defect Collection  
-> **Immediate Focus:** Slice 1: In-App Backend Defect Reporting  
+> **Status:** GREEN
+> **Last Updated:** 2026-07-10
+> **Current Phase:** Validation-driven refinement: cleaning evidence quality before timing calibration.
+> **Immediate Focus:** Evidence hygiene plus display/tokenization noise cleanup.
 
-## Current State: Prototype Complete
-The stable development base is finished. Text can enter the system cleanly, normalize into stable sentence units, and process through a rule-based chunking and deterministic timing engine. The mobile-first RSVP playback loop is fully operational with gesture interactions, speed controls, and local behavioral telemetry.
+## Current Project Phase
 
-## Next Up: Defect Reporting Flow
-Building the `POST /api/defects` endpoint and frontend reporting UI to collapse manual validation friction. The goal is to generate `.md.gz` backend report files directly from the mobile reading session.
+The prototype is in validation-driven refinement. The current goal is to reduce false timing evidence caused by layout, tokenization, and chunking noise before changing timing formulas.
 
-## Completed Capabilities
-| Area | Status | Notes |
-|---|---|---|
-| Flask + CI scaffold | ✅ Done | Stable development base |
-| Mobile-first HTML5 shell | ✅ Done | App is phone-browser-first |
-| Text ingestion | ✅ Done | Text can enter the system cleanly |
-| Normalization/segmentation | ✅ Done | Raw text becomes stable sentence units |
-| Rule-based chunking | ✅ Done | First semantic chunker exists |
-| Timing engine | ✅ Done | Chunks receive deterministic durations |
-| Schedule API | ✅ Done | Backend emits frontend-ready schedule |
-| Playback loop | ✅ Done | Mobile RSVP reader works |
-| Gestures | ✅ Done | Tap/swipe/long-press interaction exists |
-| Speed controls | ✅ Done | User can adjust runtime speed |
-| Event tracking | ✅ Done | Local behavioral telemetry exists |
-| Adaptation | ✅ Done | Conservative feedback loop exists |
-| Mobile hardening | ✅ Done | Timer, loading, visibility, layout issues addressed |
-| Demo validation docs | ✅ Done | Evaluation process exists |
-| Validation corpus/taxonomy | ✅ Done | We have a way to classify defects |
+## Completed Slices
+
+1. Flask + CI scaffold.
+2. Mobile-first Flask/HTML5 reading shell.
+3. Text ingestion, normalization, sentence segmentation, semantic chunking, and deterministic scheduling.
+4. Mobile playback loop with controls, gestures, session-only speed controls, event tracking, and conservative adaptation.
+5. Mobile hardening for timers, visibility changes, loading, local network use, and compact phone layouts.
+6. Backend-stored compressed defect reports with bounded/escaped fields, generated filenames, request limits, and storage-encryption warnings.
+7. Timing-context defect instrumentation and defect review export.
+8. Chunking Refinement Pass 1 from observed validation defects.
+
+## Current Slice
+
+Evidence Hygiene + Display/Tokenization Noise Cleanup:
+
+- prevent chunk display hyphenation and within-word browser splitting;
+- record display width/overflow metadata in defect reports;
+- protect `a.m.`, `p.m.`, `U.S.`, and `E.U.` from sentence/tokenization noise;
+- conservatively improve `whether ... would` chunking;
+- add timing-only review filtering so older reports without Timing Context can be excluded.
+
+## Next 4 Planned Slices
+
+1. Clean timing validation pass.
+2. Timing Calibration Pass 1.
+3. Post-calibration validation review.
+4. Demo/beta readiness pass.
+
+## Known Risks
+
+- Timing reports can still be polluted if layout defects are reported under timing categories.
+- Rule-based chunking remains conservative and may need more observed examples before broader grammar handling.
+- Mobile browser rendering differences may still affect very long unbroken tokens.
+- The project intentionally uses session-only telemetry, so long-term user modeling is out of scope.
+
+## Explicit Non-Goals
+
+- No timing multiplier/formula calibration in the current slice.
+- No adaptation behavior changes.
+- No persistence model, accounts, analytics, offline mode, service workers, or deployment infrastructure.
+- No NLP dependency additions such as spaCy, transformers, or ML chunking.
+- No frontend framework, browser automation, EPUB/PDF import, or packaging work.

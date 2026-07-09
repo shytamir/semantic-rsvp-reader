@@ -191,16 +191,29 @@ textarea:focus-visible,
 
 .chunk-display {
   width: 100%;
-  max-width: min(92vw, 18ch);
+  max-width: min(92vw, 22ch);
   min-height: 2.1em;
   display: block;
   margin: 0;
-  overflow-wrap: anywhere;
-  word-break: break-word;
-  hyphens: auto;
-  font-size: clamp(2.35rem, 12.5vw, 4.8rem);
+  overflow: hidden;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+  -webkit-hyphens: none;
+  font-size: clamp(2.1rem, 10.5vw, 4.2rem);
   font-weight: 800;
   line-height: 1.05;
+  white-space: normal;
+}
+
+.chunk-display.is-long-chunk {
+  max-width: min(94vw, 28ch);
+  font-size: clamp(1.65rem, 8.5vw, 3.35rem);
+}
+
+.chunk-display.is-extra-long-token {
+  max-width: min(94vw, 32ch);
+  font-size: clamp(1.3rem, 7vw, 2.55rem);
 }
 
 .reader-footer {
@@ -418,7 +431,15 @@ textarea:focus-visible,
 
   .chunk-display {
     max-width: 94vw;
-    font-size: clamp(2rem, 10.5vw, 3.6rem);
+    font-size: clamp(1.85rem, 9.5vw, 3.25rem);
+  }
+
+  .chunk-display.is-long-chunk {
+    font-size: clamp(1.45rem, 7.8vw, 2.75rem);
+  }
+
+  .chunk-display.is-extra-long-token {
+    font-size: clamp(1.15rem, 6.6vw, 2.2rem);
   }
 }
 
@@ -441,7 +462,15 @@ textarea:focus-visible,
 
   .chunk-display {
     min-height: 1.8em;
-    font-size: clamp(1.85rem, 10vw, 3.8rem);
+    font-size: clamp(1.7rem, 8.8vw, 3.25rem);
+  }
+
+  .chunk-display.is-long-chunk {
+    font-size: clamp(1.4rem, 7.4vw, 2.7rem);
+  }
+
+  .chunk-display.is-extra-long-token {
+    font-size: clamp(1.1rem, 6.2vw, 2.15rem);
   }
 
   .speed-overlay {

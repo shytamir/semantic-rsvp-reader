@@ -27,6 +27,19 @@ def test_tokenize_keeps_simple_contractions_together():
     ]
 
 
+def test_tokenize_keeps_common_initialisms_together():
+    assert tokenize("The U.S. system and E.U. rule differ.") == [
+        "The",
+        "U.S.",
+        "system",
+        "and",
+        "E.U.",
+        "rule",
+        "differ",
+        ".",
+    ]
+
+
 def test_tokenize_returns_no_empty_tokens():
     assert "" not in tokenize("  Hello,   world.  ")
 

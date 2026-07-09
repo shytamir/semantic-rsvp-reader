@@ -1,38 +1,44 @@
-# Semantic RSVP Reader
+﻿# Semantic RSVP Reader
 
 Semantic RSVP Reader is a mobile-first HTML5 reading prototype served by Flask. The prototype explores whether deterministic semantic chunking and rhythm control can improve reading throughput without harming comprehension.
 
 # Project Status
 
-> **Status:** 🟢 GREEN  
-> **Last Updated:** 2026-07-09  
-> **Current Phase:** Week 1 — Instrumented Defect Collection  
-> **Immediate Focus:** Collect validation defects for chunking/timing refinement  
+> **Status:** GREEN
+> **Last Updated:** 2026-07-10
+> **Current Phase:** Validation-driven refinement: cleaning evidence quality before timing calibration
+> **Immediate Focus:** Evidence hygiene plus display/tokenization noise cleanup
 
 ## Current State: Prototype Complete
 The stable development base is finished. Text can enter the system cleanly, normalize into stable sentence units, and process through a rule-based chunking and deterministic timing engine. The mobile-first RSVP playback loop is fully operational with gesture interactions, speed controls, and local behavioral telemetry.
 
 ## Current Validation Flow
-The app can generate `.md.gz` backend defect report files directly from the mobile reading session. The next step is to use those reports to identify repeatable chunking and timing defects.
+The app can generate `.md.gz` backend defect report files directly from the mobile reading session. Timing reports now carry explicit timing context and display metadata so the next calibration pass can exclude older/noisy reports and separate rhythm defects from layout or chunking defects.
 
 ## Completed Capabilities
 | Area | Status | Notes |
 |---|---|---|
-| Flask + CI scaffold | ✅ Done | Stable development base |
-| Mobile-first HTML5 shell | ✅ Done | App is phone-browser-first |
-| Text ingestion | ✅ Done | Text can enter the system cleanly |
-| Normalization/segmentation | ✅ Done | Raw text becomes stable sentence units |
-| Rule-based chunking | ✅ Done | First semantic chunker exists |
-| Timing engine | ✅ Done | Chunks receive deterministic durations |
-| Schedule API | ✅ Done | Backend emits frontend-ready schedule |
-| Playback loop | ✅ Done | Mobile RSVP reader works |
-| Gestures | ✅ Done | Tap/swipe/long-press interaction exists |
-| Speed controls | ✅ Done | User can adjust runtime speed |
-| Event tracking | ✅ Done | Local behavioral telemetry exists |
-| Adaptation | ✅ Done | Conservative feedback loop exists |
-| Mobile hardening | ✅ Done | Timer, loading, visibility, layout issues addressed |
-| Demo validation docs | ✅ Done | Evaluation process exists |
-| Validation corpus/taxonomy | ✅ Done | We have a way to classify defects |
+| Flask + CI scaffold | Done | Stable development base |
+| Mobile-first Flask/HTML5 prototype | Done | App is phone-browser-first |
+| Text ingestion | Done | Text can enter the system cleanly |
+| Text normalization | Done | Raw input is cleaned before scheduling |
+| Sentence segmentation | Done | Common abbreviations, times, and initialisms are protected |
+| Pure-Python rule-based semantic chunking | Done | Inspectable semantic chunker exists |
+| Chunking refinement pass 1 from observed defects | Done | Observed modifier/head, verb-support, and punctuation-boundary defects addressed |
+| Deterministic timing engine | Done | Chunks receive deterministic durations |
+| `/api/schedule` | Done | Backend emits frontend-ready schedule |
+| Mobile RSVP playback loop | Done | Reader advances scheduled chunks |
+| Touch gestures | Done | Tap/swipe/long-press interaction exists |
+| Session-only speed controls | Done | User can adjust runtime speed without persistence |
+| Session-only event tracking/debug summary | Done | Local behavioral telemetry exists for the current session |
+| Session-only conservative adaptation | Done | Conservative feedback loop exists without accounts or persistence |
+| Mobile hardening | Done | Timer, loading, visibility, layout issues addressed |
+| In-app backend-stored compressed defect reports | Done | Reports save as `.md.gz` files on the Flask backend |
+| Defect report security hardening | Done | Bounded escaped fields, generated filenames, request limits, and storage-encryption warning |
+| Timing-context defect instrumentation | Done | Reports include base/effective duration, speed, chunk metadata, and session summary |
+| Validation corpus and defect taxonomy | Done | We have samples and a way to classify defects |
+| Defect review workflow | Done | `scripts/review_defects.py` aggregates, filters, and exports reports |
+| Display/tokenization noise cleanup from timing-review findings | Done | Chunk display avoids browser word splitting; time abbreviations, initialisms, and `whether` modal patterns are cleaner |
 
 ## Local Setup
 
@@ -66,9 +72,9 @@ The app supports in-app defect reporting during reader playback. Reports are sav
 
 Defect report storage uses generated filenames, bounded/escaped Markdown fields, a request size limit, and a best-effort local storage encryption check. If encrypted storage cannot be confirmed, the app logs a warning and continues.
 
-Chunking refinement pass 1 is documented in `docs/validation/chunking_refinement_pass_1.md`. It addresses the first observed modifier/head, verb-support, and punctuation-boundary defects. Timing calibration remains a next step.
+Chunking refinement pass 1 is documented in `docs/validation/chunking_refinement_pass_1.md`. It addresses the first observed modifier/head, verb-support, and punctuation-boundary defects. A follow-up evidence-hygiene cleanup reduces display wrapping, `a.m.`/`p.m.` initialism, and `whether ... would` noise before calibration. Timing calibration remains a next step.
 
-Defect reports now include timing context such as base duration, effective duration, playback speed, syntactic hint, content word count, character length, nearby chunk timing, and session timing summary. See `docs/validation/timing_defect_collection.md` for the timing defect collection workflow and `scripts/review_defects.py` for local report review/export.
+Defect reports now include timing context such as base duration, effective duration, playback speed, syntactic hint, content word count, character length, nearby chunk timing, session timing summary, and display metadata. See `docs/validation/timing_defect_collection.md` for the timing defect collection workflow and `scripts/review_defects.py` for local report review/export.
 
 Log defects with the in-app `Report Defect` button, or use `docs/validation/defect_log_template.md` when working outside the app. Choose categories from `docs/validation/defect_taxonomy.md`. Interpret severity as:
 
@@ -91,10 +97,10 @@ python scripts/schedule_sample.py --json < sample.txt
 
 ## Next Milestones
 
-1. Timing calibration from observed validation defects
-2. Additional chunking refinement based on new reports
-3. UX cleanup
-4. Optional packaging/deployment notes
+1. Clean timing validation pass focused on dense chunks at default and elevated speeds
+2. Timing Calibration Pass 1
+3. Post-calibration validation review
+4. Demo/beta readiness pass
 
 ## Manual Test Checklist
 
@@ -315,3 +321,22 @@ Timing instrumentation manual test:
 16. Confirm Markdown includes Timing Context.
 17. Confirm previous/next chunks include timing metadata where available.
 18. Confirm existing playback, speed controls, gestures, adaptation, and defect reporting still work.
+
+Evidence hygiene manual test:
+
+1. Start Flask locally.
+2. Open the app on a phone browser.
+3. Load demo text or a validation sample.
+4. Find a longer/dense chunk.
+5. Confirm the displayed chunk does not hyphenate or split words awkwardly.
+6. Confirm no horizontal page scroll appears.
+7. Submit a defect report for any layout issue if seen.
+8. Confirm the saved report includes timing context.
+9. Confirm display metadata is included.
+10. Load text containing "9 a.m." and "6 p.m."
+11. Confirm sentence splitting remains correct.
+12. Load text containing "U.S." or "E.U."
+13. Confirm no ugly punctuation chunks appear.
+14. Run the defect review utility with timing-only filtering.
+15. Confirm older reports without Timing Context are excluded.
+16. Confirm existing playback, gestures, speed controls, adaptation, and reporting still work.

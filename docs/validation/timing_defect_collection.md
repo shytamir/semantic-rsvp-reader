@@ -2,6 +2,8 @@
 
 This guide is for collecting timing and rhythm evidence after Chunking Refinement Pass 1. Do not use this pass to request chunking fixes unless the chunk itself is otherwise acceptable and the remaining discomfort is about dwell time or rhythm.
 
+Reports without a `## Timing Context` section should not drive timing calibration. They can remain useful for chunking or UX review, but they do not include the base/effective duration evidence needed for calibration.
+
 ## Timing-Focused Defect Categories
 
 - `rushed_dense_chunk`
@@ -36,6 +38,10 @@ Each in-app defect report now captures timing evidence:
 
 If the chunk itself is badly split, classify it as chunking first. For example, a rushed feeling caused by `a quiet | room` or `may not | know` is still primarily a chunking defect. Timing calibration should focus on chunks that are basically well-formed but feel too fast, too slow, or rhythmically wrong.
 
+If the chunk is hard to read because the browser visibly wraps, clips, hyphenates, or splits a word, classify it as `layout_or_visibility_issue`, not timing. Layout/hyphenation artifacts should be fixed before those reports are interpreted as timing failures.
+
+If the issue is tokenization or segmentation noise, such as `a.m.` becoming a separate punctuation-like chunk, fix that before timing calibration. Dense-chunk timing should be retested after display and tokenization cleanup.
+
 ## Suggested Timing Validation Pass
 
 1. Load a validation sample after chunking refinement.
@@ -65,4 +71,16 @@ Write a combined timing review document:
 python scripts/review_defects.py --category rushed_dense_chunk --out docs/validation/observed_timing_defects_first_pass.md
 ```
 
-The script reads `.md.gz` files from `data/defect_reports/` by default. It does not require Flask to be running, does not delete reports, and does not write into the report directory.
+Write only reports that include timing context:
+
+```bash
+python scripts/review_defects.py --timing-only --out docs/validation/observed_timing_defects_cleaned.md
+```
+
+Filter by timing category and require timing context:
+
+```bash
+python scripts/review_defects.py --category rushed_dense_chunk --timing-only
+```
+
+The script reads `.md.gz` files from `data/defect_reports/` by default. It prints summary counts for total reports, included reports, reports with Timing Context, reports without Timing Context, and reports by category. It does not require Flask to be running, does not delete reports, and does not write into the report directory.

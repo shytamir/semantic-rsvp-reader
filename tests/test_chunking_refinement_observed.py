@@ -74,3 +74,30 @@ def test_colon_and_semicolon_create_clean_boundaries():
 
     assert any(chunk.endswith("mind;") for chunk in chunks)
     assert not any(chunk.startswith(";") or chunk.startswith(":") for chunk in chunks)
+
+
+def test_whether_modal_clause_splits_before_modal_after_subject():
+    chunks = chunk_texts("The question is whether leaving would change the result.")
+
+    assert "whether" not in chunks
+    assert "whether leaving would" not in chunks
+    assert "whether leaving" in chunks
+    assert any(chunk.startswith("would change") for chunk in chunks)
+
+
+def test_whether_system_would_preserves_context_without_modal_orphan():
+    chunks = chunk_texts("They asked whether the system would preserve context.")
+
+    assert "whether" not in chunks
+    assert "would" not in chunks
+    assert "whether the system" in chunks
+    assert any(chunk.startswith("would preserve") for chunk in chunks)
+
+
+def test_may_not_know_whether_keeps_negation_and_starts_clause_cleanly():
+    chunks = chunk_texts("The model may not know whether leaving would help.")
+
+    assert "may not know" in chunks
+    assert "whether leaving would" not in chunks
+    assert "whether leaving" in chunks
+    assert any(chunk.startswith("would help") for chunk in chunks)

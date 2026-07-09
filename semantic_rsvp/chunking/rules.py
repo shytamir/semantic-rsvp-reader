@@ -55,6 +55,7 @@ STOPWORDS = {
     "rather",
     "than",
     "therefore",
+    "whether",
     "it",
     "this",
     "that",
@@ -62,7 +63,9 @@ STOPWORDS = {
     "those",
 }
 
-_TOKEN_PATTERN = re.compile(r"[A-Za-z0-9]+(?:'[A-Za-z0-9]+)?|[^\w\s]")
+_TOKEN_PATTERN = re.compile(
+    r"(?:[A-Za-z]\.){2,}|[A-Za-z0-9]+(?:'[A-Za-z0-9]+)?|[^\w\s]"
+)
 _PUNCTUATION = set(".,!?;:)]}\"'")
 _OPENING_PUNCTUATION = set("([{\"")
 _INDEFINITE_ARTICLES = {"a", "an"}
@@ -276,6 +279,15 @@ def _starts_new_phrase(
     if not current:
         return False
     if token_lower in _BOUNDARY_CONNECTORS and count_content_words(current) > 0:
+        return True
+    if token_lower == "whether" and count_content_words(current) > 0:
+        return True
+    if (
+        token_lower in _AUXILIARIES
+        and current[0].lower() == "whether"
+        and count_content_words(current) > 0
+        and _next_is_auxiliary_or_word(next_token)
+    ):
         return True
     if (
         token_lower in _AUXILIARIES

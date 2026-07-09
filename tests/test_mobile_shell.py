@@ -69,7 +69,28 @@ def test_static_css_route_returns_ok(client):
     assert response.status_code == 200
 
 
+def test_chunk_display_disables_browser_word_splitting(client):
+    response = client.get("/static/css/app.css")
+    css = response.data.decode("utf-8")
+
+    assert ".chunk-display" in css
+    assert "hyphens: none" in css
+    assert "overflow-wrap: normal" in css
+    assert "word-break: normal" in css
+    assert "overflow-x: hidden" in css
+
+
 def test_static_js_route_returns_ok(client):
     response = client.get("/static/js/app.js")
 
     assert response.status_code == 200
+
+
+def test_static_js_collects_chunk_display_metadata(client):
+    response = client.get("/static/js/app.js")
+    javascript = response.data.decode("utf-8")
+
+    assert "getChunkDisplayMetadata" in javascript
+    assert "chunk_scroll_width_px" in javascript
+    assert "chunk_client_width_px" in javascript
+    assert "chunk_may_overflow" in javascript

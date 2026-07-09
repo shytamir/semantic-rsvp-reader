@@ -19,6 +19,22 @@ def test_common_abbreviations_do_not_split_sentences():
     ]
 
 
+def test_time_abbreviations_do_not_split_sentences():
+    assert split_sentences(
+        "The meeting starts at 9 a.m. tomorrow. The alert arrived at 6 p.m. yesterday."
+    ) == [
+        "The meeting starts at 9 a.m. tomorrow.",
+        "The alert arrived at 6 p.m. yesterday.",
+    ]
+
+
+def test_common_initialisms_do_not_split_sentences():
+    assert split_sentences("The U.S. system behaves differently. The E.U. rule was narrower.") == [
+        "The U.S. system behaves differently.",
+        "The E.U. rule was narrower.",
+    ]
+
+
 def test_ellipses_are_preserved_and_can_end_sentence():
     assert split_sentences("Wait... Then continue.") == ["Wait...", "Then continue."]
 

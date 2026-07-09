@@ -219,6 +219,7 @@ function loadValidationSample(sample) {
 function renderCurrentChunk() {
   if (schedule.length === 0) {
     chunkDisplay.textContent = "No text loaded";
+    setChunkDisplaySizing("No text loaded");
     progressIndicator.textContent = "0 / 0";
     playPauseButton.textContent = "Play";
     return;
@@ -227,6 +228,7 @@ function renderCurrentChunk() {
   currentIndex = clampIndex(currentIndex);
   const item = schedule[currentIndex];
   chunkDisplay.textContent = item.text;
+  setChunkDisplaySizing(item.text);
   progressIndicator.textContent = `${currentIndex + 1} / ${schedule.length}`;
   playPauseButton.textContent = isPlaying ? "Pause" : "Play";
 }
@@ -286,7 +288,29 @@ function buildDefectPayload() {
       user_agent: navigator.userAgent,
       viewport_width: window.innerWidth,
       viewport_height: window.innerHeight,
+      ...getChunkDisplayMetadata(),
     },
+  };
+}
+
+function setChunkDisplaySizing(text) {
+  const words = String(text || "").split(/\s+/).filter(Boolean);
+  const longestWordLength = words.reduce(
+    (longest, word) => Math.max(longest, word.length),
+    0,
+  );
+  chunkDisplay.classList.toggle("is-long-chunk", String(text || "").length > 24);
+  chunkDisplay.classList.toggle("is-extra-long-token", longestWordLength > 12);
+}
+
+function getChunkDisplayMetadata() {
+  return {
+    display_width_px: Math.round(readerArea ? readerArea.clientWidth : 0),
+    chunk_scroll_width_px: Math.round(chunkDisplay ? chunkDisplay.scrollWidth : 0),
+    chunk_client_width_px: Math.round(chunkDisplay ? chunkDisplay.clientWidth : 0),
+    chunk_may_overflow: Boolean(
+      chunkDisplay && chunkDisplay.scrollWidth > chunkDisplay.clientWidth + 1,
+    ),
   };
 }
 

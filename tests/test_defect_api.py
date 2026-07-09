@@ -84,6 +84,10 @@ def minimal_report():
             "user_agent": "pytest",
             "viewport_width": 390,
             "viewport_height": 844,
+            "display_width_px": 366,
+            "chunk_scroll_width_px": 330,
+            "chunk_client_width_px": 330,
+            "chunk_may_overflow": False,
         },
     }
 
@@ -175,6 +179,20 @@ def test_defects_writes_nearby_chunk_timing_details(defect_client, defect_report
 
     assert '"does not" - 360ms base / 313ms effective - normal' in markdown
     assert '"context." - 580ms base / 504ms effective - normal' in markdown
+
+
+def test_defects_writes_display_metadata_when_available(defect_client, defect_report_dir):
+    response = defect_client.post("/api/defects", json=minimal_report())
+    report_path = defect_report_dir / response.get_json()["filename"]
+
+    with gzip.open(report_path, "rt", encoding="utf-8") as file:
+        markdown = file.read()
+
+    assert "Display:" in markdown
+    assert "Reader width px: 366" in markdown
+    assert "Chunk scroll width px: 330" in markdown
+    assert "Chunk client width px: 330" in markdown
+    assert "Chunk may overflow: false" in markdown
 
 
 def test_defects_escape_html_in_markdown(defect_client, defect_report_dir):
