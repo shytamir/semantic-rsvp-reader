@@ -124,10 +124,11 @@ textarea:focus-visible,
 .reader-area {
   position: relative;
   display: grid;
-  place-items: center;
+  align-items: start;
+  justify-items: start;
   min-height: 36vh;
-  padding: 12px 6px;
-  text-align: center;
+  padding: clamp(36px, 8vh, 72px) 6px 12px clamp(28px, 14vw, 96px);
+  text-align: left;
   touch-action: none;
   user-select: none;
   -webkit-user-select: none;
@@ -138,8 +139,7 @@ textarea:focus-visible,
   width: 100%;
   max-width: min(92vw, 18ch);
   min-height: 2.1em;
-  display: grid;
-  place-items: center;
+  display: block;
   margin: 0;
   overflow-wrap: anywhere;
   word-break: break-word;
@@ -305,6 +305,10 @@ textarea:focus-visible,
 }
 
 @media (max-width: 380px) {
+  .reader-area {
+    padding-left: 20px;
+  }
+
   .chunk-display {
     max-width: 94vw;
     font-size: clamp(2.2rem, 12vw, 4rem);
@@ -325,7 +329,7 @@ textarea:focus-visible,
 
   .reader-area {
     min-height: 30vh;
-    padding: 6px;
+    padding-top: clamp(20px, 6vh, 42px);
   }
 
   .chunk-display {
