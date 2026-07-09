@@ -7,13 +7,13 @@ Semantic RSVP Reader is a mobile-first HTML5 reading prototype served by Flask. 
 > **Status:** 🟢 GREEN  
 > **Last Updated:** 2026-07-09  
 > **Current Phase:** Week 1 — Instrumented Defect Collection  
-> **Immediate Focus:** Slice 1: In-App Backend Defect Reporting  
+> **Immediate Focus:** Collect validation defects for chunking/timing refinement  
 
 ## Current State: Prototype Complete
 The stable development base is finished. Text can enter the system cleanly, normalize into stable sentence units, and process through a rule-based chunking and deterministic timing engine. The mobile-first RSVP playback loop is fully operational with gesture interactions, speed controls, and local behavioral telemetry.
 
-## Next Up: Defect Reporting Flow
-Building the `POST /api/defects` endpoint and frontend reporting UI to collapse manual validation friction. The goal is to generate `.md.gz` backend report files directly from the mobile reading session.
+## Current Validation Flow
+The app can generate `.md.gz` backend defect report files directly from the mobile reading session. The next step is to use those reports to identify repeatable chunking and timing defects.
 
 ## Completed Capabilities
 | Area | Status | Notes |
@@ -60,9 +60,11 @@ The repository includes `pyproject.toml` so pytest can import the local `semanti
 
 ## Validation Workflow
 
-The validation corpus lives in `docs/validation/corpus.md`. Start the app, copy one sample passage into the reader, and use `docs/demo_validation.md` for the 15-minute or 30-minute manual validation loop.
+The validation corpus lives in `docs/validation/corpus.md`. Start the app, load one sample from the prepare screen, and use `docs/demo_validation.md` for the 15-minute or 30-minute manual validation loop.
 
-Log defects with `docs/validation/defect_log_template.md` and choose categories from `docs/validation/defect_taxonomy.md`. Interpret severity as:
+The app supports in-app defect reporting during reader playback. Reports are saved by the local Flask backend as compressed Markdown files under `data/defect_reports/`; see `docs/validation/in_app_defect_reporting.md` for the report format and decompression commands.
+
+Log defects with the in-app `Report Defect` button, or use `docs/validation/defect_log_template.md` when working outside the app. Choose categories from `docs/validation/defect_taxonomy.md`. Interpret severity as:
 
 - 1: minor annoyance
 - 2: noticeable friction
@@ -257,3 +259,32 @@ Mobile hardening manual test:
 27. Confirm a visible error appears and stale playback does not continue.
 28. Complete a 15-30 minute reading session.
 29. Confirm no obvious timer drift, duplicate advancement, layout breakage, or stuck controls.
+
+In-app backend defect reporting manual test:
+
+1. Start the Flask app locally.
+2. Open app on a phone browser pointed at the local server.
+3. Load demo text or a validation sample.
+4. Start playback.
+5. Pause on a chunk that feels awkward.
+6. Tap Report Defect.
+7. Confirm playback pauses.
+8. Confirm defect panel opens.
+9. Confirm current chunk is shown.
+10. Confirm original sentence is shown if available.
+11. Confirm previous/next chunks are shown.
+12. Choose category and severity.
+13. Add notes.
+14. Add preferred behavior.
+15. Submit the report.
+16. Confirm saved status appears with report ID or filename.
+17. Confirm defect count increases.
+18. Check backend report directory.
+19. Confirm a `.md.gz` file was created.
+20. Decompress it.
+21. Confirm the Markdown includes the report details and context.
+22. Report a second defect.
+23. Confirm a second `.md.gz` file is created.
+24. Confirm existing playback controls still work.
+25. Load new text.
+26. Confirm defect count resets.

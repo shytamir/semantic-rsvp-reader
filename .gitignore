@@ -7,3 +7,4 @@ instance/
 .coverage
 htmlcov/
 .DS_Store
+data/defect_reports/

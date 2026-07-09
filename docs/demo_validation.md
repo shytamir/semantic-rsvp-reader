@@ -9,7 +9,7 @@ This validation loop is for prototype feedback, not a scientific study. Use it t
 3. Summarize the main point in 3-5 bullets.
 4. Load the same sample into the RSVP reader.
 5. Read it using default speed/adaptation.
-6. Log every chunk/timing issue that causes friction.
+6. Use the in-app `Report Defect` button for every chunk/timing issue that causes friction.
 7. Summarize again in 3-5 bullets.
 8. Compare effort, comprehension, and irritation.
 
@@ -22,7 +22,7 @@ This validation loop is for prototype feedback, not a scientific study. Use it t
 5. Rate perceived effort from 1-5.
 6. Rate comprehension confidence from 1-5.
 7. Count rewinds, pauses, and speed changes from the debug panel.
-8. Record defects using the template.
+8. Record defects using the in-app workflow, or use the template if the app is not running.
 
 ## Validation questions
 
@@ -40,7 +40,9 @@ This validation loop is for prototype feedback, not a scientific study. Use it t
 
 ## Logging defects
 
-Use `docs/validation/defect_log_template.md` for each issue that causes friction. Choose a category from `docs/validation/defect_taxonomy.md` and assign a severity:
+Use the reader's `Report Defect` button for each issue that causes friction. The app stores compressed Markdown reports under `data/defect_reports/` on the backend. If the app is not running, use `docs/validation/defect_log_template.md` instead.
+
+Choose a category from `docs/validation/defect_taxonomy.md` and assign a severity:
 
 - 1: minor annoyance
 - 2: noticeable friction
@@ -48,6 +50,8 @@ Use `docs/validation/defect_log_template.md` for each issue that causes friction
 - 4: session-breaking
 
 When possible, paste the original sentence and describe the observed chunks or timing. If the issue feels subjective, still log it; repeated subjective friction is useful prototype data.
+
+See `docs/validation/in_app_defect_reporting.md` for the backend-stored report format and decompression commands.
 
 ## Generating schedules
 

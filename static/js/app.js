@@ -27,8 +27,19 @@ const previousButton = document.querySelector("#previous-button");
 const previousFiveButton = document.querySelector("#previous-five-button");
 const nextButton = document.querySelector("#next-button");
 const nextFiveButton = document.querySelector("#next-five-button");
+const reportDefectButton = document.querySelector("#report-defect-button");
 const resetButton = document.querySelector("#reset-button");
 const backButton = document.querySelector("#back-button");
+const defectPanel = document.querySelector("#defect-panel");
+const defectCategory = document.querySelector("#defect-category");
+const defectSeverity = document.querySelector("#defect-severity");
+const defectNotes = document.querySelector("#defect-notes");
+const defectPreferredBehavior = document.querySelector("#defect-preferred-behavior");
+const defectContextPreview = document.querySelector("#defect-context-preview");
+const defectSubmit = document.querySelector("#defect-submit");
+const defectCancel = document.querySelector("#defect-cancel");
+const defectStatus = document.querySelector("#defect-status");
+const defectCount = document.querySelector("#defect-count");
 const speedOverlay = document.querySelector("#speed-overlay");
 const speedLabel = document.querySelector("#speed-label");
 const speedSlower = document.querySelector("#speed-slower");
@@ -61,6 +72,7 @@ let longPressActivated = false;
 let speedIndex = DEFAULT_SPEED_INDEX;
 let playbackSpeed = SPEED_LEVELS[speedIndex];
 let sessionEvents = [];
+let scheduledSentences = [];
 let sessionStartedAt = null;
 let completionRecorded = false;
 let adaptationEnabled = true;
@@ -68,6 +80,9 @@ let lastAdaptationEventIndex = 0;
 let smoothChunkRun = 0;
 let adaptationSuppressedUntilEventCount = 0;
 let isLoading = false;
+let defectReportCount = 0;
+let lastDefectReportId = null;
+let isSubmittingDefect = false;
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -80,8 +95,11 @@ previousButton.addEventListener("click", previousChunk);
 previousFiveButton.addEventListener("click", previousFiveChunks);
 nextButton.addEventListener("click", () => nextChunk());
 nextFiveButton.addEventListener("click", nextFiveChunks);
+reportDefectButton.addEventListener("click", openDefectPanel);
 resetButton.addEventListener("click", resetReader);
 backButton.addEventListener("click", enterInputMode);
+defectSubmit.addEventListener("click", submitDefectReport);
+defectCancel.addEventListener("click", closeDefectPanel);
 speedSlower.addEventListener("click", decreaseSpeed);
 speedFaster.addEventListener("click", increaseSpeed);
 speedReset.addEventListener("click", resetSpeed);
@@ -92,10 +110,15 @@ speedOverlay.addEventListener("pointerdown", stopOverlayGesturePropagation);
 speedOverlay.addEventListener("pointermove", stopOverlayGesturePropagation);
 speedOverlay.addEventListener("pointerup", stopOverlayGesturePropagation);
 speedOverlay.addEventListener("click", stopOverlayGesturePropagation);
+defectPanel.addEventListener("pointerdown", stopOverlayGesturePropagation);
+defectPanel.addEventListener("pointermove", stopOverlayGesturePropagation);
+defectPanel.addEventListener("pointerup", stopOverlayGesturePropagation);
+defectPanel.addEventListener("click", stopOverlayGesturePropagation);
 attachReaderGestures();
 renderSpeedControls();
 renderSessionDebug();
 renderAdaptationStatus();
+renderDefectCount();
 loadValidationSamples();
 
 async function loadSchedule(text) {
@@ -119,10 +142,14 @@ async function loadSchedule(text) {
     validateScheduleResponse(payload, response);
 
     schedule = payload.schedule;
+    scheduledSentences = Array.isArray(payload.sentences) ? payload.sentences : [];
     currentIndex = 0;
+    defectReportCount = 0;
+    lastDefectReportId = null;
     resetSpeed({ record: false });
     resetSessionEvents();
     resetAdaptationState();
+    renderDefectCount();
     recordSessionEvent("schedule_loaded", {
       chunk_count: schedule.length,
       sentence_count: payload.sentence_count,
@@ -130,9 +157,11 @@ async function loadSchedule(text) {
     enterReaderMode();
   } catch (error) {
     schedule = [];
+    scheduledSentences = [];
     currentIndex = 0;
     stopPlayback({ render: false });
     hideSpeedOverlay();
+    closeDefectPanel();
     readerMode.classList.add("is-hidden");
     inputMode.classList.remove("is-hidden");
     showError(error.message);
@@ -198,6 +227,148 @@ function renderCurrentChunk() {
   chunkDisplay.textContent = item.text;
   progressIndicator.textContent = `${currentIndex + 1} / ${schedule.length}`;
   playPauseButton.textContent = isPlaying ? "Pause" : "Play";
+}
+
+function openDefectPanel() {
+  if (!isReaderModeActive() || schedule.length === 0) {
+    return;
+  }
+
+  pause();
+  hideSpeedOverlay();
+  defectNotes.value = "";
+  defectPreferredBehavior.value = "";
+  defectSeverity.value = "2";
+  setDefectStatus("");
+  renderDefectContextPreview(buildDefectPayload());
+  defectPanel.classList.remove("is-hidden");
+  defectNotes.focus();
+}
+
+function closeDefectPanel() {
+  if (!defectPanel) {
+    return;
+  }
+  defectPanel.classList.add("is-hidden");
+  setDefectStatus("");
+}
+
+function buildDefectPayload() {
+  const item = getCurrentScheduleItem();
+  const context = getChunkContext();
+  return {
+    category: defectCategory.value,
+    severity: Number(defectSeverity.value),
+    notes: defectNotes.value,
+    preferred_behavior: defectPreferredBehavior.value,
+    reader_state: {
+      current_index: currentIndex,
+      sentence_index: item ? item.sentence_index : null,
+      current_chunk: item ? item.text : "",
+      current_duration_ms: item ? item.duration_ms : null,
+      current_syntactic_hint: item ? item.syntactic_hint : "",
+      current_content_word_count: item ? item.content_word_count : null,
+      original_sentence: getOriginalSentenceForCurrentChunk(),
+      previous_chunks: context.previous_chunks,
+      next_chunks: context.next_chunks,
+      playback_speed: playbackSpeed,
+      adaptation_enabled: adaptationEnabled,
+      session_summary: getSessionSummary(),
+    },
+    client: {
+      user_agent: navigator.userAgent,
+      viewport_width: window.innerWidth,
+      viewport_height: window.innerHeight,
+    },
+  };
+}
+
+function renderDefectContextPreview(payload) {
+  const state = payload.reader_state;
+  const previous = state.previous_chunks.map((chunk) => `[${chunk.index}] ${chunk.text}`);
+  const next = state.next_chunks.map((chunk) => `[${chunk.index}] ${chunk.text}`);
+  defectContextPreview.textContent = [
+    `Current chunk: ${state.current_chunk || "unknown"}`,
+    `Original sentence: ${state.original_sentence || "unknown"}`,
+    `Previous: ${previous.length ? previous.join(" | ") : "none"}`,
+    `Next: ${next.length ? next.join(" | ") : "none"}`,
+    `Speed: ${state.playback_speed.toFixed(2)}x`,
+    `Adaptation: ${state.adaptation_enabled ? "on" : "off"}`,
+  ].join("\n");
+}
+
+async function submitDefectReport() {
+  if (isSubmittingDefect) {
+    return;
+  }
+
+  const payload = buildDefectPayload();
+  renderDefectContextPreview(payload);
+  setDefectStatus("Saving...");
+  isSubmittingDefect = true;
+  defectSubmit.disabled = true;
+
+  try {
+    const response = await fetch("/api/defects", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+    const responsePayload = await response.json();
+    if (!response.ok) {
+      throw new Error(responsePayload && responsePayload.error ? responsePayload.error : "Unable to save defect report.");
+    }
+
+    defectReportCount += 1;
+    lastDefectReportId = responsePayload.report_id;
+    renderDefectCount();
+    recordSessionEvent("defect_reported", {
+      report_id: responsePayload.report_id,
+      category: payload.category,
+      severity: payload.severity,
+      chunk_index: payload.reader_state.current_index,
+      sentence_index: payload.reader_state.sentence_index,
+    });
+    setDefectStatus(`Saved ${responsePayload.report_id}.`);
+  } catch (error) {
+    setDefectStatus(error.message, true);
+  } finally {
+    isSubmittingDefect = false;
+    defectSubmit.disabled = false;
+  }
+}
+
+function getOriginalSentenceForCurrentChunk() {
+  const item = getCurrentScheduleItem();
+  if (!item || !Array.isArray(scheduledSentences)) {
+    return "";
+  }
+  return scheduledSentences[item.sentence_index] || "";
+}
+
+function getChunkContext(radius = 3) {
+  if (schedule.length === 0) {
+    return { previous_chunks: [], next_chunks: [] };
+  }
+
+  const start = Math.max(0, currentIndex - radius);
+  const end = Math.min(schedule.length - 1, currentIndex + radius);
+  const previous_chunks = schedule
+    .slice(start, currentIndex)
+    .map((item) => ({ index: item.index, text: item.text }));
+  const next_chunks = schedule
+    .slice(currentIndex + 1, end + 1)
+    .map((item) => ({ index: item.index, text: item.text }));
+  return { previous_chunks, next_chunks };
+}
+
+function setDefectStatus(message, isError = false) {
+  defectStatus.textContent = message;
+  defectStatus.classList.toggle("is-error", isError);
+}
+
+function renderDefectCount() {
+  defectCount.textContent = defectReportCount;
 }
 
 function play() {
@@ -327,6 +498,7 @@ function enterInputMode() {
   recordSessionEvent("back_to_input");
   pause();
   hideSpeedOverlay();
+  closeDefectPanel();
   readerMode.classList.add("is-hidden");
   inputMode.classList.remove("is-hidden");
   showStatus("Prepare text to start reading.");
@@ -338,8 +510,10 @@ function enterReaderMode() {
   isPlaying = false;
   clearPlaybackTimer();
   hideSpeedOverlay();
+  closeDefectPanel();
   renderCurrentChunk();
   renderSessionDebug();
+  renderDefectCount();
   readerArea.focus();
 }
 
@@ -622,6 +796,9 @@ function validateScheduleResponse(payload, response) {
   }
   if (!payload || !Array.isArray(payload.schedule)) {
     throw new Error("Schedule response was invalid.");
+  }
+  if (payload.sentences !== undefined && !Array.isArray(payload.sentences)) {
+    throw new Error("Schedule sentences were invalid.");
   }
   if (payload.schedule.length === 0) {
     throw new Error("No readable chunks were returned.");

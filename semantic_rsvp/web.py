@@ -3,6 +3,11 @@ from dataclasses import asdict
 from flask import Flask, jsonify, render_template, request
 
 from semantic_rsvp.chunking.rules import RuleBasedChunker
+from semantic_rsvp.defects.storage import (
+    DEFAULT_REPORT_DIR,
+    DefectReportValidationError,
+    save_defect_report,
+)
 from semantic_rsvp.text.normalize import normalize_text
 from semantic_rsvp.text.segment import split_sentences
 from semantic_rsvp.timing.models import TimingConfig
@@ -16,6 +21,7 @@ def create_app() -> Flask:
         template_folder="../templates",
         static_folder="../static",
     )
+    app.config.setdefault("DEFECT_REPORT_DIR", DEFAULT_REPORT_DIR)
 
     @app.get("/")
     def index():
@@ -28,6 +34,22 @@ def create_app() -> Flask:
     @app.get("/api/validation-samples")
     def validation_samples():
         return jsonify({"samples": load_validation_samples()})
+
+    @app.post("/api/defects")
+    def defects():
+        payload = request.get_json(silent=True)
+        if not isinstance(payload, dict):
+            return jsonify({"error": "Expected a JSON object."}), 400
+
+        try:
+            saved_report = save_defect_report(
+                payload,
+                report_dir=app.config["DEFECT_REPORT_DIR"],
+            )
+        except DefectReportValidationError as error:
+            return jsonify({"error": str(error)}), 400
+
+        return jsonify({"status": "saved", **saved_report})
 
     @app.post("/api/ingest")
     def ingest():
@@ -104,8 +126,9 @@ def create_app() -> Flask:
         except (TypeError, ValueError) as error:
             return jsonify({"error": str(error)}), 400
 
+        sentences = split_sentences(normalized_text)
         scheduled_chunks = schedule_text(normalized_text, config=config)
-        sentence_count = len(split_sentences(normalized_text))
+        sentence_count = len(sentences)
         return jsonify(
             {
                 "schedule": [
@@ -114,6 +137,7 @@ def create_app() -> Flask:
                 ],
                 "chunk_count": len(scheduled_chunks),
                 "sentence_count": sentence_count,
+                "sentences": sentences,
             }
         )
 

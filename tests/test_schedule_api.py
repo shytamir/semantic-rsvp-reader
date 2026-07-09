@@ -30,6 +30,11 @@ def test_schedule_returns_valid_json_for_normal_text(client):
     assert "schedule" in payload
     assert payload["chunk_count"] == len(payload["schedule"])
     assert payload["sentence_count"] == 2
+    assert payload["sentences"] == [
+        "The system learns from the reader.",
+        "It adapts slowly.",
+    ]
+    assert len(payload["sentences"]) == payload["sentence_count"]
     assert payload["chunk_count"] > 0
 
 

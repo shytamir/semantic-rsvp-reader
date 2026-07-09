@@ -62,9 +62,48 @@
             <button id="play-pause-button" type="button">Play</button>
             <button id="next-button" type="button" aria-label="Next chunk">Next</button>
             <button id="next-five-button" type="button" aria-label="Forward five chunks">+5</button>
+            <button id="report-defect-button" type="button">Report Defect</button>
             <button id="reset-button" type="button">Reset</button>
             <button id="back-button" type="button">Edit</button>
           </div>
+          <p class="defect-count-line">Defects reported: <span id="defect-count">0</span></p>
+          <section id="defect-panel" class="defect-panel is-hidden" aria-labelledby="defect-panel-title">
+            <h2 id="defect-panel-title">Report Defect</h2>
+            <pre id="defect-context-preview" class="defect-context-preview"></pre>
+            <label for="defect-category">Category</label>
+            <select id="defect-category">
+              <option value="bad_chunk_split">bad_chunk_split</option>
+              <option value="orphan_function_word">orphan_function_word</option>
+              <option value="overlong_chunk">overlong_chunk</option>
+              <option value="underdense_chunk">underdense_chunk</option>
+              <option value="rushed_dense_chunk">rushed_dense_chunk</option>
+              <option value="overpaused_light_chunk">overpaused_light_chunk</option>
+              <option value="punctuation_rhythm_issue">punctuation_rhythm_issue</option>
+              <option value="gesture_interference">gesture_interference</option>
+              <option value="adaptation_annoyance">adaptation_annoyance</option>
+              <option value="completion_or_reset_confusion">completion_or_reset_confusion</option>
+              <option value="layout_or_visibility_issue">layout_or_visibility_issue</option>
+              <option value="comprehension_drop">comprehension_drop</option>
+              <option value="fatigue_or_discomfort">fatigue_or_discomfort</option>
+              <option value="other">other</option>
+            </select>
+            <label for="defect-severity">Severity</label>
+            <select id="defect-severity">
+              <option value="1">1 minor annoyance</option>
+              <option value="2" selected>2 noticeable friction</option>
+              <option value="3">3 comprehension-impacting</option>
+              <option value="4">4 session-breaking</option>
+            </select>
+            <label for="defect-notes">Notes</label>
+            <textarea id="defect-notes" rows="3" placeholder="What felt wrong?"></textarea>
+            <label for="defect-preferred-behavior">Preferred behavior</label>
+            <textarea id="defect-preferred-behavior" rows="2" placeholder="What should happen instead?"></textarea>
+            <div class="defect-actions">
+              <button id="defect-submit" type="button">Submit</button>
+              <button id="defect-cancel" type="button">Cancel</button>
+            </div>
+            <p id="defect-status" class="defect-status" aria-live="polite"></p>
+          </section>
           <details id="session-debug" class="session-debug">
             <summary>Debug</summary>
             <dl class="session-debug-grid">
