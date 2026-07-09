@@ -4,7 +4,7 @@ Semantic RSVP Reader is a mobile-first HTML5 reading prototype served by Flask. 
 
 ## Current Scope
 
-This repository currently contains the Week 4 adaptation foundation:
+This repository currently contains the mobile-hardened prototype foundation:
 
 - Flask app factory and routes for `/`, `/health`, `/api/ingest`, and `/api/schedule`
 - Optional `/api/chunk` endpoint for chunking one sentence
@@ -17,12 +17,13 @@ This repository currently contains the Week 4 adaptation foundation:
 - Session-only speed controls
 - Session-only event tracking and debug summary
 - Session-only conservative adaptation
+- Mobile hardening for visibility, orientation, loading, errors, and timer safety
 - Pytest coverage for the web app, normalization, segmentation, ingestion API, chunking, timing, and scheduling
 - GitHub Actions CI that installs minimal dependencies and runs pytest
 
 ## Non-Goals
 
-This version does not implement adaptive speed, persistence, accounts, databases, EPUB/PDF import, ML models, NLP services, spaCy, transformers, or a frontend framework.
+This version does not implement persistence, accounts, databases, EPUB/PDF import, ML models, NLP services, spaCy, transformers, offline mode, service workers, or a frontend framework.
 
 ## Local Setup
 
@@ -50,10 +51,10 @@ The repository includes `pyproject.toml` so pytest can import the local `semanti
 
 ## Next Milestones
 
-1. Mobile hardening
-2. Demo validation
-3. UX cleanup
-4. Optional chunking/timing refinements
+1. Demo validation
+2. UX cleanup
+3. Chunking/timing refinement based on real reading samples
+4. Optional packaging/deployment notes
 
 ## Manual Test Checklist
 
@@ -187,3 +188,35 @@ Session adaptation manual test:
 25. Load new text.
 26. Confirm adaptation state resets cleanly.
 27. Confirm no events are sent to backend except schedule requests.
+
+Mobile hardening manual test:
+
+1. Open app on a phone browser.
+2. Paste a paragraph and load it.
+3. Rapidly tap Load/Prepare several times.
+4. Confirm only one schedule is loaded and no duplicate playback begins.
+5. Tap Play.
+6. Confirm chunks advance normally.
+7. Tap Pause.
+8. Confirm playback stops immediately.
+9. Tap Play again.
+10. While playing, press Back/Edit Text.
+11. Confirm playback stops and input mode returns.
+12. Load new text.
+13. Confirm old playback does not continue.
+14. While playing, lock phone or switch apps.
+15. Return to browser.
+16. Confirm reader is paused on the same chunk.
+17. Confirm it does not auto-resume.
+18. Rotate phone portrait/landscape.
+19. Confirm chunk remains visible and centered.
+20. Confirm controls remain reachable.
+21. Open speed overlay.
+22. Rotate phone again.
+23. Confirm overlay remains usable.
+24. Use gestures after rotation.
+25. Confirm tap/swipe/long press still behave correctly.
+26. Trigger an API error if possible.
+27. Confirm a visible error appears and stale playback does not continue.
+28. Complete a 15-30 minute reading session.
+29. Confirm no obvious timer drift, duplicate advancement, layout breakage, or stuck controls.

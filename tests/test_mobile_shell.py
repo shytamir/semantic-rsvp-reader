@@ -2,6 +2,7 @@ def test_index_includes_static_assets(client):
     response = client.get("/")
 
     assert response.status_code == 200
+    assert b'name="viewport"' in response.data
     assert b"app.css" in response.data
     assert b"app.js" in response.data
 

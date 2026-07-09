@@ -14,6 +14,7 @@ const inputMode = document.querySelector("#input-mode");
 const readerMode = document.querySelector("#reader-mode");
 const form = document.querySelector("#schedule-form");
 const input = document.querySelector("#text-input");
+const prepareButton = document.querySelector("#prepare-button");
 const statusMessage = document.querySelector("#status-message");
 const readerArea = document.querySelector("#reader-area");
 const chunkDisplay = document.querySelector("#chunk-display");
@@ -60,11 +61,13 @@ let adaptationEnabled = true;
 let lastAdaptationEventIndex = 0;
 let smoothChunkRun = 0;
 let adaptationSuppressedUntilEventCount = 0;
+let isLoading = false;
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
   await loadSchedule(input.value);
 });
+document.addEventListener("visibilitychange", handleVisibilityChange);
 
 playPauseButton.addEventListener("click", togglePlayback);
 previousButton.addEventListener("click", previousChunk);
@@ -87,8 +90,13 @@ renderSessionDebug();
 renderAdaptationStatus();
 
 async function loadSchedule(text) {
-  pause({ record: false });
+  if (isLoading) {
+    return;
+  }
+
+  pause({ record: false, render: false });
   hideSpeedOverlay();
+  setLoading(true);
   showStatus("Preparing...");
 
   try {
@@ -99,12 +107,7 @@ async function loadSchedule(text) {
     });
     const payload = await response.json();
 
-    if (!response.ok) {
-      throw new Error(payload.error || "Unable to prepare text.");
-    }
-    if (!Array.isArray(payload.schedule) || payload.schedule.length === 0) {
-      throw new Error("No readable chunks were returned.");
-    }
+    validateScheduleResponse(payload, response);
 
     schedule = payload.schedule;
     currentIndex = 0;
@@ -119,7 +122,13 @@ async function loadSchedule(text) {
   } catch (error) {
     schedule = [];
     currentIndex = 0;
+    stopPlayback({ render: false });
+    hideSpeedOverlay();
+    readerMode.classList.add("is-hidden");
+    inputMode.classList.remove("is-hidden");
     showError(error.message);
+  } finally {
+    setLoading(false);
   }
 }
 
@@ -149,16 +158,17 @@ function play() {
   scheduleNextChunk();
 }
 
-function pause({ record = true } = {}) {
+function pause({ record = true, render = true } = {}) {
   const wasPlaying = isPlaying;
-  isPlaying = false;
-  clearPlaybackTimer();
+  stopPlayback({ render: false });
   if (record && wasPlaying) {
     recordSessionEvent("pause");
     smoothChunkRun = 0;
     maybeAdaptPlaybackSpeed("pause");
   }
-  renderCurrentChunk();
+  if (render) {
+    renderCurrentChunk();
+  }
 }
 
 function togglePlayback() {
@@ -291,7 +301,16 @@ function clearPlaybackTimer() {
   }
 }
 
+function stopPlayback({ render = true } = {}) {
+  isPlaying = false;
+  clearPlaybackTimer();
+  if (render) {
+    renderCurrentChunk();
+  }
+}
+
 function renderCompletion() {
+  clearPlaybackTimer();
   progressIndicator.textContent = `${schedule.length} / ${schedule.length} complete`;
   playPauseButton.textContent = "Play";
 }
@@ -499,6 +518,42 @@ function releasePointerCapture(event) {
   ) {
     readerArea.releasePointerCapture(event.pointerId);
   }
+}
+
+function setLoading(nextIsLoading) {
+  isLoading = nextIsLoading;
+  prepareButton.disabled = nextIsLoading;
+  prepareButton.textContent = nextIsLoading ? "Preparing..." : "Prepare";
+}
+
+function validateScheduleResponse(payload, response) {
+  if (!response.ok) {
+    throw new Error(payload && payload.error ? payload.error : "Unable to prepare text.");
+  }
+  if (!payload || !Array.isArray(payload.schedule)) {
+    throw new Error("Schedule response was invalid.");
+  }
+  if (payload.schedule.length === 0) {
+    throw new Error("No readable chunks were returned.");
+  }
+  for (const item of payload.schedule) {
+    if (
+      typeof item.text !== "string" ||
+      typeof item.duration_ms !== "number" ||
+      typeof item.index !== "number"
+    ) {
+      throw new Error("Schedule item was invalid.");
+    }
+  }
+}
+
+function handleVisibilityChange() {
+  if (!document.hidden || !isPlaying) {
+    return;
+  }
+
+  recordSessionEvent("page_hidden_pause");
+  pause({ record: false });
 }
 
 function getCurrentScheduleItem() {

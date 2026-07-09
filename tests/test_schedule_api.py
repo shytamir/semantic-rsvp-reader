@@ -5,6 +5,20 @@ def test_schedule_rejects_empty_text(client):
     assert "error" in response.get_json()
 
 
+def test_schedule_rejects_missing_json_body(client):
+    response = client.post("/api/schedule", data="not json", content_type="text/plain")
+
+    assert response.status_code == 400
+    assert "error" in response.get_json()
+
+
+def test_schedule_rejects_non_string_text(client):
+    response = client.post("/api/schedule", json={"text": 123})
+
+    assert response.status_code == 400
+    assert "error" in response.get_json()
+
+
 def test_schedule_returns_valid_json_for_normal_text(client):
     response = client.post(
         "/api/schedule",
@@ -16,6 +30,7 @@ def test_schedule_returns_valid_json_for_normal_text(client):
     assert "schedule" in payload
     assert payload["chunk_count"] == len(payload["schedule"])
     assert payload["sentence_count"] == 2
+    assert payload["chunk_count"] > 0
 
 
 def test_schedule_items_include_required_fields(client):
