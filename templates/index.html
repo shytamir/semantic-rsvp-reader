@@ -8,22 +8,36 @@
   </head>
   <body>
     <main class="app-shell">
-      <section class="reader-panel" aria-labelledby="app-title">
-        <header class="reader-header">
-          <p class="eyebrow">Week 2 prototype</p>
+      <section id="input-mode" class="input-mode" aria-labelledby="app-title">
+        <header class="app-header">
+          <p class="eyebrow">Week 3 prototype</p>
           <h1 id="app-title">Semantic RSVP Reader</h1>
         </header>
 
-        <form id="ingest-form" class="ingest-form">
+        <form id="schedule-form" class="schedule-form">
           <label for="text-input">Paste text</label>
-          <textarea id="text-input" name="text" rows="8" placeholder="Paste a paragraph to normalize and segment."></textarea>
-          <button type="submit">Load text</button>
+          <textarea id="text-input" name="text" rows="8" placeholder="Paste a paragraph to prepare for RSVP playback."></textarea>
+          <button id="prepare-button" type="submit">Prepare</button>
         </form>
 
-        <section class="reader-display" aria-live="polite">
-          <p id="status-message">Chunked text will appear here. Reader playback comes in a later milestone.</p>
-          <ol id="sentence-list" class="sentence-list"></ol>
-        </section>
+        <p id="status-message" class="status-message" aria-live="polite">Prepare text to start reading.</p>
+      </section>
+
+      <section id="reader-mode" class="reader-mode is-hidden" aria-label="Reader playback">
+        <div id="reader-area" class="reader-area" tabindex="0">
+          <p id="chunk-display" class="chunk-display">Ready</p>
+        </div>
+
+        <div class="reader-footer">
+          <p id="progress-indicator" class="progress-indicator">0 / 0</p>
+          <div class="reader-controls" aria-label="Reader controls">
+            <button id="previous-button" type="button">Previous</button>
+            <button id="play-pause-button" type="button">Play</button>
+            <button id="next-button" type="button">Next</button>
+            <button id="reset-button" type="button">Reset</button>
+            <button id="back-button" type="button">Back/Edit Text</button>
+          </div>
+        </div>
       </section>
     </main>
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>

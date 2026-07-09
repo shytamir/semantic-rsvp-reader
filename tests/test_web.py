@@ -20,4 +20,4 @@ def test_index_returns_mobile_shell(client):
     assert response.status_code == 200
     assert b'name="viewport"' in response.data
     assert b"Semantic RSVP Reader" in response.data
-    assert b"Week 2 prototype" in response.data
+    assert b"Week 3 prototype" in response.data
