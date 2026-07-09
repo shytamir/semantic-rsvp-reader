@@ -1,5 +1,8 @@
+from dataclasses import asdict
+
 from flask import Flask, jsonify, render_template, request
 
+from semantic_rsvp.chunking.rules import RuleBasedChunker
 from semantic_rsvp.text.normalize import normalize_text
 from semantic_rsvp.text.segment import split_sentences
 
@@ -39,6 +42,28 @@ def create_app() -> Flask:
                 "normalized_text": normalized_text,
                 "sentences": sentences,
                 "sentence_count": len(sentences),
+            }
+        )
+
+    @app.post("/api/chunk")
+    def chunk():
+        payload = request.get_json(silent=True)
+        if not isinstance(payload, dict):
+            return jsonify({"error": "Expected a JSON object with a sentence field."}), 400
+
+        sentence = payload.get("sentence")
+        if not isinstance(sentence, str):
+            return jsonify({"error": "Sentence must be a string."}), 400
+
+        normalized_sentence = normalize_text(sentence)
+        if not normalized_sentence:
+            return jsonify({"error": "Sentence must not be empty."}), 400
+
+        chunks = RuleBasedChunker().chunk_sentence(normalized_sentence)
+        return jsonify(
+            {
+                "chunks": [asdict(chunk) for chunk in chunks],
+                "chunk_count": len(chunks),
             }
         )
 
