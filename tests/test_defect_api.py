@@ -29,11 +29,41 @@ def minimal_report():
             "sentence_index": 3,
             "current_chunk": "merely retrieve",
             "current_duration_ms": 400,
+            "base_duration_ms": 400,
+            "effective_duration_ms": 348,
+            "duration_source": "schedule",
             "current_syntactic_hint": "normal",
             "current_content_word_count": 2,
+            "char_length": 15,
             "original_sentence": "The system does not merely retrieve context.",
-            "previous_chunks": [{"index": 13, "text": "does not"}],
-            "next_chunks": [{"index": 15, "text": "context."}],
+            "previous_chunks": [
+                {
+                    "index": 13,
+                    "sentence_index": 3,
+                    "text": "does not",
+                    "duration_ms": 360,
+                    "base_duration_ms": 360,
+                    "effective_duration_ms": 313,
+                    "duration_source": "schedule",
+                    "syntactic_hint": "normal",
+                    "content_word_count": 1,
+                    "char_length": 8,
+                }
+            ],
+            "next_chunks": [
+                {
+                    "index": 15,
+                    "sentence_index": 3,
+                    "text": "context.",
+                    "duration_ms": 580,
+                    "base_duration_ms": 580,
+                    "effective_duration_ms": 504,
+                    "duration_source": "schedule",
+                    "syntactic_hint": "normal",
+                    "content_word_count": 1,
+                    "char_length": 8,
+                }
+            ],
             "playback_speed": 1.0,
             "adaptation_enabled": True,
             "session_summary": {
@@ -43,6 +73,11 @@ def minimal_report():
                 "speed_change_count": 1,
                 "adaptation_count": 0,
                 "completed": False,
+                "elapsed_session_ms": 12000,
+                "estimated_remaining_chunks": 10,
+                "average_effective_duration_ms": 430,
+                "last_adaptation_reason": "rewinds",
+                "last_adaptation_direction": "slower",
             },
         },
         "client": {
@@ -112,6 +147,34 @@ def test_defects_writes_readable_markdown_gzip(defect_client, defect_report_dir)
     assert "Severity: 2" in markdown
     assert "The phrase feels fragmented." in markdown
     assert "merely retrieve" in markdown
+
+
+def test_defects_writes_timing_context_to_markdown(defect_client, defect_report_dir):
+    response = defect_client.post("/api/defects", json=minimal_report())
+    report_path = defect_report_dir / response.get_json()["filename"]
+
+    with gzip.open(report_path, "rt", encoding="utf-8") as file:
+        markdown = file.read()
+
+    assert "## Timing Context" in markdown
+    assert "Base duration ms: 400" in markdown
+    assert "Effective duration ms: 348" in markdown
+    assert "Playback speed: 1.0x" in markdown
+    assert "Duration source: schedule" in markdown
+    assert "Current syntactic hint: normal" in markdown
+    assert "Current content word count: 2" in markdown
+    assert "Character length: 15" in markdown
+
+
+def test_defects_writes_nearby_chunk_timing_details(defect_client, defect_report_dir):
+    response = defect_client.post("/api/defects", json=minimal_report())
+    report_path = defect_report_dir / response.get_json()["filename"]
+
+    with gzip.open(report_path, "rt", encoding="utf-8") as file:
+        markdown = file.read()
+
+    assert '"does not" - 360ms base / 313ms effective - normal' in markdown
+    assert '"context." - 580ms base / 504ms effective - normal' in markdown
 
 
 def test_defects_escape_html_in_markdown(defect_client, defect_report_dir):

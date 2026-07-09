@@ -130,9 +130,15 @@ def render_defect_report_markdown(
             "Current chunk:",
             _string_value(reader_state, "current_chunk"),
             "",
-            f"Current duration ms: {_value(reader_state, 'current_duration_ms')}",
+            "## Timing Context",
+            "",
+            f"Base duration ms: {_value(reader_state, 'base_duration_ms')}",
+            f"Effective duration ms: {_value(reader_state, 'effective_duration_ms')}",
+            f"Playback speed: {_value(reader_state, 'playback_speed')}x",
+            f"Duration source: {_value(reader_state, 'duration_source')}",
             f"Current syntactic hint: {_value(reader_state, 'current_syntactic_hint')}",
             f"Current content word count: {_value(reader_state, 'current_content_word_count')}",
+            f"Character length: {_value(reader_state, 'char_length')}",
             "",
             "Original sentence:",
             _string_value(reader_state, "original_sentence"),
@@ -151,6 +157,11 @@ def render_defect_report_markdown(
             f"Speed change count: {_value(session_summary, 'speed_change_count')}",
             f"Adaptation count: {_value(session_summary, 'adaptation_count')}",
             f"Completed: {_value(session_summary, 'completed')}",
+            f"Elapsed session ms: {_value(session_summary, 'elapsed_session_ms')}",
+            f"Estimated remaining chunks: {_value(session_summary, 'estimated_remaining_chunks')}",
+            f"Average effective duration ms: {_value(session_summary, 'average_effective_duration_ms')}",
+            f"Last adaptation reason: {_value(session_summary, 'last_adaptation_reason')}",
+            f"Last adaptation direction: {_value(session_summary, 'last_adaptation_direction')}",
             "",
             "## Client",
             "",
@@ -191,7 +202,18 @@ def _format_chunks(chunks) -> list[str]:
     for chunk in chunks[:MAX_CHUNKS_PER_SIDE]:
         if not isinstance(chunk, dict):
             continue
-        formatted.append(f"- [{_value(chunk, 'index')}] {_string_value(chunk, 'text')}")
+        formatted.append(
+            "- [{index}] \"{text}\" - {base}ms base / {effective}ms effective - "
+            "{hint} - {content_words} content word(s) - {chars} chars".format(
+                index=_value(chunk, "index"),
+                text=_string_value(chunk, "text"),
+                base=_value(chunk, "base_duration_ms"),
+                effective=_value(chunk, "effective_duration_ms"),
+                hint=_value(chunk, "syntactic_hint"),
+                content_words=_value(chunk, "content_word_count"),
+                chars=_value(chunk, "char_length"),
+            )
+        )
     return formatted or ["- none"]
 
 
@@ -201,7 +223,10 @@ def _sanitize_reader_state(reader_state: dict) -> dict:
         "current_index",
         "sentence_index",
         "current_duration_ms",
+        "base_duration_ms",
+        "effective_duration_ms",
         "current_content_word_count",
+        "char_length",
         "playback_speed",
         "adaptation_enabled",
     ):
@@ -210,6 +235,7 @@ def _sanitize_reader_state(reader_state: dict) -> dict:
     for key in (
         "current_chunk",
         "current_syntactic_hint",
+        "duration_source",
         "original_sentence",
     ):
         sanitized[key] = _bounded_text(reader_state.get(key, ""))
@@ -240,6 +266,13 @@ def _sanitize_session_summary(summary) -> dict:
         "speed_change_count": summary.get("speed_change_count"),
         "adaptation_count": summary.get("adaptation_count"),
         "completed": summary.get("completed"),
+        "elapsed_session_ms": summary.get("elapsed_session_ms"),
+        "estimated_remaining_chunks": summary.get("estimated_remaining_chunks"),
+        "average_effective_duration_ms": summary.get("average_effective_duration_ms"),
+        "last_adaptation_reason": _bounded_text(summary.get("last_adaptation_reason", "")),
+        "last_adaptation_direction": _bounded_text(
+            summary.get("last_adaptation_direction", "")
+        ),
     }
 
 
@@ -253,7 +286,15 @@ def _sanitize_chunks(chunks) -> list[dict]:
         sanitized.append(
             {
                 "index": chunk.get("index"),
+                "sentence_index": chunk.get("sentence_index"),
                 "text": _bounded_text(chunk.get("text", ""), max_chars=500),
+                "duration_ms": chunk.get("duration_ms"),
+                "base_duration_ms": chunk.get("base_duration_ms"),
+                "effective_duration_ms": chunk.get("effective_duration_ms"),
+                "duration_source": _bounded_text(chunk.get("duration_source", "")),
+                "syntactic_hint": _bounded_text(chunk.get("syntactic_hint", "")),
+                "content_word_count": chunk.get("content_word_count"),
+                "char_length": chunk.get("char_length"),
             }
         )
     return sanitized

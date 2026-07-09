@@ -68,6 +68,8 @@ Defect report storage uses generated filenames, bounded/escaped Markdown fields,
 
 Chunking refinement pass 1 is documented in `docs/validation/chunking_refinement_pass_1.md`. It addresses the first observed modifier/head, verb-support, and punctuation-boundary defects. Timing calibration remains a next step.
 
+Defect reports now include timing context such as base duration, effective duration, playback speed, syntactic hint, content word count, character length, nearby chunk timing, and session timing summary. See `docs/validation/timing_defect_collection.md` for the timing defect collection workflow and `scripts/review_defects.py` for local report review/export.
+
 Log defects with the in-app `Report Defect` button, or use `docs/validation/defect_log_template.md` when working outside the app. Choose categories from `docs/validation/defect_taxonomy.md`. Interpret severity as:
 
 - 1: minor annoyance
@@ -292,3 +294,24 @@ In-app backend defect reporting manual test:
 24. Confirm existing playback controls still work.
 25. Load new text.
 26. Confirm defect count resets.
+
+Timing instrumentation manual test:
+
+1. Start the Flask app locally.
+2. Open the app on a phone browser.
+3. Load demo text or a validation sample.
+4. Start playback.
+5. Pause on any chunk.
+6. Tap Report Defect.
+7. Confirm context preview shows current chunk.
+8. Confirm context preview shows base duration.
+9. Confirm context preview shows effective duration.
+10. Confirm context preview shows playback speed.
+11. Choose category rushed_dense_chunk.
+12. Add notes.
+13. Submit the report.
+14. Confirm saved status appears.
+15. Decompress the generated `.md.gz` file.
+16. Confirm Markdown includes Timing Context.
+17. Confirm previous/next chunks include timing metadata where available.
+18. Confirm existing playback, speed controls, gestures, adaptation, and defect reporting still work.

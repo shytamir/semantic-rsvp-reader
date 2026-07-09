@@ -79,6 +79,8 @@ let adaptationEnabled = true;
 let lastAdaptationEventIndex = 0;
 let smoothChunkRun = 0;
 let adaptationSuppressedUntilEventCount = 0;
+let lastAdaptationReason = null;
+let lastAdaptationDirection = null;
 let isLoading = false;
 let defectReportCount = 0;
 let lastDefectReportId = null;
@@ -256,6 +258,7 @@ function closeDefectPanel() {
 function buildDefectPayload() {
   const item = getCurrentScheduleItem();
   const context = getChunkContext();
+  const timing = getTimingContext(item);
   return {
     category: defectCategory.value,
     severity: Number(defectSeverity.value),
@@ -266,8 +269,12 @@ function buildDefectPayload() {
       sentence_index: item ? item.sentence_index : null,
       current_chunk: item ? item.text : "",
       current_duration_ms: item ? item.duration_ms : null,
+      base_duration_ms: timing.base_duration_ms,
+      effective_duration_ms: timing.effective_duration_ms,
+      duration_source: timing.duration_source,
       current_syntactic_hint: item ? item.syntactic_hint : "",
       current_content_word_count: item ? item.content_word_count : null,
+      char_length: item ? item.char_length : null,
       original_sentence: getOriginalSentenceForCurrentChunk(),
       previous_chunks: context.previous_chunks,
       next_chunks: context.next_chunks,
@@ -289,10 +296,14 @@ function renderDefectContextPreview(payload) {
   const next = state.next_chunks.map((chunk) => `[${chunk.index}] ${chunk.text}`);
   defectContextPreview.textContent = [
     `Current chunk: ${state.current_chunk || "unknown"}`,
+    `Base duration: ${formatDuration(state.base_duration_ms)}`,
+    `Effective duration: ${formatDuration(state.effective_duration_ms)}`,
+    `Speed: ${state.playback_speed.toFixed(2)}x`,
+    `Syntactic hint: ${state.current_syntactic_hint || "unknown"}`,
+    `Content words: ${state.current_content_word_count ?? "unknown"}`,
     `Original sentence: ${state.original_sentence || "unknown"}`,
     `Previous: ${previous.length ? previous.join(" | ") : "none"}`,
     `Next: ${next.length ? next.join(" | ") : "none"}`,
-    `Speed: ${state.playback_speed.toFixed(2)}x`,
     `Adaptation: ${state.adaptation_enabled ? "on" : "off"}`,
   ].join("\n");
 }
@@ -355,11 +366,46 @@ function getChunkContext(radius = 3) {
   const end = Math.min(schedule.length - 1, currentIndex + radius);
   const previous_chunks = schedule
     .slice(start, currentIndex)
-    .map((item) => ({ index: item.index, text: item.text }));
+    .map(formatChunkContextItem);
   const next_chunks = schedule
     .slice(currentIndex + 1, end + 1)
-    .map((item) => ({ index: item.index, text: item.text }));
+    .map(formatChunkContextItem);
   return { previous_chunks, next_chunks };
+}
+
+function formatChunkContextItem(item) {
+  const timing = getTimingContext(item);
+  return {
+    index: item.index,
+    sentence_index: item.sentence_index,
+    text: item.text,
+    duration_ms: item.duration_ms,
+    base_duration_ms: timing.base_duration_ms,
+    effective_duration_ms: timing.effective_duration_ms,
+    duration_source: timing.duration_source,
+    syntactic_hint: item.syntactic_hint,
+    content_word_count: item.content_word_count,
+    char_length: item.char_length,
+  };
+}
+
+function getTimingContext(item) {
+  if (!item) {
+    return {
+      base_duration_ms: null,
+      effective_duration_ms: null,
+      duration_source: "unknown",
+    };
+  }
+  return {
+    base_duration_ms: item.duration_ms,
+    effective_duration_ms: getEffectiveDurationMs(item),
+    duration_source: "schedule",
+  };
+}
+
+function formatDuration(durationMs) {
+  return typeof durationMs === "number" ? `${durationMs}ms` : "unknown";
 }
 
 function setDefectStatus(message, isError = false) {
@@ -854,6 +900,7 @@ function resetSessionEvents() {
 }
 
 function getSessionSummary() {
+  const elapsedSessionMs = sessionStartedAt === null ? 0 : Date.now() - sessionStartedAt;
   return {
     event_count: sessionEvents.length,
     rewind_count: countSessionEvents("previous_chunk"),
@@ -863,10 +910,26 @@ function getSessionSummary() {
     completed: sessionEvents.some((event) => event.type === "playback_completed"),
     adaptation_count: countSessionEvents("adaptation_applied"),
     adaptation_enabled: adaptationEnabled,
+    last_adaptation_reason: lastAdaptationReason,
+    last_adaptation_direction: lastAdaptationDirection,
     current_speed: playbackSpeed,
     current_index: currentIndex,
     total_chunks: schedule.length,
+    elapsed_session_ms: elapsedSessionMs,
+    estimated_remaining_chunks: Math.max(schedule.length - currentIndex - 1, 0),
+    average_effective_duration_ms: getAverageEffectiveDurationMs(),
   };
+}
+
+function getAverageEffectiveDurationMs() {
+  if (schedule.length === 0) {
+    return null;
+  }
+  const total = schedule.reduce(
+    (sum, item) => sum + getEffectiveDurationMs(item),
+    0,
+  );
+  return Math.round(total / schedule.length);
 }
 
 function renderSessionDebug() {
@@ -898,6 +961,8 @@ function resetAdaptationState() {
   adaptationEnabled = true;
   smoothChunkRun = 0;
   adaptationSuppressedUntilEventCount = 0;
+  lastAdaptationReason = null;
+  lastAdaptationDirection = null;
   lastAdaptationEventIndex = sessionEvents.length;
   renderAdaptationStatus();
 }
@@ -974,6 +1039,8 @@ function applyAdaptiveSpeedChange(direction, reason) {
   }
 
   const oldSpeed = playbackSpeed;
+  lastAdaptationReason = reason;
+  lastAdaptationDirection = direction;
   setSpeedIndex(nextIndex, {
     record: false,
     reschedule: false,
