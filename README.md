@@ -4,21 +4,21 @@ Semantic RSVP Reader is a mobile-first HTML5 reading prototype served by Flask. 
 
 ## Current Scope
 
-This repository currently contains the Week 2 foundation:
+This repository currently contains the Week 3 Part 1 foundation:
 
-- Flask app factory and routes for `/`, `/health`, and `/api/ingest`
+- Flask app factory and routes for `/`, `/health`, `/api/ingest`, and `/api/schedule`
 - Optional `/api/chunk` endpoint for chunking one sentence
 - Mobile-first HTML/CSS/vanilla JS shell
 - Pure-Python text normalization
 - Deterministic sentence segmentation
 - Pure-Python rule-based semantic chunking v1
-- Lightweight placeholder models for future timing work
-- Pytest coverage for the web app, normalization, segmentation, ingestion API, and chunking
+- Deterministic timing and full text-to-schedule generation
+- Pytest coverage for the web app, normalization, segmentation, ingestion API, chunking, timing, and scheduling
 - GitHub Actions CI that installs minimal dependencies and runs pytest
 
 ## Non-Goals
 
-This version does not implement a timing engine, gestures, adaptive speed, the reader playback loop, persistence, accounts, databases, EPUB/PDF import, ML models, NLP services, spaCy, transformers, or a frontend framework.
+This version does not implement gestures, adaptive speed, the reader playback loop, persistence, accounts, databases, EPUB/PDF import, ML models, NLP services, spaCy, transformers, or a frontend framework.
 
 ## Local Setup
 
@@ -46,8 +46,8 @@ The repository includes `pyproject.toml` so pytest can import the local `semanti
 
 ## Next Milestones
 
-1. Timing/rhythm engine
-2. Chunk schedule API
-3. Mobile reader loop
-4. Touch gestures
+1. Mobile reader playback loop
+2. Touch gestures
+3. Rewind buffer
+4. Speed controls
 5. Session-only adaptation

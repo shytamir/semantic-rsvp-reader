@@ -5,6 +5,8 @@ from flask import Flask, jsonify, render_template, request
 from semantic_rsvp.chunking.rules import RuleBasedChunker
 from semantic_rsvp.text.normalize import normalize_text
 from semantic_rsvp.text.segment import split_sentences
+from semantic_rsvp.timing.models import TimingConfig
+from semantic_rsvp.timing.schedule import schedule_text
 
 
 def create_app() -> Flask:
@@ -78,7 +80,70 @@ def create_app() -> Flask:
             }
         )
 
+    @app.post("/api/schedule")
+    def schedule():
+        payload = request.get_json(silent=True)
+        if not isinstance(payload, dict):
+            return jsonify({"error": "Expected a JSON object with a text field."}), 400
+
+        raw_text = payload.get("text")
+        if not isinstance(raw_text, str):
+            return jsonify({"error": "Text must be a string."}), 400
+
+        normalized_text = normalize_text(raw_text)
+        if not normalized_text:
+            return jsonify({"error": "Text must not be empty."}), 400
+
+        try:
+            config = _timing_config_from_payload(payload)
+        except (TypeError, ValueError) as error:
+            return jsonify({"error": str(error)}), 400
+
+        scheduled_chunks = schedule_text(normalized_text, config=config)
+        sentence_count = len(split_sentences(normalized_text))
+        return jsonify(
+            {
+                "schedule": [
+                    _scheduled_chunk_to_dict(scheduled_chunk)
+                    for scheduled_chunk in scheduled_chunks
+                ],
+                "chunk_count": len(scheduled_chunks),
+                "sentence_count": sentence_count,
+            }
+        )
+
     return app
+
+
+def _timing_config_from_payload(payload: dict) -> TimingConfig:
+    fields = {
+        "base_beat_ms",
+        "min_duration_ms",
+        "max_duration_ms",
+        "sentence_pause_ms",
+    }
+    values = {}
+    for field in fields:
+        if field not in payload:
+            continue
+        value = payload[field]
+        if not isinstance(value, int):
+            raise TypeError(f"{field} must be an integer.")
+        values[field] = value
+    return TimingConfig(**values)
+
+
+def _scheduled_chunk_to_dict(scheduled_chunk):
+    chunk = scheduled_chunk.chunk
+    return {
+        "index": scheduled_chunk.index,
+        "sentence_index": scheduled_chunk.sentence_index,
+        "text": chunk.text,
+        "content_word_count": chunk.content_word_count,
+        "char_length": chunk.char_length,
+        "syntactic_hint": chunk.syntactic_hint,
+        "duration_ms": scheduled_chunk.duration_ms,
+    }
 
 
 if __name__ == "__main__":
