@@ -130,12 +130,14 @@ textarea:focus-visible,
 
 .chunk-display {
   width: 100%;
-  max-width: 16ch;
+  max-width: min(92vw, 18ch);
   min-height: 2.4em;
   display: grid;
   place-items: center;
   margin: 0;
   overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
   font-size: clamp(2.6rem, 14vw, 5.4rem);
   font-weight: 800;
   line-height: 1.05;
@@ -237,5 +239,12 @@ textarea:focus-visible,
   #back-button,
   #reset-button {
     grid-column: auto;
+  }
+}
+
+@media (max-width: 380px) {
+  .chunk-display {
+    max-width: 94vw;
+    font-size: clamp(2.2rem, 12vw, 4rem);
   }
 }
