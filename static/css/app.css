@@ -17,6 +17,7 @@ body {
 
 body {
   overflow-x: hidden;
+  overscroll-behavior-x: none;
 }
 
 .app-shell {
@@ -116,9 +117,10 @@ textarea:focus-visible,
   min-height: 45vh;
   padding: 20px 8px;
   text-align: center;
-  touch-action: manipulation;
+  touch-action: none;
   user-select: none;
   -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }
 
 .chunk-display {

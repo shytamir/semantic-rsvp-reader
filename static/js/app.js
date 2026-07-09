@@ -225,12 +225,15 @@ function handlePointerStart(event) {
     return;
   }
 
+  preventGestureDefault(event);
   gestureStarted = true;
   suppressNextTap = false;
   touchStartX = event.clientX;
   touchStartY = event.clientY;
   touchStartTime = Date.now();
-  readerArea.setPointerCapture(event.pointerId);
+  if (readerArea.setPointerCapture) {
+    readerArea.setPointerCapture(event.pointerId);
+  }
   clearLongPressTimer();
   longPressTimerId = window.setTimeout(handleLongPress, LONG_PRESS_MS);
 }
@@ -240,6 +243,7 @@ function handlePointerMove(event) {
     return;
   }
 
+  preventGestureDefault(event);
   const deltaX = event.clientX - touchStartX;
   const deltaY = event.clientY - touchStartY;
   if (Math.hypot(deltaX, deltaY) > TAP_MAX_DISTANCE_PX) {
@@ -252,6 +256,8 @@ function handlePointerEnd(event) {
     return;
   }
 
+  preventGestureDefault(event);
+  releasePointerCapture(event);
   const deltaX = event.clientX - touchStartX;
   const deltaY = event.clientY - touchStartY;
   const elapsed = Date.now() - touchStartTime;
@@ -285,7 +291,8 @@ function handlePointerEnd(event) {
   }
 }
 
-function cancelGesture() {
+function cancelGesture(event) {
+  releasePointerCapture(event);
   gestureStarted = false;
   suppressNextTap = false;
   clearLongPressTimer();
@@ -326,4 +333,21 @@ function clearLongPressTimer() {
 
 function isReaderModeActive() {
   return !readerMode.classList.contains("is-hidden");
+}
+
+function preventGestureDefault(event) {
+  if (event.cancelable) {
+    event.preventDefault();
+  }
+}
+
+function releasePointerCapture(event) {
+  if (
+    event &&
+    readerArea.releasePointerCapture &&
+    readerArea.hasPointerCapture &&
+    readerArea.hasPointerCapture(event.pointerId)
+  ) {
+    readerArea.releasePointerCapture(event.pointerId);
+  }
 }
