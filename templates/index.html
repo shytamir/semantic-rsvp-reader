@@ -40,6 +40,11 @@
               <button id="speed-reset" type="button">Reset</button>
               <button id="speed-faster" type="button">Faster</button>
             </div>
+            <div class="adaptation-controls" aria-label="Adaptation controls">
+              <p class="adaptation-copy">Adaptation: <span id="adaptation-status">On</span></p>
+              <button id="adaptation-toggle" type="button" aria-pressed="true">Disable adaptation</button>
+              <button id="adaptation-reset" type="button">Reset adaptation</button>
+            </div>
           </div>
 
           <p id="progress-indicator" class="progress-indicator">0 / 0</p>
@@ -72,6 +77,18 @@
               <div>
                 <dt>Completed</dt>
                 <dd id="session-completed">No</dd>
+              </div>
+              <div>
+                <dt>Adaptations</dt>
+                <dd id="adaptation-count">0</dd>
+              </div>
+              <div>
+                <dt>Current speed</dt>
+                <dd id="session-current-speed">1.00x</dd>
+              </div>
+              <div>
+                <dt>Adaptation</dt>
+                <dd id="session-adaptation-enabled">On</dd>
               </div>
             </dl>
           </details>

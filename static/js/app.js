@@ -5,6 +5,10 @@ const TAP_MAX_DISTANCE_PX = 12;
 const SPEED_LEVELS = [0.75, 0.85, 1.0, 1.15, 1.3, 1.5];
 const DEFAULT_SPEED_INDEX = 2;
 const MIN_EFFECTIVE_DURATION_MS = 100;
+const ADAPTATION_MIN_EVENTS = 3;
+const ADAPTATION_REWIND_THRESHOLD = 2;
+const ADAPTATION_PAUSE_THRESHOLD = 3;
+const ADAPTATION_SMOOTH_CHUNK_THRESHOLD = 12;
 
 const inputMode = document.querySelector("#input-mode");
 const readerMode = document.querySelector("#reader-mode");
@@ -30,6 +34,12 @@ const sessionRewindCount = document.querySelector("#session-rewind-count");
 const sessionPauseCount = document.querySelector("#session-pause-count");
 const sessionSpeedChangeCount = document.querySelector("#session-speed-change-count");
 const sessionCompleted = document.querySelector("#session-completed");
+const adaptationToggle = document.querySelector("#adaptation-toggle");
+const adaptationStatus = document.querySelector("#adaptation-status");
+const adaptationReset = document.querySelector("#adaptation-reset");
+const adaptationCount = document.querySelector("#adaptation-count");
+const sessionCurrentSpeed = document.querySelector("#session-current-speed");
+const sessionAdaptationEnabled = document.querySelector("#session-adaptation-enabled");
 
 let schedule = [];
 let currentIndex = 0;
@@ -46,6 +56,10 @@ let playbackSpeed = SPEED_LEVELS[speedIndex];
 let sessionEvents = [];
 let sessionStartedAt = null;
 let completionRecorded = false;
+let adaptationEnabled = true;
+let lastAdaptationEventIndex = 0;
+let smoothChunkRun = 0;
+let adaptationSuppressedUntilEventCount = 0;
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -61,6 +75,8 @@ speedSlower.addEventListener("click", decreaseSpeed);
 speedFaster.addEventListener("click", increaseSpeed);
 speedReset.addEventListener("click", resetSpeed);
 speedClose.addEventListener("click", hideSpeedOverlay);
+adaptationToggle.addEventListener("click", () => setAdaptationEnabled(!adaptationEnabled));
+adaptationReset.addEventListener("click", resetAdaptationWindowFromControl);
 speedOverlay.addEventListener("pointerdown", stopOverlayGesturePropagation);
 speedOverlay.addEventListener("pointermove", stopOverlayGesturePropagation);
 speedOverlay.addEventListener("pointerup", stopOverlayGesturePropagation);
@@ -68,6 +84,7 @@ speedOverlay.addEventListener("click", stopOverlayGesturePropagation);
 attachReaderGestures();
 renderSpeedControls();
 renderSessionDebug();
+renderAdaptationStatus();
 
 async function loadSchedule(text) {
   pause({ record: false });
@@ -93,6 +110,7 @@ async function loadSchedule(text) {
     currentIndex = 0;
     resetSpeed({ record: false });
     resetSessionEvents();
+    resetAdaptationState();
     recordSessionEvent("schedule_loaded", {
       chunk_count: schedule.length,
       sentence_count: payload.sentence_count,
@@ -137,6 +155,8 @@ function pause({ record = true } = {}) {
   clearPlaybackTimer();
   if (record && wasPlaying) {
     recordSessionEvent("pause");
+    smoothChunkRun = 0;
+    maybeAdaptPlaybackSpeed("pause");
   }
   renderCurrentChunk();
 }
@@ -184,9 +204,12 @@ function nextChunk({ auto = false } = {}) {
       from_index: oldIndex,
       to_index: currentIndex,
     });
+    smoothChunkRun = 0;
   }
 
   if (auto && isPlaying) {
+    smoothChunkRun += 1;
+    maybeAdaptPlaybackSpeed("auto_advance");
     renderCurrentChunk();
     scheduleNextChunk();
   } else {
@@ -201,6 +224,8 @@ function previousChunk() {
     from_index: oldIndex,
     to_index: currentIndex,
   });
+  smoothChunkRun = 0;
+  maybeAdaptPlaybackSpeed("rewind");
   pause();
 }
 
@@ -211,6 +236,7 @@ function resetReader() {
     from_index: oldIndex,
     to_index: currentIndex,
   });
+  resetAdaptationWindow();
   pause();
 }
 
@@ -413,7 +439,10 @@ function renderSpeedControls() {
   speedFaster.disabled = speedIndex >= SPEED_LEVELS.length - 1;
 }
 
-function setSpeedIndex(nextIndex, { record = true } = {}) {
+function setSpeedIndex(
+  nextIndex,
+  { record = true, reschedule = true, suppressAdaptation = true } = {},
+) {
   const oldSpeed = playbackSpeed;
   speedIndex = Math.min(Math.max(nextIndex, 0), SPEED_LEVELS.length - 1);
   playbackSpeed = SPEED_LEVELS[speedIndex];
@@ -423,9 +452,14 @@ function setSpeedIndex(nextIndex, { record = true } = {}) {
       from_speed: oldSpeed,
       to_speed: playbackSpeed,
     });
+    smoothChunkRun = 0;
+    resetAdaptationWindow();
+    if (suppressAdaptation) {
+      adaptationSuppressedUntilEventCount = sessionEvents.length + 3;
+    }
   }
 
-  if (isPlaying) {
+  if (reschedule && isPlaying) {
     scheduleNextChunk();
   }
 }
@@ -505,6 +539,8 @@ function getSessionSummary() {
     pause_count: countSessionEvents("pause"),
     speed_change_count: countSessionEvents("speed_changed"),
     completed: sessionEvents.some((event) => event.type === "playback_completed"),
+    adaptation_count: countSessionEvents("adaptation_applied"),
+    adaptation_enabled: adaptationEnabled,
     current_speed: playbackSpeed,
     current_index: currentIndex,
     total_chunks: schedule.length,
@@ -518,6 +554,9 @@ function renderSessionDebug() {
   sessionPauseCount.textContent = summary.pause_count;
   sessionSpeedChangeCount.textContent = summary.speed_change_count;
   sessionCompleted.textContent = summary.completed ? "Yes" : "No";
+  adaptationCount.textContent = summary.adaptation_count;
+  sessionCurrentSpeed.textContent = `${summary.current_speed.toFixed(2)}x`;
+  sessionAdaptationEnabled.textContent = summary.adaptation_enabled ? "On" : "Off";
 }
 
 function countSessionEvents(type) {
@@ -530,4 +569,111 @@ function recordCompletion() {
   }
   completionRecorded = true;
   recordSessionEvent("playback_completed");
+  maybeAdaptPlaybackSpeed("completion");
+}
+
+function resetAdaptationState() {
+  adaptationEnabled = true;
+  smoothChunkRun = 0;
+  adaptationSuppressedUntilEventCount = 0;
+  lastAdaptationEventIndex = sessionEvents.length;
+  renderAdaptationStatus();
+}
+
+function setAdaptationEnabled(enabled) {
+  if (adaptationEnabled === enabled) {
+    renderAdaptationStatus();
+    return;
+  }
+
+  adaptationEnabled = enabled;
+  resetAdaptationWindow();
+  recordSessionEvent(enabled ? "adaptation_enabled" : "adaptation_disabled");
+  renderAdaptationStatus();
+}
+
+function resetAdaptationWindowFromControl() {
+  resetAdaptationWindow();
+  adaptationSuppressedUntilEventCount = 0;
+  recordSessionEvent("adaptation_reset");
+  renderAdaptationStatus();
+}
+
+function resetAdaptationWindow() {
+  smoothChunkRun = 0;
+  lastAdaptationEventIndex = sessionEvents.length;
+  renderAdaptationStatus();
+}
+
+function countEventsSinceLastAdaptation(type) {
+  return sessionEvents
+    .slice(lastAdaptationEventIndex)
+    .filter((event) => event.type === type).length;
+}
+
+function maybeAdaptPlaybackSpeed(reason = "unknown") {
+  if (!adaptationEnabled) {
+    return;
+  }
+  if (sessionEvents.length < adaptationSuppressedUntilEventCount) {
+    return;
+  }
+
+  const eventWindowSize = sessionEvents.length - lastAdaptationEventIndex;
+  const rewindCount = countEventsSinceLastAdaptation("previous_chunk");
+  const pauseCount = countEventsSinceLastAdaptation("pause");
+
+  if (
+    eventWindowSize >= ADAPTATION_MIN_EVENTS &&
+    rewindCount >= ADAPTATION_REWIND_THRESHOLD
+  ) {
+    applyAdaptiveSpeedChange("slower", "rewinds");
+    return;
+  }
+
+  if (
+    eventWindowSize >= ADAPTATION_MIN_EVENTS &&
+    pauseCount >= ADAPTATION_PAUSE_THRESHOLD
+  ) {
+    applyAdaptiveSpeedChange("slower", "pauses");
+    return;
+  }
+
+  if (smoothChunkRun >= ADAPTATION_SMOOTH_CHUNK_THRESHOLD) {
+    applyAdaptiveSpeedChange("faster", reason === "completion" ? "completion" : "smooth_run");
+  }
+}
+
+function applyAdaptiveSpeedChange(direction, reason) {
+  const nextIndex = direction === "faster" ? speedIndex + 1 : speedIndex - 1;
+  if (nextIndex < 0 || nextIndex >= SPEED_LEVELS.length) {
+    resetAdaptationWindow();
+    return false;
+  }
+
+  const oldSpeed = playbackSpeed;
+  setSpeedIndex(nextIndex, {
+    record: false,
+    reschedule: false,
+    suppressAdaptation: false,
+  });
+  recordSessionEvent("adaptation_applied", {
+    direction,
+    reason,
+    from_speed: oldSpeed,
+    to_speed: playbackSpeed,
+  });
+  resetAdaptationWindow();
+  renderSpeedControls();
+  renderSessionDebug();
+  return true;
+}
+
+function renderAdaptationStatus() {
+  adaptationStatus.textContent = adaptationEnabled ? "On" : "Off";
+  adaptationToggle.textContent = adaptationEnabled ? "Disable adaptation" : "Enable adaptation";
+  adaptationToggle.setAttribute("aria-pressed", String(adaptationEnabled));
+  if (sessionAdaptationEnabled) {
+    sessionAdaptationEnabled.textContent = adaptationEnabled ? "On" : "Off";
+  }
 }

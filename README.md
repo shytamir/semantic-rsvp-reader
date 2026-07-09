@@ -4,7 +4,7 @@ Semantic RSVP Reader is a mobile-first HTML5 reading prototype served by Flask. 
 
 ## Current Scope
 
-This repository currently contains the Week 4 speed-control foundation:
+This repository currently contains the Week 4 adaptation foundation:
 
 - Flask app factory and routes for `/`, `/health`, `/api/ingest`, and `/api/schedule`
 - Optional `/api/chunk` endpoint for chunking one sentence
@@ -16,6 +16,7 @@ This repository currently contains the Week 4 speed-control foundation:
 - Touch gestures for play/pause and chunk navigation
 - Session-only speed controls
 - Session-only event tracking and debug summary
+- Session-only conservative adaptation
 - Pytest coverage for the web app, normalization, segmentation, ingestion API, chunking, timing, and scheduling
 - GitHub Actions CI that installs minimal dependencies and runs pytest
 
@@ -49,9 +50,10 @@ The repository includes `pyproject.toml` so pytest can import the local `semanti
 
 ## Next Milestones
 
-1. Session-only adaptation rules
-2. Mobile hardening
-3. Demo validation
+1. Mobile hardening
+2. Demo validation
+3. UX cleanup
+4. Optional chunking/timing refinements
 
 ## Manual Test Checklist
 
@@ -155,3 +157,33 @@ Session event tracking manual test:
 22. Confirm previous session events are cleared.
 23. Confirm playback behavior still matches the previous slice.
 24. Confirm no data is sent to backend except schedule requests.
+
+Session adaptation manual test:
+
+1. Open app on a phone browser.
+2. Paste a paragraph long enough for at least 30 chunks.
+3. Load the schedule.
+4. Confirm adaptation status is enabled.
+5. Confirm current speed starts at 1.00x.
+6. Tap Play.
+7. Let playback advance smoothly for enough chunks to trigger a smooth-run speedup.
+8. Confirm speed increases by one level only.
+9. Confirm adaptation count increases.
+10. Confirm playback continues normally.
+11. Rewind several times.
+12. Confirm speed decreases by one level only after threshold is reached.
+13. Pause repeatedly.
+14. Confirm speed decreases conservatively after threshold is reached.
+15. Manually change speed using speed controls.
+16. Confirm adaptation does not immediately override the manual change.
+17. Disable adaptation.
+18. Rewind/pause repeatedly.
+19. Confirm speed does not change automatically.
+20. Re-enable adaptation.
+21. Tap reset adaptation.
+22. Confirm adaptation counters/window reset but session event log remains.
+23. Let playback reach the end.
+24. Confirm completion still works.
+25. Load new text.
+26. Confirm adaptation state resets cleanly.
+27. Confirm no events are sent to backend except schedule requests.
