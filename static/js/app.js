@@ -2,6 +2,9 @@ const SWIPE_MIN_DISTANCE_PX = 40;
 const SWIPE_MAX_VERTICAL_DRIFT_PX = 60;
 const LONG_PRESS_MS = 500;
 const TAP_MAX_DISTANCE_PX = 12;
+const SPEED_LEVELS = [0.75, 0.85, 1.0, 1.15, 1.3, 1.5];
+const DEFAULT_SPEED_INDEX = 2;
+const MIN_EFFECTIVE_DURATION_MS = 100;
 
 const inputMode = document.querySelector("#input-mode");
 const readerMode = document.querySelector("#reader-mode");
@@ -17,7 +20,11 @@ const nextButton = document.querySelector("#next-button");
 const resetButton = document.querySelector("#reset-button");
 const backButton = document.querySelector("#back-button");
 const speedOverlay = document.querySelector("#speed-overlay");
-const speedOverlayClose = document.querySelector("#speed-overlay-close");
+const speedLabel = document.querySelector("#speed-label");
+const speedSlower = document.querySelector("#speed-slower");
+const speedFaster = document.querySelector("#speed-faster");
+const speedReset = document.querySelector("#speed-reset");
+const speedClose = document.querySelector("#speed-close");
 
 let schedule = [];
 let currentIndex = 0;
@@ -29,6 +36,8 @@ let touchStartTime = 0;
 let longPressTimerId = null;
 let suppressNextTap = false;
 let gestureStarted = false;
+let speedIndex = DEFAULT_SPEED_INDEX;
+let playbackSpeed = SPEED_LEVELS[speedIndex];
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -40,8 +49,16 @@ previousButton.addEventListener("click", previousChunk);
 nextButton.addEventListener("click", () => nextChunk());
 resetButton.addEventListener("click", resetReader);
 backButton.addEventListener("click", enterInputMode);
-speedOverlayClose.addEventListener("click", hideSpeedOverlay);
+speedSlower.addEventListener("click", decreaseSpeed);
+speedFaster.addEventListener("click", increaseSpeed);
+speedReset.addEventListener("click", resetSpeed);
+speedClose.addEventListener("click", hideSpeedOverlay);
+speedOverlay.addEventListener("pointerdown", stopOverlayGesturePropagation);
+speedOverlay.addEventListener("pointermove", stopOverlayGesturePropagation);
+speedOverlay.addEventListener("pointerup", stopOverlayGesturePropagation);
+speedOverlay.addEventListener("click", stopOverlayGesturePropagation);
 attachReaderGestures();
+renderSpeedControls();
 
 async function loadSchedule(text) {
   pause();
@@ -65,6 +82,7 @@ async function loadSchedule(text) {
 
     schedule = payload.schedule;
     currentIndex = 0;
+    resetSpeed();
     enterReaderMode();
   } catch (error) {
     schedule = [];
@@ -189,7 +207,7 @@ function scheduleNextChunk() {
   const duration = Number(schedule[currentIndex].duration_ms);
   timerId = window.setTimeout(
     () => nextChunk({ auto: true }),
-    Number.isFinite(duration) && duration > 0 ? duration : 400,
+    getEffectiveDurationMs({ duration_ms: Number.isFinite(duration) ? duration : 400 }),
   );
 }
 
@@ -317,6 +335,7 @@ function isSwipe(deltaX, deltaY) {
 }
 
 function toggleSpeedOverlay() {
+  renderSpeedControls();
   speedOverlay.classList.toggle("is-hidden");
 }
 
@@ -333,6 +352,48 @@ function clearLongPressTimer() {
 
 function isReaderModeActive() {
   return !readerMode.classList.contains("is-hidden");
+}
+
+function getEffectiveDurationMs(scheduleItem) {
+  const baseDuration = Number(scheduleItem.duration_ms);
+  const duration = Number.isFinite(baseDuration) && baseDuration > 0 ? baseDuration : 400;
+  return Math.max(MIN_EFFECTIVE_DURATION_MS, Math.round(duration / playbackSpeed));
+}
+
+function renderSpeedControls() {
+  updateSpeedLabel();
+  speedSlower.disabled = speedIndex <= 0;
+  speedFaster.disabled = speedIndex >= SPEED_LEVELS.length - 1;
+}
+
+function setSpeedIndex(nextIndex) {
+  speedIndex = Math.min(Math.max(nextIndex, 0), SPEED_LEVELS.length - 1);
+  playbackSpeed = SPEED_LEVELS[speedIndex];
+  renderSpeedControls();
+
+  if (isPlaying) {
+    scheduleNextChunk();
+  }
+}
+
+function increaseSpeed() {
+  setSpeedIndex(speedIndex + 1);
+}
+
+function decreaseSpeed() {
+  setSpeedIndex(speedIndex - 1);
+}
+
+function resetSpeed() {
+  setSpeedIndex(DEFAULT_SPEED_INDEX);
+}
+
+function updateSpeedLabel() {
+  speedLabel.textContent = `${playbackSpeed.toFixed(2)}x`;
+}
+
+function stopOverlayGesturePropagation(event) {
+  event.stopPropagation();
 }
 
 function preventGestureDefault(event) {

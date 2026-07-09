@@ -4,7 +4,7 @@ Semantic RSVP Reader is a mobile-first HTML5 reading prototype served by Flask. 
 
 ## Current Scope
 
-This repository currently contains the Week 3/4 touch refinement foundation:
+This repository currently contains the Week 4 speed-control foundation:
 
 - Flask app factory and routes for `/`, `/health`, `/api/ingest`, and `/api/schedule`
 - Optional `/api/chunk` endpoint for chunking one sentence
@@ -14,13 +14,13 @@ This repository currently contains the Week 3/4 touch refinement foundation:
 - Pure-Python rule-based semantic chunking v1
 - Deterministic timing and full text-to-schedule generation
 - Touch gestures for play/pause and chunk navigation
-- Placeholder speed overlay for the next speed-control slice
+- Session-only speed controls
 - Pytest coverage for the web app, normalization, segmentation, ingestion API, chunking, timing, and scheduling
 - GitHub Actions CI that installs minimal dependencies and runs pytest
 
 ## Non-Goals
 
-This version does not implement real speed controls, adaptive speed, persistence, accounts, databases, EPUB/PDF import, ML models, NLP services, spaCy, transformers, or a frontend framework.
+This version does not implement adaptive speed, persistence, accounts, databases, EPUB/PDF import, ML models, NLP services, spaCy, transformers, or a frontend framework.
 
 ## Local Setup
 
@@ -48,11 +48,10 @@ The repository includes `pyproject.toml` so pytest can import the local `semanti
 
 ## Next Milestones
 
-1. Real speed controls
-2. Session-only event tracking
-3. Session-only adaptation
-4. Mobile hardening
-5. Demo validation
+1. Session-only event tracking
+2. Session-only adaptation
+3. Mobile hardening
+4. Demo validation
 
 ## Manual Test Checklist
 
@@ -102,3 +101,30 @@ Touch gesture manual test:
 21. Confirm long press does not accidentally toggle play/pause.
 22. Confirm buttons still work.
 23. Confirm Back/Edit Text stops playback and returns to input mode.
+
+Speed control manual test:
+
+1. Open app on a phone browser.
+2. Paste a paragraph and load it.
+3. Confirm first chunk appears centered and paused.
+4. Long press reader area.
+5. Confirm speed overlay opens.
+6. Confirm current speed shows 1.00x.
+7. Tap Faster.
+8. Confirm speed label increases.
+9. Tap Slower.
+10. Confirm speed label decreases.
+11. Tap Reset.
+12. Confirm speed returns to 1.00x.
+13. Close overlay.
+14. Tap Play.
+15. Confirm playback works.
+16. While playing, open speed overlay and increase speed.
+17. Confirm upcoming chunks advance faster.
+18. Decrease speed while playing.
+19. Confirm upcoming chunks advance slower.
+20. Confirm changing speed does not reset current chunk index.
+21. Confirm Back/Edit Text stops playback.
+22. Load new text.
+23. Confirm speed resets to 1.00x.
+24. Confirm gestures and buttons still work.

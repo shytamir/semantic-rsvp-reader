@@ -89,6 +89,11 @@ button {
   cursor: pointer;
 }
 
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
 button:focus-visible,
 textarea:focus-visible,
 .reader-area:focus-visible {
@@ -169,18 +174,45 @@ textarea:focus-visible,
   z-index: 2;
 }
 
+.speed-overlay-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
 .speed-overlay-title {
-  margin: 8px 0 0;
+  margin: 0;
   font-weight: 800;
   line-height: 1.35;
 }
 
-.speed-overlay-close {
+.speed-label {
+  margin: 14px 0;
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.speed-controls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.speed-close {
   min-height: 36px;
   padding: 0 10px;
   background: #ffffff;
   color: #171717;
   font-size: 0.9rem;
+}
+
+.speed-controls button {
+  min-height: 44px;
+  background: #ffffff;
+  color: #171717;
+  font-size: 0.92rem;
 }
 
 #back-button,
