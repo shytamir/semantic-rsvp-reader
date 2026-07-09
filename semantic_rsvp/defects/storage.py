@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import gzip
+from html import escape
 from datetime import UTC, datetime
 from pathlib import Path
 from uuid import uuid4
@@ -8,6 +9,9 @@ from uuid import uuid4
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_REPORT_DIR = PROJECT_ROOT / "data" / "defect_reports"
+MAX_REPORT_MARKDOWN_CHARS = 24_000
+MAX_FIELD_CHARS = 4_000
+MAX_CHUNKS_PER_SIDE = 5
 
 KNOWN_CATEGORIES = {
     "bad_chunk_split",
@@ -42,6 +46,8 @@ def save_defect_report(payload: dict, report_dir: Path | None = None) -> dict[st
     report_path = active_report_dir / filename
 
     markdown = render_defect_report_markdown(normalized, report_id, created_at)
+    if len(markdown) > MAX_REPORT_MARKDOWN_CHARS:
+        raise DefectReportValidationError("Defect report is too large.")
     with gzip.open(report_path, "wt", encoding="utf-8") as file:
         file.write(markdown)
 
@@ -65,12 +71,11 @@ def validate_defect_payload(payload: dict) -> dict:
     if severity < 1 or severity > 4:
         raise DefectReportValidationError("Severity must be between 1 and 4.")
 
-    notes = payload.get("notes", "")
-    preferred_behavior = payload.get("preferred_behavior", "")
-    if not isinstance(notes, str):
-        raise DefectReportValidationError("Notes must be a string.")
-    if not isinstance(preferred_behavior, str):
-        raise DefectReportValidationError("Preferred behavior must be a string.")
+    notes = _validated_string(payload.get("notes", ""), "Notes")
+    preferred_behavior = _validated_string(
+        payload.get("preferred_behavior", ""),
+        "Preferred behavior",
+    )
 
     reader_state = payload.get("reader_state", {})
     client = payload.get("client", {})
@@ -84,8 +89,8 @@ def validate_defect_payload(payload: dict) -> dict:
         "severity": severity,
         "notes": notes,
         "preferred_behavior": preferred_behavior,
-        "reader_state": reader_state,
-        "client": client,
+        "reader_state": _sanitize_reader_state(reader_state),
+        "client": _sanitize_client(client),
     }
 
 
@@ -170,12 +175,12 @@ def _value(source: dict, key: str) -> str:
         return "unknown"
     if isinstance(value, bool):
         return str(value).lower()
-    return str(value)
+    return _sanitize_text(str(value), max_chars=500)
 
 
 def _string_value(source: dict, key: str) -> str:
     value = source.get(key, "")
-    return value if isinstance(value, str) and value else "unknown"
+    return _sanitize_text(value) if isinstance(value, str) and value else "unknown"
 
 
 def _format_chunks(chunks) -> list[str]:
@@ -183,8 +188,97 @@ def _format_chunks(chunks) -> list[str]:
         return ["- none"]
 
     formatted = []
-    for chunk in chunks:
+    for chunk in chunks[:MAX_CHUNKS_PER_SIDE]:
         if not isinstance(chunk, dict):
             continue
         formatted.append(f"- [{_value(chunk, 'index')}] {_string_value(chunk, 'text')}")
     return formatted or ["- none"]
+
+
+def _sanitize_reader_state(reader_state: dict) -> dict:
+    sanitized = {}
+    for key in (
+        "current_index",
+        "sentence_index",
+        "current_duration_ms",
+        "current_content_word_count",
+        "playback_speed",
+        "adaptation_enabled",
+    ):
+        sanitized[key] = reader_state.get(key)
+
+    for key in (
+        "current_chunk",
+        "current_syntactic_hint",
+        "original_sentence",
+    ):
+        sanitized[key] = _bounded_text(reader_state.get(key, ""))
+
+    sanitized["previous_chunks"] = _sanitize_chunks(reader_state.get("previous_chunks"))
+    sanitized["next_chunks"] = _sanitize_chunks(reader_state.get("next_chunks"))
+    sanitized["session_summary"] = _sanitize_session_summary(
+        reader_state.get("session_summary", {})
+    )
+    return sanitized
+
+
+def _sanitize_client(client: dict) -> dict:
+    return {
+        "user_agent": _bounded_text(client.get("user_agent", "")),
+        "viewport_width": client.get("viewport_width"),
+        "viewport_height": client.get("viewport_height"),
+    }
+
+
+def _sanitize_session_summary(summary) -> dict:
+    if not isinstance(summary, dict):
+        return {}
+    return {
+        "event_count": summary.get("event_count"),
+        "rewind_count": summary.get("rewind_count"),
+        "pause_count": summary.get("pause_count"),
+        "speed_change_count": summary.get("speed_change_count"),
+        "adaptation_count": summary.get("adaptation_count"),
+        "completed": summary.get("completed"),
+    }
+
+
+def _sanitize_chunks(chunks) -> list[dict]:
+    if not isinstance(chunks, list):
+        return []
+    sanitized = []
+    for chunk in chunks[:MAX_CHUNKS_PER_SIDE]:
+        if not isinstance(chunk, dict):
+            continue
+        sanitized.append(
+            {
+                "index": chunk.get("index"),
+                "text": _bounded_text(chunk.get("text", ""), max_chars=500),
+            }
+        )
+    return sanitized
+
+
+def _sanitize_text(value, max_chars: int = MAX_FIELD_CHARS) -> str:
+    if not isinstance(value, str):
+        return ""
+    without_controls = "".join(
+        char if char in "\n\t" or ord(char) >= 32 else " " for char in value
+    )
+    return escape(without_controls[:max_chars], quote=False)
+
+
+def _validated_string(value, label: str) -> str:
+    if not isinstance(value, str):
+        raise DefectReportValidationError(f"{label} must be a string.")
+    if len(value) > MAX_FIELD_CHARS:
+        raise DefectReportValidationError(f"{label} is too large.")
+    return value
+
+
+def _bounded_text(value, max_chars: int = MAX_FIELD_CHARS) -> str:
+    if not isinstance(value, str):
+        return ""
+    if len(value) > max_chars:
+        raise DefectReportValidationError("Defect report field is too large.")
+    return value

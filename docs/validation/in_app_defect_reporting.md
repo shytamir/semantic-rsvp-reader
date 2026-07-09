@@ -71,6 +71,14 @@ defect_20260709_183512_a8f3d2.md.gz
 
 The API response returns only `status`, `report_id`, and `filename`. It does not expose absolute filesystem paths.
 
+## Security Notes
+
+The backend uses generated report IDs and filenames only; user-provided text is never used in paths. Report fields are size-limited, control characters are normalized, and Markdown content escapes HTML-sensitive characters before writing to disk.
+
+Flask also applies a request size limit to reduce accidental or hostile oversized submissions.
+
+On startup, the backend performs a best-effort local storage encryption check for the defect report path. It checks BitLocker on Windows, FileVault on macOS, and LUKS-style encrypted storage on Linux when those platform tools are available. If encrypted storage cannot be confirmed, the app logs a warning and continues running. This app does not attempt to enable disk or hardware encryption itself.
+
 ## Reading Reports
 
 Decompress one report while keeping the original gzip file:

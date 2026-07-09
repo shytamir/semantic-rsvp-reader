@@ -112,3 +112,42 @@ def test_defects_writes_readable_markdown_gzip(defect_client, defect_report_dir)
     assert "Severity: 2" in markdown
     assert "The phrase feels fragmented." in markdown
     assert "merely retrieve" in markdown
+
+
+def test_defects_escape_html_in_markdown(defect_client, defect_report_dir):
+    payload = minimal_report()
+    payload["notes"] = '<script>alert("x")</script>'
+
+    response = defect_client.post("/api/defects", json=payload)
+    report_path = defect_report_dir / response.get_json()["filename"]
+
+    with gzip.open(report_path, "rt", encoding="utf-8") as file:
+        markdown = file.read()
+
+    assert "<script>" not in markdown
+    assert "&lt;script&gt;" in markdown
+
+
+def test_defects_rejects_oversized_report(defect_client):
+    payload = minimal_report()
+    payload["notes"] = "x" * 40_000
+
+    response = defect_client.post("/api/defects", json=payload)
+
+    assert response.status_code == 400
+    assert "too large" in response.get_json()["error"]
+
+
+def test_defects_rejects_oversized_request_body(tmp_path):
+    app = create_app()
+    app.config.update(
+        TESTING=True,
+        DEFECT_REPORT_DIR=tmp_path / "reports",
+        MAX_CONTENT_LENGTH=128,
+    )
+    client = app.test_client()
+
+    response = client.post("/api/defects", json=minimal_report())
+
+    assert response.status_code == 413
+    assert response.get_json() == {"error": "Request body is too large."}

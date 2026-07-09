@@ -1,6 +1,8 @@
 from dataclasses import asdict
+import logging
 
 from flask import Flask, jsonify, render_template, request
+from werkzeug.exceptions import RequestEntityTooLarge
 
 from semantic_rsvp.chunking.rules import RuleBasedChunker
 from semantic_rsvp.defects.storage import (
@@ -8,6 +10,7 @@ from semantic_rsvp.defects.storage import (
     DefectReportValidationError,
     save_defect_report,
 )
+from semantic_rsvp.security.storage_encryption import check_storage_encryption
 from semantic_rsvp.text.normalize import normalize_text
 from semantic_rsvp.text.segment import split_sentences
 from semantic_rsvp.timing.models import TimingConfig
@@ -22,6 +25,29 @@ def create_app() -> Flask:
         static_folder="../static",
     )
     app.config.setdefault("DEFECT_REPORT_DIR", DEFAULT_REPORT_DIR)
+    app.config.setdefault("CHECK_STORAGE_ENCRYPTION", True)
+    if app.config.get("MAX_CONTENT_LENGTH") is None:
+        app.config["MAX_CONTENT_LENGTH"] = 1_000_000
+    encryption_checked = False
+
+    @app.before_request
+    def warn_if_storage_encryption_unconfirmed():
+        nonlocal encryption_checked
+        if encryption_checked or app.config.get("TESTING"):
+            return
+        encryption_checked = True
+        if not app.config.get("CHECK_STORAGE_ENCRYPTION"):
+            return
+        status = check_storage_encryption(app.config["DEFECT_REPORT_DIR"])
+        if status.warning:
+            logging.getLogger(__name__).warning(
+                "Defect report storage encryption warning: %s",
+                status.warning,
+            )
+
+    @app.errorhandler(RequestEntityTooLarge)
+    def request_too_large(error):
+        return jsonify({"error": "Request body is too large."}), 413
 
     @app.get("/")
     def index():

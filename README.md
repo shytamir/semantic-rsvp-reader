@@ -64,6 +64,8 @@ The validation corpus lives in `docs/validation/corpus.md`. Start the app, load 
 
 The app supports in-app defect reporting during reader playback. Reports are saved by the local Flask backend as compressed Markdown files under `data/defect_reports/`; see `docs/validation/in_app_defect_reporting.md` for the report format and decompression commands.
 
+Defect report storage uses generated filenames, bounded/escaped Markdown fields, a request size limit, and a best-effort local storage encryption check. If encrypted storage cannot be confirmed, the app logs a warning and continues.
+
 Log defects with the in-app `Report Defect` button, or use `docs/validation/defect_log_template.md` when working outside the app. Choose categories from `docs/validation/defect_taxonomy.md`. Interpret severity as:
 
 - 1: minor annoyance
