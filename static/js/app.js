@@ -2,6 +2,7 @@ const SWIPE_MIN_DISTANCE_PX = 40;
 const SWIPE_MAX_VERTICAL_DRIFT_PX = 60;
 const LONG_PRESS_MS = 500;
 const TAP_MAX_DISTANCE_PX = 12;
+const JUMP_CHUNK_COUNT = 5;
 const SPEED_LEVELS = [0.75, 0.85, 1.0, 1.15, 1.3, 1.5];
 const DEFAULT_SPEED_INDEX = 2;
 const MIN_EFFECTIVE_DURATION_MS = 100;
@@ -21,7 +22,9 @@ const chunkDisplay = document.querySelector("#chunk-display");
 const progressIndicator = document.querySelector("#progress-indicator");
 const playPauseButton = document.querySelector("#play-pause-button");
 const previousButton = document.querySelector("#previous-button");
+const previousFiveButton = document.querySelector("#previous-five-button");
 const nextButton = document.querySelector("#next-button");
+const nextFiveButton = document.querySelector("#next-five-button");
 const resetButton = document.querySelector("#reset-button");
 const backButton = document.querySelector("#back-button");
 const speedOverlay = document.querySelector("#speed-overlay");
@@ -52,6 +55,7 @@ let touchStartTime = 0;
 let longPressTimerId = null;
 let suppressNextTap = false;
 let gestureStarted = false;
+let longPressActivated = false;
 let speedIndex = DEFAULT_SPEED_INDEX;
 let playbackSpeed = SPEED_LEVELS[speedIndex];
 let sessionEvents = [];
@@ -71,7 +75,9 @@ document.addEventListener("visibilitychange", handleVisibilityChange);
 
 playPauseButton.addEventListener("click", togglePlayback);
 previousButton.addEventListener("click", previousChunk);
+previousFiveButton.addEventListener("click", previousFiveChunks);
 nextButton.addEventListener("click", () => nextChunk());
+nextFiveButton.addEventListener("click", nextFiveChunks);
 resetButton.addEventListener("click", resetReader);
 backButton.addEventListener("click", enterInputMode);
 speedSlower.addEventListener("click", decreaseSpeed);
@@ -228,14 +234,34 @@ function nextChunk({ auto = false } = {}) {
 }
 
 function previousChunk() {
+  moveManualChunks(-1, "previous_chunk");
+}
+
+function previousFiveChunks() {
+  moveManualChunks(-JUMP_CHUNK_COUNT, "previous_chunk");
+}
+
+function nextFiveChunks() {
+  moveManualChunks(JUMP_CHUNK_COUNT, "next_chunk");
+}
+
+function moveManualChunks(delta, eventType) {
+  if (schedule.length === 0) {
+    pause();
+    return;
+  }
+
   const oldIndex = currentIndex;
-  currentIndex = Math.max(0, currentIndex - 1);
-  recordSessionEvent("previous_chunk", {
+  currentIndex = clampIndex(currentIndex + delta);
+  recordSessionEvent(eventType, {
     from_index: oldIndex,
     to_index: currentIndex,
+    step: Math.abs(delta),
   });
   smoothChunkRun = 0;
-  maybeAdaptPlaybackSpeed("rewind");
+  if (eventType === "previous_chunk") {
+    maybeAdaptPlaybackSpeed("rewind");
+  }
   pause();
 }
 
@@ -338,6 +364,7 @@ function handlePointerStart(event) {
   preventGestureDefault(event);
   gestureStarted = true;
   suppressNextTap = false;
+  longPressActivated = false;
   touchStartX = event.clientX;
   touchStartY = event.clientY;
   touchStartTime = Date.now();
@@ -378,6 +405,21 @@ function handlePointerEnd(event) {
     return;
   }
 
+  if (longPressActivated) {
+    if (isSwipe(deltaX, deltaY)) {
+      if (deltaX < 0) {
+        previousFiveChunks();
+      } else {
+        nextFiveChunks();
+      }
+    } else {
+      toggleSpeedOverlay();
+    }
+    longPressActivated = false;
+    suppressNextTap = false;
+    return;
+  }
+
   if (suppressNextTap) {
     suppressNextTap = false;
     return;
@@ -405,6 +447,7 @@ function cancelGesture(event) {
   releasePointerCapture(event);
   gestureStarted = false;
   suppressNextTap = false;
+  longPressActivated = false;
   clearLongPressTimer();
 }
 
@@ -414,8 +457,8 @@ function handleLongPress() {
   }
 
   suppressNextTap = true;
+  longPressActivated = true;
   clearLongPressTimer();
-  toggleSpeedOverlay();
 }
 
 function isSwipe(deltaX, deltaY) {

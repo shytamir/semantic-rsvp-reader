@@ -39,8 +39,10 @@ def test_index_includes_reader_and_input_ids(client):
         b'id="session-adaptation-enabled"',
         b'id="progress-indicator"',
         b'id="play-pause-button"',
+        b'id="previous-five-button"',
         b'id="previous-button"',
         b'id="next-button"',
+        b'id="next-five-button"',
         b'id="reset-button"',
         b'id="back-button"',
     ]:

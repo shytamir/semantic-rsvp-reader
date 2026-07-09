@@ -97,13 +97,18 @@ Touch gesture manual test:
 14. Swipe right at the final chunk.
 15. Confirm it stays on the final chunk and remains paused.
 16. Long press reader area.
-17. Confirm speed overlay placeholder appears.
+17. Confirm speed overlay appears.
 18. Long press again or close overlay.
 19. Confirm overlay disappears.
 20. Confirm swipes do not accidentally toggle play/pause.
 21. Confirm long press does not accidentally toggle play/pause.
-22. Confirm buttons still work.
-23. Confirm Back/Edit Text stops playback and returns to input mode.
+22. Hold reader area, then swipe left.
+23. Confirm reader moves back five chunks or stops at the first chunk and remains paused.
+24. Hold reader area, then swipe right.
+25. Confirm reader moves forward five chunks or stops at the final chunk and remains paused.
+26. Confirm the -5 and +5 buttons match the hold-swipe behavior.
+27. Confirm buttons still work.
+28. Confirm Back/Edit Text stops playback and returns to input mode.
 
 Speed control manual test:
 
