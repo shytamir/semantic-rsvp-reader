@@ -1,6 +1,20 @@
 # Observed Defects Review - timing context only
 
-## Summary
+## Review Summary
+
+Top recurring issues:
+1. Dense chunks remain the clearest timing problem, especially at 1.15x where effective dwell is often around 470-504ms.
+2. Extra-dense semantic material, including multisyllabic content words and reflective verbs such as `hesitate`, appears to need more dwell than the current dense-chunk baseline provides.
+3. Quote and punctuation rhythm is underweighted: short priming chunks like `"however,`, closing quote chunks, and dense sentence-ending chunks need more cognitive settling time.
+4. Some older reports in this timing-context export still describe pre-cleanup display/tokenization noise, including end-of-line hyphenation, `a.m.` splitting, and `whether leaving would`; these should be treated as historical evidence-hygiene defects, not primary timing-calibration input.
+
+Priority for Timing Calibration Pass 1:
+- Calibrate dense chunks at default and elevated speeds first, focusing on the 470-504ms effective-duration band.
+- Add or test a conservative dwell bonus for extra-dense chunks with long/multisyllabic content words.
+- Add or test punctuation/quote-aware pauses for opening priming chunks, closing quote chunks, and dense sentence-final chunks.
+- Exclude already-addressed layout/tokenization/chunking reports from timing formula decisions, then rerun a clean validation pass.
+
+## Generated Counts
 
 - Total reports: 38
 - Included reports: 22
