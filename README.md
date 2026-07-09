@@ -15,6 +15,7 @@ This repository currently contains the Week 4 speed-control foundation:
 - Deterministic timing and full text-to-schedule generation
 - Touch gestures for play/pause and chunk navigation
 - Session-only speed controls
+- Session-only event tracking and debug summary
 - Pytest coverage for the web app, normalization, segmentation, ingestion API, chunking, timing, and scheduling
 - GitHub Actions CI that installs minimal dependencies and runs pytest
 
@@ -48,10 +49,9 @@ The repository includes `pyproject.toml` so pytest can import the local `semanti
 
 ## Next Milestones
 
-1. Session-only event tracking
-2. Session-only adaptation
-3. Mobile hardening
-4. Demo validation
+1. Session-only adaptation rules
+2. Mobile hardening
+3. Demo validation
 
 ## Manual Test Checklist
 
@@ -128,3 +128,30 @@ Speed control manual test:
 22. Load new text.
 23. Confirm speed resets to 1.00x.
 24. Confirm gestures and buttons still work.
+
+Session event tracking manual test:
+
+1. Open app on a phone browser.
+2. Paste a paragraph and load it.
+3. Confirm event count starts at 1 or otherwise records schedule_loaded.
+4. Confirm debug panel shows current event counts.
+5. Tap Play.
+6. Confirm play event count is reflected.
+7. Tap Pause.
+8. Confirm pause count increases.
+9. Tap Previous or swipe left.
+10. Confirm rewind count increases.
+11. Tap Next or swipe right.
+12. Confirm manual next event is recorded if visible in summary.
+13. Open speed overlay.
+14. Change speed.
+15. Confirm speed change count increases.
+16. Tap Reset.
+17. Confirm reset event is recorded if visible in event count.
+18. Play until final chunk.
+19. Confirm completed becomes yes/true.
+20. Tap Back/Edit Text.
+21. Load new text.
+22. Confirm previous session events are cleared.
+23. Confirm playback behavior still matches the previous slice.
+24. Confirm no data is sent to backend except schedule requests.

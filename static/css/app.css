@@ -161,6 +161,39 @@ textarea:focus-visible,
   gap: 8px;
 }
 
+.session-debug {
+  margin-top: 12px;
+  border-top: 1px solid #d5d5cc;
+  padding-top: 10px;
+  color: #3d3d38;
+  font-size: 0.9rem;
+}
+
+.session-debug summary {
+  min-height: 36px;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.session-debug-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 4px 0 0;
+}
+
+.session-debug-grid div {
+  min-width: 0;
+}
+
+.session-debug-grid dt {
+  font-weight: 700;
+}
+
+.session-debug-grid dd {
+  margin: 2px 0 0;
+}
+
 .speed-overlay {
   position: absolute;
   left: 50%;

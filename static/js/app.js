@@ -25,6 +25,11 @@ const speedSlower = document.querySelector("#speed-slower");
 const speedFaster = document.querySelector("#speed-faster");
 const speedReset = document.querySelector("#speed-reset");
 const speedClose = document.querySelector("#speed-close");
+const sessionEventCount = document.querySelector("#session-event-count");
+const sessionRewindCount = document.querySelector("#session-rewind-count");
+const sessionPauseCount = document.querySelector("#session-pause-count");
+const sessionSpeedChangeCount = document.querySelector("#session-speed-change-count");
+const sessionCompleted = document.querySelector("#session-completed");
 
 let schedule = [];
 let currentIndex = 0;
@@ -38,6 +43,9 @@ let suppressNextTap = false;
 let gestureStarted = false;
 let speedIndex = DEFAULT_SPEED_INDEX;
 let playbackSpeed = SPEED_LEVELS[speedIndex];
+let sessionEvents = [];
+let sessionStartedAt = null;
+let completionRecorded = false;
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -59,9 +67,10 @@ speedOverlay.addEventListener("pointerup", stopOverlayGesturePropagation);
 speedOverlay.addEventListener("click", stopOverlayGesturePropagation);
 attachReaderGestures();
 renderSpeedControls();
+renderSessionDebug();
 
 async function loadSchedule(text) {
-  pause();
+  pause({ record: false });
   hideSpeedOverlay();
   showStatus("Preparing...");
 
@@ -82,7 +91,12 @@ async function loadSchedule(text) {
 
     schedule = payload.schedule;
     currentIndex = 0;
-    resetSpeed();
+    resetSpeed({ record: false });
+    resetSessionEvents();
+    recordSessionEvent("schedule_loaded", {
+      chunk_count: schedule.length,
+      sentence_count: payload.sentence_count,
+    });
     enterReaderMode();
   } catch (error) {
     schedule = [];
@@ -112,13 +126,18 @@ function play() {
   }
 
   isPlaying = true;
+  recordSessionEvent("play");
   renderCurrentChunk();
   scheduleNextChunk();
 }
 
-function pause() {
+function pause({ record = true } = {}) {
+  const wasPlaying = isPlaying;
   isPlaying = false;
   clearPlaybackTimer();
+  if (record && wasPlaying) {
+    recordSessionEvent("pause");
+  }
   renderCurrentChunk();
 }
 
@@ -138,18 +157,34 @@ function nextChunk({ auto = false } = {}) {
   clearPlaybackTimer();
 
   if (schedule.length === 0) {
-    pause();
+    pause({ record: !auto });
     return;
   }
 
+  const oldIndex = currentIndex;
   if (currentIndex >= schedule.length - 1) {
     currentIndex = schedule.length - 1;
-    pause();
+    if (!auto) {
+      recordSessionEvent("next_chunk", {
+        from_index: oldIndex,
+        to_index: currentIndex,
+      });
+    }
+    pause({ record: !auto });
     renderCompletion();
+    if (auto) {
+      recordCompletion();
+    }
     return;
   }
 
   currentIndex += 1;
+  if (!auto) {
+    recordSessionEvent("next_chunk", {
+      from_index: oldIndex,
+      to_index: currentIndex,
+    });
+  }
 
   if (auto && isPlaying) {
     renderCurrentChunk();
@@ -160,16 +195,27 @@ function nextChunk({ auto = false } = {}) {
 }
 
 function previousChunk() {
+  const oldIndex = currentIndex;
   currentIndex = Math.max(0, currentIndex - 1);
+  recordSessionEvent("previous_chunk", {
+    from_index: oldIndex,
+    to_index: currentIndex,
+  });
   pause();
 }
 
 function resetReader() {
+  const oldIndex = currentIndex;
   currentIndex = 0;
+  recordSessionEvent("reset", {
+    from_index: oldIndex,
+    to_index: currentIndex,
+  });
   pause();
 }
 
 function enterInputMode() {
+  recordSessionEvent("back_to_input");
   pause();
   hideSpeedOverlay();
   readerMode.classList.add("is-hidden");
@@ -184,6 +230,7 @@ function enterReaderMode() {
   clearPlaybackTimer();
   hideSpeedOverlay();
   renderCurrentChunk();
+  renderSessionDebug();
   readerArea.focus();
 }
 
@@ -366,10 +413,17 @@ function renderSpeedControls() {
   speedFaster.disabled = speedIndex >= SPEED_LEVELS.length - 1;
 }
 
-function setSpeedIndex(nextIndex) {
+function setSpeedIndex(nextIndex, { record = true } = {}) {
+  const oldSpeed = playbackSpeed;
   speedIndex = Math.min(Math.max(nextIndex, 0), SPEED_LEVELS.length - 1);
   playbackSpeed = SPEED_LEVELS[speedIndex];
   renderSpeedControls();
+  if (record && playbackSpeed !== oldSpeed) {
+    recordSessionEvent("speed_changed", {
+      from_speed: oldSpeed,
+      to_speed: playbackSpeed,
+    });
+  }
 
   if (isPlaying) {
     scheduleNextChunk();
@@ -384,8 +438,8 @@ function decreaseSpeed() {
   setSpeedIndex(speedIndex - 1);
 }
 
-function resetSpeed() {
-  setSpeedIndex(DEFAULT_SPEED_INDEX);
+function resetSpeed({ record = true } = {}) {
+  setSpeedIndex(DEFAULT_SPEED_INDEX, { record });
 }
 
 function updateSpeedLabel() {
@@ -411,4 +465,69 @@ function releasePointerCapture(event) {
   ) {
     readerArea.releasePointerCapture(event.pointerId);
   }
+}
+
+function getCurrentScheduleItem() {
+  if (schedule.length === 0) {
+    return null;
+  }
+  return schedule[clampIndex(currentIndex)] || null;
+}
+
+function recordSessionEvent(type, metadata = {}) {
+  const item = getCurrentScheduleItem();
+  if (sessionStartedAt === null) {
+    sessionStartedAt = Date.now();
+  }
+  sessionEvents.push({
+    type,
+    timestamp_ms: Date.now(),
+    chunk_index: item ? item.index : currentIndex,
+    sentence_index: item ? item.sentence_index : null,
+    playback_speed: playbackSpeed,
+    metadata,
+  });
+  renderSessionDebug();
+}
+
+function resetSessionEvents() {
+  sessionEvents = [];
+  sessionStartedAt = Date.now();
+  completionRecorded = false;
+  renderSessionDebug();
+}
+
+function getSessionSummary() {
+  return {
+    event_count: sessionEvents.length,
+    rewind_count: countSessionEvents("previous_chunk"),
+    manual_next_count: countSessionEvents("next_chunk"),
+    pause_count: countSessionEvents("pause"),
+    speed_change_count: countSessionEvents("speed_changed"),
+    completed: sessionEvents.some((event) => event.type === "playback_completed"),
+    current_speed: playbackSpeed,
+    current_index: currentIndex,
+    total_chunks: schedule.length,
+  };
+}
+
+function renderSessionDebug() {
+  const summary = getSessionSummary();
+  sessionEventCount.textContent = summary.event_count;
+  sessionRewindCount.textContent = summary.rewind_count;
+  sessionPauseCount.textContent = summary.pause_count;
+  sessionSpeedChangeCount.textContent = summary.speed_change_count;
+  sessionCompleted.textContent = summary.completed ? "Yes" : "No";
+}
+
+function countSessionEvents(type) {
+  return sessionEvents.filter((event) => event.type === type).length;
+}
+
+function recordCompletion() {
+  if (completionRecorded) {
+    return;
+  }
+  completionRecorded = true;
+  recordSessionEvent("playback_completed");
 }
