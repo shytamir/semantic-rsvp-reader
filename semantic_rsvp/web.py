@@ -37,11 +37,22 @@ def create_app() -> Flask:
             return jsonify({"error": "Text must not be empty."}), 400
 
         sentences = split_sentences(normalized_text)
+        chunker = RuleBasedChunker()
+        chunked_sentences = [
+            {
+                "sentence": sentence,
+                "chunks": [
+                    asdict(chunk) for chunk in chunker.chunk_sentence(sentence)
+                ],
+            }
+            for sentence in sentences
+        ]
         return jsonify(
             {
                 "normalized_text": normalized_text,
                 "sentences": sentences,
                 "sentence_count": len(sentences),
+                "chunked_sentences": chunked_sentences,
             }
         )
 

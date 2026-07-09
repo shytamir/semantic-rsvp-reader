@@ -21,10 +21,24 @@ form.addEventListener("submit", async (event) => {
       throw new Error(payload.error || "Unable to ingest text.");
     }
 
-    statusMessage.textContent = `${payload.sentence_count} sentence(s) ready for future playback.`;
-    for (const sentence of payload.sentences) {
+    statusMessage.textContent = `${payload.sentence_count} sentence(s) chunked for future playback.`;
+    for (const sentenceResult of payload.chunked_sentences) {
       const item = document.createElement("li");
-      item.textContent = sentence;
+      const sentenceText = document.createElement("p");
+      sentenceText.className = "sentence-text";
+      sentenceText.textContent = sentenceResult.sentence;
+
+      const chunks = document.createElement("div");
+      chunks.className = "chunk-list";
+
+      for (const chunk of sentenceResult.chunks) {
+        const chip = document.createElement("span");
+        chip.className = `chunk-chip chunk-${chunk.syntactic_hint}`;
+        chip.textContent = chunk.text;
+        chunks.append(chip);
+      }
+
+      item.append(sentenceText, chunks);
       sentenceList.append(item);
     }
   } catch (error) {

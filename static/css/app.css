@@ -98,9 +98,37 @@ textarea:focus-visible {
 
 .sentence-list {
   display: grid;
-  gap: 10px;
+  gap: 16px;
   margin: 14px 0 0;
   padding-left: 24px;
+}
+
+.sentence-text {
+  margin: 0 0 8px;
+}
+
+.chunk-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chunk-chip {
+  border: 1px solid #242424;
+  border-radius: 8px;
+  padding: 6px 8px;
+  background: #ffffff;
+  font-size: 0.95rem;
+  line-height: 1.25;
+}
+
+.chunk-light {
+  border-color: #8a8a82;
+  color: #4a4a46;
+}
+
+.chunk-dense {
+  background: #e8f0dc;
 }
 
 .is-error {

@@ -23,3 +23,6 @@ def test_ingest_returns_normalized_text_and_sentences(client):
     assert payload["normalized_text"] == "Hello world.\nDr. Smith agrees!"
     assert payload["sentences"] == ["Hello world.", "Dr. Smith agrees!"]
     assert payload["sentence_count"] == 2
+    assert [chunk["text"] for chunk in payload["chunked_sentences"][0]["chunks"]] == [
+        "Hello world.",
+    ]

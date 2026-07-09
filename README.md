@@ -42,6 +42,8 @@ Open `http://127.0.0.1:5000`.
 pytest
 ```
 
+The repository includes `pyproject.toml` so pytest can import the local `semantic_rsvp` package directly from a fresh clone.
+
 ## Next Milestones
 
 1. Timing/rhythm engine
