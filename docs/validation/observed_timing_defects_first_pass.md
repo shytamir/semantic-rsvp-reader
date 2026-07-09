@@ -1,5 +1,20 @@
 # Observed Defects Review
 
+## Summary
+
+Top recurring issues:
+1. Dense chunks are the clearest timing concern, especially when effective dwell drops into the roughly 450-575ms range at elevated playback speeds.
+2. Several timing-labeled reports are actually display/layout problems, especially end-of-line hyphenation or wrapping that splits words and makes the chunk feel rushed.
+3. A meaningful share of the file is still chunking/tokenization noise, including older reports without timing context, `a.m.` initialism splits, and modal/connector attachment issues such as `whether leaving would`.
+
+Priority for next calibration:
+- Separate pure timing reports from chunking and layout reports before changing duration formulas.
+- Fix word wrapping/hyphenation artifacts before treating those reports as timing failures.
+- After the display and tokenization noise is reduced, run a cleaner timing pass focused on dense chunks at default and elevated speeds.
+
+Review note:
+- Reports before the first timing context section do not include base/effective duration details, so they should not drive timing calibration directly.
+
 ---
 
 <!-- Source: defect_20260709_211934_3649cf.md.gz -->
