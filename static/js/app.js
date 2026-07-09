@@ -17,6 +17,8 @@ const form = document.querySelector("#schedule-form");
 const input = document.querySelector("#text-input");
 const prepareButton = document.querySelector("#prepare-button");
 const statusMessage = document.querySelector("#status-message");
+const sampleList = document.querySelector("#validation-sample-list");
+const sampleStatus = document.querySelector("#sample-status");
 const readerArea = document.querySelector("#reader-area");
 const chunkDisplay = document.querySelector("#chunk-display");
 const progressIndicator = document.querySelector("#progress-indicator");
@@ -94,6 +96,7 @@ attachReaderGestures();
 renderSpeedControls();
 renderSessionDebug();
 renderAdaptationStatus();
+loadValidationSamples();
 
 async function loadSchedule(text) {
   if (isLoading) {
@@ -136,6 +139,50 @@ async function loadSchedule(text) {
   } finally {
     setLoading(false);
   }
+}
+
+async function loadValidationSamples() {
+  if (!sampleList || !sampleStatus) {
+    return;
+  }
+
+  try {
+    const response = await fetch("/api/validation-samples");
+    const payload = await response.json();
+    if (!response.ok || !payload || !Array.isArray(payload.samples)) {
+      throw new Error("Validation samples were unavailable.");
+    }
+    renderValidationSamples(payload.samples);
+  } catch (error) {
+    sampleStatus.textContent = error.message;
+  }
+}
+
+function renderValidationSamples(samples) {
+  sampleList.replaceChildren();
+
+  if (samples.length === 0) {
+    sampleStatus.textContent = "No samples found.";
+    return;
+  }
+
+  for (const sample of samples) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "sample-button";
+    button.textContent = `${sample.id} ${sample.category}`;
+    button.setAttribute("aria-label", `Load validation sample ${sample.id}`);
+    button.addEventListener("click", () => loadValidationSample(sample));
+    sampleList.appendChild(button);
+  }
+
+  sampleStatus.textContent = `${samples.length} samples ready.`;
+}
+
+function loadValidationSample(sample) {
+  input.value = sample.text;
+  input.focus();
+  showStatus(`Loaded validation sample ${sample.id}.`);
 }
 
 function renderCurrentChunk() {

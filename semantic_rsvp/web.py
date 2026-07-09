@@ -7,6 +7,7 @@ from semantic_rsvp.text.normalize import normalize_text
 from semantic_rsvp.text.segment import split_sentences
 from semantic_rsvp.timing.models import TimingConfig
 from semantic_rsvp.timing.schedule import schedule_text
+from semantic_rsvp.validation_samples import load_validation_samples
 
 
 def create_app() -> Flask:
@@ -23,6 +24,10 @@ def create_app() -> Flask:
     @app.get("/health")
     def health():
         return jsonify({"status": "ok"})
+
+    @app.get("/api/validation-samples")
+    def validation_samples():
+        return jsonify({"samples": load_validation_samples()})
 
     @app.post("/api/ingest")
     def ingest():
