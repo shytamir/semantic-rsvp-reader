@@ -49,6 +49,29 @@ pytest
 
 The repository includes `pyproject.toml` so pytest can import the local `semantic_rsvp` package directly from a fresh clone.
 
+## Validation Workflow
+
+The validation corpus lives in `docs/validation/corpus.md`. Start the app, copy one sample passage into the reader, and use `docs/demo_validation.md` for the 15-minute or 30-minute manual validation loop.
+
+Log defects with `docs/validation/defect_log_template.md` and choose categories from `docs/validation/defect_taxonomy.md`. Interpret severity as:
+
+- 1: minor annoyance
+- 2: noticeable friction
+- 3: comprehension-impacting
+- 4: session-breaking
+
+To inspect the backend schedule without using the UI, run:
+
+```bash
+python scripts/schedule_sample.py sample.txt
+```
+
+or pipe text through stdin:
+
+```bash
+python scripts/schedule_sample.py --json < sample.txt
+```
+
 ## Next Milestones
 
 1. Demo validation
