@@ -66,6 +66,8 @@ The app supports in-app defect reporting during reader playback. Reports are sav
 
 Defect report storage uses generated filenames, bounded/escaped Markdown fields, a request size limit, and a best-effort local storage encryption check. If encrypted storage cannot be confirmed, the app logs a warning and continues.
 
+Chunking refinement pass 1 is documented in `docs/validation/chunking_refinement_pass_1.md`. It addresses the first observed modifier/head, verb-support, and punctuation-boundary defects. Timing calibration remains a next step.
+
 Log defects with the in-app `Report Defect` button, or use `docs/validation/defect_log_template.md` when working outside the app. Choose categories from `docs/validation/defect_taxonomy.md`. Interpret severity as:
 
 - 1: minor annoyance
@@ -87,9 +89,9 @@ python scripts/schedule_sample.py --json < sample.txt
 
 ## Next Milestones
 
-1. Demo validation
-2. UX cleanup
-3. Chunking/timing refinement based on real reading samples
+1. Timing calibration from observed validation defects
+2. Additional chunking refinement based on new reports
+3. UX cleanup
 4. Optional packaging/deployment notes
 
 ## Manual Test Checklist
