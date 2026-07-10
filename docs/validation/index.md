@@ -9,10 +9,9 @@
 
 Current focus:
 
-1. Validate S-022 phone landscape ghost/current chunk separation for GitHub issue #1.
-2. Confirm portrait behavior remains correct.
-3. Confirm first-chunk empty ghost, long ghost text, ellipsis, quote state, and parenthetical state remain readable.
-4. Keep other minor observations deferred until after the parser-assisted experiment unless they are safety fixes or clear regressions.
+1. S-022 phone landscape ghost/current chunk validation is complete and passed.
+2. Parser-assisted chunking experiment work should use the frozen experiment docs and evaluation artifacts.
+3. Keep other minor observations deferred until after the parser-assisted experiment unless they are safety fixes or clear regressions.
 
 ## Defect Reporting Workflow
 

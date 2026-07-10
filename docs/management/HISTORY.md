@@ -6,6 +6,7 @@ This file records completed work. It does not define current priorities.
 
 | Slice | Outcome | Evidence |
 | --- | --- | --- |
+| S-022: Landscape Ghost-Chunk Collision Stabilization | Completed as passed. Human validation confirmed GitHub issue #1 is resolved; the previous-chunk ghost now has a distinct visual lane from the active chunk in the targeted phone/orientation validation. | Commit `31f3d59`; GitHub issue #1 |
 | S-021: Post-Stabilization Validation Pass | Completed as partially passed. Human validation found no major or parser-experiment-blocking regression; one narrow phone-landscape ghost/current chunk collision was promoted into S-022. Detailed in-app reports were accidentally deleted, so no report counts or reconstructed defect details are recorded. | [S-021 human summary](../validation/s021_post_stabilization_human_summary.md); GitHub issue #1 |
 | Repository Licensing Pass | Added Apache License 2.0 and documented it in project docs. | Commit `1cc1c66`; [LICENSE](../../LICENSE) |
 | Quick Development Security Validation Pass 1 | Added a standard-library security validation runner that skips optional missing tools cleanly. | Commit `387abb8`; [Security validation pass 1](../security/security_validation_pass_1.md) |

@@ -4,24 +4,23 @@ This roadmap is the priority-order view. [STATUS](STATUS.md) is the authority fo
 
 ## Now
 
-1. **S-022: Landscape Ghost-Chunk Collision Stabilization**
-   - State: `HUMAN_VALIDATION`
-   - Owner: human
-   - Goal: validate the targeted phone landscape layout correction for GitHub issue #1.
+1. **S-023: Parser-assisted chunking spike**
+   - State: `READY_FOR_IMPLEMENTATION`
+   - Owner: Codex
+   - Goal: implement an isolated experimental parser-assisted path using the frozen design in [Parser-Assisted Chunking Experiment](../experiments/parser_assisted_chunking/README.md).
+   - Constraint: keep the rule-based chunker as the production default and fallback.
 
 ## Next
 
-1. **S-023: Parser-assisted chunking spike**
-   - Implement an isolated experimental parser-assisted path using the frozen design in [Parser-Assisted Chunking Experiment](../experiments/parser_assisted_chunking/README.md).
-   - Keep the rule-based chunker as the production default and fallback.
-2. **S-024: Baseline versus experiment comparison**
+1. **S-024: Baseline versus experiment comparison**
    - Compare rule-based and parser-assisted outputs using frozen regression, frozen generalization, and human-held blind challenge material when available.
-3. **S-025: Post-experiment disposition**
+2. **S-025: Post-experiment disposition**
    - Decide whether to abandon, revise, or consider promoting the parser-assisted approach after held-out evaluation.
+3. **S-026: Post-navigation usability validation**
+   - Resume navigation usability validation after the parser-assisted experiment sequence no longer risks masking chunking comparison results.
 
 ## Later
 
-- Post-navigation usability validation.
 - Demo/beta readiness cleanup.
 - Consider production adoption only after held-out evaluation and the documented promotion gate.
 - Additional management-doc cleanup if the one-human/one-Codex workflow changes.
