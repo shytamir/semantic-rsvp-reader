@@ -29,12 +29,16 @@ The prototype has completed Post-Validation Stabilization Pass 1 after `docs/val
 16. Drift Recovery Logic.
 17. Structural Hierarchy Anchor.
 18. Post-Validation Stabilization Pass 1.
+19. Repository Maintenance Pass 1.
+20. Quick Development Security Validation Pass 1.
 
 ## Current Evidence
 
 `docs/validation/chunking_refinement_pass_3.md` drove the latest stabilization slice. The report had 39 included defects: 17 bad chunk splits, 12 layout/visibility issues, 5 underdense chunks, 2 overlong chunks, 2 title-name splits, and 1 proper-name split. The pass addressed ghost previous chunk overlap and active font-size instability first, then source/title/byline/date flattening and observed phrase-cohesion cases. New quote, parenthetical, navigation, structure, and layout metadata support cleaner classification.
 
 JavaScript syntax checking is now CI-backed through a lightweight `node --check` wrapper. No npm toolchain or frontend framework was added.
+
+Quick development security validation now has a standard-library runner at `scripts/run_security_checks.py`. It attempts optional public validators when available and skips missing tools clearly; this is hygiene tooling, not production security hardening.
 
 The progress anchor is milestone-gated to reduce flicker and peripheral distraction. Breakpoint traversal is current-stream/session-only and uses existing swipe gestures only after at least one breakpoint exists; otherwise chunk-step swipes remain unchanged. Drift recovery applies only to breakpoint traversal: it lands at `max(0, n - 3)`, pauses 500ms, then auto-resumes. The ghost previous chunk is visible above the current chunk at reduced contrast, clipped to one line with ellipsis, and included in defect report context. Simple Markdown H1/H2 headers now produce a static top label and structural defect-report context.
 

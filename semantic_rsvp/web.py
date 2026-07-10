@@ -1,5 +1,6 @@
 from dataclasses import asdict
 import logging
+import os
 
 from flask import Flask, jsonify, render_template, request
 from werkzeug.exceptions import RequestEntityTooLarge
@@ -214,4 +215,4 @@ def _scheduled_chunk_to_dict(scheduled_chunk):
 
 
 if __name__ == "__main__":
-    create_app().run(host="0.0.0.0", debug=True)
+    create_app().run(host="0.0.0.0", debug=os.environ.get("FLASK_DEBUG") == "1")

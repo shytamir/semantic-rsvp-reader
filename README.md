@@ -43,6 +43,14 @@ python scripts/check_js_syntax.py
 
 `scripts/check_js_syntax.py` uses `node --check` or `nodejs --check` when available. If Node is missing locally, it skips cleanly; CI installs Node and enforces the check.
 
+## Security Checks
+
+```bash
+python scripts/run_security_checks.py
+```
+
+The runner uses optional public tools such as Bandit, pip-audit, Semgrep, Gitleaks, and detect-secrets when they are available locally, and skips missing tools clearly. See [docs/security/](docs/security/index.md) for details.
+
 ## Development Workflow
 
 - Use `python -m pytest` before committing.
@@ -61,6 +69,7 @@ More details:
 ## Documentation Map
 
 - [Docs index](docs/index.md)
+- [Security docs](docs/security/index.md)
 - [Feature docs](docs/index.md#features)
 - [Validation docs](docs/validation/index.md)
 - [Management docs](docs/management/index.md)

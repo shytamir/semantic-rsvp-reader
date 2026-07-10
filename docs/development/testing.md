@@ -18,6 +18,14 @@ The script checks `static/js/app.js` with `node --check` or `nodejs --check` whe
 
 No npm packages, frontend framework, bundler, transpiler, Jest, Playwright, or Selenium are used.
 
+## Security Checks
+
+```bash
+python scripts/run_security_checks.py
+```
+
+The security runner uses optional public tools such as Bandit, pip-audit, Semgrep, Gitleaks, and detect-secrets when they are available locally. Missing tools are reported as skipped. Semgrep requires a repo-local `semgrep.yml` so the runner does not rely on network-backed registry configs. The script does not install dependencies, intentionally make network calls, or modify files.
+
 ## CI
 
 GitHub Actions runs:
@@ -25,6 +33,8 @@ GitHub Actions runs:
 - Python dependency installation.
 - `python -m pytest`.
 - JavaScript syntax checking with Node installed by CI.
+
+Security checks are not a hard CI gate in this development pass because the validators are optional local tools.
 
 ## Validation-Driven Testing
 
