@@ -27,10 +27,11 @@
   - Added dormant frontend helpers and hidden UI placeholders.
   - No user-visible navigation behavior enabled yet.
 
-- [ ] **Spatial Anchor (Passive Progress Bar)**
+- [x] **Spatial Anchor (Passive Progress Bar)**
   - Implement a 2px-high, low-opacity (#333) progress bar at the bottom of the viewport.
   - Requirement: Update only at significant logical boundaries (paragraph breaks or every 5% character count) to avoid flicker/strobe effects.
   - Interaction: Single-tap to seek (coarse navigation).
+  - Implemented as a milestone-gated passive anchor with coarse tap-to-seek.
 
 - [ ] **Breakpoint Bookmarking Traversal**
   - Implement gesture-based bookmarking (e.g., Double-tap or Long-press) to set persistent breakpoints in the stream.

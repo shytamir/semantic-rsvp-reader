@@ -57,6 +57,7 @@ const adaptationReset = document.querySelector("#adaptation-reset");
 const adaptationCount = document.querySelector("#adaptation-count");
 const sessionCurrentSpeed = document.querySelector("#session-current-speed");
 const sessionAdaptationEnabled = document.querySelector("#session-adaptation-enabled");
+const navigationScaffold = document.querySelector("#navigation-scaffold");
 const progressAnchor = document.querySelector("#progress-anchor");
 const progressAnchorFill = document.querySelector("#progress-anchor-fill");
 const breakpointStatus = document.querySelector("#breakpoint-status");
@@ -66,6 +67,7 @@ let currentIndex = 0;
 let navigationEnabled = false;
 let breakpoints = [];
 let lastProgressMilestoneIndex = 0;
+let displayedProgressPercent = 0;
 let isPlaying = false;
 let timerId = null;
 let touchStartX = 0;
@@ -122,6 +124,8 @@ defectPanel.addEventListener("pointerdown", stopOverlayGesturePropagation);
 defectPanel.addEventListener("pointermove", stopOverlayGesturePropagation);
 defectPanel.addEventListener("pointerup", stopOverlayGesturePropagation);
 defectPanel.addEventListener("click", stopOverlayGesturePropagation);
+progressAnchor.addEventListener("pointerdown", stopOverlayGesturePropagation);
+progressAnchor.addEventListener("click", handleProgressAnchorClick);
 attachReaderGestures();
 renderSpeedControls();
 renderSessionDebug();
@@ -241,6 +245,7 @@ function renderCurrentChunk() {
   renderChunkDisplayState(item);
   progressIndicator.textContent = `${currentIndex + 1} / ${schedule.length}`;
   playPauseButton.textContent = isPlaying ? "Pause" : "Play";
+  updateProgressAnchor();
 }
 
 function openDefectPanel() {
@@ -548,6 +553,9 @@ function nextChunk({ auto = false } = {}) {
     scheduleNextChunk();
   } else {
     pause();
+    if (!auto) {
+      updateProgressAnchor({ force: true });
+    }
   }
 }
 
@@ -581,6 +589,7 @@ function moveManualChunks(delta, eventType) {
     maybeAdaptPlaybackSpeed("rewind");
   }
   pause();
+  updateProgressAnchor({ force: true });
 }
 
 function resetReader() {
@@ -592,6 +601,7 @@ function resetReader() {
   });
   resetAdaptationWindow();
   pause();
+  updateProgressAnchor({ force: true, percent: 0 });
 }
 
 function enterInputMode() {
@@ -599,6 +609,8 @@ function enterInputMode() {
   pause();
   hideSpeedOverlay();
   closeDefectPanel();
+  hideProgressAnchor();
+  resetProgressAnchor();
   readerMode.classList.add("is-hidden");
   inputMode.classList.remove("is-hidden");
   showStatus("Prepare text to start reading.");
@@ -611,7 +623,9 @@ function enterReaderMode() {
   clearPlaybackTimer();
   hideSpeedOverlay();
   closeDefectPanel();
+  showProgressAnchor();
   renderCurrentChunk();
+  updateProgressAnchor({ force: true, percent: 0 });
   renderSessionDebug();
   renderDefectCount();
   readerArea.focus();
@@ -660,6 +674,7 @@ function renderCompletion() {
   clearPlaybackTimer();
   progressIndicator.textContent = `${schedule.length} / ${schedule.length} complete`;
   playPauseButton.textContent = "Play";
+  updateProgressAnchor({ force: true, percent: 100 });
 }
 
 function clampIndex(index) {
@@ -954,11 +969,91 @@ function resetNavigationScaffold() {
   navigationEnabled = false;
   breakpoints = [];
   lastProgressMilestoneIndex = 0;
+  resetProgressAnchor();
+  hideProgressAnchor();
+  clearBreakpoints();
+  if (breakpointStatus) {
+    breakpointStatus.textContent = "";
+  }
+}
+
+function resetProgressAnchor() {
+  displayedProgressPercent = 0;
   if (progressAnchorFill) {
     progressAnchorFill.style.width = "0%";
   }
+}
+
+function showProgressAnchor() {
+  if (navigationScaffold) {
+    navigationScaffold.hidden = false;
+  }
+  navigationEnabled = true;
+}
+
+function hideProgressAnchor() {
+  if (navigationScaffold) {
+    navigationScaffold.hidden = true;
+  }
+  navigationEnabled = false;
+}
+
+function shouldUpdateProgressAnchor(item) {
+  if (!item || !item.navigation) {
+    return false;
+  }
+  return Boolean(
+    item.navigation.is_progress_milestone ||
+      item.navigation.is_paragraph_start,
+  );
+}
+
+function updateProgressAnchor({ force = false, percent = null } = {}) {
+  if (!progressAnchorFill || !navigationEnabled) {
+    return;
+  }
+  const item = getCurrentScheduleItem();
+  if (!force && !shouldUpdateProgressAnchor(item)) {
+    return;
+  }
+  const nextPercent = percent === null ? getCurrentProgressPercent() : clampPercent(percent);
+  displayedProgressPercent = nextPercent;
+  if (item && item.navigation && item.navigation.is_progress_milestone) {
+    lastProgressMilestoneIndex = item.index;
+  }
+  progressAnchorFill.style.width = `${displayedProgressPercent}%`;
+}
+
+function handleProgressAnchorClick(event) {
+  event.stopPropagation();
+  if (!isReaderModeActive() || schedule.length === 0 || !progressAnchor) {
+    return;
+  }
+  const bounds = progressAnchor.getBoundingClientRect();
+  if (!bounds.width) {
+    return;
+  }
+  const targetPercent = clampPercent(
+    ((event.clientX - bounds.left) / bounds.width) * 100,
+  );
+  const oldIndex = currentIndex;
+  const nextIndex = getNearestProgressMilestoneIndex(targetPercent);
+  pause({ record: false, render: false });
+  currentIndex = clampIndex(nextIndex);
+  smoothChunkRun = 0;
+  adaptationSuppressedUntilEventCount = sessionEvents.length + 3;
+  resetAdaptationWindow();
+  renderCurrentChunk();
+  updateProgressAnchor({ force: true });
+  const navigation = getCurrentNavigationMeta();
+  recordSessionEvent("progress_seek", {
+    from_index: oldIndex,
+    to_index: currentIndex,
+    target_percent: Math.round(targetPercent),
+    resolved_percent: navigation ? navigation.progress_percent : 0,
+  });
   if (breakpointStatus) {
-    breakpointStatus.textContent = "";
+    breakpointStatus.textContent = `Progress seek ${currentIndex + 1}`;
   }
 }
 
@@ -979,17 +1074,29 @@ function getNearestProgressMilestoneIndex(targetPercent) {
   const target = clampPercent(targetPercent);
   let nearestIndex = 0;
   let nearestDistance = Infinity;
+  let foundMilestone = false;
   schedule.forEach((item, index) => {
     const navigation = item.navigation || {};
     if (!navigation.is_progress_milestone) {
       return;
     }
+    foundMilestone = true;
     const distance = Math.abs(clampPercent(navigation.progress_percent || 0) - target);
     if (distance < nearestDistance) {
       nearestIndex = index;
       nearestDistance = distance;
     }
   });
+  if (!foundMilestone) {
+    schedule.forEach((item, index) => {
+      const navigation = item.navigation || {};
+      const distance = Math.abs(clampPercent(navigation.progress_percent || 0) - target);
+      if (distance < nearestDistance) {
+        nearestIndex = index;
+        nearestDistance = distance;
+      }
+    });
+  }
   return nearestIndex;
 }
 

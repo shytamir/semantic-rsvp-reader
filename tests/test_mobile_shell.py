@@ -97,7 +97,11 @@ def test_navigation_scaffold_is_hidden_and_inert(client):
     css = response.data.decode("utf-8")
 
     assert ".navigation-scaffold[hidden]" in css
+    assert "position: fixed" in css
+    assert "height: 2px" in css
+    assert "opacity: 0.35" in css
     assert "pointer-events: none" in css
+    assert "pointer-events: auto" in css
     assert ".progress-anchor-fill" in css
 
 
@@ -136,3 +140,14 @@ def test_static_js_includes_dormant_navigation_helpers(client):
     assert "getNearestProgressMilestoneIndex" in javascript
     assert "setBreakpointAtCurrentChunk" in javascript
     assert "computeLeadInIndex" in javascript
+
+
+def test_static_js_updates_and_seeks_progress_anchor(client):
+    response = client.get("/static/js/app.js")
+    javascript = response.data.decode("utf-8")
+
+    assert "handleProgressAnchorClick" in javascript
+    assert "shouldUpdateProgressAnchor" in javascript
+    assert "updateProgressAnchor" in javascript
+    assert "progress_seek" in javascript
+    assert "is_progress_milestone" in javascript

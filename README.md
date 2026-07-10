@@ -39,6 +39,9 @@ The app can generate `.md.gz` backend defect report files directly from the mobi
 | Navigation metadata scaffolding | Done | Schedule items include character span, paragraph, and coarse progress metadata |
 | Paragraph/progress milestone metadata | Done | Paragraph starts and 5% progress crossings are computed for future navigability |
 | Dormant navigability UI scaffolding | Done | Hidden progress/breakpoint placeholders and inactive JS helpers exist |
+| Passive bottom progress anchor | Done | Subtle 2px bottom bar provides spatial orientation in reader mode |
+| Milestone-gated progress updates | Done | Visible progress advances only at paragraph starts, 5% milestones, and forced navigation events |
+| Coarse tap-to-seek navigation | Done | Progress-bar taps pause playback and jump to a nearby progress milestone |
 | JavaScript syntax check | Done | Lightweight `node --check` wrapper runs locally when Node exists and is enforced in CI |
 | `/api/schedule` | Done | Backend emits frontend-ready schedule |
 | Mobile RSVP playback loop | Done | Reader advances scheduled chunks |
@@ -100,7 +103,7 @@ Quote and parenthetical state indicators are documented in `docs/validation/quot
 
 Defect reports now include timing context such as base duration, effective duration, playback speed, syntactic hint, content word count, character length, quote state, parenthetical state, nearby chunk timing, session timing summary, optional navigation metadata, and display metadata. See `docs/validation/timing_defect_collection.md` for the timing defect collection workflow and `scripts/review_defects.py` for local report review/export.
 
-Navigation metadata is available in schedule items for future orientation and recovery features. Active progress bars, seeking, bookmark traversal, and drift recovery are not enabled yet.
+Navigation metadata is available in schedule items for future orientation and recovery features. The passive spatial anchor uses that metadata for a low-distraction bottom progress bar. Updates are intentionally milestone-gated rather than per-chunk, and progress-bar tap seeking is coarse. Bookmark traversal and drift recovery are not implemented yet.
 
 Log defects with the in-app `Report Defect` button, or use `docs/validation/defect_log_template.md` when working outside the app. Choose categories from `docs/validation/defect_taxonomy.md`. Interpret severity as:
 
@@ -124,9 +127,9 @@ python scripts/schedule_sample.py --json < sample.txt
 ## Next Milestones
 
 1. Chunker Refinement Pass 2 for proper nouns, honorifics, articles, and function-word boundaries
-2. Passive Spatial Anchor implementation
-3. Breakpoint Bookmarking Traversal
-4. Drift Recovery Logic
+2. Breakpoint Bookmarking Traversal
+3. Drift Recovery Logic
+4. Post-navigation usability validation
 
 ## Manual Test Checklist
 
@@ -418,3 +421,34 @@ Quote/parenthetical state indicator manual test:
 13. Use `punctuation_rhythm_issue` only when visual state is clear and rhythm still feels wrong.
 14. Confirm playback speed, adaptation, gestures, and timing behavior are unchanged.
 15. Run pytest.
+
+Passive Spatial Anchor manual test:
+
+1. Start Flask locally.
+2. Open the app on a phone browser.
+3. Load a medium or long validation sample.
+4. Confirm no progress bar appears in input mode.
+5. Enter reader mode.
+6. Confirm a subtle 2px progress bar appears at the bottom.
+7. Start playback.
+8. Confirm the bar updates only occasionally, not every chunk.
+9. Confirm progress does not flicker or strobe.
+10. Pause playback.
+11. Tap near the middle of the progress bar.
+12. Confirm playback remains paused.
+13. Confirm the reader jumps to a roughly middle location.
+14. Confirm progress bar updates to the resolved location.
+15. Tap near the beginning.
+16. Confirm reader jumps near the beginning and remains paused.
+17. Tap near the end.
+18. Confirm reader jumps near the end and remains paused.
+19. Confirm reader-area tap/play/pause still works.
+20. Confirm swipe previous/next still works.
+21. Confirm speed controls still work.
+22. Confirm adaptation does not behave unexpectedly after seek.
+23. Confirm defect reporting still works after seek.
+24. Tap Edit Text.
+25. Confirm progress bar hides or resets.
+26. Load new text.
+27. Confirm progress starts at 0%.
+28. Run pytest.

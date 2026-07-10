@@ -18,6 +18,7 @@ The near-term goal is to refine the reading experience using observed defects ra
 - **Done:** Quote/parenthetical display-state annotation and defect taxonomy prep.
 - **Done:** Navigation Scaffolding Pass 1.
 - **Done:** JavaScript syntax verification hardening.
+- **Done:** Passive Spatial Anchor implementation.
 - **Current:** Prepare Chunker Refinement Pass 2 using clearer defect categories.
 
 **Gate:** Collect enough clean chunking/display-state evidence to identify repeated phrase-boundary patterns without treating every discomfort as timing.
@@ -28,23 +29,23 @@ The near-term goal is to refine the reading experience using observed defects ra
 
 **Gate:** Changes are deterministic, covered by focused tests, and do not alter timing formulas.
 
-## Next Slice 2: Passive Spatial Anchor Implementation
-
-**Goal:** Turn existing paragraph/progress metadata into a subtle 2px passive progress anchor.
-
-**Gate:** Updates occur only at paragraph breaks or 5% progress milestones, with no flicker or peripheral distraction.
-
-## Next Slice 3: Breakpoint Bookmarking Traversal
+## Next Slice 2: Breakpoint Bookmarking Traversal
 
 **Goal:** Add breakpoint setting and traversal without fighting existing swipe and long-press gestures.
 
 **Gate:** Gesture behavior is explicit, tested manually on mobile, and does not destabilize current chunk navigation.
 
-## Next Slice 4: Drift Recovery Logic
+## Next Slice 3: Drift Recovery Logic
 
 **Goal:** Add the 3-chunk lead-in behavior for bookmark jumps.
 
 **Gate:** Recovery feels predictable, avoids surprise autoplay, and can be validated without masking chunking defects.
+
+## Next Slice 4: Post-Navigation Usability Validation
+
+**Goal:** Validate the passive anchor, coarse seek, and later navigation behavior without letting navigation mask chunking defects.
+
+**Gate:** Remaining issues are classified cleanly as navigation, chunking, timing, or layout defects.
 
 ## Explicit Non-Goals For The Current Phase
 
@@ -54,4 +55,4 @@ The near-term goal is to refine the reading experience using observed defects ra
 - No frontend framework migration or browser automation tooling.
 - No native app, EPUB/PDF import, or cloud sync.
 - No broad timing redesign during chunker-dominant refinement.
-- No active navigation behavior before its dedicated implementation slice.
+- No bookmark traversal or drift recovery before their dedicated implementation slices.

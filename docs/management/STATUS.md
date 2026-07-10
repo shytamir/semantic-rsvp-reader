@@ -3,11 +3,11 @@
 > **Status:** GREEN
 > **Last Updated:** 2026-07-10
 > **Current Phase:** Chunker-dominant refinement.
-> **Immediate Focus:** Proper-name, title, article, preposition, quote, and parenthetical chunk quality; navigation scaffolding remains dormant.
+> **Immediate Focus:** Proper-name, title, article, preposition, quote, and parenthetical chunk quality; navigation additions remain conservative.
 
 ## Current Project Phase
 
-The prototype has completed a narrow follow-up to Timing Calibration Pass 1. Timing is improved enough that the main blocker is now chunk quality: phrase attachment, proper names, titles, articles, prepositions, pronoun/preposition bookends, and context around quotes or parentheticals. Navigation Scaffolding Pass 1 adds schedule metadata and dormant helpers only; existing reader behavior, gestures, speed controls, adaptation, and timing remain unchanged.
+The prototype has completed a narrow follow-up to Timing Calibration Pass 1. Timing is improved enough that the main blocker is now chunk quality: phrase attachment, proper names, titles, articles, prepositions, pronoun/preposition bookends, and context around quotes or parentheticals. The Passive Spatial Anchor adds a subtle bottom progress bar and coarse tap-to-seek while leaving bookmarking and drift recovery for future slices.
 
 ## Completed Recent Slices
 
@@ -22,6 +22,7 @@ The prototype has completed a narrow follow-up to Timing Calibration Pass 1. Tim
 9. Quote/parenthetical display-state annotation and defect taxonomy prep.
 10. Navigation Scaffolding Pass 1.
 11. JavaScript syntax verification hardening.
+12. Passive Spatial Anchor implementation.
 
 ## Current Evidence
 
@@ -29,12 +30,14 @@ The prototype has completed a narrow follow-up to Timing Calibration Pass 1. Tim
 
 JavaScript syntax checking is now CI-backed through a lightweight `node --check` wrapper. No npm toolchain or frontend framework was added.
 
+The progress anchor is milestone-gated to reduce flicker and peripheral distraction. Active bookmarking and drift recovery remain future work.
+
 ## Next 4 Planned Slices
 
 1. Proper Noun / Honorific / Article / Function-Word Chunking Refinement Pass.
-2. Passive Spatial Anchor implementation.
-3. Breakpoint Bookmarking Traversal.
-4. Drift Recovery Logic.
+2. Breakpoint Bookmarking Traversal.
+3. Drift Recovery Logic.
+4. Post-navigation usability validation.
 
 ## Known Risks
 
@@ -43,8 +46,9 @@ JavaScript syntax checking is now CI-backed through a lightweight `node --check`
 - Chunking defects being misclassified as timing defects.
 - Quote/parenthetical visual indicators being too subtle or too heavy.
 - Adaptation masking baseline timing defects.
-- Navigation UI causing peripheral distraction.
-- Progress updates causing flicker/strobe effects.
+- Progress bar becoming distracting.
+- Seek interaction conflicting with reader gestures.
+- Coarse seek causing disorientation without drift recovery.
 - Bookmark traversal fighting existing swipe gestures.
 - Navigability features masking chunking defects.
 - Drift recovery becoming surprising if too automatic.

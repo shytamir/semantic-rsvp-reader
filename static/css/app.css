@@ -224,18 +224,32 @@ textarea:focus-visible,
 }
 
 .navigation-scaffold {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+  height: max(10px, env(safe-area-inset-bottom));
   pointer-events: none;
 }
 
 .progress-anchor {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
   height: 2px;
-  opacity: 0;
+  opacity: 0.35;
+  background: transparent;
+  touch-action: manipulation;
+  pointer-events: auto;
 }
 
 .progress-anchor-fill {
   width: 0%;
   height: 100%;
   background: #333;
+  pointer-events: none;
 }
 
 .breakpoint-status {
