@@ -37,3 +37,17 @@ Consequence: passive anchor, breakpoints, ghost chunk, drift recovery, and struc
 The reader preserves simple source, title, byline, date, and heading boundaries without becoming a full Markdown/article renderer.
 
 Consequence: full Markdown rendering, heading navigation, and table of contents remain parked.
+
+## D-007: Optional Parser-assisted Chunking Experiment
+
+Status: provisional / experimental.
+
+The project authorizes a reversible, optional parser-assisted chunking experiment while retaining the current deterministic rule-based implementation as the production default and fallback.
+
+Context: the existing system uses hand-written rules for both linguistic cohesion and RSVP presentation. Rule interactions and corpus-specific exceptions are increasing maintenance cost. Generic RAG or document chunkers do not solve the RSVP presentation problem. Conventional NLP may provide useful sentence-structure evidence without controlling final presentation.
+
+Decision: a future spike may use an optional local parser-assisted path, but the production baseline stays dependency-free from NLP tooling during the experiment. The experiment must use project-owned intermediate feature records, deterministic RSVP boundary selection after feature extraction, and held-out comparison before any default replacement.
+
+Consequences: future experimental dependencies must remain isolated initially, library and model versions must eventually be pinned, parser failure or unsafe token alignment must fall back to the baseline, linguistic spans are normally soft constraints, display width and structural boundaries remain hard project constraints, and installation weight, latency, and fallback rate become evaluation concerns.
+
+References: [Parser-Assisted Chunking Experiment](../experiments/parser_assisted_chunking/README.md), [Experiment Contract](../experiments/parser_assisted_chunking/experiment_contract.md), and [Future Implementation Interface](../experiments/parser_assisted_chunking/future_interface.md).

@@ -71,6 +71,7 @@ More details:
 - [Docs index](docs/index.md)
 - [Security docs](docs/security/index.md)
 - [Feature docs](docs/index.md#features)
+- [Parser-assisted chunking experiment](docs/experiments/parser_assisted_chunking/README.md)
 - [Validation docs](docs/validation/index.md)
 - [Management docs](docs/management/index.md)
 - [Defect taxonomy](docs/validation/defect_taxonomy.md)

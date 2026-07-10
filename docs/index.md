@@ -26,6 +26,10 @@
 - [In-app defect reporting](validation/in_app_defect_reporting.md)
 - [Latest stabilization pass](validation/post_validation_stabilization_pass_1.md)
 
+## Experiments
+
+- [Parser-assisted chunking experiment](experiments/parser_assisted_chunking/README.md)
+
 ## Management
 
 - [Management index](management/index.md)

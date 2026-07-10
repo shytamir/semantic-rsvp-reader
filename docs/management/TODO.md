@@ -27,6 +27,7 @@ This file is non-authoritative. It preserves ideas that should not compete with 
 - Heading navigation.
 - Table of contents.
 - Public performance claims.
+- Broad hand-written semantic or grammatical exception-family expansion while the parser-assisted chunking experiment is pending.
 
 ## Unscheduled Hygiene
 

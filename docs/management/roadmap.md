@@ -14,14 +14,17 @@ This roadmap is the priority-order view. [STATUS](STATUS.md) is the authority fo
 1. **S-022: Evidence-based follow-up from S-021**
    - If S-021 passes, expand focused chunking regression coverage.
    - If S-021 partially passes, fails, or is inconclusive, summarize the new defects and run a targeted stabilization follow-up.
-2. **S-023: Post-navigation usability validation**
-   - Validate passive anchor, seek, breakpoints, ghost chunk, drift recovery, and structural label without letting navigation mask chunking defects.
-3. **S-024: Demo/beta readiness cleanup**
-   - Tighten documentation, validation workflow, and small ergonomics after core RSVP and navigability validation.
+2. **S-023: Parser-assisted chunking spike**
+   - Implement an isolated experimental parser-assisted path using the frozen design in [Parser-Assisted Chunking Experiment](../experiments/parser_assisted_chunking/README.md).
+   - Keep the rule-based chunker as the production default and fallback.
+3. **S-024: Baseline versus experiment comparison**
+   - Compare rule-based and parser-assisted outputs using frozen regression, frozen generalization, and human-held blind challenge material when available.
 
 ## Later
 
-- Broader validation-corpus growth after the current stabilization gate is resolved.
+- Post-navigation usability validation.
+- Demo/beta readiness cleanup.
+- Consider production adoption only after held-out evaluation and the documented promotion gate.
 - Additional management-doc cleanup if the one-human/one-Codex workflow changes.
 - Optional CI or release hygiene only when the repo already has a clear need for it.
 
@@ -31,5 +34,8 @@ This roadmap is the priority-order view. [STATUS](STATUS.md) is the authority fo
 - Frontend framework migration, npm toolchain, and browser automation tooling.
 - Full Markdown rendering, heading navigation, and table of contents.
 - Public performance claims.
+- Broad expansion of hand-written semantic and grammatical exception families while the parser-assisted experiment is pending.
 
 Quote/parenthetical validation is not parked as a standalone queue item. It is folded into S-021 as a display-state clarity check.
+
+Newly observed grammatical or semantic defects should become evaluation cases first. They do not automatically become new production rules while the parser-assisted experiment is pending.

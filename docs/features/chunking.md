@@ -18,6 +18,11 @@ The chunker converts normalized sentences into short semantic units suitable for
 - No broad document parser.
 - No global chunk-size retuning without validation evidence.
 - Mobile width constraints matter when preserving names, dates, and phrases.
+- While the parser-assisted experiment is pending, newly observed grammatical or semantic defects should become evaluation cases first rather than automatic new production rules.
+
+## Experimental Direction
+
+An optional parser-assisted experiment is frozen in [Parser-Assisted Chunking Experiment](../experiments/parser_assisted_chunking/README.md). It does not change the production chunker. The rule-based implementation remains the default, fallback, and regression baseline.
 
 ## Validation Notes
 

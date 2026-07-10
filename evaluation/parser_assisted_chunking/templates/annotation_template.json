@@ -1,0 +1,36 @@
+{
+  "case_id": "<case-id>",
+  "annotation_version": "0.1",
+  "annotator_id": "<pseudonymous-id>",
+  "source_sha256": "<sha256-of-normalized-source-text>",
+  "boundaries": [
+    {
+      "offset": 0,
+      "type": "required|forbidden|preferred|acceptable|required_structural",
+      "rationale": "<short reason>"
+    }
+  ],
+  "protected_spans": [
+    {
+      "start": 0,
+      "end": 0,
+      "label": "<span label>",
+      "rationale": "<short reason>"
+    }
+  ],
+  "max_width_expectations": [
+    {
+      "start": 0,
+      "end": 0,
+      "max_chars": 32,
+      "rationale": "<short reason>"
+    }
+  ],
+  "whole_sentence_segmentations": [
+    ["<chunk 1>", "<chunk 2>"]
+  ],
+  "uncertainty": [],
+  "adjudication_status": "draft|adjudicated|superseded",
+  "adjudicator_id": null,
+  "notes": []
+}

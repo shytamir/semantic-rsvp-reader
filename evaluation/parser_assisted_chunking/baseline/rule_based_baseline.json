@@ -1,0 +1,4767 @@
+{
+  "cases": [
+    {
+      "case_id": "dev-names-0001",
+      "chunks": [
+        {
+          "char_length": 8,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 560,
+          "index": 0,
+          "navigation": {
+            "char_count_total": 65,
+            "char_end": 8,
+            "char_start": 0,
+            "is_paragraph_end": false,
+            "is_paragraph_start": true,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 12,
+            "progress_ratio": 0.12307692307692308
+          },
+          "sentence_index": 0,
+          "source_end": 8,
+          "source_start": 0,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "Dr. Mira"
+        },
+        {
+          "char_length": 9,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 600,
+          "index": 1,
+          "navigation": {
+            "char_count_total": 65,
+            "char_end": 18,
+            "char_start": 9,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 27,
+            "progress_ratio": 0.27692307692307694
+          },
+          "sentence_index": 0,
+          "source_end": 18,
+          "source_start": 9,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "Patel met"
+        },
+        {
+          "char_length": 19,
+          "content_word_count": 3,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 750,
+          "index": 2,
+          "navigation": {
+            "char_count_total": 65,
+            "char_end": 38,
+            "char_start": 19,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 58,
+            "progress_ratio": 0.5846153846153846
+          },
+          "sentence_index": 0,
+          "source_end": 38,
+          "source_start": 19,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "Air Force officials"
+        },
+        {
+          "char_length": 8,
+          "content_word_count": 0,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 300,
+          "index": 3,
+          "navigation": {
+            "char_count_total": 65,
+            "char_end": 47,
+            "char_start": 39,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 72,
+            "progress_ratio": 0.7230769230769231
+          },
+          "sentence_index": 0,
+          "source_end": 47,
+          "source_start": 39,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "light",
+          "text": "near the"
+        },
+        {
+          "char_length": 17,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 880,
+          "index": 4,
+          "navigation": {
+            "char_count_total": 65,
+            "char_end": 65,
+            "char_start": 48,
+            "is_paragraph_end": true,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 100,
+            "progress_ratio": 1.0
+          },
+          "sentence_index": 0,
+          "source_end": 65,
+          "source_start": 48,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "Strait of Hormuz."
+        }
+      ],
+      "corpus": "development",
+      "input_sha256": "3392fbab56fb26fa6c9c9672f5b3d21c0b116d6acf9fe63939a3cbcb5445ffea",
+      "normalized_text": "Dr. Mira Patel met Air Force officials near the Strait of Hormuz.",
+      "sentence_count": 1,
+      "sentences": [
+        "Dr. Mira Patel met Air Force officials near the Strait of Hormuz."
+      ]
+    },
+    {
+      "case_id": "dev-date-0002",
+      "chunks": [
+        {
+          "char_length": 12,
+          "content_word_count": 3,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 600,
+          "index": 0,
+          "navigation": {
+            "char_count_total": 73,
+            "char_end": 12,
+            "char_start": 0,
+            "is_paragraph_end": false,
+            "is_paragraph_start": true,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 16,
+            "progress_ratio": 0.1643835616438356
+          },
+          "sentence_index": 0,
+          "source_end": 12,
+          "source_start": 0,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "July 4, 2026"
+        },
+        {
+          "char_length": 11,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 440,
+          "index": 1,
+          "navigation": {
+            "char_count_total": 73,
+            "char_end": 24,
+            "char_start": 13,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 32,
+            "progress_ratio": 0.3287671232876712
+          },
+          "sentence_index": 1,
+          "source_end": 24,
+          "source_start": 13,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "Inherent in"
+        },
+        {
+          "char_length": 13,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 440,
+          "index": 2,
+          "navigation": {
+            "char_count_total": 73,
+            "char_end": 38,
+            "char_start": 25,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 52,
+            "progress_ratio": 0.5205479452054794
+          },
+          "sentence_index": 1,
+          "source_end": 38,
+          "source_start": 25,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "the agreement"
+        },
+        {
+          "char_length": 12,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 440,
+          "index": 3,
+          "navigation": {
+            "char_count_total": 73,
+            "char_end": 51,
+            "char_start": 39,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 69,
+            "progress_ratio": 0.6986301369863014
+          },
+          "sentence_index": 1,
+          "source_end": 51,
+          "source_start": 39,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "were several"
+        },
+        {
+          "char_length": 21,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 970,
+          "index": 4,
+          "navigation": {
+            "char_count_total": 73,
+            "char_end": 73,
+            "char_start": 52,
+            "is_paragraph_end": true,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 100,
+            "progress_ratio": 1.0
+          },
+          "sentence_index": 1,
+          "source_end": 73,
+          "source_start": 52,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "unresolved questions."
+        }
+      ],
+      "corpus": "development",
+      "input_sha256": "c54c8eaf941fbff557a5fcf18e8b7b75072c673abd8b305e9a2a91d7eb99edf0",
+      "normalized_text": "July 4, 2026\nInherent in the agreement were several unresolved questions.",
+      "sentence_count": 2,
+      "sentences": [
+        "July 4, 2026",
+        "Inherent in the agreement were several unresolved questions."
+      ]
+    },
+    {
+      "case_id": "dev-negation-0003",
+      "chunks": [
+        {
+          "char_length": 9,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 440,
+          "index": 0,
+          "navigation": {
+            "char_count_total": 62,
+            "char_end": 9,
+            "char_start": 0,
+            "is_paragraph_end": false,
+            "is_paragraph_start": true,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 14,
+            "progress_ratio": 0.14516129032258066
+          },
+          "sentence_index": 0,
+          "source_end": 9,
+          "source_start": 0,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "The panel"
+        },
+        {
+          "char_length": 12,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 440,
+          "index": 1,
+          "navigation": {
+            "char_count_total": 62,
+            "char_end": 22,
+            "char_start": 10,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 35,
+            "progress_ratio": 0.3548387096774194
+          },
+          "sentence_index": 0,
+          "source_end": 22,
+          "source_start": 10,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "did not back"
+        },
+        {
+          "char_length": 9,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 440,
+          "index": 2,
+          "navigation": {
+            "char_count_total": 62,
+            "char_end": 32,
+            "char_start": 23,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 51,
+            "progress_ratio": 0.5161290322580645
+          },
+          "sentence_index": 0,
+          "source_end": 32,
+          "source_start": 23,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "down when"
+        },
+        {
+          "char_length": 9,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 440,
+          "index": 3,
+          "navigation": {
+            "char_count_total": 62,
+            "char_end": 42,
+            "char_start": 33,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 67,
+            "progress_ratio": 0.6774193548387096
+          },
+          "sentence_index": 0,
+          "source_end": 42,
+          "source_start": 33,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "the first"
+        },
+        {
+          "char_length": 19,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 910,
+          "index": 4,
+          "navigation": {
+            "char_count_total": 62,
+            "char_end": 62,
+            "char_start": 43,
+            "is_paragraph_end": true,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 100,
+            "progress_ratio": 1.0
+          },
+          "sentence_index": 0,
+          "source_end": 62,
+          "source_start": 43,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "objections arrived."
+        }
+      ],
+      "corpus": "development",
+      "input_sha256": "c1e1dd65fd1db212c38085e334d2405cc3f846e4af15371ec6a3dcefee697472",
+      "normalized_text": "The panel did not back down when the first objections arrived.",
+      "sentence_count": 1,
+      "sentences": [
+        "The panel did not back down when the first objections arrived."
+      ]
+    },
+    {
+      "case_id": "dev-money-0004",
+      "chunks": [
+        {
+          "char_length": 10,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 440,
+          "index": 0,
+          "navigation": {
+            "char_count_total": 76,
+            "char_end": 10,
+            "char_start": 0,
+            "is_paragraph_end": false,
+            "is_paragraph_start": true,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 13,
+            "progress_ratio": 0.13157894736842105
+          },
+          "sentence_index": 0,
+          "source_end": 10,
+          "source_start": 0,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "The budget"
+        },
+        {
+          "char_length": 15,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 600,
+          "index": 1,
+          "navigation": {
+            "char_count_total": 76,
+            "char_end": 26,
+            "char_start": 11,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 34,
+            "progress_ratio": 0.34210526315789475
+          },
+          "sentence_index": 0,
+          "source_end": 26,
+          "source_start": 11,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "rose from three"
+        },
+        {
+          "char_length": 15,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 600,
+          "index": 2,
+          "navigation": {
+            "char_count_total": 76,
+            "char_end": 42,
+            "char_start": 27,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 55,
+            "progress_ratio": 0.5526315789473685
+          },
+          "sentence_index": 0,
+          "source_end": 42,
+          "source_start": 27,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "million dollars"
+        },
+        {
+          "char_length": 15,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 600,
+          "index": 3,
+          "navigation": {
+            "char_count_total": 76,
+            "char_end": 58,
+            "char_start": 43,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 76,
+            "progress_ratio": 0.7631578947368421
+          },
+          "sentence_index": 0,
+          "source_end": 58,
+          "source_start": 43,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "to four million"
+        },
+        {
+          "char_length": 17,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 820,
+          "index": 4,
+          "navigation": {
+            "char_count_total": 76,
+            "char_end": 76,
+            "char_start": 59,
+            "is_paragraph_end": true,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 100,
+            "progress_ratio": 1.0
+          },
+          "sentence_index": 0,
+          "source_end": 76,
+          "source_start": 59,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "after the review."
+        }
+      ],
+      "corpus": "development",
+      "input_sha256": "cb69ce154a754d9869ecebcc2e056a8a67f702b66213729853f02402ec8b0638",
+      "normalized_text": "The budget rose from three million dollars to four million after the review.",
+      "sentence_count": 1,
+      "sentences": [
+        "The budget rose from three million dollars to four million after the review."
+      ]
+    },
+    {
+      "case_id": "dev-source-0005",
+      "chunks": [
+        {
+          "char_length": 6,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 400,
+          "index": 0,
+          "navigation": {
+            "char_count_total": 134,
+            "char_end": 6,
+            "char_start": 0,
+            "is_paragraph_end": false,
+            "is_paragraph_start": true,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 4,
+            "progress_ratio": 0.04477611940298507
+          },
+          "sentence_index": 0,
+          "source_end": 6,
+          "source_start": 0,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "Toward"
+        },
+        {
+          "char_length": 8,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 400,
+          "index": 1,
+          "navigation": {
+            "char_count_total": 134,
+            "char_end": 15,
+            "char_start": 7,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 11,
+            "progress_ratio": 0.11194029850746269
+          },
+          "sentence_index": 0,
+          "source_end": 15,
+          "source_start": 7,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "a Global"
+        },
+        {
+          "char_length": 15,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 660,
+          "index": 2,
+          "navigation": {
+            "char_count_total": 134,
+            "char_end": 31,
+            "char_start": 16,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 23,
+            "progress_ratio": 0.23134328358208955
+          },
+          "sentence_index": 0,
+          "source_end": 31,
+          "source_start": 16,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "Security System"
+        },
+        {
+          "char_length": 17,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 660,
+          "index": 3,
+          "navigation": {
+            "char_count_total": 134,
+            "char_end": 49,
+            "char_start": 32,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 36,
+            "progress_ratio": 0.3656716417910448
+          },
+          "sentence_index": 0,
+          "source_end": 49,
+          "source_start": 32,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "Built on Economic"
+        },
+        {
+          "char_length": 10,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 440,
+          "index": 4,
+          "navigation": {
+            "char_count_total": 134,
+            "char_end": 60,
+            "char_start": 50,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 44,
+            "progress_ratio": 0.44776119402985076
+          },
+          "sentence_index": 0,
+          "source_end": 60,
+          "source_start": 50,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "Deterrence"
+        },
+        {
+          "char_length": 4,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 400,
+          "index": 5,
+          "navigation": {
+            "char_count_total": 134,
+            "char_end": 65,
+            "char_start": 61,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 48,
+            "progress_ratio": 0.48507462686567165
+          },
+          "sentence_index": 1,
+          "source_end": 65,
+          "source_start": 61,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "Alex"
+        },
+        {
+          "char_length": 12,
+          "content_word_count": 3,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 600,
+          "index": 6,
+          "navigation": {
+            "char_count_total": 134,
+            "char_end": 78,
+            "char_start": 66,
+            "is_paragraph_end": true,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 58,
+            "progress_ratio": 0.582089552238806
+          },
+          "sentence_index": 2,
+          "source_end": 78,
+          "source_start": 66,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "Apr 02, 2026"
+        },
+        {
+          "char_length": 8,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 400,
+          "index": 7,
+          "navigation": {
+            "char_count_total": 134,
+            "char_end": 88,
+            "char_start": 80,
+            "is_paragraph_end": false,
+            "is_paragraph_start": true,
+            "is_progress_milestone": true,
+            "paragraph_index": 1,
+            "progress_percent": 65,
+            "progress_ratio": 0.6567164179104478
+          },
+          "sentence_index": 3,
+          "source_end": 88,
+          "source_start": 80,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "There is"
+        },
+        {
+          "char_length": 12,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 440,
+          "index": 8,
+          "navigation": {
+            "char_count_total": 134,
+            "char_end": 101,
+            "char_start": 89,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 1,
+            "progress_percent": 75,
+            "progress_ratio": 0.753731343283582
+          },
+          "sentence_index": 3,
+          "source_end": 101,
+          "source_start": 89,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "a persistent"
+        },
+        {
+          "char_length": 14,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 600,
+          "index": 9,
+          "navigation": {
+            "char_count_total": 134,
+            "char_end": 116,
+            "char_start": 102,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 1,
+            "progress_percent": 86,
+            "progress_ratio": 0.8656716417910447
+          },
+          "sentence_index": 3,
+          "source_end": 116,
+          "source_start": 102,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "mistake in how"
+        },
+        {
+          "char_length": 10,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 600,
+          "index": 10,
+          "navigation": {
+            "char_count_total": 134,
+            "char_end": 127,
+            "char_start": 117,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 1,
+            "progress_percent": 94,
+            "progress_ratio": 0.9477611940298507
+          },
+          "sentence_index": 3,
+          "source_end": 127,
+          "source_start": 117,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "we imagine"
+        },
+        {
+          "char_length": 6,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 580,
+          "index": 11,
+          "navigation": {
+            "char_count_total": 134,
+            "char_end": 134,
+            "char_start": 128,
+            "is_paragraph_end": true,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 1,
+            "progress_percent": 100,
+            "progress_ratio": 1.0
+          },
+          "sentence_index": 3,
+          "source_end": 134,
+          "source_start": 128,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "peace."
+        }
+      ],
+      "corpus": "development",
+      "input_sha256": "ea0b02a83bffbfbaecee103c6732c4c3ce97a4782ead7134f2f71d1ab92d710e",
+      "normalized_text": "Toward a Global Security System Built on Economic Deterrence\nAlex\nApr 02, 2026\n\nThere is a persistent mistake in how we imagine peace.",
+      "sentence_count": 4,
+      "sentences": [
+        "Toward a Global Security System Built on Economic Deterrence",
+        "Alex",
+        "Apr 02, 2026",
+        "There is a persistent mistake in how we imagine peace."
+      ]
+    },
+    {
+      "case_id": "dev-width-0006",
+      "chunks": [
+        {
+          "char_length": 10,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 440,
+          "index": 0,
+          "navigation": {
+            "char_count_total": 78,
+            "char_end": 10,
+            "char_start": 0,
+            "is_paragraph_end": false,
+            "is_paragraph_start": true,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 12,
+            "progress_ratio": 0.1282051282051282
+          },
+          "sentence_index": 0,
+          "source_end": 10,
+          "source_start": 0,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "The reader"
+        },
+        {
+          "char_length": 17,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 650,
+          "index": 1,
+          "navigation": {
+            "char_count_total": 78,
+            "char_end": 28,
+            "char_start": 11,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 35,
+            "progress_ratio": 0.358974358974359
+          },
+          "sentence_index": 0,
+          "source_end": 28,
+          "source_start": 11,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "saw complementary"
+        },
+        {
+          "char_length": 19,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 690,
+          "index": 2,
+          "navigation": {
+            "char_count_total": 78,
+            "char_end": 48,
+            "char_start": 29,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 61,
+            "progress_ratio": 0.6153846153846154
+          },
+          "sentence_index": 0,
+          "source_end": 48,
+          "source_start": 29,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "explanations beside"
+        },
+        {
+          "char_length": 29,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 660,
+          "index": 3,
+          "navigation": {
+            "char_count_total": 78,
+            "char_end": 78,
+            "char_start": 49,
+            "is_paragraph_end": true,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 100,
+            "progress_ratio": 1.0
+          },
+          "sentence_index": 0,
+          "source_end": 78,
+          "source_start": 49,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "antidisestablishmentarianism."
+        }
+      ],
+      "corpus": "development",
+      "input_sha256": "0fc943a404764a6899105847aa24029c3a13dfd21701c0ba29cb3621d7aeca77",
+      "normalized_text": "The reader saw complementary explanations beside antidisestablishmentarianism.",
+      "sentence_count": 1,
+      "sentences": [
+        "The reader saw complementary explanations beside antidisestablishmentarianism."
+      ]
+    },
+    {
+      "case_id": "dev-quote-0007",
+      "chunks": [
+        {
+          "char_length": 15,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 600,
+          "index": 0,
+          "navigation": {
+            "char_count_total": 74,
+            "char_end": 15,
+            "char_start": 0,
+            "is_paragraph_end": false,
+            "is_paragraph_start": true,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 20,
+            "progress_ratio": 0.20270270270270271
+          },
+          "sentence_index": 0,
+          "source_end": 15,
+          "source_start": 0,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "The chair said,"
+        },
+        {
+          "char_length": 2,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 400,
+          "index": 1,
+          "navigation": {
+            "char_count_total": 74,
+            "char_end": 19,
+            "char_start": 17,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 25,
+            "progress_ratio": 0.25675675675675674
+          },
+          "sentence_index": 0,
+          "source_end": 19,
+          "source_start": 17,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "We"
+        },
+        {
+          "char_length": 16,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 440,
+          "index": 2,
+          "navigation": {
+            "char_count_total": 74,
+            "char_end": 36,
+            "char_start": 20,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 48,
+            "progress_ratio": 0.4864864864864865
+          },
+          "sentence_index": 0,
+          "source_end": 36,
+          "source_start": 20,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "should not split"
+        },
+        {
+          "char_length": 15,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 600,
+          "index": 3,
+          "navigation": {
+            "char_count_total": 74,
+            "char_end": 52,
+            "char_start": 37,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 70,
+            "progress_ratio": 0.7027027027027027
+          },
+          "sentence_index": 0,
+          "source_end": 52,
+          "source_start": 37,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "the core claim,"
+        },
+        {
+          "char_length": 10,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 440,
+          "index": 4,
+          "navigation": {
+            "char_count_total": 74,
+            "char_end": 64,
+            "char_start": 54,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 86,
+            "progress_ratio": 0.8648648648648649
+          },
+          "sentence_index": 0,
+          "source_end": 64,
+          "source_start": 54,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "and closed"
+        },
+        {
+          "char_length": 9,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 620,
+          "index": 5,
+          "navigation": {
+            "char_count_total": 74,
+            "char_end": 74,
+            "char_start": 65,
+            "is_paragraph_end": true,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 100,
+            "progress_ratio": 1.0
+          },
+          "sentence_index": 0,
+          "source_end": 74,
+          "source_start": 65,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "the file."
+        }
+      ],
+      "corpus": "development",
+      "input_sha256": "1227d702ca119e3f8a12cbe910462f0b2fa0dfb5f5a46324eab0679098beaa84",
+      "normalized_text": "The chair said, \u201cWe should not split the core claim,\u201d and closed the file.",
+      "sentence_count": 1,
+      "sentences": [
+        "The chair said, \u201cWe should not split the core claim,\u201d and closed the file."
+      ]
+    },
+    {
+      "case_id": "dev-parenthetical-0008",
+      "chunks": [
+        {
+          "char_length": 15,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 600,
+          "index": 0,
+          "navigation": {
+            "char_count_total": 84,
+            "char_end": 15,
+            "char_start": 0,
+            "is_paragraph_end": false,
+            "is_paragraph_start": true,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 17,
+            "progress_ratio": 0.17857142857142858
+          },
+          "sentence_index": 0,
+          "source_end": 15,
+          "source_start": 0,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "The system kept"
+        },
+        {
+          "char_length": 19,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 640,
+          "index": 1,
+          "navigation": {
+            "char_count_total": 84,
+            "char_end": 35,
+            "char_start": 16,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 41,
+            "progress_ratio": 0.4166666666666667
+          },
+          "sentence_index": 0,
+          "source_end": 35,
+          "source_start": 16,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "the phrase together"
+        },
+        {
+          "char_length": 10,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": true,
+            "in_quote": false,
+            "parenthetical_depth": 1,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 600,
+          "index": 2,
+          "navigation": {
+            "char_count_total": 84,
+            "char_end": 46,
+            "char_start": 36,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 54,
+            "progress_ratio": 0.5476190476190477
+          },
+          "sentence_index": 0,
+          "source_end": 46,
+          "source_start": 36,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "(even when"
+        },
+        {
+          "char_length": 9,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": true,
+            "in_quote": false,
+            "parenthetical_depth": 1,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 440,
+          "index": 3,
+          "navigation": {
+            "char_count_total": 84,
+            "char_end": 56,
+            "char_start": 47,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 66,
+            "progress_ratio": 0.6666666666666666
+          },
+          "sentence_index": 0,
+          "source_end": 56,
+          "source_start": 47,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "the aside"
+        },
+        {
+          "char_length": 10,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": true,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 440,
+          "index": 4,
+          "navigation": {
+            "char_count_total": 84,
+            "char_end": 67,
+            "char_start": 57,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 79,
+            "progress_ratio": 0.7976190476190477
+          },
+          "sentence_index": 0,
+          "source_end": 67,
+          "source_start": 57,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "was brief)"
+        },
+        {
+          "char_length": 16,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 820,
+          "index": 5,
+          "navigation": {
+            "char_count_total": 84,
+            "char_end": 84,
+            "char_start": 68,
+            "is_paragraph_end": true,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 100,
+            "progress_ratio": 1.0
+          },
+          "sentence_index": 0,
+          "source_end": 84,
+          "source_start": 68,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "before resuming."
+        }
+      ],
+      "corpus": "development",
+      "input_sha256": "277a8022c5711976eaae064075e950550bc3cd7366d7ca979a0ad91ae7019129",
+      "normalized_text": "The system kept the phrase together (even when the aside was brief) before resuming.",
+      "sentence_count": 1,
+      "sentences": [
+        "The system kept the phrase together (even when the aside was brief) before resuming."
+      ]
+    },
+    {
+      "case_id": "reg-basic-0001",
+      "chunks": [
+        {
+          "char_length": 10,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 440,
+          "index": 0,
+          "navigation": {
+            "char_count_total": 34,
+            "char_end": 10,
+            "char_start": 0,
+            "is_paragraph_end": false,
+            "is_paragraph_start": true,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 29,
+            "progress_ratio": 0.29411764705882354
+          },
+          "sentence_index": 0,
+          "source_end": 10,
+          "source_start": 0,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "The system"
+        },
+        {
+          "char_length": 11,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 440,
+          "index": 1,
+          "navigation": {
+            "char_count_total": 34,
+            "char_end": 22,
+            "char_start": 11,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 64,
+            "progress_ratio": 0.6470588235294118
+          },
+          "sentence_index": 0,
+          "source_end": 22,
+          "source_start": 11,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "learns from"
+        },
+        {
+          "char_length": 11,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 620,
+          "index": 2,
+          "navigation": {
+            "char_count_total": 34,
+            "char_end": 34,
+            "char_start": 23,
+            "is_paragraph_end": true,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 100,
+            "progress_ratio": 1.0
+          },
+          "sentence_index": 0,
+          "source_end": 34,
+          "source_start": 23,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "the reader."
+        }
+      ],
+      "corpus": "regression",
+      "input_sha256": "2e338d13dd65a674aa553f3d45ce56047866c56c3e40a48008dd16cb4d444f19",
+      "normalized_text": "The system learns from the reader.",
+      "sentence_count": 1,
+      "sentences": [
+        "The system learns from the reader."
+      ]
+    },
+    {
+      "case_id": "reg-dense-0002",
+      "chunks": [
+        {
+          "char_length": 9,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 600,
+          "index": 0,
+          "navigation": {
+            "char_count_total": 59,
+            "char_end": 9,
+            "char_start": 0,
+            "is_paragraph_end": false,
+            "is_paragraph_start": true,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 15,
+            "progress_ratio": 0.15254237288135594
+          },
+          "sentence_index": 0,
+          "source_end": 9,
+          "source_start": 0,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "Modern AI"
+        },
+        {
+          "char_length": 18,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 600,
+          "index": 1,
+          "navigation": {
+            "char_count_total": 59,
+            "char_end": 28,
+            "char_start": 10,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 47,
+            "progress_ratio": 0.4745762711864407
+          },
+          "sentence_index": 0,
+          "source_end": 28,
+          "source_start": 10,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "systems are moving"
+        },
+        {
+          "char_length": 13,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 600,
+          "index": 2,
+          "navigation": {
+            "char_count_total": 59,
+            "char_end": 42,
+            "char_start": 29,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 71,
+            "progress_ratio": 0.711864406779661
+          },
+          "sentence_index": 0,
+          "source_end": 42,
+          "source_start": 29,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "beyond sealed"
+        },
+        {
+          "char_length": 16,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 870,
+          "index": 3,
+          "navigation": {
+            "char_count_total": 59,
+            "char_end": 59,
+            "char_start": 43,
+            "is_paragraph_end": true,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 100,
+            "progress_ratio": 1.0
+          },
+          "sentence_index": 0,
+          "source_end": 59,
+          "source_start": 43,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "text generators."
+        }
+      ],
+      "corpus": "regression",
+      "input_sha256": "3128d868257b85bc0938fed13642cfde14c92610c597f9602f1659c60154434b",
+      "normalized_text": "Modern AI systems are moving beyond sealed text generators.",
+      "sentence_count": 1,
+      "sentences": [
+        "Modern AI systems are moving beyond sealed text generators."
+      ]
+    },
+    {
+      "case_id": "reg-air-force-0003",
+      "chunks": [
+        {
+          "char_length": 19,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 690,
+          "index": 0,
+          "navigation": {
+            "char_count_total": 85,
+            "char_end": 19,
+            "char_start": 0,
+            "is_paragraph_end": false,
+            "is_paragraph_start": true,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 22,
+            "progress_ratio": 0.2235294117647059
+          },
+          "sentence_index": 0,
+          "source_end": 19,
+          "source_start": 0,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "The temporary plane"
+        },
+        {
+          "char_length": 16,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 440,
+          "index": 1,
+          "navigation": {
+            "char_count_total": 85,
+            "char_end": 36,
+            "char_start": 20,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 42,
+            "progress_ratio": 0.4235294117647059
+          },
+          "sentence_index": 0,
+          "source_end": 36,
+          "source_start": 20,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "did not have all"
+        },
+        {
+          "char_length": 13,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 440,
+          "index": 2,
+          "navigation": {
+            "char_count_total": 85,
+            "char_end": 50,
+            "char_start": 37,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 58,
+            "progress_ratio": 0.5882352941176471
+          },
+          "sentence_index": 0,
+          "source_end": 50,
+          "source_start": 37,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "the equipment"
+        },
+        {
+          "char_length": 13,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 600,
+          "index": 3,
+          "navigation": {
+            "char_count_total": 85,
+            "char_end": 64,
+            "char_start": 51,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 75,
+            "progress_ratio": 0.7529411764705882
+          },
+          "sentence_index": 0,
+          "source_end": 64,
+          "source_start": 51,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "usually found"
+        },
+        {
+          "char_length": 5,
+          "content_word_count": 0,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 300,
+          "index": 4,
+          "navigation": {
+            "char_count_total": 85,
+            "char_end": 70,
+            "char_start": 65,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 82,
+            "progress_ratio": 0.8235294117647058
+          },
+          "sentence_index": 0,
+          "source_end": 70,
+          "source_start": 65,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "light",
+          "text": "on an"
+        },
+        {
+          "char_length": 14,
+          "content_word_count": 3,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 880,
+          "index": 5,
+          "navigation": {
+            "char_count_total": 85,
+            "char_end": 85,
+            "char_start": 71,
+            "is_paragraph_end": true,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 100,
+            "progress_ratio": 1.0
+          },
+          "sentence_index": 0,
+          "source_end": 85,
+          "source_start": 71,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "Air Force One."
+        }
+      ],
+      "corpus": "regression",
+      "input_sha256": "a3f2f2ac5d6667b38128cd9d886dd0d15cded93014c7c986d3c96449fb5df500",
+      "normalized_text": "The temporary plane did not have all the equipment usually found on an Air Force One.",
+      "sentence_count": 1,
+      "sentences": [
+        "The temporary plane did not have all the equipment usually found on an Air Force One."
+      ]
+    },
+    {
+      "case_id": "reg-khamenei-0004",
+      "chunks": [
+        {
+          "char_length": 22,
+          "content_word_count": 3,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 750,
+          "index": 0,
+          "navigation": {
+            "char_count_total": 73,
+            "char_end": 22,
+            "char_start": 0,
+            "is_paragraph_end": false,
+            "is_paragraph_start": true,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 30,
+            "progress_ratio": 0.3013698630136986
+          },
+          "sentence_index": 0,
+          "source_end": 22,
+          "source_start": 0,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "Ayatollah Ali Khamenei"
+        },
+        {
+          "char_length": 3,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 400,
+          "index": 1,
+          "navigation": {
+            "char_count_total": 73,
+            "char_end": 26,
+            "char_start": 23,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 35,
+            "progress_ratio": 0.3561643835616438
+          },
+          "sentence_index": 0,
+          "source_end": 26,
+          "source_start": 23,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "met"
+        },
+        {
+          "char_length": 19,
+          "content_word_count": 3,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 750,
+          "index": 2,
+          "navigation": {
+            "char_count_total": 73,
+            "char_end": 46,
+            "char_start": 27,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 63,
+            "progress_ratio": 0.6301369863013698
+          },
+          "sentence_index": 0,
+          "source_end": 46,
+          "source_start": 27,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "Air Force officials"
+        },
+        {
+          "char_length": 8,
+          "content_word_count": 0,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 300,
+          "index": 3,
+          "navigation": {
+            "char_count_total": 73,
+            "char_end": 55,
+            "char_start": 47,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 75,
+            "progress_ratio": 0.7534246575342466
+          },
+          "sentence_index": 0,
+          "source_end": 55,
+          "source_start": 47,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "light",
+          "text": "near the"
+        },
+        {
+          "char_length": 17,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 880,
+          "index": 4,
+          "navigation": {
+            "char_count_total": 73,
+            "char_end": 73,
+            "char_start": 56,
+            "is_paragraph_end": true,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 100,
+            "progress_ratio": 1.0
+          },
+          "sentence_index": 0,
+          "source_end": 73,
+          "source_start": 56,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "Strait of Hormuz."
+        }
+      ],
+      "corpus": "regression",
+      "input_sha256": "007f2b24e85b0394bf9201865ba72ab26bdc0060d14791fdbcbafa2050b33a0c",
+      "normalized_text": "Ayatollah Ali Khamenei met Air Force officials near the Strait of Hormuz.",
+      "sentence_count": 1,
+      "sentences": [
+        "Ayatollah Ali Khamenei met Air Force officials near the Strait of Hormuz."
+      ]
+    },
+    {
+      "case_id": "reg-phrasal-0005",
+      "chunks": [
+        {
+          "char_length": 18,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 600,
+          "index": 0,
+          "navigation": {
+            "char_count_total": 60,
+            "char_end": 18,
+            "char_start": 0,
+            "is_paragraph_end": false,
+            "is_paragraph_start": true,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 30,
+            "progress_ratio": 0.3
+          },
+          "sentence_index": 0,
+          "source_end": 18,
+          "source_start": 0,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "During his tenure,"
+        },
+        {
+          "char_length": 6,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 400,
+          "index": 1,
+          "navigation": {
+            "char_count_total": 60,
+            "char_end": 25,
+            "char_start": 19,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 41,
+            "progress_ratio": 0.4166666666666667
+          },
+          "sentence_index": 0,
+          "source_end": 25,
+          "source_start": 19,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "he had"
+        },
+        {
+          "char_length": 8,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 400,
+          "index": 2,
+          "navigation": {
+            "char_count_total": 60,
+            "char_end": 34,
+            "char_start": 26,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 56,
+            "progress_ratio": 0.5666666666666667
+          },
+          "sentence_index": 0,
+          "source_end": 34,
+          "source_start": 26,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "built up"
+        },
+        {
+          "char_length": 15,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 600,
+          "index": 3,
+          "navigation": {
+            "char_count_total": 60,
+            "char_end": 50,
+            "char_start": 35,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 83,
+            "progress_ratio": 0.8333333333333334
+          },
+          "sentence_index": 0,
+          "source_end": 50,
+          "source_start": 35,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "his office into"
+        },
+        {
+          "char_length": 9,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 620,
+          "index": 4,
+          "navigation": {
+            "char_count_total": 60,
+            "char_end": 60,
+            "char_start": 51,
+            "is_paragraph_end": true,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 100,
+            "progress_ratio": 1.0
+          },
+          "sentence_index": 0,
+          "source_end": 60,
+          "source_start": 51,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "a center."
+        }
+      ],
+      "corpus": "regression",
+      "input_sha256": "9f8d4828335d6cce7b6f46ee139b592678ae3fb050e035aacf9fb394f727a041",
+      "normalized_text": "During his tenure, he had built up his office into a center.",
+      "sentence_count": 1,
+      "sentences": [
+        "During his tenure, he had built up his office into a center."
+      ]
+    },
+    {
+      "case_id": "reg-qualifier-0006",
+      "chunks": [
+        {
+          "char_length": 6,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 400,
+          "index": 0,
+          "navigation": {
+            "char_count_total": 49,
+            "char_end": 6,
+            "char_start": 0,
+            "is_paragraph_end": false,
+            "is_paragraph_start": true,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 12,
+            "progress_ratio": 0.12244897959183673
+          },
+          "sentence_index": 0,
+          "source_end": 6,
+          "source_start": 0,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "He had"
+        },
+        {
+          "char_length": 19,
+          "content_word_count": 3,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 690,
+          "index": 1,
+          "navigation": {
+            "char_count_total": 49,
+            "char_end": 26,
+            "char_start": 7,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 53,
+            "progress_ratio": 0.5306122448979592
+          },
+          "sentence_index": 0,
+          "source_end": 26,
+          "source_start": 7,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "far less impressive"
+        },
+        {
+          "char_length": 22,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 970,
+          "index": 2,
+          "navigation": {
+            "char_count_total": 49,
+            "char_end": 49,
+            "char_start": 27,
+            "is_paragraph_end": true,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 100,
+            "progress_ratio": 1.0
+          },
+          "sentence_index": 0,
+          "source_end": 49,
+          "source_start": 27,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "religious credentials."
+        }
+      ],
+      "corpus": "regression",
+      "input_sha256": "d400600ea8972bf8824dcfb719e900d0b5ebb3639cb262276f383242ee07ee56",
+      "normalized_text": "He had far less impressive religious credentials.",
+      "sentence_count": 1,
+      "sentences": [
+        "He had far less impressive religious credentials."
+      ]
+    },
+    {
+      "case_id": "reg-coordinated-0007",
+      "chunks": [
+        {
+          "char_length": 9,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 600,
+          "index": 0,
+          "navigation": {
+            "char_count_total": 54,
+            "char_end": 9,
+            "char_start": 0,
+            "is_paragraph_end": false,
+            "is_paragraph_start": true,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 16,
+            "progress_ratio": 0.16666666666666666
+          },
+          "sentence_index": 0,
+          "source_end": 9,
+          "source_start": 0,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "He sought"
+        },
+        {
+          "char_length": 15,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 600,
+          "index": 1,
+          "navigation": {
+            "char_count_total": 54,
+            "char_end": 25,
+            "char_start": 10,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 46,
+            "progress_ratio": 0.46296296296296297
+          },
+          "sentence_index": 0,
+          "source_end": 25,
+          "source_start": 10,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "balance between"
+        },
+        {
+          "char_length": 6,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 400,
+          "index": 2,
+          "navigation": {
+            "char_count_total": 54,
+            "char_end": 32,
+            "char_start": 26,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 59,
+            "progress_ratio": 0.5925925925925926
+          },
+          "sentence_index": 0,
+          "source_end": 32,
+          "source_start": 26,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "Iran's"
+        },
+        {
+          "char_length": 21,
+          "content_word_count": 3,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 860,
+          "index": 3,
+          "navigation": {
+            "char_count_total": 54,
+            "char_end": 54,
+            "char_start": 33,
+            "is_paragraph_end": true,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 100,
+            "progress_ratio": 1.0
+          },
+          "sentence_index": 0,
+          "source_end": 54,
+          "source_start": 33,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "left and right wings."
+        }
+      ],
+      "corpus": "regression",
+      "input_sha256": "7ac7e8f934e694676f426735532c85f8a4521ca28ef42a2a80a6074fa7eaa35e",
+      "normalized_text": "He sought balance between Iran's left and right wings.",
+      "sentence_count": 1,
+      "sentences": [
+        "He sought balance between Iran's left and right wings."
+      ]
+    },
+    {
+      "case_id": "reg-overlong-0008",
+      "chunks": [
+        {
+          "char_length": 11,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 440,
+          "index": 0,
+          "navigation": {
+            "char_count_total": 36,
+            "char_end": 11,
+            "char_start": 0,
+            "is_paragraph_end": false,
+            "is_paragraph_start": true,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 30,
+            "progress_ratio": 0.3055555555555556
+          },
+          "sentence_index": 0,
+          "source_end": 11,
+          "source_start": 0,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "The country"
+        },
+        {
+          "char_length": 13,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 440,
+          "index": 1,
+          "navigation": {
+            "char_count_total": 36,
+            "char_end": 25,
+            "char_start": 12,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 69,
+            "progress_ratio": 0.6944444444444444
+          },
+          "sentence_index": 0,
+          "source_end": 25,
+          "source_start": 12,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "will navigate"
+        },
+        {
+          "char_length": 10,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 620,
+          "index": 2,
+          "navigation": {
+            "char_count_total": 36,
+            "char_end": 36,
+            "char_start": 26,
+            "is_paragraph_end": true,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 100,
+            "progress_ratio": 1.0
+          },
+          "sentence_index": 0,
+          "source_end": 36,
+          "source_start": 26,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "the issue."
+        }
+      ],
+      "corpus": "regression",
+      "input_sha256": "c1db3a964c3c4c07916b1cab10fc15a89a118a9c11e112239dc10caf703ae919",
+      "normalized_text": "The country will navigate the issue.",
+      "sentence_count": 1,
+      "sentences": [
+        "The country will navigate the issue."
+      ]
+    },
+    {
+      "case_id": "gen-public-0001",
+      "chunks": [
+        {
+          "char_length": 6,
+          "content_word_count": 0,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 300,
+          "index": 0,
+          "navigation": {
+            "char_count_total": 52,
+            "char_end": 6,
+            "char_start": 0,
+            "is_paragraph_end": false,
+            "is_paragraph_start": true,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 11,
+            "progress_ratio": 0.11538461538461539
+          },
+          "sentence_index": 0,
+          "source_end": 6,
+          "source_start": 0,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "light",
+          "text": "It was"
+        },
+        {
+          "char_length": 8,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 400,
+          "index": 1,
+          "navigation": {
+            "char_count_total": 52,
+            "char_end": 15,
+            "char_start": 7,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 28,
+            "progress_ratio": 0.28846153846153844
+          },
+          "sentence_index": 0,
+          "source_end": 15,
+          "source_start": 7,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "the best"
+        },
+        {
+          "char_length": 9,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 440,
+          "index": 2,
+          "navigation": {
+            "char_count_total": 52,
+            "char_end": 25,
+            "char_start": 16,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 48,
+            "progress_ratio": 0.4807692307692308
+          },
+          "sentence_index": 0,
+          "source_end": 25,
+          "source_start": 16,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "of times,"
+        },
+        {
+          "char_length": 6,
+          "content_word_count": 0,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 300,
+          "index": 3,
+          "navigation": {
+            "char_count_total": 52,
+            "char_end": 32,
+            "char_start": 26,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 61,
+            "progress_ratio": 0.6153846153846154
+          },
+          "sentence_index": 0,
+          "source_end": 32,
+          "source_start": 26,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "light",
+          "text": "it was"
+        },
+        {
+          "char_length": 9,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 440,
+          "index": 4,
+          "navigation": {
+            "char_count_total": 52,
+            "char_end": 42,
+            "char_start": 33,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 80,
+            "progress_ratio": 0.8076923076923077
+          },
+          "sentence_index": 0,
+          "source_end": 42,
+          "source_start": 33,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "the worst"
+        },
+        {
+          "char_length": 9,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 620,
+          "index": 5,
+          "navigation": {
+            "char_count_total": 52,
+            "char_end": 52,
+            "char_start": 43,
+            "is_paragraph_end": true,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 100,
+            "progress_ratio": 1.0
+          },
+          "sentence_index": 0,
+          "source_end": 52,
+          "source_start": 43,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "of times."
+        }
+      ],
+      "corpus": "generalization",
+      "input_sha256": "38d141b35057bbb691b9756c20a6c31a0ab0bbf2076538a7fb6d9ee8835096d7",
+      "normalized_text": "It was the best of times, it was the worst of times.",
+      "sentence_count": 1,
+      "sentences": [
+        "It was the best of times, it was the worst of times."
+      ]
+    },
+    {
+      "case_id": "gen-public-0002",
+      "chunks": [
+        {
+          "char_length": 7,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 560,
+          "index": 0,
+          "navigation": {
+            "char_count_total": 102,
+            "char_end": 7,
+            "char_start": 0,
+            "is_paragraph_end": false,
+            "is_paragraph_start": true,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 6,
+            "progress_ratio": 0.06862745098039216
+          },
+          "sentence_index": 0,
+          "source_end": 7,
+          "source_start": 0,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "Call me"
+        },
+        {
+          "char_length": 8,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 580,
+          "index": 1,
+          "navigation": {
+            "char_count_total": 102,
+            "char_end": 16,
+            "char_start": 8,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 15,
+            "progress_ratio": 0.1568627450980392
+          },
+          "sentence_index": 0,
+          "source_end": 16,
+          "source_start": 8,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "Ishmael."
+        },
+        {
+          "char_length": 10,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 600,
+          "index": 2,
+          "navigation": {
+            "char_count_total": 102,
+            "char_end": 27,
+            "char_start": 17,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 26,
+            "progress_ratio": 0.2647058823529412
+          },
+          "sentence_index": 1,
+          "source_end": 27,
+          "source_start": 17,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "Some years"
+        },
+        {
+          "char_length": 4,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 400,
+          "index": 3,
+          "navigation": {
+            "char_count_total": 102,
+            "char_end": 32,
+            "char_start": 28,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 31,
+            "progress_ratio": 0.3137254901960784
+          },
+          "sentence_index": 1,
+          "source_end": 32,
+          "source_start": 28,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "ago,"
+        },
+        {
+          "char_length": 10,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 600,
+          "index": 4,
+          "navigation": {
+            "char_count_total": 102,
+            "char_end": 43,
+            "char_start": 33,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 42,
+            "progress_ratio": 0.4215686274509804
+          },
+          "sentence_index": 1,
+          "source_end": 43,
+          "source_start": 33,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "never mind"
+        },
+        {
+          "char_length": 8,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 560,
+          "index": 5,
+          "navigation": {
+            "char_count_total": 102,
+            "char_end": 52,
+            "char_start": 44,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 50,
+            "progress_ratio": 0.5098039215686274
+          },
+          "sentence_index": 1,
+          "source_end": 52,
+          "source_start": 44,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "how long"
+        },
+        {
+          "char_length": 10,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 460,
+          "index": 6,
+          "navigation": {
+            "char_count_total": 102,
+            "char_end": 63,
+            "char_start": 53,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 61,
+            "progress_ratio": 0.6176470588235294
+          },
+          "sentence_index": 1,
+          "source_end": 63,
+          "source_start": 53,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "precisely,"
+        },
+        {
+          "char_length": 9,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 600,
+          "index": 7,
+          "navigation": {
+            "char_count_total": 102,
+            "char_end": 73,
+            "char_start": 64,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 71,
+            "progress_ratio": 0.7156862745098039
+          },
+          "sentence_index": 1,
+          "source_end": 73,
+          "source_start": 64,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "I thought"
+        },
+        {
+          "char_length": 12,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 600,
+          "index": 8,
+          "navigation": {
+            "char_count_total": 102,
+            "char_end": 86,
+            "char_start": 74,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 84,
+            "progress_ratio": 0.8431372549019608
+          },
+          "sentence_index": 1,
+          "source_end": 86,
+          "source_start": 74,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "I would sail"
+        },
+        {
+          "char_length": 5,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 400,
+          "index": 9,
+          "navigation": {
+            "char_count_total": 102,
+            "char_end": 92,
+            "char_start": 87,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 90,
+            "progress_ratio": 0.9019607843137255
+          },
+          "sentence_index": 1,
+          "source_end": 92,
+          "source_start": 87,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "about"
+        },
+        {
+          "char_length": 9,
+          "content_word_count": 0,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 520,
+          "index": 10,
+          "navigation": {
+            "char_count_total": 102,
+            "char_end": 102,
+            "char_start": 93,
+            "is_paragraph_end": true,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 100,
+            "progress_ratio": 1.0
+          },
+          "sentence_index": 1,
+          "source_end": 102,
+          "source_start": 93,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "light",
+          "text": "a little."
+        }
+      ],
+      "corpus": "generalization",
+      "input_sha256": "0bde839f67c2d0c9c6229112fb9b50dab5466098267c49d646b5d0484cd8efac",
+      "normalized_text": "Call me Ishmael. Some years ago, never mind how long precisely, I thought I would sail about a little.",
+      "sentence_count": 2,
+      "sentences": [
+        "Call me Ishmael.",
+        "Some years ago, never mind how long precisely, I thought I would sail about a little."
+      ]
+    },
+    {
+      "case_id": "gen-synthetic-0003",
+      "chunks": [
+        {
+          "char_length": 20,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 690,
+          "index": 0,
+          "navigation": {
+            "char_count_total": 84,
+            "char_end": 20,
+            "char_start": 0,
+            "is_paragraph_end": false,
+            "is_paragraph_start": true,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 23,
+            "progress_ratio": 0.23809523809523808
+          },
+          "sentence_index": 0,
+          "source_end": 20,
+          "source_start": 0,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "Before the committee"
+        },
+        {
+          "char_length": 6,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 400,
+          "index": 1,
+          "navigation": {
+            "char_count_total": 84,
+            "char_end": 27,
+            "char_start": 21,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 32,
+            "progress_ratio": 0.32142857142857145
+          },
+          "sentence_index": 0,
+          "source_end": 27,
+          "source_start": 21,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "voted,"
+        },
+        {
+          "char_length": 10,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 440,
+          "index": 2,
+          "navigation": {
+            "char_count_total": 84,
+            "char_end": 38,
+            "char_start": 28,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 45,
+            "progress_ratio": 0.4523809523809524
+          },
+          "sentence_index": 0,
+          "source_end": 38,
+          "source_start": 28,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "the deputy"
+        },
+        {
+          "char_length": 17,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 600,
+          "index": 3,
+          "navigation": {
+            "char_count_total": 84,
+            "char_end": 56,
+            "char_start": 39,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 66,
+            "progress_ratio": 0.6666666666666666
+          },
+          "sentence_index": 0,
+          "source_end": 56,
+          "source_start": 39,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "mayor had quietly"
+        },
+        {
+          "char_length": 9,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 440,
+          "index": 4,
+          "navigation": {
+            "char_count_total": 84,
+            "char_end": 66,
+            "char_start": 57,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 78,
+            "progress_ratio": 0.7857142857142857
+          },
+          "sentence_index": 0,
+          "source_end": 66,
+          "source_start": 57,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "ruled out"
+        },
+        {
+          "char_length": 11,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 440,
+          "index": 5,
+          "navigation": {
+            "char_count_total": 84,
+            "char_end": 78,
+            "char_start": 67,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 92,
+            "progress_ratio": 0.9285714285714286
+          },
+          "sentence_index": 0,
+          "source_end": 78,
+          "source_start": 67,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "the cheaper"
+        },
+        {
+          "char_length": 5,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 580,
+          "index": 6,
+          "navigation": {
+            "char_count_total": 84,
+            "char_end": 84,
+            "char_start": 79,
+            "is_paragraph_end": true,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 100,
+            "progress_ratio": 1.0
+          },
+          "sentence_index": 0,
+          "source_end": 84,
+          "source_start": 79,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "plan."
+        }
+      ],
+      "corpus": "generalization",
+      "input_sha256": "c39698d02020558403212a1a4758167757b81f93d5052e64ea180e19b3f6baa1",
+      "normalized_text": "Before the committee voted, the deputy mayor had quietly ruled out the cheaper plan.",
+      "sentence_count": 1,
+      "sentences": [
+        "Before the committee voted, the deputy mayor had quietly ruled out the cheaper plan."
+      ]
+    },
+    {
+      "case_id": "gen-synthetic-0004",
+      "chunks": [
+        {
+          "char_length": 12,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 440,
+          "index": 0,
+          "navigation": {
+            "char_count_total": 83,
+            "char_end": 12,
+            "char_start": 0,
+            "is_paragraph_end": false,
+            "is_paragraph_start": true,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 14,
+            "progress_ratio": 0.14457831325301204
+          },
+          "sentence_index": 0,
+          "source_end": 12,
+          "source_start": 0,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "The museum's"
+        },
+        {
+          "char_length": 19,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 640,
+          "index": 1,
+          "navigation": {
+            "char_count_total": 83,
+            "char_end": 32,
+            "char_start": 13,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 38,
+            "progress_ratio": 0.3855421686746988
+          },
+          "sentence_index": 0,
+          "source_end": 32,
+          "source_start": 13,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "new climate-control"
+        },
+        {
+          "char_length": 16,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 650,
+          "index": 2,
+          "navigation": {
+            "char_count_total": 83,
+            "char_end": 49,
+            "char_start": 33,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 59,
+            "progress_ratio": 0.5903614457831325
+          },
+          "sentence_index": 0,
+          "source_end": 49,
+          "source_start": 33,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "system protected"
+        },
+        {
+          "char_length": 9,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 440,
+          "index": 3,
+          "navigation": {
+            "char_count_total": 83,
+            "char_end": 59,
+            "char_start": 50,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 71,
+            "progress_ratio": 0.7108433734939759
+          },
+          "sentence_index": 0,
+          "source_end": 59,
+          "source_start": 50,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "a fragile"
+        },
+        {
+          "char_length": 23,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 910,
+          "index": 4,
+          "navigation": {
+            "char_count_total": 83,
+            "char_end": 83,
+            "char_start": 60,
+            "is_paragraph_end": true,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 100,
+            "progress_ratio": 1.0
+          },
+          "sentence_index": 0,
+          "source_end": 83,
+          "source_start": 60,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "nineteenth-century map."
+        }
+      ],
+      "corpus": "generalization",
+      "input_sha256": "2de110d0dbe7fd1bb3d540586ae6dfe4a2b1fe6606c3eb883ade6c4ff85bf19c",
+      "normalized_text": "The museum's new climate-control system protected a fragile nineteenth-century map.",
+      "sentence_count": 1,
+      "sentences": [
+        "The museum's new climate-control system protected a fragile nineteenth-century map."
+      ]
+    },
+    {
+      "case_id": "gen-synthetic-0005",
+      "chunks": [
+        {
+          "char_length": 17,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 660,
+          "index": 0,
+          "navigation": {
+            "char_count_total": 103,
+            "char_end": 17,
+            "char_start": 0,
+            "is_paragraph_end": false,
+            "is_paragraph_start": true,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 16,
+            "progress_ratio": 0.1650485436893204
+          },
+          "sentence_index": 0,
+          "source_end": 17,
+          "source_start": 0,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "Analysis by Priya"
+        },
+        {
+          "char_length": 4,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 400,
+          "index": 1,
+          "navigation": {
+            "char_count_total": 103,
+            "char_end": 22,
+            "char_start": 18,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 21,
+            "progress_ratio": 0.21359223300970873
+          },
+          "sentence_index": 0,
+          "source_end": 22,
+          "source_start": 18,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "Shah"
+        },
+        {
+          "char_length": 13,
+          "content_word_count": 3,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 600,
+          "index": 2,
+          "navigation": {
+            "char_count_total": 103,
+            "char_end": 36,
+            "char_start": 23,
+            "is_paragraph_end": true,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 34,
+            "progress_ratio": 0.34951456310679613
+          },
+          "sentence_index": 1,
+          "source_end": 36,
+          "source_start": 23,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "June 18, 2026"
+        },
+        {
+          "char_length": 19,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 690,
+          "index": 3,
+          "navigation": {
+            "char_count_total": 103,
+            "char_end": 57,
+            "char_start": 38,
+            "is_paragraph_end": false,
+            "is_paragraph_start": true,
+            "is_progress_milestone": true,
+            "paragraph_index": 1,
+            "progress_percent": 55,
+            "progress_ratio": 0.5533980582524272
+          },
+          "sentence_index": 2,
+          "source_end": 57,
+          "source_start": 38,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "The first paragraph"
+        },
+        {
+          "char_length": 19,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 640,
+          "index": 4,
+          "navigation": {
+            "char_count_total": 103,
+            "char_end": 77,
+            "char_start": 58,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 1,
+            "progress_percent": 74,
+            "progress_ratio": 0.7475728155339806
+          },
+          "sentence_index": 2,
+          "source_end": 77,
+          "source_start": 58,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "did not explain why"
+        },
+        {
+          "char_length": 9,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 440,
+          "index": 5,
+          "navigation": {
+            "char_count_total": 103,
+            "char_end": 87,
+            "char_start": 78,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 1,
+            "progress_percent": 84,
+            "progress_ratio": 0.8446601941747572
+          },
+          "sentence_index": 2,
+          "source_end": 87,
+          "source_start": 78,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "the pilot"
+        },
+        {
+          "char_length": 15,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 820,
+          "index": 6,
+          "navigation": {
+            "char_count_total": 103,
+            "char_end": 103,
+            "char_start": 88,
+            "is_paragraph_end": true,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 1,
+            "progress_percent": 100,
+            "progress_ratio": 1.0
+          },
+          "sentence_index": 2,
+          "source_end": 103,
+          "source_start": 88,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "changed course."
+        }
+      ],
+      "corpus": "generalization",
+      "input_sha256": "eb88bbb278237bc6626ba5a76645d3c37ad84cc4e8e8d02f3af9bc156174b807",
+      "normalized_text": "Analysis by Priya Shah\nJune 18, 2026\n\nThe first paragraph did not explain why the pilot changed course.",
+      "sentence_count": 3,
+      "sentences": [
+        "Analysis by Priya Shah",
+        "June 18, 2026",
+        "The first paragraph did not explain why the pilot changed course."
+      ]
+    },
+    {
+      "case_id": "gen-synthetic-0006",
+      "chunks": [
+        {
+          "char_length": 8,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 400,
+          "index": 0,
+          "navigation": {
+            "char_count_total": 82,
+            "char_end": 8,
+            "char_start": 0,
+            "is_paragraph_end": false,
+            "is_paragraph_start": true,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 9,
+            "progress_ratio": 0.0975609756097561
+          },
+          "sentence_index": 0,
+          "source_end": 8,
+          "source_start": 0,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "The note"
+        },
+        {
+          "char_length": 12,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 600,
+          "index": 1,
+          "navigation": {
+            "char_count_total": 82,
+            "char_end": 21,
+            "char_start": 9,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 25,
+            "progress_ratio": 0.25609756097560976
+          },
+          "sentence_index": 0,
+          "source_end": 21,
+          "source_start": 9,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "listed three"
+        },
+        {
+          "char_length": 8,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 470,
+          "index": 2,
+          "navigation": {
+            "char_count_total": 82,
+            "char_end": 30,
+            "char_start": 22,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 36,
+            "progress_ratio": 0.36585365853658536
+          },
+          "sentence_index": 0,
+          "source_end": 30,
+          "source_start": 22,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "options:"
+        },
+        {
+          "char_length": 14,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 600,
+          "index": 3,
+          "navigation": {
+            "char_count_total": 82,
+            "char_end": 45,
+            "char_start": 31,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 54,
+            "progress_ratio": 0.5487804878048781
+          },
+          "sentence_index": 0,
+          "source_end": 45,
+          "source_start": 31,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "pause briefly,"
+        },
+        {
+          "char_length": 10,
+          "content_word_count": 1,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 440,
+          "index": 4,
+          "navigation": {
+            "char_count_total": 82,
+            "char_end": 56,
+            "char_start": 46,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 68,
+            "progress_ratio": 0.6829268292682927
+          },
+          "sentence_index": 0,
+          "source_end": 56,
+          "source_start": 46,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "normal",
+          "text": "slow down,"
+        },
+        {
+          "char_length": 12,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 600,
+          "index": 5,
+          "navigation": {
+            "char_count_total": 82,
+            "char_end": 69,
+            "char_start": 57,
+            "is_paragraph_end": false,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 84,
+            "progress_ratio": 0.8414634146341463
+          },
+          "sentence_index": 0,
+          "source_end": 69,
+          "source_start": 57,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "or jump back"
+        },
+        {
+          "char_length": 12,
+          "content_word_count": 2,
+          "display_state": {
+            "in_parenthetical": false,
+            "in_quote": false,
+            "parenthetical_depth": 0,
+            "quote_boundary": "none"
+          },
+          "duration_ms": 820,
+          "index": 6,
+          "navigation": {
+            "char_count_total": 82,
+            "char_end": 82,
+            "char_start": 70,
+            "is_paragraph_end": true,
+            "is_paragraph_start": false,
+            "is_progress_milestone": true,
+            "paragraph_index": 0,
+            "progress_percent": 100,
+            "progress_ratio": 1.0
+          },
+          "sentence_index": 0,
+          "source_end": 82,
+          "source_start": 70,
+          "structure": {
+            "active_h1": null,
+            "active_h2": null,
+            "active_label": null,
+            "active_path": [],
+            "header_level": null,
+            "is_header_chunk": false
+          },
+          "syntactic_hint": "dense",
+          "text": "five chunks."
+        }
+      ],
+      "corpus": "generalization",
+      "input_sha256": "bec6a4e5a7a73a758de741cb79cb10ca1c3a2cf02deb583c4ddc7b9931323c08",
+      "normalized_text": "The note listed three options: pause briefly, slow down, or jump back five chunks.",
+      "sentence_count": 1,
+      "sentences": [
+        "The note listed three options: pause briefly, slow down, or jump back five chunks."
+      ]
+    }
+  ],
+  "metadata": {
+    "baseline_commit": "8b50a3049bb5d92a304a03527385c519194ce8da",
+    "chunker_config": {
+      "max_chars": 32,
+      "max_content_words": 2
+    },
+    "chunker_entry_point": "semantic_rsvp.chunking.rules.RuleBasedChunker",
+    "dependency_versions": {
+      "Flask": "3.1.3",
+      "pytest": "9.1.1"
+    },
+    "fallback_behavior": "schedule_text uses RuleBasedChunker() when no chunker is supplied.",
+    "manifest_hashes": {
+      "development": "4bfa0409c3d7a15c14e1b7cd3abb9f9ac4a4b209af82cf1ab3439fda018c8b52",
+      "generalization": "2e61e30c210e6fe2bf3895e03017131bd7c8da80358456d725b489765901133e",
+      "regression": "e9c55c2e957c924d699b57e2622111f044997e821d43d472c7b203b28ba4fe68"
+    },
+    "normalization_entry_point": "semantic_rsvp.text.normalize.normalize_text",
+    "python_version": "3.12.13",
+    "schedule_entry_point": "semantic_rsvp.timing.schedule.schedule_text",
+    "segmentation_entry_point": "semantic_rsvp.text.segment.split_sentences",
+    "timing_config": {
+      "base_beat_ms": 400,
+      "max_duration_ms": 1200,
+      "min_duration_ms": 150,
+      "sentence_pause_ms": 180
+    }
+  }
+}

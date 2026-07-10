@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Tokenizer-neutral RSVP chunking annotation",
+  "type": "object",
+  "required": [
+    "case_id",
+    "annotation_version",
+    "annotator_id",
+    "source_sha256",
+    "boundaries",
+    "protected_spans",
+    "adjudication_status"
+  ],
+  "properties": {
+    "case_id": {"type": "string"},
+    "annotation_version": {"type": "string"},
+    "annotator_id": {"type": "string"},
+    "source_sha256": {"type": "string"},
+    "boundaries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["offset", "type", "rationale"],
+        "properties": {
+          "offset": {"type": "integer", "minimum": 0},
+          "type": {"enum": ["required", "forbidden", "preferred", "acceptable", "required_structural"]},
+          "rationale": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "protected_spans": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["start", "end", "label", "rationale"],
+        "properties": {
+          "start": {"type": "integer", "minimum": 0},
+          "end": {"type": "integer", "minimum": 0},
+          "label": {"type": "string"},
+          "rationale": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "max_width_expectations": {"type": "array"},
+    "whole_sentence_segmentations": {"type": "array"},
+    "uncertainty": {"type": "array"},
+    "adjudication_status": {"enum": ["draft", "adjudicated", "superseded"]},
+    "adjudicator_id": {"type": ["string", "null"]},
+    "notes": {"type": "array"}
+  },
+  "additionalProperties": false
+}
