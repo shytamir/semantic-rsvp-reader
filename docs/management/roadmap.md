@@ -2,9 +2,9 @@
 
 The near-term goal is to refine the reading experience using observed defects rather than speculative feature additions.
 
-## Current Phase: Post-Calibration Refinement Planning
+## Current Phase: Post-Targeted-Calibration Validation
 
-**Goal:** Convert the third-pass timing-context report into a narrow follow-up plan without overfitting or globally slowing dense chunks.
+**Goal:** Validate the narrow third-pass follow-up without overfitting or masking baseline timing with adaptation.
 
 - **Done:** In-app backend defect reporting.
 - **Done:** Defect report security hardening.
@@ -14,31 +14,24 @@ The near-term goal is to refine the reading experience using observed defects ra
 - **Done:** Timing Calibration Pass 1.
 - **Done:** Refreshed validation corpus to reduce overfitting.
 - **Done:** Third-pass post-calibration timing report review.
-- **Current:** Targeted follow-up planning for extreme density, punctuation rhythm, and chunk-shape noise.
+- **Done:** Post-validation targeted calibration.
+- **Current:** Focused validation at 1.0x, 1.15x, and optionally 1.3x.
 
-**Gate:** The next implementation should address only repeated third-pass signals: extreme semantic density, semicolon/comma rhythm, quote-adjacent text cleanup, orphaned function words, and modal/auxiliary attachment. It should not apply a blanket dense-duration increase.
+**Gate:** Collect 8-12 clean timing-context reports with adaptation disabled for at least one pass. Only consider Timing Calibration Pass 2 if recurring defects remain after separating timing from chunking/normalization issues.
 
-## Next Slice 1: Targeted Timing/Chunking Follow-Up Pass 1
+## Next Slice 1: Focused Post-Targeted-Calibration Validation Pass
 
-**Goal:** Make narrow fixes for the third-pass defects.
+**Goal:** Retest extreme semantic density, punctuation/quote rhythm, dense proper nouns, and modal-heavy dense chunks.
 
-**Candidate work:**
+**Gate:** A clean report set shows whether targeted fixes reduced repeated friction without making light text sluggish.
 
-- detect extreme semantic density without slowing every dense chunk;
-- improve semicolon and comma-list emphasis dwell;
-- inspect quote-adjacent spacing cleanup such as `intuition"cannot.`;
-- reduce orphaned function-word chunks such as `as`;
-- inspect modal/auxiliary attachment around `should`.
+## Next Slice 2: Timing Calibration Pass 2, If Justified
 
-**Gate:** Tests cover each recurring pattern, schedule/API shape remains stable, and light chunks are not globally overpaused.
+**Goal:** Make another timing formula change only if clean reports show repeated pure timing defects.
 
-## Next Slice 2: Clean Validation Pass After Targeted Follow-Up
+**Gate:** Any adjustment is narrow, test-covered, and backed by timing-context evidence.
 
-**Goal:** Retest with the refreshed corpus and adaptation disabled for at least one pass.
-
-**Gate:** 8-12 clean timing-context reports or a clear note that defects are no longer recurring enough to justify another timing change.
-
-## Next Slice 3: Completion/Session Summary Polish
+## Next Slice 3: Session Summary / Validation UX Polish
 
 **Goal:** Improve demo validation ergonomics without changing timing semantics.
 
@@ -52,9 +45,9 @@ The near-term goal is to refine the reading experience using observed defects ra
 
 ## Explicit Non-Goals For The Current Phase
 
-- No blanket dense-duration increase based only on the third-pass report.
 - No public performance claims.
 - No ML/NLP dependency additions.
 - No accounts, analytics, persistence model, service workers, or deployment work.
 - No frontend framework migration or browser automation tooling.
 - No native app, EPUB/PDF import, or cloud sync.
+- No broad timing redesign without another clean validation pass.

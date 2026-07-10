@@ -65,6 +65,21 @@ Use this protocol after Timing Calibration Pass 1:
 8. Focus on dense chunks, punctuation/quote rhythm, and extra-dense semantic chunks.
 9. Use `python scripts/review_defects.py --timing-only` to exclude older/no-context reports before reviewing results.
 
+## Post-Targeted-Calibration Validation Pass
+
+Use this protocol after the post-validation targeted calibration pass:
+
+1. Test at `1.0x`.
+2. Test at `1.15x`.
+3. Optionally test at `1.3x`.
+4. Disable adaptation for at least one pass.
+5. Focus on extreme semantic density.
+6. Focus on punctuation/quote rhythm.
+7. Focus on dense proper nouns.
+8. Focus on modal-heavy dense chunks.
+9. Classify remaining `as`, `should`, or quote-spacing problems as chunking/normalization if they recur.
+10. Target 8-12 clean timing reports before another timing formula change.
+
 ## Review Utility
 
 Print all reports:

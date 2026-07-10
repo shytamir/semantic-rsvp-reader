@@ -8,6 +8,7 @@ def normalize_text(raw_text: str) -> str:
 
     text = unicodedata.normalize("NFC", raw_text)
     text = text.replace("\r\n", "\n").replace("\r", "\n")
+    text = re.sub(r'(?<=[A-Za-z0-9])"(?=[A-Za-z])', '" ', text)
 
     normalized_lines = []
     for line in text.split("\n"):

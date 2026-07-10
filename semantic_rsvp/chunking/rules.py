@@ -291,6 +291,12 @@ def _starts_new_phrase(
         return True
     if (
         token_lower in _AUXILIARIES
+        and _next_is_auxiliary_or_word(next_token)
+        and count_content_words(current) >= 2
+    ):
+        return True
+    if (
+        token_lower in _AUXILIARIES
         and next_token
         and next_token.lower() == "not"
         and count_content_words(current) > 0
@@ -313,6 +319,8 @@ def _should_preserve_candidate(candidate: list[str]) -> bool:
     words = [token.lower() for token in candidate if _is_word(token)]
     if _is_article_modifier_head(words):
         return True
+    if _is_short_as_phrase(words):
+        return True
     if _is_auxiliary_chain(candidate):
         return True
     if _is_quantifier_phrase(words):
@@ -326,6 +334,10 @@ def _is_article_modifier_head(words: list[str]) -> bool:
         and words[0] in _INDEFINITE_ARTICLES
         and count_content_words(words) <= 2
     )
+
+
+def _is_short_as_phrase(words: list[str]) -> bool:
+    return len(words) <= 3 and words[:1] == ["as"] and count_content_words(words) <= 2
 
 
 def _is_auxiliary_chain(tokens: list[str]) -> bool:

@@ -105,7 +105,7 @@ def test_quote_boundary_chunks_receive_small_bonus():
     explanation = explain_duration(quoted)
 
     assert has_quote_boundary(quoted.text)
-    assert explanation["punctuation_bonus_ms"] == 90
+    assert explanation["punctuation_bonus_ms"] == 100
     assert compute_duration_ms(quoted) > compute_duration_ms(plain)
 
 
@@ -125,8 +125,8 @@ def test_colon_and_semicolon_chunks_receive_bounded_bonus():
     assert has_strong_internal_punctuation(semicolon.text)
     assert has_strong_internal_punctuation(colon.text)
     assert compute_duration_ms(semicolon) > compute_duration_ms(plain)
-    assert explain_duration(semicolon)["punctuation_bonus_ms"] == 40
-    assert explain_duration(colon)["punctuation_bonus_ms"] == 40
+    assert explain_duration(semicolon)["punctuation_bonus_ms"] == 70
+    assert explain_duration(colon)["punctuation_bonus_ms"] == 70
 
 
 def test_light_comma_chunks_are_not_overpaused_by_punctuation_calibration():
