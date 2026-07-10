@@ -1,6 +1,20 @@
 # Observed Defects Review - timing context only
 
-## Summary
+## Review Summary
+
+Top recurring issues:
+1. Extreme semantic density still produces rushed reports even after Timing Calibration Pass 1, especially at `1.15x` and `1.3x`; the clearest examples are long abstract/proper-noun chunks such as `a parenthetical may quietly`, `Department of Transportation`, and `the duration is mathematically`.
+2. Punctuation rhythm remains the strongest specific timing follow-up: semicolon chunks, comma-list emphasis, and quote-adjacent text still ask for more dwell or cleaner spacing.
+3. Some reports categorized as timing are actually chunk-shape or text-cleanliness defects, including orphaned `as`, modal/auxiliary attachment around `should`, and `intuition"cannot.` missing a space after a closing quote.
+4. The post-calibration pass is no longer mainly about the old 470-504ms dense baseline; several complaints occur around 557-635ms effective dwell, which suggests narrower extra-density and punctuation handling rather than a broad dense slowdown.
+
+Priority for next refinement:
+- Investigate a targeted follow-up for extreme semantic density, including dense proper nouns, long abstract words, and modal-heavy dense chunks.
+- Improve punctuation rhythm for semicolon/comma emphasis without globally overpausing light text.
+- Treat orphaned function words, `should` attachment, and quote-spacing defects as chunking/normalization follow-up before using them as timing evidence.
+- Avoid a blanket dense-duration increase until another clean pass confirms repeated timing failures after these narrower fixes.
+
+## Generated Counts
 
 - Total reports: 13
 - Included reports: 13
