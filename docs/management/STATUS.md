@@ -21,10 +21,13 @@ The prototype has completed a narrow follow-up to Timing Calibration Pass 1. Tim
 8. Post-validation targeted calibration.
 9. Quote/parenthetical display-state annotation and defect taxonomy prep.
 10. Navigation Scaffolding Pass 1.
+11. JavaScript syntax verification hardening.
 
 ## Current Evidence
 
 `docs/validation/observed_timing_defects_third_pass.md` drove the prior targeted slice. After that work, remaining recurring issues are more likely to be chunk shape or visual-context problems than pure timing. New quote, parenthetical, and navigation metadata supports cleaner classification while active navigability features remain future work.
+
+JavaScript syntax checking is now CI-backed through a lightweight `node --check` wrapper. No npm toolchain or frontend framework was added.
 
 ## Next 4 Planned Slices
 

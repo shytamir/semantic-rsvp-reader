@@ -16,8 +16,16 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
       - name: Install dependencies
         run: pip install -r requirements.txt
+
+      - name: Check JavaScript syntax
+        run: python scripts/check_js_syntax.py
 
       - name: Run tests
         run: pytest

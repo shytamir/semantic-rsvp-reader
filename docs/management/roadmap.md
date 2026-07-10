@@ -17,6 +17,7 @@ The near-term goal is to refine the reading experience using observed defects ra
 - **Done:** Post-validation targeted calibration.
 - **Done:** Quote/parenthetical display-state annotation and defect taxonomy prep.
 - **Done:** Navigation Scaffolding Pass 1.
+- **Done:** JavaScript syntax verification hardening.
 - **Current:** Prepare Chunker Refinement Pass 2 using clearer defect categories.
 
 **Gate:** Collect enough clean chunking/display-state evidence to identify repeated phrase-boundary patterns without treating every discomfort as timing.

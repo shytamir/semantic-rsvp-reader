@@ -39,6 +39,7 @@ The app can generate `.md.gz` backend defect report files directly from the mobi
 | Navigation metadata scaffolding | Done | Schedule items include character span, paragraph, and coarse progress metadata |
 | Paragraph/progress milestone metadata | Done | Paragraph starts and 5% progress crossings are computed for future navigability |
 | Dormant navigability UI scaffolding | Done | Hidden progress/breakpoint placeholders and inactive JS helpers exist |
+| JavaScript syntax check | Done | Lightweight `node --check` wrapper runs locally when Node exists and is enforced in CI |
 | `/api/schedule` | Done | Backend emits frontend-ready schedule |
 | Mobile RSVP playback loop | Done | Reader advances scheduled chunks |
 | Touch gestures | Done | Tap/swipe/long-press interaction exists |
@@ -76,6 +77,14 @@ pytest
 ```
 
 The repository includes `pyproject.toml` so pytest can import the local `semantic_rsvp` package directly from a fresh clone.
+
+## JavaScript Syntax Check
+
+```bash
+python scripts/check_js_syntax.py
+```
+
+The script checks `static/js/app.js` with `node --check` or `nodejs --check` when either runtime is available. If Node is missing locally, it prints a warning and skips without failing. GitHub Actions installs Node and enforces this check in CI. No npm packages, frontend framework, bundler, or transpiler are used.
 
 ## Validation Workflow
 

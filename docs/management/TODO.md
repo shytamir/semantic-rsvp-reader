@@ -1,5 +1,12 @@
 # TODO.md
 
+## Development Tooling
+
+- [x] **JavaScript Syntax Verification Hardening**
+  - Added a lightweight `node --check` wrapper.
+  - GitHub Actions installs Node and enforces the check.
+  - No npm or frontend toolchain added.
+
 ## Chunker-Dominant Refinement
 *Goal: Improve phrase-boundary quality while keeping timing, speed, adaptation, and playback semantics stable.*
 

@@ -20,10 +20,13 @@ Timing has improved enough that the next useful work is chunk quality. Recent va
 7. Post-validation targeted calibration.
 8. Quote/parenthetical state annotation and reporting prep.
 9. Navigation Scaffolding Pass 1.
+10. JavaScript syntax verification hardening.
 
 ## Current Evidence
 
 The latest timing passes reduced the strongest timing complaints, while remaining recurring defects increasingly describe chunk shape, phrase attachment, and display-state orientation. Defect reports now include quote, parenthetical, and optional navigation state so future reviews can separate visual context and orientation evidence from timing rhythm.
+
+JavaScript syntax checking is now CI-backed through a lightweight `node --check` wrapper. Local environments without Node skip with a warning; CI installs Node and enforces the check.
 
 ## Next 4 Planned Slices
 
