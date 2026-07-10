@@ -19,15 +19,16 @@ The near-term goal is to refine the reading experience using observed defects ra
 - **Done:** Navigation Scaffolding Pass 1.
 - **Done:** JavaScript syntax verification hardening.
 - **Done:** Passive Spatial Anchor implementation.
-- **Current:** Prepare Chunker Refinement Pass 2 using clearer defect categories.
+- **Done:** Chunker Refinement Pass 2.
+- **Current:** Validate Chunker Refinement Pass 2 against fresh named-entity, title, article, and weak-boundary evidence.
 
-**Gate:** Collect enough clean chunking/display-state evidence to identify repeated phrase-boundary patterns without treating every discomfort as timing.
+**Gate:** Confirm the pass reduces repeated phrase-boundary defects without creating overlong chunks, over-clumped ordinary prose, or timing-masked discomfort.
 
-## Next Slice 1: Proper Noun / Honorific / Article / Function-Word Chunking Refinement Pass
+## Next Slice 1: Post-Chunker Refinement Pass 2 Validation
 
-**Goal:** Address recurring name/title/honorific, article-noun, preposition/pronoun bookend, and weak-boundary chunk defects.
+**Goal:** Validate the latest proper-name, honorific/title, article, preposition, and apostrophe-tokenization changes on fresh text.
 
-**Gate:** Changes are deterministic, covered by focused tests, and do not alter timing formulas.
+**Gate:** Remaining issues are classified cleanly as chunking, timing, display state, layout, or navigation defects.
 
 ## Next Slice 2: Breakpoint Bookmarking Traversal
 

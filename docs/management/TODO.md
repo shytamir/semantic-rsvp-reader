@@ -10,9 +10,14 @@
 ## Chunker-Dominant Refinement
 *Goal: Improve phrase-boundary quality while keeping timing, speed, adaptation, and playback semantics stable.*
 
-- [ ] **Chunker Refinement Pass 2**
+- [x] **Chunker Refinement Pass 2**
   - Focus on honorific/name, title/name, proper-name, article/noun, preposition/pronoun bookend, and weak-boundary defects.
   - Requirement: Use observed reports and focused tests before changing chunking rules.
+  - Completed with focused regressions for observed named entities, honorific/title phrases, article modifier/head phrases, preposition-led phrases, and curly apostrophe tokenization.
+
+- [ ] **Post-Chunker Refinement Pass 2 Validation**
+  - Validate on fresh text containing repeated named entities, institutions, titles, article phrases, and weak preposition/function-word boundaries.
+  - Requirement: Watch for overlong chunks, over-clumped ordinary prose, and timing complaints caused by denser chunk shapes.
 
 - [ ] **Quote/Parenthetical Validation**
   - Validate the new quote and parenthetical display-state indicators on mobile.

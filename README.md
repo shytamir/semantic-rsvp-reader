@@ -7,7 +7,7 @@ Semantic RSVP Reader is a mobile-first HTML5 reading prototype served by Flask. 
 > **Status:** GREEN
 > **Last Updated:** 2026-07-10
 > **Current Phase:** Chunker-dominant refinement
-> **Immediate Focus:** Proper-name, title, article, preposition, quote, and parenthetical chunk quality
+> **Immediate Focus:** Post-Chunker Refinement Pass 2 validation focused on named entities, titles, articles, and weak boundaries
 
 ## Current State: Prototype Complete
 The stable development base is finished. Text can enter the system cleanly, normalize into stable sentence units, and process through a rule-based chunking and deterministic timing engine. The mobile-first RSVP playback loop is fully operational with gesture interactions, speed controls, local behavioral telemetry, backend defect reports, display-state annotations for quoted and parenthetical spans, and dormant navigation metadata scaffolding.
@@ -25,6 +25,7 @@ The app can generate `.md.gz` backend defect report files directly from the mobi
 | Sentence segmentation | Done | Common abbreviations, times, and initialisms are protected |
 | Pure-Python rule-based semantic chunking | Done | Inspectable semantic chunker exists |
 | Chunking refinement pass 1 from observed defects | Done | Observed modifier/head, verb-support, and punctuation-boundary defects addressed |
+| Chunking refinement pass 2 from observed defects | Done | Proper-name, honorific/title, article, preposition, and curly apostrophe defects addressed |
 | Deterministic timing engine | Done | Chunks receive deterministic durations |
 | Timing Calibration Pass 1 from clean timing-context defect reports | Done | Dense, extra-dense, punctuation, and quote rhythm are conservatively adjusted |
 | Dense chunk dwell calibration | Done | Dense chunks get a modest baseline dwell increase |
@@ -97,7 +98,7 @@ The app supports in-app defect reporting during reader playback. Reports are sav
 
 Defect report storage uses generated filenames, bounded/escaped Markdown fields, a request size limit, and a best-effort local storage encryption check. If encrypted storage cannot be confirmed, the app logs a warning and continues.
 
-Chunking refinement pass 1 is documented in `docs/validation/chunking_refinement_pass_1.md`. It addresses the first observed modifier/head, verb-support, and punctuation-boundary defects. A follow-up evidence-hygiene cleanup reduces display wrapping, `a.m.`/`p.m.` initialism, and `whether ... would` noise before calibration. Timing Calibration Pass 1 is documented in `docs/validation/timing_calibration_pass_1.md`, and the targeted third-pass follow-up is documented in `docs/validation/post_validation_targeted_calibration.md`.
+Chunking refinement pass 1 is documented in `docs/validation/chunking_refinement_pass_1.md`. It addresses the first observed modifier/head, verb-support, and punctuation-boundary defects. Chunking refinement pass 2 is documented in `docs/validation/chunking_refinement_pass_2.md`, with implementation results in `docs/validation/chunking_refinement_pass_2_results.md`; it addresses observed proper-name, honorific/title, article, preposition, and curly apostrophe defects while keeping timing/playback behavior stable. A follow-up evidence-hygiene cleanup reduces display wrapping, `a.m.`/`p.m.` initialism, and `whether ... would` noise before calibration. Timing Calibration Pass 1 is documented in `docs/validation/timing_calibration_pass_1.md`, and the targeted third-pass follow-up is documented in `docs/validation/post_validation_targeted_calibration.md`.
 
 Quote and parenthetical state indicators are documented in `docs/validation/quote_parenthetical_state_indicators.md`. Use `quote_state_confusion` and `parenthetical_state_confusion` when the issue is visual context, not timing.
 
@@ -126,7 +127,7 @@ python scripts/schedule_sample.py --json < sample.txt
 
 ## Next Milestones
 
-1. Chunker Refinement Pass 2 for proper nouns, honorifics, articles, and function-word boundaries
+1. Post-Chunker Refinement Pass 2 validation
 2. Breakpoint Bookmarking Traversal
 3. Drift Recovery Logic
 4. Post-navigation usability validation

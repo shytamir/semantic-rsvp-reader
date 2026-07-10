@@ -3,11 +3,11 @@
 > **Status:** GREEN
 > **Last Updated:** 2026-07-10
 > **Current Phase:** Chunker-dominant refinement.
-> **Immediate Focus:** Proper-name, title, article, preposition, quote, and parenthetical chunk quality; navigation additions remain conservative.
+> **Immediate Focus:** Post-Chunker Refinement Pass 2 validation; navigation additions remain conservative.
 
 ## Current Project Phase
 
-The prototype has completed a narrow follow-up to Timing Calibration Pass 1. Timing is improved enough that the main blocker is now chunk quality: phrase attachment, proper names, titles, articles, prepositions, pronoun/preposition bookends, and context around quotes or parentheticals. The Passive Spatial Anchor adds a subtle bottom progress bar and coarse tap-to-seek while leaving bookmarking and drift recovery for future slices.
+The prototype has completed Chunker Refinement Pass 2 after a chunker-dominant validation report. Timing remains stable; the latest pass focused on phrase attachment, proper names, titles, articles, prepositions, and apostrophe tokenization. The Passive Spatial Anchor adds a subtle bottom progress bar and coarse tap-to-seek while leaving bookmarking and drift recovery for future slices.
 
 ## Completed Recent Slices
 
@@ -23,10 +23,11 @@ The prototype has completed a narrow follow-up to Timing Calibration Pass 1. Tim
 10. Navigation Scaffolding Pass 1.
 11. JavaScript syntax verification hardening.
 12. Passive Spatial Anchor implementation.
+13. Chunker Refinement Pass 2.
 
 ## Current Evidence
 
-`docs/validation/observed_timing_defects_third_pass.md` drove the prior targeted slice. After that work, remaining recurring issues are more likely to be chunk shape or visual-context problems than pure timing. New quote, parenthetical, and navigation metadata supports cleaner classification while active navigability features remain future work.
+`docs/validation/chunking_refinement_pass_2.md` drove the latest targeted chunker slice. The pass addressed repeated `Air Force` / `Air Force One` splits, honorific/title-name splits, article modifier/head grouping, preposition-led weak chunks, and curly apostrophe tokenization. New quote, parenthetical, and navigation metadata supports cleaner classification while active navigability features remain future work.
 
 JavaScript syntax checking is now CI-backed through a lightweight `node --check` wrapper. No npm toolchain or frontend framework was added.
 
@@ -34,7 +35,7 @@ The progress anchor is milestone-gated to reduce flicker and peripheral distract
 
 ## Next 4 Planned Slices
 
-1. Proper Noun / Honorific / Article / Function-Word Chunking Refinement Pass.
+1. Post-Chunker Refinement Pass 2 validation.
 2. Breakpoint Bookmarking Traversal.
 3. Drift Recovery Logic.
 4. Post-navigation usability validation.
@@ -42,6 +43,9 @@ The progress anchor is milestone-gated to reduce flicker and peripheral distract
 ## Known Risks
 
 - Overfitting chunking rules to a small report count.
+- Known-phrase rules improving observed named entities while missing unseen entities.
+- Proper-name grouping creating overlong or over-dense chunks.
+- Article/preposition cleanup changing ordinary phrase rhythm.
 - Speed multipliers masking timing formula quality.
 - Chunking defects being misclassified as timing defects.
 - Quote/parenthetical visual indicators being too subtle or too heavy.
