@@ -83,5 +83,5 @@ The progress anchor is milestone-gated to reduce flicker and peripheral distract
 - No cloud analytics.
 - No native app.
 - No public performance claims.
-- No broad timing redesign during chunker-dominant refinement.
+- No broad timing redesign during validation-driven refinement.
 - No full Markdown rendering, heading navigation, or table of contents.

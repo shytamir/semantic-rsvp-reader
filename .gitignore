@@ -8,3 +8,4 @@ instance/
 htmlcov/
 .DS_Store
 data/defect_reports/
+*.md.gz

@@ -15,9 +15,9 @@
   - Requirement: Use observed reports and focused tests before changing chunking rules.
   - Completed with focused regressions for observed named entities, honorific/title phrases, article modifier/head phrases, preposition-led phrases, and curly apostrophe tokenization.
 
-- [ ] **Post-Chunker Refinement Pass 2 Validation**
-  - Validate on fresh text containing repeated named entities, institutions, titles, article phrases, and weak preposition/function-word boundaries.
-  - Requirement: Watch for overlong chunks, over-clumped ordinary prose, and timing complaints caused by denser chunk shapes.
+- [x] **Post-Chunker Refinement Pass 2 Validation**
+  - Superseded by the third chunking validation report and Post-Validation Stabilization Pass 1.
+  - Follow-up validation now lives under Post-Stabilization Validation Pass.
 
 - [ ] **Quote/Parenthetical Validation**
   - Validate the new quote and parenthetical display-state indicators on mobile.
@@ -64,6 +64,7 @@
   - Confirm ghost previous chunk never overlaps or visually competes with active chunk.
   - Confirm active chunk font size remains stable on phone viewports.
   - Validate title/byline/date/source-line boundaries and watch for over-clumping from phrase preservation.
+  - Use [docs/validation/index.md](../validation/index.md) as the validation map.
 
 - [x] **Structural Hierarchy Anchor**
   - Detect Markdown headers (#, ##) during ingestion and display as a static label at the top of the viewport.
