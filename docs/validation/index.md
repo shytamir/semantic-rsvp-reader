@@ -2,17 +2,17 @@
 
 ## Active Validation Focus
 
+- [S-021 Post-Stabilization Human Summary](s021_post_stabilization_human_summary.md)
 - [Post-Validation Stabilization Pass 1](post_validation_stabilization_pass_1.md)
 - [Navigation Validation](navigation_validation.md)
 - [Validation Corpus](corpus.md)
 
 Current focus:
 
-1. Confirm ghost previous chunk never overlaps active text.
-2. Confirm active chunk font size remains stable.
-3. Validate title/byline/date/source boundaries.
-4. Watch for over-clumping from phrase preservation.
-5. Confirm quote and parenthetical display-state indicators remain clear, classified separately from punctuation rhythm defects.
+1. Validate S-022 phone landscape ghost/current chunk separation for GitHub issue #1.
+2. Confirm portrait behavior remains correct.
+3. Confirm first-chunk empty ghost, long ghost text, ellipsis, quote state, and parenthetical state remain readable.
+4. Keep other minor observations deferred until after the parser-assisted experiment unless they are safety fixes or clear regressions.
 
 ## Defect Reporting Workflow
 

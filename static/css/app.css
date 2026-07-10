@@ -196,6 +196,11 @@ textarea:focus-visible,
 
 .reader-area {
   --reader-left-offset: clamp(16px, 5vw, 36px);
+  --reader-chunk-font-size: clamp(2.1rem, 10.5vw, 4.2rem);
+  --previous-chunk-top: clamp(8px, 2.5vh, 24px);
+  --previous-chunk-line-height: 1.05;
+  --previous-chunk-lane-height: clamp(2.205rem, 11.025vw, 4.41rem);
+  --previous-active-gap: clamp(6px, 1.6vh, 14px);
 
   position: relative;
   display: grid;
@@ -203,7 +208,11 @@ textarea:focus-visible,
   justify-items: start;
   align-content: start;
   min-height: 36vh;
-  padding: clamp(36px, 8vh, 72px) 6px 12px var(--reader-left-offset);
+  padding: calc(
+    var(--previous-chunk-top) +
+    var(--previous-chunk-lane-height) +
+    var(--previous-active-gap)
+  ) 6px 12px var(--reader-left-offset);
   text-align: left;
   touch-action: none;
   user-select: none;
@@ -217,7 +226,7 @@ textarea:focus-visible,
 
 .previous-chunk {
   position: absolute;
-  top: clamp(8px, 2.5vh, 24px);
+  top: var(--previous-chunk-top);
   left: calc(var(--reader-left-offset) + 11px);
   right: 6px;
   width: auto;
@@ -233,9 +242,9 @@ textarea:focus-visible,
   word-break: normal;
   hyphens: none;
   -webkit-hyphens: none;
-  font-size: clamp(2.1rem, 10.5vw, 4.2rem);
+  font-size: var(--reader-chunk-font-size);
   font-weight: 800;
-  line-height: 1.05;
+  line-height: var(--previous-chunk-line-height);
   white-space: nowrap;
   pointer-events: none;
 }
@@ -258,7 +267,7 @@ textarea:focus-visible,
   word-break: normal;
   hyphens: none;
   -webkit-hyphens: none;
-  font-size: clamp(2.1rem, 10.5vw, 4.2rem);
+  font-size: var(--reader-chunk-font-size);
   font-weight: 800;
   line-height: 1.05;
   white-space: normal;
@@ -535,11 +544,12 @@ textarea:focus-visible,
 @media (max-width: 380px) {
   .reader-area {
     --reader-left-offset: 14px;
+    --reader-chunk-font-size: clamp(1.85rem, 9.5vw, 3.25rem);
+    --previous-chunk-lane-height: clamp(1.9425rem, 9.975vw, 3.4125rem);
   }
 
   .chunk-display {
     max-width: 94vw;
-    font-size: clamp(1.85rem, 9.5vw, 3.25rem);
   }
 
   .chunk-display.is-long-chunk {
@@ -564,17 +574,16 @@ textarea:focus-visible,
   }
 
   .reader-area {
-    min-height: 30vh;
-    padding-top: clamp(20px, 6vh, 42px);
-  }
+    --reader-chunk-font-size: clamp(1.7rem, 8.8vw, 3.25rem);
+    --previous-chunk-lane-height: clamp(1.785rem, 9.24vw, 3.4125rem);
+    --previous-chunk-top: 3px;
+    --previous-active-gap: 8px;
 
-  .previous-chunk {
-    top: 3px;
+    min-height: 30vh;
   }
 
   .chunk-display {
     min-height: 1.8em;
-    font-size: clamp(1.7rem, 8.8vw, 3.25rem);
   }
 
   .chunk-display.is-long-chunk {

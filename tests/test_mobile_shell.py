@@ -101,7 +101,8 @@ def test_previous_chunk_display_is_ghosted_and_noninteractive(client):
     assert ".previous-chunk" in css
     assert "position: absolute" in css
     assert "opacity: 0.45" in css
-    assert "font-size: clamp(2.1rem, 10.5vw, 4.2rem)" in css
+    assert "--reader-chunk-font-size: clamp(2.1rem, 10.5vw, 4.2rem)" in css
+    assert "font-size: var(--reader-chunk-font-size)" in css
     assert "white-space: nowrap" in css
     assert "overflow: hidden" in css
     assert "text-overflow: ellipsis" in css
@@ -115,11 +116,28 @@ def test_active_chunk_sizing_is_explicit_and_independent_from_ghost(client):
     css = response.data.decode("utf-8")
 
     assert ".chunk-display" in css
-    assert "font-size: clamp(2.1rem, 10.5vw, 4.2rem)" in css
+    assert "--reader-chunk-font-size: clamp(2.1rem, 10.5vw, 4.2rem)" in css
+    assert "font-size: var(--reader-chunk-font-size)" in css
     assert ".chunk-display.is-long-chunk" in css
     assert ".chunk-display.is-extra-long-token" in css
     assert ".previous-chunk.is-long-chunk" not in css
     assert ".previous-chunk.is-extra-long-token" not in css
+
+
+def test_reader_area_reserves_previous_chunk_lane_in_short_landscape_heights(client):
+    response = client.get("/static/css/app.css")
+    css = response.data.decode("utf-8")
+
+    assert "--previous-chunk-top" in css
+    assert "--previous-chunk-lane-height" in css
+    assert "--previous-active-gap" in css
+    assert "var(--previous-chunk-top) +" in css
+    assert "var(--previous-chunk-lane-height) +" in css
+    assert "var(--previous-active-gap)" in css
+    assert "@media (max-height: 680px)" in css
+    assert "--previous-chunk-top: 3px" in css
+    assert "--previous-active-gap: 8px" in css
+    assert "padding-top: clamp(20px, 6vh, 42px)" not in css
 
 
 def test_navigation_scaffold_is_hidden_and_inert(client):

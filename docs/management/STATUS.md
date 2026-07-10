@@ -1,80 +1,71 @@
 # Project Status
 
 ```yaml
-current_slice: S-021
-name: Post-Stabilization Validation Pass
+current_slice: S-022
+name: Landscape Ghost-Chunk Collision Stabilization
 state: HUMAN_VALIDATION
 owner: human
 agent_action: none
 started: 2026-07-10
-evidence: docs/validation/post_validation_stabilization_pass_1.md
+evidence: docs/validation/s021_post_stabilization_human_summary.md
+issue: https://github.com/shytamir/semantic-rsvp-reader/issues/1
 ```
 
 ## Current Slice
 
-Validate whether Post-Validation Stabilization Pass 1 improved the phone reading experience without changing timing, playback, navigation, adaptation, or defect-reporting semantics.
+S-022 is a narrow responsive-layout stabilization for GitHub issue #1: in phone landscape orientation, the previous-chunk ghost can occupy the same visual lane as the active chunk. Portrait orientation remains correct.
 
-The active validation focus is mobile ghost/active chunk layout, stable active text sizing, source/title/byline/date boundaries, long-form dates, phrase cohesion, and quote/parenthetical display-state clarity.
+The implementation has been completed and is awaiting targeted human phone/orientation validation. This is a presentation fix only; it does not change chunking, timing, playback, navigation, adaptation, parser experiment artifacts, or semantic-rule behavior.
 
-## Baseline Conditions
+## S-021 Outcome
 
-Use these conditions for comparable validation reports:
+S-021 completed as `partially_passed`: human validation found no major or parser-experiment-blocking regression. The stabilized reader looked approximately the same overall, and no semantic, timing, playback, navigation, source-boundary, or general usability defect was considered acceptance-blocking for the parser-assisted experiment.
 
-- Same device and browser where practical.
-- Fixed playback speed, recorded in the report.
-- Adaptation disabled.
-- Fixed corpus subset from [Validation Corpus](../validation/corpus.md), plus source-boundary and date cases represented in [Chunking Refinement Pass 3](../validation/chunking_refinement_pass_3.md).
-- Predetermined exposure completed even if few defects appear.
-- Comparable reporting through the in-app defect-report workflow and taxonomy.
+One minor but reproducible layout regression remained: in phone landscape orientation, the previous-chunk ghost collides with or occupies the same visual lane as the active chunk. That defect is tracked as GitHub issue #1 and promoted into S-022.
 
-Exploratory reading may use natural speed changes, adaptation, additional texts, and free-form notes, but those results should be labeled exploratory rather than baseline.
+Detailed in-app defect reports from the S-021 validation session were accidentally deleted. No report counts or individual defect details are reconstructed from memory.
+
+## Validation Required
+
+Validate on the affected phone/browser combination:
+
+- Portrait layout.
+- Landscape layout after advancing beyond the first chunk.
+- Portrait to landscape while paused.
+- Portrait to landscape while playing.
+- Landscape back to portrait.
+- First chunk with empty ghost.
+- Short and long previous chunks.
+- Ellipsized ghost chunks.
+- Active chunks in normal, long-token, quote, and parenthetical display states.
 
 ## Acceptance Gate
 
-The human owner records the gate result as `passed`, `partially_passed`, `failed`, or `inconclusive`.
+The human owner records the S-022 gate result as `passed`, `partially_passed`, `failed`, or `inconclusive`.
 
-Evaluate:
+S-022 passes only if the previous-chunk ghost has a distinct visual lane and does not overlap or appear on the same line as the active chunk across the targeted phone/orientation checks.
 
-- Severity-weighted defects per fixed sample.
-- Recurrence of fixed defects.
-- New regressions.
-- Session-breaking defects.
-- Qualitative reading comfort.
-
-Codex must not declare this qualitative gate passed without human evidence.
-
-## Evidence Under Test
-
-- [Post-Validation Stabilization Pass 1](../validation/post_validation_stabilization_pass_1.md)
-- [Chunking Refinement Pass 3](../validation/chunking_refinement_pass_3.md)
-- [Navigation Validation](../validation/navigation_validation.md)
-- [Quote and Parenthetical State Indicators](../validation/quote_parenthetical_state_indicators.md)
-
-## Current Outcome
-
-Not yet accepted. The implementation slice is complete, but the project is waiting on human validation evidence before the next development slice is chosen.
+Codex must not close GitHub issue #1 or declare the visual gate passed without human evidence.
 
 ## Next Actions
 
-- If the gate passes, expand focused chunking regression coverage.
-- If the gate partially passes, fails, or is inconclusive, summarize the new evidence and open a targeted stabilization follow-up.
-- Codex has no active implementation task until new validation evidence or a new priority is supplied.
+- If S-022 passes, proceed to the parser-assisted chunking spike defined by the roadmap.
+- If S-022 fails or is inconclusive, summarize the observed layout behavior and keep the fix constrained to issue #1.
+- Other minor S-021 observations, if any, remain deferred until after the parser-assisted experiment rather than becoming new production rules.
 
 ## Active Risks
 
-- CSS-only tests may miss Android/Firefox rendering behavior.
-- Phrase-preservation rules may over-clump compact edge cases.
-- Source-boundary preservation may create underdense metadata chunks.
-- Speed changes or adaptation may mask baseline timing discomfort.
-- Navigation aids may hide chunking defects during validation.
+- CSS-only automated tests may miss Android/Firefox rendering differences.
+- Very short landscape viewports may still require human judgment about comfort even if lanes no longer overlap.
+- Orientation changes can expose browser viewport-unit behavior that static tests cannot prove.
+- Navigation aids may hide chunking defects during unrelated validation.
+- Broad hand-written semantic exception expansion remains frozen while the parser-assisted experiment is pending.
 
 ## Non-Goals
 
-- No ML parser.
-- No EPUB/PDF import.
-- No accounts.
-- No cloud analytics.
-- No native app.
-- No public performance claims.
-- No broad timing redesign during validation-driven refinement.
+- No chunking rule changes.
+- No timing, playback, navigation, breakpoint, drift-recovery, or adaptation changes.
+- No parser, NLP, or dependency changes.
+- No parser-assisted experiment artifact changes.
+- No broad reader redesign.
 - No full Markdown rendering, heading navigation, or table of contents.

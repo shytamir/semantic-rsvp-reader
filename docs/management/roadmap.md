@@ -4,21 +4,20 @@ This roadmap is the priority-order view. [STATUS](STATUS.md) is the authority fo
 
 ## Now
 
-1. **S-021: Post-Stabilization Validation Pass**
+1. **S-022: Landscape Ghost-Chunk Collision Stabilization**
    - State: `HUMAN_VALIDATION`
    - Owner: human
-   - Goal: validate mobile layout, source boundaries, long-form dates, phrase cohesion, and quote/parenthetical display-state clarity under comparable baseline conditions.
+   - Goal: validate the targeted phone landscape layout correction for GitHub issue #1.
 
 ## Next
 
-1. **S-022: Evidence-based follow-up from S-021**
-   - If S-021 passes, expand focused chunking regression coverage.
-   - If S-021 partially passes, fails, or is inconclusive, summarize the new defects and run a targeted stabilization follow-up.
-2. **S-023: Parser-assisted chunking spike**
+1. **S-023: Parser-assisted chunking spike**
    - Implement an isolated experimental parser-assisted path using the frozen design in [Parser-Assisted Chunking Experiment](../experiments/parser_assisted_chunking/README.md).
    - Keep the rule-based chunker as the production default and fallback.
-3. **S-024: Baseline versus experiment comparison**
+2. **S-024: Baseline versus experiment comparison**
    - Compare rule-based and parser-assisted outputs using frozen regression, frozen generalization, and human-held blind challenge material when available.
+3. **S-025: Post-experiment disposition**
+   - Decide whether to abandon, revise, or consider promoting the parser-assisted approach after held-out evaluation.
 
 ## Later
 
