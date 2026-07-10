@@ -2,52 +2,51 @@
 
 > **Status:** GREEN
 > **Last Updated:** 2026-07-10
-> **Current Phase:** Validation-driven refinement: cleaning evidence quality before timing calibration.
-> **Immediate Focus:** Evidence hygiene plus display/tokenization noise cleanup.
+> **Current Phase:** Validation-driven timing calibration.
+> **Immediate Focus:** Post-calibration timing validation at 1.0x and 1.15x.
 
 ## Current Project Phase
 
-The prototype is in validation-driven refinement. The current goal is to reduce false timing evidence caused by layout, tokenization, and chunking noise before changing timing formulas.
+The prototype is in validation-driven timing calibration. Timing Calibration Pass 1 has conservatively adjusted deterministic backend durations using the clean timing-context defect report while preserving the schedule API, speed levels, adaptation behavior, and frontend playback semantics.
 
-## Completed Slices
+## Completed Recent Slices
 
-1. Flask + CI scaffold.
-2. Mobile-first Flask/HTML5 reading shell.
-3. Text ingestion, normalization, sentence segmentation, semantic chunking, and deterministic scheduling.
-4. Mobile playback loop with controls, gestures, session-only speed controls, event tracking, and conservative adaptation.
-5. Mobile hardening for timers, visibility changes, loading, local network use, and compact phone layouts.
-6. Backend-stored compressed defect reports with bounded/escaped fields, generated filenames, request limits, and storage-encryption warnings.
-7. Timing-context defect instrumentation and defect review export.
-8. Chunking Refinement Pass 1 from observed validation defects.
+1. Defect reporting with backend-stored compressed Markdown reports.
+2. Defect report security hardening.
+3. Chunking Refinement Pass 1 from observed defects.
+4. Timing-context defect instrumentation.
+5. Evidence hygiene/display/tokenization cleanup.
+6. Timing Calibration Pass 1.
 
 ## Current Slice
 
-Evidence Hygiene + Display/Tokenization Noise Cleanup:
+Timing Calibration Pass 1:
 
-- prevent chunk display hyphenation and within-word browser splitting;
-- record display width/overflow metadata in defect reports;
-- protect `a.m.`, `p.m.`, `U.S.`, and `E.U.` from sentence/tokenization noise;
-- conservatively improve `whether ... would` chunking;
-- add timing-only review filtering so older reports without Timing Context can be excluded.
+- dense chunks receive a modest baseline dwell increase;
+- extra-dense dense chunks with long/reflective words receive a bounded bonus;
+- quote boundaries, colon/semicolon chunks, and dense sentence-ending chunks receive bounded settling time;
+- historical display/tokenization/chunking noise is excluded from timing formula decisions.
 
 ## Next 4 Planned Slices
 
-1. Clean timing validation pass.
-2. Timing Calibration Pass 1.
-3. Post-calibration validation review.
+1. Post-calibration timing validation pass.
+2. Timing Calibration Pass 1 follow-up, if defects remain.
+3. Completion/session summary polish for demo validation.
 4. Demo/beta readiness pass.
 
 ## Known Risks
 
-- Timing reports can still be polluted if layout defects are reported under timing categories.
-- Rule-based chunking remains conservative and may need more observed examples before broader grammar handling.
-- Mobile browser rendering differences may still affect very long unbroken tokens.
-- The project intentionally uses session-only telemetry, so long-term user modeling is out of scope.
+- Overfitting timing to a small personal sample set.
+- Confusing chunking defects with timing defects during future validation.
+- Elevated speed causing comprehension loss despite improved backend dwell.
+- Adaptation masking timing defects unless disabled for at least one validation pass.
 
 ## Explicit Non-Goals
 
-- No timing multiplier/formula calibration in the current slice.
-- No adaptation behavior changes.
-- No persistence model, accounts, analytics, offline mode, service workers, or deployment infrastructure.
-- No NLP dependency additions such as spaCy, transformers, or ML chunking.
-- No frontend framework, browser automation, EPUB/PDF import, or packaging work.
+- No ML parser.
+- No EPUB/PDF import.
+- No accounts.
+- No cloud analytics.
+- No native app.
+- No public performance claims.
+- No adaptation, speed-level, persistence, or frontend framework changes in this calibration slice.

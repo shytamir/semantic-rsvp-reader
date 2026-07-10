@@ -51,6 +51,20 @@ If the issue is tokenization or segmentation noise, such as `a.m.` becoming a se
 5. Submit 8-12 timing defects.
 6. Use the review utility to aggregate reports.
 
+## Post-Calibration Timing Validation Pass
+
+Use this protocol after Timing Calibration Pass 1:
+
+1. Load a validation sample with dense prose.
+2. Test at `1.0x`.
+3. Test at `1.15x`.
+4. Keep adaptation disabled for at least one pass to isolate backend timing.
+5. Report only timing defects.
+6. Classify layout, tokenization, and chunking defects separately.
+7. Target 8-12 clean timing reports.
+8. Focus on dense chunks, punctuation/quote rhythm, and extra-dense semantic chunks.
+9. Use `python scripts/review_defects.py --timing-only` to exclude older/no-context reports before reviewing results.
+
 ## Review Utility
 
 Print all reports:

@@ -6,14 +6,14 @@ Semantic RSVP Reader is a mobile-first HTML5 reading prototype served by Flask. 
 
 > **Status:** GREEN
 > **Last Updated:** 2026-07-10
-> **Current Phase:** Validation-driven refinement: cleaning evidence quality before timing calibration
-> **Immediate Focus:** Evidence hygiene plus display/tokenization noise cleanup
+> **Current Phase:** Validation-driven timing calibration
+> **Immediate Focus:** Post-calibration timing validation at 1.0x and 1.15x
 
 ## Current State: Prototype Complete
 The stable development base is finished. Text can enter the system cleanly, normalize into stable sentence units, and process through a rule-based chunking and deterministic timing engine. The mobile-first RSVP playback loop is fully operational with gesture interactions, speed controls, and local behavioral telemetry.
 
 ## Current Validation Flow
-The app can generate `.md.gz` backend defect report files directly from the mobile reading session. Timing reports now carry explicit timing context and display metadata so the next calibration pass can exclude older/noisy reports and separate rhythm defects from layout or chunking defects.
+The app can generate `.md.gz` backend defect report files directly from the mobile reading session. Timing reports carry explicit timing context and display metadata so calibration can exclude older/noisy reports and separate rhythm defects from layout or chunking defects.
 
 ## Completed Capabilities
 | Area | Status | Notes |
@@ -26,6 +26,10 @@ The app can generate `.md.gz` backend defect report files directly from the mobi
 | Pure-Python rule-based semantic chunking | Done | Inspectable semantic chunker exists |
 | Chunking refinement pass 1 from observed defects | Done | Observed modifier/head, verb-support, and punctuation-boundary defects addressed |
 | Deterministic timing engine | Done | Chunks receive deterministic durations |
+| Timing Calibration Pass 1 from clean timing-context defect reports | Done | Dense, extra-dense, punctuation, and quote rhythm are conservatively adjusted |
+| Dense chunk dwell calibration | Done | Dense chunks get a modest baseline dwell increase |
+| Extra-dense chunk dwell bonus | Done | Long/reflective dense chunks get a bounded additional bonus |
+| Punctuation/quote-aware timing adjustment | Done | Quote boundaries, strong punctuation, and dense sentence endings get bounded settling time |
 | `/api/schedule` | Done | Backend emits frontend-ready schedule |
 | Mobile RSVP playback loop | Done | Reader advances scheduled chunks |
 | Touch gestures | Done | Tap/swipe/long-press interaction exists |
@@ -72,7 +76,7 @@ The app supports in-app defect reporting during reader playback. Reports are sav
 
 Defect report storage uses generated filenames, bounded/escaped Markdown fields, a request size limit, and a best-effort local storage encryption check. If encrypted storage cannot be confirmed, the app logs a warning and continues.
 
-Chunking refinement pass 1 is documented in `docs/validation/chunking_refinement_pass_1.md`. It addresses the first observed modifier/head, verb-support, and punctuation-boundary defects. A follow-up evidence-hygiene cleanup reduces display wrapping, `a.m.`/`p.m.` initialism, and `whether ... would` noise before calibration. Timing calibration remains a next step.
+Chunking refinement pass 1 is documented in `docs/validation/chunking_refinement_pass_1.md`. It addresses the first observed modifier/head, verb-support, and punctuation-boundary defects. A follow-up evidence-hygiene cleanup reduces display wrapping, `a.m.`/`p.m.` initialism, and `whether ... would` noise before calibration. Timing Calibration Pass 1 is documented in `docs/validation/timing_calibration_pass_1.md`.
 
 Defect reports now include timing context such as base duration, effective duration, playback speed, syntactic hint, content word count, character length, nearby chunk timing, session timing summary, and display metadata. See `docs/validation/timing_defect_collection.md` for the timing defect collection workflow and `scripts/review_defects.py` for local report review/export.
 
@@ -97,9 +101,9 @@ python scripts/schedule_sample.py --json < sample.txt
 
 ## Next Milestones
 
-1. Clean timing validation pass focused on dense chunks at default and elevated speeds
-2. Timing Calibration Pass 1
-3. Post-calibration validation review
+1. Run a post-calibration timing validation pass focused on dense chunks at 1.0x and 1.15x
+2. Timing Calibration Pass 1 follow-up, if defects remain
+3. Completion/session summary polish for demo validation
 4. Demo/beta readiness pass
 
 ## Manual Test Checklist
@@ -340,3 +344,19 @@ Evidence hygiene manual test:
 14. Run the defect review utility with timing-only filtering.
 15. Confirm older reports without Timing Context are excluded.
 16. Confirm existing playback, gestures, speed controls, adaptation, and reporting still work.
+
+Timing Calibration Pass 1 manual test:
+
+1. Start Flask locally.
+2. Open app on a phone browser.
+3. Load a validation sample with dense prose.
+4. Read at 1.0x with adaptation disabled.
+5. Watch dense chunks and sentence-ending chunks.
+6. Confirm they feel less rushed than before.
+7. Switch to 1.15x.
+8. Confirm dense chunks remain readable more often.
+9. Find quote/punctuation-heavy sentences.
+10. Confirm quote and punctuation rhythm feels less abrupt.
+11. Submit defect reports only for remaining genuine timing problems.
+12. Confirm layout/tokenization/chunking defects are classified separately.
+13. Run pytest.

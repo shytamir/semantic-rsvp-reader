@@ -2,35 +2,37 @@
 
 The near-term goal is to refine the reading experience using observed defects rather than speculative feature additions.
 
-## Current Phase: Evidence Hygiene Before Timing Calibration
+## Current Phase: Validation-Driven Timing Calibration
 
-**Goal:** Make timing evidence trustworthy by separating pure timing defects from layout, wrapping, tokenization, and chunking defects.
+**Goal:** Validate Timing Calibration Pass 1 against real phone reading at 1.0x and 1.15x.
 
 - **Done:** In-app backend defect reporting.
 - **Done:** Defect report security hardening.
 - **Done:** Timing-context defect instrumentation.
 - **Done:** Chunking Refinement Pass 1 from observed reports.
-- **Current:** Display/tokenization noise cleanup and timing-only review filtering.
+- **Done:** Display/tokenization noise cleanup and timing-only review filtering.
+- **Done:** Timing Calibration Pass 1.
+- **Current:** Post-calibration timing validation.
 
-**Gate:** A timing-only review export can exclude reports without Timing Context, and phone validation no longer produces false rushed-chunk reports from word hyphenation or obvious tokenization splits.
+**Gate:** A timing-only validation pass produces clean reports showing whether dense chunks, extra-dense chunks, and quote/punctuation rhythm improved without introducing overpaused light chunks.
 
-## Next Slice 1: Clean Timing Validation Pass
+## Next Slice 1: Post-Calibration Timing Validation Pass
 
-**Goal:** Collect timing/rhythm evidence from cleaner chunks and display behavior.
+**Goal:** Collect timing/rhythm evidence after Timing Calibration Pass 1.
 
-**Gate:** A short phone-reading pass produces timing-context reports focused on dense chunks at default and elevated speeds.
+**Gate:** 8-12 clean reports, collected with adaptation disabled for at least one pass, focus on dense chunks at 1.0x and 1.15x.
 
-## Next Slice 2: Timing Calibration Pass 1
+## Next Slice 2: Timing Calibration Pass 1 Follow-Up
 
-**Goal:** Adjust deterministic timing rules only after evidence quality improves.
+**Goal:** Make a small follow-up only if the post-calibration reports show recurring timing defects.
 
-**Gate:** A 10-15 minute reading session feels calmer without changing adaptation semantics or adding opaque timing behavior.
+**Gate:** Any formula adjustment is backed by repeated timing-context evidence rather than isolated discomfort.
 
-## Next Slice 3: Post-Calibration Validation Review
+## Next Slice 3: Completion/Session Summary Polish
 
-**Goal:** Compare post-calibration reports against the cleaned baseline.
+**Goal:** Improve demo validation ergonomics without changing timing semantics.
 
-**Gate:** The review utility shows fewer repeated dense-chunk timing complaints without new rhythm regressions.
+**Gate:** A tester can finish a session and understand what happened without reading raw debug output.
 
 ## Next Slice 4: Demo/Beta Readiness Pass
 
@@ -40,7 +42,8 @@ The near-term goal is to refine the reading experience using observed defects ra
 
 ## Explicit Non-Goals For The Current Phase
 
-- No timing calibration before the clean timing validation pass.
+- No public performance claims.
 - No ML/NLP dependency additions.
 - No accounts, analytics, persistence model, service workers, or deployment work.
 - No frontend framework migration or browser automation tooling.
+- No native app, EPUB/PDF import, or cloud sync.
