@@ -29,7 +29,7 @@ def split_sentences(text: str) -> list[str]:
     protected = protected.replace("...", _ELLIPSIS_TOKEN)
 
     pieces = re.findall(
-        rf".+?(?:{re.escape(_ELLIPSIS_TOKEN)}|[.!?]+)(?=\s+|$)|.+$",
+        rf".+?(?:{re.escape(_ELLIPSIS_TOKEN)}|[.!?]+)[\"'\u201d)\]]*(?=\s+|$)|.+$",
         protected,
         flags=re.DOTALL,
     )

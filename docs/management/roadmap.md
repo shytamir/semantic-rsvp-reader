@@ -1,10 +1,10 @@
-# Calibration Roadmap
+# Refinement Roadmap
 
 The near-term goal is to refine the reading experience using observed defects rather than speculative feature additions.
 
-## Current Phase: Post-Targeted-Calibration Validation
+## Current Phase: Chunker-Dominant Refinement
 
-**Goal:** Validate the narrow third-pass follow-up without overfitting or masking baseline timing with adaptation.
+**Goal:** Improve phrase-level chunk quality while keeping timing, speed, adaptation, and playback semantics stable.
 
 - **Done:** In-app backend defect reporting.
 - **Done:** Defect report security hardening.
@@ -15,33 +15,34 @@ The near-term goal is to refine the reading experience using observed defects ra
 - **Done:** Refreshed validation corpus to reduce overfitting.
 - **Done:** Third-pass post-calibration timing report review.
 - **Done:** Post-validation targeted calibration.
-- **Current:** Focused validation at 1.0x, 1.15x, and optionally 1.3x.
+- **Done:** Quote/parenthetical display-state annotation and defect taxonomy prep.
+- **Current:** Prepare Chunker Refinement Pass 2 using clearer defect categories.
 
-**Gate:** Collect 8-12 clean timing-context reports with adaptation disabled for at least one pass. Only consider Timing Calibration Pass 2 if recurring defects remain after separating timing from chunking/normalization issues.
+**Gate:** Collect enough clean chunking/display-state evidence to identify repeated phrase-boundary patterns without treating every discomfort as timing.
 
-## Next Slice 1: Focused Post-Targeted-Calibration Validation Pass
+## Next Slice 1: Chunker Refinement Pass 2
 
-**Goal:** Retest extreme semantic density, punctuation/quote rhythm, dense proper nouns, and modal-heavy dense chunks.
+**Goal:** Address recurring name/title/honorific, article-noun, preposition/pronoun bookend, and weak-boundary chunk defects.
 
-**Gate:** A clean report set shows whether targeted fixes reduced repeated friction without making light text sluggish.
+**Gate:** Changes are deterministic, covered by focused tests, and do not alter timing formulas.
 
-## Next Slice 2: Timing Calibration Pass 2, If Justified
+## Next Slice 2: Quote/Parenthetical Validation Pass
+
+**Goal:** Check whether quote and parenthetical state indicators help orientation without moving the anchored text or adding visual clutter.
+
+**Gate:** Defects classify visual context with `quote_state_confusion` or `parenthetical_state_confusion`, and rhythm with `punctuation_rhythm_issue` only when visual state is clear.
+
+## Next Slice 3: Timing Calibration Pass 2, If Justified
 
 **Goal:** Make another timing formula change only if clean reports show repeated pure timing defects.
 
 **Gate:** Any adjustment is narrow, test-covered, and backed by timing-context evidence.
 
-## Next Slice 3: Session Summary / Validation UX Polish
+## Next Slice 4: Session Summary / Validation UX Polish
 
 **Goal:** Improve demo validation ergonomics without changing timing semantics.
 
 **Gate:** A tester can finish a session and understand what happened without reading raw debug output.
-
-## Next Slice 4: Demo/Beta Readiness Pass
-
-**Goal:** Prepare a small external-testable demo.
-
-**Gate:** An external tester can run or use the app with minimal explanation, sample text is easy to load, and debug detail is controlled.
 
 ## Explicit Non-Goals For The Current Phase
 
@@ -50,4 +51,4 @@ The near-term goal is to refine the reading experience using observed defects ra
 - No accounts, analytics, persistence model, service workers, or deployment work.
 - No frontend framework migration or browser automation tooling.
 - No native app, EPUB/PDF import, or cloud sync.
-- No broad timing redesign without another clean validation pass.
+- No broad timing redesign during chunker-dominant refinement.

@@ -27,6 +27,66 @@ Likely source area: chunking
 
 Severity scale: use the shared 1-4 scale above.
 
+## honorific_name_split
+
+Definition: An honorific or courtesy title is separated from the personal name it identifies.
+
+Example symptom: `Dr.` appears alone before `Mira Patel`, or `Ms.` is attached to the previous phrase instead of the name.
+
+Likely source area: chunking
+
+Severity scale: use the shared 1-4 scale above.
+
+## title_name_split
+
+Definition: A role title, institutional title, or named office is split from the name or noun phrase it modifies.
+
+Example symptom: `Professor` appears as one chunk and `Nguyen` arrives separately, or `Chief Justice` separates from the surname.
+
+Likely source area: chunking
+
+Severity scale: use the shared 1-4 scale above.
+
+## proper_name_split
+
+Definition: A multi-token proper name, organization, place, or formal named entity is divided in a way that makes recognition harder.
+
+Example symptom: `New` appears apart from `York`, or an organization name arrives one weak token at a time.
+
+Likely source area: chunking
+
+Severity scale: use the shared 1-4 scale above.
+
+## article_noun_split
+
+Definition: An article or determiner is separated from the noun phrase it introduces.
+
+Example symptom: `the` appears alone before `quiet room`, or `a` is stranded after the meaningful noun phrase has passed.
+
+Likely source area: chunking
+
+Severity scale: use the shared 1-4 scale above.
+
+## weak_boundary_chunk
+
+Definition: A chunk boundary lands on a weak syntactic or semantic edge, creating a beat that feels arbitrary even when no word is completely orphaned.
+
+Example symptom: A short modifier or connector is technically readable but the phrase clearly wants to stay with its neighbor.
+
+Likely source area: chunking
+
+Severity scale: use the shared 1-4 scale above.
+
+## pronoun_or_preposition_bookend
+
+Definition: A pronoun or preposition is left as the leading or trailing bookend of a chunk where it weakens comprehension.
+
+Example symptom: `of` starts a chunk after its object is separated, or `it` trails a phrase that should have carried the pronoun into the next idea.
+
+Likely source area: chunking
+
+Severity scale: use the shared 1-4 scale above.
+
 ## overlong_chunk
 
 Definition: A chunk contains too much text to read comfortably at the displayed size or duration.
@@ -74,6 +134,28 @@ Definition: Punctuation creates a pause, acceleration, or grouping that does not
 Example symptom: A comma creates a heavy pause, but the phrase should flow into the next chunk.
 
 Likely source area: timing
+
+Note: Use this only when the quote/parenthetical visual state is clear and the remaining discomfort is about dwell or rhythm.
+
+Severity scale: use the shared 1-4 scale above.
+
+## quote_state_confusion
+
+Definition: A quoted span is hard to track because the reader does not make quote entry, quote exit, or inside-quote state clear enough.
+
+Example symptom: The text enters a quotation but later chunks no longer feel visibly connected to that quote, even if timing is acceptable.
+
+Likely source area: display state / frontend
+
+Severity scale: use the shared 1-4 scale above.
+
+## parenthetical_state_confusion
+
+Definition: A parenthetical or bracketed aside is hard to track because the reader does not make the parenthetical state clear enough.
+
+Example symptom: A chunk inside parentheses reads like mainline prose, or the return from a parenthetical aside is unclear.
+
+Likely source area: display state / frontend
 
 Severity scale: use the shared 1-4 scale above.
 

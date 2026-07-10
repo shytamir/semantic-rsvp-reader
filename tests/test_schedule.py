@@ -60,3 +60,18 @@ def test_schedule_text_normalizes_segments_chunks_and_times():
 
     assert [item.sentence_index for item in schedule] == [0, 0, 1, 1]
     assert all(item.duration_ms > 0 for item in schedule)
+
+
+def test_schedule_chunks_include_display_state_defaults():
+    schedule = build_schedule(["The system learns."])
+
+    assert all(item.display_state.quote_boundary == "none" for item in schedule)
+    assert all(not item.display_state.in_quote for item in schedule)
+    assert all(not item.display_state.in_parenthetical for item in schedule)
+    assert all(item.display_state.parenthetical_depth == 0 for item in schedule)
+
+
+def test_malformed_parenthesis_does_not_make_depth_negative():
+    schedule = schedule_text("The system closes) safely.")
+
+    assert all(item.display_state.parenthetical_depth >= 0 for item in schedule)

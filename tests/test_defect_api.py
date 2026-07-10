@@ -35,6 +35,10 @@ def minimal_report():
             "current_syntactic_hint": "normal",
             "current_content_word_count": 2,
             "char_length": 15,
+            "in_quote": True,
+            "quote_boundary": "open",
+            "in_parenthetical": False,
+            "parenthetical_depth": 0,
             "original_sentence": "The system does not merely retrieve context.",
             "previous_chunks": [
                 {
@@ -48,6 +52,10 @@ def minimal_report():
                     "syntactic_hint": "normal",
                     "content_word_count": 1,
                     "char_length": 8,
+                    "in_quote": False,
+                    "quote_boundary": "none",
+                    "in_parenthetical": False,
+                    "parenthetical_depth": 0,
                 }
             ],
             "next_chunks": [
@@ -62,6 +70,10 @@ def minimal_report():
                     "syntactic_hint": "normal",
                     "content_word_count": 1,
                     "char_length": 8,
+                    "in_quote": True,
+                    "quote_boundary": "close",
+                    "in_parenthetical": False,
+                    "parenthetical_depth": 0,
                 }
             ],
             "playback_speed": 1.0,
@@ -168,6 +180,10 @@ def test_defects_writes_timing_context_to_markdown(defect_client, defect_report_
     assert "Current syntactic hint: normal" in markdown
     assert "Current content word count: 2" in markdown
     assert "Character length: 15" in markdown
+    assert "In quote: true" in markdown
+    assert "Quote boundary: open" in markdown
+    assert "In parenthetical: false" in markdown
+    assert "Parenthetical depth: 0" in markdown
 
 
 def test_defects_writes_nearby_chunk_timing_details(defect_client, defect_report_dir):
@@ -177,8 +193,14 @@ def test_defects_writes_nearby_chunk_timing_details(defect_client, defect_report
     with gzip.open(report_path, "rt", encoding="utf-8") as file:
         markdown = file.read()
 
-    assert '"does not" - 360ms base / 313ms effective - normal' in markdown
-    assert '"context." - 580ms base / 504ms effective - normal' in markdown
+    assert (
+        '"does not" - 360ms base / 313ms effective - normal'
+        " - 1 content word(s) - 8 chars - quote=false/none"
+    ) in markdown
+    assert (
+        '"context." - 580ms base / 504ms effective - normal'
+        " - 1 content word(s) - 8 chars - quote=true/close"
+    ) in markdown
 
 
 def test_defects_writes_display_metadata_when_available(defect_client, defect_report_dir):

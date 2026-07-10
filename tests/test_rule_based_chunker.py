@@ -61,6 +61,12 @@ def test_chunks_simple_sentence_with_natural_punctuation():
     ]
 
 
+def test_closing_quote_attaches_after_sentence_ending_punctuation():
+    chunks = RuleBasedChunker().chunk_sentence('The pilot said, "Ready now."')
+
+    assert chunks[-1].text.endswith('."')
+
+
 def test_chunks_dense_nonfiction_sentence():
     chunks = RuleBasedChunker().chunk_sentence(
         "Modern AI systems are moving beyond sealed text generators."

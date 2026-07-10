@@ -80,6 +80,15 @@ def test_chunk_display_disables_browser_word_splitting(client):
     assert "overflow-x: hidden" in css
 
 
+def test_chunk_display_has_quote_and_parenthetical_state_styles(client):
+    response = client.get("/static/css/app.css")
+    css = response.data.decode("utf-8")
+
+    assert ".chunk-display.state-quote" in css
+    assert ".chunk-display.state-parenthetical" in css
+    assert "border-left" in css
+
+
 def test_static_js_route_returns_ok(client):
     response = client.get("/static/js/app.js")
 
@@ -94,3 +103,13 @@ def test_static_js_collects_chunk_display_metadata(client):
     assert "chunk_scroll_width_px" in javascript
     assert "chunk_client_width_px" in javascript
     assert "chunk_may_overflow" in javascript
+
+
+def test_static_js_applies_quote_and_parenthetical_state(client):
+    response = client.get("/static/js/app.js")
+    javascript = response.data.decode("utf-8")
+
+    assert "renderChunkDisplayState" in javascript
+    assert "state-quote" in javascript
+    assert "state-parenthetical" in javascript
+    assert "parenthetical_depth" in javascript

@@ -30,6 +30,8 @@ Each in-app defect report now captures timing evidence:
 - syntactic hint
 - content word count
 - character length
+- quote state and quote boundary
+- parenthetical state and depth
 - nearby previous/next chunk timing
 - session elapsed time and average effective duration
 - recent adaptation reason/direction when available
@@ -41,6 +43,8 @@ If the chunk itself is badly split, classify it as chunking first. For example, 
 If the chunk is hard to read because the browser visibly wraps, clips, hyphenates, or splits a word, classify it as `layout_or_visibility_issue`, not timing. Layout/hyphenation artifacts should be fixed before those reports are interpreted as timing failures.
 
 If the issue is tokenization or segmentation noise, such as `a.m.` becoming a separate punctuation-like chunk, fix that before timing calibration. Dense-chunk timing should be retested after display and tokenization cleanup.
+
+If the issue is that a quote or parenthetical aside is visually hard to track, classify it as `quote_state_confusion` or `parenthetical_state_confusion`, not timing. Use `punctuation_rhythm_issue` for quote-adjacent punctuation only when the visual quote/parenthetical state is already clear and the remaining problem is dwell, pause, or rhythm.
 
 ## Suggested Timing Validation Pass
 

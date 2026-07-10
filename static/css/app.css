@@ -190,11 +190,14 @@ textarea:focus-visible,
 }
 
 .chunk-display {
+  position: relative;
   width: 100%;
   max-width: min(92vw, 22ch);
   min-height: 2.1em;
   display: block;
   margin: 0;
+  border-left: 3px solid transparent;
+  padding-left: 8px;
   overflow: hidden;
   overflow-wrap: normal;
   word-break: normal;
@@ -205,6 +208,16 @@ textarea:focus-visible,
   line-height: 1.05;
   white-space: normal;
 }
+
+.chunk-display.state-quote {
+  border-left-color: #8d928c;
+}
+
+.chunk-display.state-parenthetical {
+  color: #4a4a45;
+}
+
+/* Italic quote styling may be tested later; it is avoided here to preserve word shape. */
 
 .chunk-display.is-long-chunk {
   max-width: min(94vw, 28ch);

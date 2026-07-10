@@ -6,14 +6,14 @@ Semantic RSVP Reader is a mobile-first HTML5 reading prototype served by Flask. 
 
 > **Status:** GREEN
 > **Last Updated:** 2026-07-10
-> **Current Phase:** Post-validation targeted calibration
-> **Immediate Focus:** Focused validation at 1.0x, 1.15x, and optionally 1.3x
+> **Current Phase:** Chunker-dominant refinement
+> **Immediate Focus:** Proper-name, title, article, preposition, quote, and parenthetical chunk quality
 
 ## Current State: Prototype Complete
-The stable development base is finished. Text can enter the system cleanly, normalize into stable sentence units, and process through a rule-based chunking and deterministic timing engine. The mobile-first RSVP playback loop is fully operational with gesture interactions, speed controls, and local behavioral telemetry.
+The stable development base is finished. Text can enter the system cleanly, normalize into stable sentence units, and process through a rule-based chunking and deterministic timing engine. The mobile-first RSVP playback loop is fully operational with gesture interactions, speed controls, local behavioral telemetry, backend defect reports, and display-state annotations for quoted and parenthetical spans.
 
 ## Current Validation Flow
-The app can generate `.md.gz` backend defect report files directly from the mobile reading session. Timing reports carry explicit timing context and display metadata so calibration can exclude older/noisy reports and separate rhythm defects from layout or chunking defects.
+The app can generate `.md.gz` backend defect report files directly from the mobile reading session. Reports carry explicit timing context, display metadata, quote state, and parenthetical state so validation can separate timing rhythm, chunk shape, layout, and visual-context defects.
 
 ## Completed Capabilities
 | Area | Status | Notes |
@@ -35,6 +35,7 @@ The app can generate `.md.gz` backend defect report files directly from the mobi
 | Punctuation/quote rhythm follow-up | Done | Semicolon, colon, quote, and comma-list emphasis timing refined |
 | Chunking cleanup for `as` and `should` | Done | Short `as` phrases and modal/auxiliary attachment are less likely to pollute timing reports |
 | Quote-spacing/text-cleanliness cleanup | Done | Closing quote followed by a word is normalized into readable spacing |
+| Quote/parenthetical display-state indicators | Done | Schedule metadata and frontend styling identify quote and parenthetical spans |
 | `/api/schedule` | Done | Backend emits frontend-ready schedule |
 | Mobile RSVP playback loop | Done | Reader advances scheduled chunks |
 | Touch gestures | Done | Tap/swipe/long-press interaction exists |
@@ -83,7 +84,9 @@ Defect report storage uses generated filenames, bounded/escaped Markdown fields,
 
 Chunking refinement pass 1 is documented in `docs/validation/chunking_refinement_pass_1.md`. It addresses the first observed modifier/head, verb-support, and punctuation-boundary defects. A follow-up evidence-hygiene cleanup reduces display wrapping, `a.m.`/`p.m.` initialism, and `whether ... would` noise before calibration. Timing Calibration Pass 1 is documented in `docs/validation/timing_calibration_pass_1.md`, and the targeted third-pass follow-up is documented in `docs/validation/post_validation_targeted_calibration.md`.
 
-Defect reports now include timing context such as base duration, effective duration, playback speed, syntactic hint, content word count, character length, nearby chunk timing, session timing summary, and display metadata. See `docs/validation/timing_defect_collection.md` for the timing defect collection workflow and `scripts/review_defects.py` for local report review/export.
+Quote and parenthetical state indicators are documented in `docs/validation/quote_parenthetical_state_indicators.md`. Use `quote_state_confusion` and `parenthetical_state_confusion` when the issue is visual context, not timing.
+
+Defect reports now include timing context such as base duration, effective duration, playback speed, syntactic hint, content word count, character length, quote state, parenthetical state, nearby chunk timing, session timing summary, and display metadata. See `docs/validation/timing_defect_collection.md` for the timing defect collection workflow and `scripts/review_defects.py` for local report review/export.
 
 Log defects with the in-app `Report Defect` button, or use `docs/validation/defect_log_template.md` when working outside the app. Choose categories from `docs/validation/defect_taxonomy.md`. Interpret severity as:
 
@@ -106,10 +109,10 @@ python scripts/schedule_sample.py --json < sample.txt
 
 ## Next Milestones
 
-1. Run a focused post-targeted-calibration validation pass at 1.0x, 1.15x, and optionally 1.3x, with adaptation disabled for at least one pass
-2. Timing Calibration Pass 2 only if clean reports justify it
-3. Session summary / validation UX polish
-4. Demo/beta readiness pass
+1. Chunker Refinement Pass 2 for names, titles, honorifics, articles, prepositions, and weak boundaries
+2. Quote/parenthetical validation using the new display-state categories
+3. Timing Calibration Pass 2 only if clean timing-context reports justify it
+4. Session summary / validation UX polish
 
 ## Manual Test Checklist
 
@@ -382,4 +385,22 @@ Post-validation targeted calibration manual test:
 12. Watch for orphaned `as` and awkward `should` chunks.
 13. Confirm quote-spacing defects like `intuition"cannot` no longer appear.
 14. Submit defect reports only for remaining genuine defects.
+15. Run pytest.
+
+Quote/parenthetical state indicator manual test:
+
+1. Start Flask locally.
+2. Open the app on a phone browser.
+3. Load text containing a quoted sentence that spans several chunks.
+4. Confirm quote chunks have a subtle left-side state indicator.
+5. Confirm the first displayed character does not shift when entering or leaving the quote.
+6. Load text containing a parenthetical aside.
+7. Confirm parenthetical chunks are visually quieter than mainline chunks.
+8. Pause on a quoted chunk and tap Report Defect.
+9. Confirm context preview includes quote state and quote boundary.
+10. Pause on a parenthetical chunk and tap Report Defect.
+11. Confirm context preview includes parenthetical state and depth.
+12. Submit `quote_state_confusion` or `parenthetical_state_confusion` only when the visual state is unclear.
+13. Use `punctuation_rhythm_issue` only when visual state is clear and rhythm still feels wrong.
+14. Confirm playback speed, adaptation, gestures, and timing behavior are unchanged.
 15. Run pytest.

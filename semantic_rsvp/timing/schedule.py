@@ -5,6 +5,7 @@ from semantic_rsvp.chunking.models import Chunk
 from semantic_rsvp.chunking.rules import RuleBasedChunker
 from semantic_rsvp.text.normalize import normalize_text
 from semantic_rsvp.text.segment import split_sentences
+from semantic_rsvp.timing.display_state import DisplayState, DisplayStateTracker
 from semantic_rsvp.timing.engine import compute_duration_ms
 from semantic_rsvp.timing.models import TimingConfig
 
@@ -15,6 +16,7 @@ class ScheduledChunk:
     duration_ms: int
     index: int
     sentence_index: int
+    display_state: DisplayState
 
 
 def build_schedule(
@@ -24,15 +26,18 @@ def build_schedule(
 ) -> list[ScheduledChunk]:
     active_chunker = chunker or RuleBasedChunker()
     schedule: list[ScheduledChunk] = []
+    display_state_tracker = DisplayStateTracker()
 
     for sentence_index, sentence in enumerate(sentences):
         for chunk in active_chunker.chunk_sentence(sentence):
+            display_state = display_state_tracker.annotate(chunk.text)
             schedule.append(
                 ScheduledChunk(
                     chunk=chunk,
                     duration_ms=compute_duration_ms(chunk, config),
                     index=len(schedule),
                     sentence_index=sentence_index,
+                    display_state=display_state,
                 )
             )
 

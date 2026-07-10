@@ -53,7 +53,25 @@ def test_schedule_items_include_required_fields(client):
         "char_length",
         "syntactic_hint",
         "duration_ms",
+        "in_quote",
+        "quote_boundary",
+        "in_parenthetical",
+        "parenthetical_depth",
     }
+
+
+def test_schedule_items_include_quote_and_parenthetical_state(client):
+    response = client.post(
+        "/api/schedule",
+        json={"text": 'The pilot said, "Air Force One is ready." It paused (briefly).'},
+    )
+
+    assert response.status_code == 200
+    schedule = response.get_json()["schedule"]
+    assert any(item["in_quote"] for item in schedule)
+    assert any(item["quote_boundary"] in {"open", "close", "both"} for item in schedule)
+    assert any(item["in_parenthetical"] for item in schedule)
+    assert all(item["parenthetical_depth"] >= 0 for item in schedule)
 
 
 def test_schedule_accepts_simple_timing_config(client):

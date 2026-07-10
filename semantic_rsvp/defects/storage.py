@@ -16,6 +16,12 @@ MAX_CHUNKS_PER_SIDE = 5
 KNOWN_CATEGORIES = {
     "bad_chunk_split",
     "orphan_function_word",
+    "honorific_name_split",
+    "title_name_split",
+    "proper_name_split",
+    "article_noun_split",
+    "weak_boundary_chunk",
+    "pronoun_or_preposition_bookend",
     "overlong_chunk",
     "underdense_chunk",
     "rushed_dense_chunk",
@@ -25,6 +31,8 @@ KNOWN_CATEGORIES = {
     "adaptation_annoyance",
     "completion_or_reset_confusion",
     "layout_or_visibility_issue",
+    "quote_state_confusion",
+    "parenthetical_state_confusion",
     "comprehension_drop",
     "fatigue_or_discomfort",
     "other",
@@ -139,6 +147,10 @@ def render_defect_report_markdown(
             f"Current syntactic hint: {_value(reader_state, 'current_syntactic_hint')}",
             f"Current content word count: {_value(reader_state, 'current_content_word_count')}",
             f"Character length: {_value(reader_state, 'char_length')}",
+            f"In quote: {_value(reader_state, 'in_quote')}",
+            f"Quote boundary: {_value(reader_state, 'quote_boundary')}",
+            f"In parenthetical: {_value(reader_state, 'in_parenthetical')}",
+            f"Parenthetical depth: {_value(reader_state, 'parenthetical_depth')}",
             "",
             "Original sentence:",
             _string_value(reader_state, "original_sentence"),
@@ -210,7 +222,9 @@ def _format_chunks(chunks) -> list[str]:
             continue
         formatted.append(
             "- [{index}] \"{text}\" - {base}ms base / {effective}ms effective - "
-            "{hint} - {content_words} content word(s) - {chars} chars".format(
+            "{hint} - {content_words} content word(s) - {chars} chars - "
+            "quote={in_quote}/{quote_boundary} - parenthetical={in_parenthetical}/"
+            "{parenthetical_depth}".format(
                 index=_value(chunk, "index"),
                 text=_string_value(chunk, "text"),
                 base=_value(chunk, "base_duration_ms"),
@@ -218,6 +232,10 @@ def _format_chunks(chunks) -> list[str]:
                 hint=_value(chunk, "syntactic_hint"),
                 content_words=_value(chunk, "content_word_count"),
                 chars=_value(chunk, "char_length"),
+                in_quote=_value(chunk, "in_quote"),
+                quote_boundary=_value(chunk, "quote_boundary"),
+                in_parenthetical=_value(chunk, "in_parenthetical"),
+                parenthetical_depth=_value(chunk, "parenthetical_depth"),
             )
         )
     return formatted or ["- none"]
@@ -235,6 +253,9 @@ def _sanitize_reader_state(reader_state: dict) -> dict:
         "char_length",
         "playback_speed",
         "adaptation_enabled",
+        "in_quote",
+        "in_parenthetical",
+        "parenthetical_depth",
     ):
         sanitized[key] = reader_state.get(key)
 
@@ -242,6 +263,7 @@ def _sanitize_reader_state(reader_state: dict) -> dict:
         "current_chunk",
         "current_syntactic_hint",
         "duration_source",
+        "quote_boundary",
         "original_sentence",
     ):
         sanitized[key] = _bounded_text(reader_state.get(key, ""))
@@ -305,6 +327,10 @@ def _sanitize_chunks(chunks) -> list[dict]:
                 "syntactic_hint": _bounded_text(chunk.get("syntactic_hint", "")),
                 "content_word_count": chunk.get("content_word_count"),
                 "char_length": chunk.get("char_length"),
+                "in_quote": chunk.get("in_quote"),
+                "quote_boundary": _bounded_text(chunk.get("quote_boundary", "")),
+                "in_parenthetical": chunk.get("in_parenthetical"),
+                "parenthetical_depth": chunk.get("parenthetical_depth"),
             }
         )
     return sanitized

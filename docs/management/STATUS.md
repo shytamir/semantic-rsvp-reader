@@ -2,12 +2,12 @@
 
 > **Status:** GREEN
 > **Last Updated:** 2026-07-10
-> **Current Phase:** Post-validation targeted calibration.
-> **Immediate Focus:** Focused post-targeted-calibration validation at 1.0x, 1.15x, and optionally 1.3x.
+> **Current Phase:** Chunker-dominant refinement.
+> **Immediate Focus:** Proper-name, title, article, preposition, quote, and parenthetical chunk quality.
 
 ## Current Project Phase
 
-The prototype has completed a narrow follow-up to Timing Calibration Pass 1. The targeted pass addressed third-pass evidence without applying a blanket dense-duration increase: extreme semantic density, punctuation/quote rhythm, orphaned `as`, `should` attachment, and quote-spacing cleanup.
+The prototype has completed a narrow follow-up to Timing Calibration Pass 1. Timing is improved enough that the main blocker is now chunk quality: phrase attachment, proper names, titles, articles, prepositions, pronoun/preposition bookends, and context around quotes or parentheticals. The current slice adds display-state annotations and report taxonomy so future work can separate chunker defects from timing defects.
 
 ## Completed Recent Slices
 
@@ -19,24 +19,25 @@ The prototype has completed a narrow follow-up to Timing Calibration Pass 1. The
 6. Timing Calibration Pass 1.
 7. Post-calibration timing validation.
 8. Post-validation targeted calibration.
+9. Quote/parenthetical display-state annotation and defect taxonomy prep.
 
 ## Current Evidence
 
-`docs/validation/observed_timing_defects_third_pass.md` drove this slice. Timing changes were limited to extreme semantic-density chunks and bounded punctuation rhythm. Chunking/normalization fixes addressed `as`, `should`, and quote-spacing issues separately from timing evidence.
+`docs/validation/observed_timing_defects_third_pass.md` drove the prior targeted slice. After that work, remaining recurring issues are more likely to be chunk shape or visual-context problems than pure timing. New quote and parenthetical metadata in schedule and defect reports supports cleaner classification during the next validation pass.
 
 ## Next 4 Planned Slices
 
-1. Focused post-targeted-calibration validation pass.
-2. Timing Calibration Pass 2 only if clean reports justify it.
-3. Session summary / validation UX polish.
-4. Demo/beta readiness pass.
+1. Chunker Refinement Pass 2 for names, titles, honorifics, articles, prepositions, and weak boundaries.
+2. Quote/parenthetical validation using the new display-state categories.
+3. Timing Calibration Pass 2 only if clean reports justify it.
+4. Session summary / validation UX polish.
 
 ## Known Risks
 
-- Overfitting timing to a small report count.
+- Overfitting chunking rules to a small report count.
 - Speed multipliers masking timing formula quality.
 - Chunking defects being misclassified as timing defects.
-- Punctuation bonuses making light text feel sluggish.
+- Quote/parenthetical visual indicators being too subtle or too heavy.
 - Adaptation masking baseline timing defects.
 
 ## Explicit Non-Goals
@@ -47,4 +48,4 @@ The prototype has completed a narrow follow-up to Timing Calibration Pass 1. The
 - No cloud analytics.
 - No native app.
 - No public performance claims.
-- No broad timing redesign without another clean validation pass.
+- No broad timing redesign during chunker-dominant refinement.

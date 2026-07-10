@@ -39,5 +39,19 @@ def test_ellipses_are_preserved_and_can_end_sentence():
     assert split_sentences("Wait... Then continue.") == ["Wait...", "Then continue."]
 
 
+def test_sentence_splitting_preserves_closing_quote_after_punctuation():
+    assert split_sentences('"Ready now." The pilot waited.') == [
+        '"Ready now."',
+        "The pilot waited.",
+    ]
+
+
+def test_sentence_splitting_preserves_closing_parenthesis_after_punctuation():
+    assert split_sentences("The alarm sounded (briefly.) Then it stopped.") == [
+        "The alarm sounded (briefly.)",
+        "Then it stopped.",
+    ]
+
+
 def test_empty_results_are_ignored():
     assert split_sentences("   \n\n  ") == []

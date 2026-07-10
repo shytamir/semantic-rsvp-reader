@@ -1,5 +1,16 @@
 # TODO.md
 
+## Chunker-Dominant Refinement
+*Goal: Improve phrase-boundary quality while keeping timing, speed, adaptation, and playback semantics stable.*
+
+- [ ] **Chunker Refinement Pass 2**
+  - Focus on honorific/name, title/name, proper-name, article/noun, preposition/pronoun bookend, and weak-boundary defects.
+  - Requirement: Use observed reports and focused tests before changing chunking rules.
+
+- [ ] **Quote/Parenthetical Validation**
+  - Validate the new quote and parenthetical display-state indicators on mobile.
+  - Requirement: Classify visual context defects separately from punctuation rhythm defects.
+
 ## Navigation & Navigability
 *Goal: Address user orientation and state recovery without introducing UI clutter or peripheral distraction.*
 

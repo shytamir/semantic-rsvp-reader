@@ -220,6 +220,7 @@ function renderCurrentChunk() {
   if (schedule.length === 0) {
     chunkDisplay.textContent = "No text loaded";
     setChunkDisplaySizing("No text loaded");
+    renderChunkDisplayState(null);
     progressIndicator.textContent = "0 / 0";
     playPauseButton.textContent = "Play";
     return;
@@ -229,6 +230,7 @@ function renderCurrentChunk() {
   const item = schedule[currentIndex];
   chunkDisplay.textContent = item.text;
   setChunkDisplaySizing(item.text);
+  renderChunkDisplayState(item);
   progressIndicator.textContent = `${currentIndex + 1} / ${schedule.length}`;
   playPauseButton.textContent = isPlaying ? "Pause" : "Play";
 }
@@ -277,6 +279,10 @@ function buildDefectPayload() {
       current_syntactic_hint: item ? item.syntactic_hint : "",
       current_content_word_count: item ? item.content_word_count : null,
       char_length: item ? item.char_length : null,
+      in_quote: item ? Boolean(item.in_quote) : false,
+      quote_boundary: item ? item.quote_boundary || "none" : "none",
+      in_parenthetical: item ? Boolean(item.in_parenthetical) : false,
+      parenthetical_depth: item ? Number(item.parenthetical_depth || 0) : 0,
       original_sentence: getOriginalSentenceForCurrentChunk(),
       previous_chunks: context.previous_chunks,
       next_chunks: context.next_chunks,
@@ -303,6 +309,14 @@ function setChunkDisplaySizing(text) {
   chunkDisplay.classList.toggle("is-extra-long-token", longestWordLength > 12);
 }
 
+function renderChunkDisplayState(item) {
+  const inQuote = Boolean(item && item.in_quote);
+  const quoteBoundary = item && item.quote_boundary ? item.quote_boundary : "none";
+  const inParenthetical = Boolean(item && item.in_parenthetical);
+  chunkDisplay.classList.toggle("state-quote", inQuote || quoteBoundary !== "none");
+  chunkDisplay.classList.toggle("state-parenthetical", inParenthetical);
+}
+
 function getChunkDisplayMetadata() {
   return {
     display_width_px: Math.round(readerArea ? readerArea.clientWidth : 0),
@@ -325,6 +339,8 @@ function renderDefectContextPreview(payload) {
     `Speed: ${state.playback_speed.toFixed(2)}x`,
     `Syntactic hint: ${state.current_syntactic_hint || "unknown"}`,
     `Content words: ${state.current_content_word_count ?? "unknown"}`,
+    `Quote state: ${state.in_quote ? "in quote" : "not in quote"} (${state.quote_boundary || "none"})`,
+    `Parenthetical: ${state.in_parenthetical ? "inside" : "outside"} (depth ${state.parenthetical_depth ?? 0})`,
     `Original sentence: ${state.original_sentence || "unknown"}`,
     `Previous: ${previous.length ? previous.join(" | ") : "none"}`,
     `Next: ${next.length ? next.join(" | ") : "none"}`,
@@ -410,6 +426,10 @@ function formatChunkContextItem(item) {
     syntactic_hint: item.syntactic_hint,
     content_word_count: item.content_word_count,
     char_length: item.char_length,
+    in_quote: Boolean(item.in_quote),
+    quote_boundary: item.quote_boundary || "none",
+    in_parenthetical: Boolean(item.in_parenthetical),
+    parenthetical_depth: Number(item.parenthetical_depth || 0),
   };
 }
 
@@ -880,6 +900,18 @@ function validateScheduleResponse(payload, response) {
       typeof item.index !== "number"
     ) {
       throw new Error("Schedule item was invalid.");
+    }
+    if (
+      item.in_quote !== undefined &&
+      typeof item.in_quote !== "boolean"
+    ) {
+      throw new Error("Schedule item quote state was invalid.");
+    }
+    if (
+      item.in_parenthetical !== undefined &&
+      typeof item.in_parenthetical !== "boolean"
+    ) {
+      throw new Error("Schedule item parenthetical state was invalid.");
     }
   }
 }

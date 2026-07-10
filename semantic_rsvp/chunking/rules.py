@@ -68,6 +68,7 @@ _TOKEN_PATTERN = re.compile(
 )
 _PUNCTUATION = set(".,!?;:)]}\"'")
 _OPENING_PUNCTUATION = set("([{\"")
+_CLOSING_PUNCTUATION = set(")]}\"'")
 _INDEFINITE_ARTICLES = {"a", "an"}
 _BOUNDARY_CONNECTORS = {"and", "or", "but", "therefore"}
 _AUXILIARIES = {
@@ -151,7 +152,7 @@ class RuleBasedChunker(Chunker):
                     continue
                 if current:
                     current.append(token)
-                    if token in ".,!?;:":
+                    if token in ".,!?;:" and next_token not in _CLOSING_PUNCTUATION:
                         self._flush(current, chunks)
                         current = []
                 continue
