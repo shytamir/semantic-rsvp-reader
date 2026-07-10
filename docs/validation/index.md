@@ -12,6 +12,7 @@ Current focus:
 2. Confirm active chunk font size remains stable.
 3. Validate title/byline/date/source boundaries.
 4. Watch for over-clumping from phrase preservation.
+5. Confirm quote and parenthetical display-state indicators remain clear, classified separately from punctuation rhythm defects.
 
 ## Defect Reporting Workflow
 

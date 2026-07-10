@@ -1,24 +1,59 @@
 # Management Docs
 
-Canonical project-management files:
+These files are the project-management source of truth for the solo human/Codex workflow.
 
-- [Current status](STATUS.md)
-- [Roadmap](roadmap.md)
-- [Detailed TODO](TODO.md)
-- [Repository Maintenance Pass 1](repo_maintenance_pass_1.md)
+## Canonical Hierarchy
+
+1. [STATUS](STATUS.md): the sole authority for the current operational slice.
+2. [Roadmap](roadmap.md): ordered Now / Next / Later / Parked priorities.
+3. [HISTORY](HISTORY.md): compact completed-slice history.
+4. [DECISIONS](DECISIONS.md): durable ADR-lite project decisions.
+5. [TODO](TODO.md): parked and unscheduled inventory only.
 
 Compatibility pointers:
 
-- [Root TODO](../../TODO.md): short summary and pointer-level next work.
+- [Root TODO](../../TODO.md): short pointer to this hierarchy.
 - [Legacy project status path](../project_status.md): compatibility stub pointing here.
+- [Repository Maintenance Pass 1](repo_maintenance_pass_1.md): historical record of the first docs cleanup.
 
-## Current Phase
+## Human And Codex Roles
 
-The project is in validation-driven refinement after Post-Validation Stabilization Pass 1.
+Human owner:
 
-## Current Next Steps
+- Product owner.
+- Usability tester.
+- Evidence author.
+- Priority authority.
+- Sole acceptance authority for qualitative gates.
 
-1. Post-Stabilization Validation Pass focused on mobile layout and source-boundary chunking.
-2. Chunking Regression Corpus Expansion if stabilization validates well.
-3. Post-navigation usability validation.
-4. Demo/beta readiness cleanup.
+Codex:
+
+- Implementer.
+- Automated-test author.
+- Mechanical documentation maintainer.
+- Repo hygiene executor.
+
+Codex must not:
+
+- Declare a qualitative gate passed without human evidence.
+- Promote its own work into the next slice.
+- Interpret low raw defect counts as success without comparable exposure.
+- Expand scope beyond the active slice.
+- Rewrite the meaning of human evidence.
+
+## Repository Sync Protocol
+
+1. Fetch and confirm the expected starting commit before implementation.
+2. Avoid concurrent manual uploads while an implementation pass is active.
+3. Rerun relevant checks and inspect the complete diff before commit.
+4. Rebase or fast-forward from remote before push.
+5. Never resolve an unexpected conflict by guessing.
+6. Stop and report if the remote changed in a way that makes the next action unsafe.
+
+## Validation Terms
+
+Baseline validation uses the same device/browser where practical, a fixed recorded speed, adaptation disabled, a fixed corpus subset, predetermined exposure completed even when few defects appear, and comparable in-app defect reporting.
+
+Exploratory validation may use natural speed changes, adaptation, additional texts, and free-form observations. Label it exploratory so it is not mistaken for comparable baseline evidence.
+
+Use severity-weighted defects per fixed sample, recurrence of fixed defects, new regressions, session-breaking defects, and a human gate result: `passed`, `partially_passed`, `failed`, or `inconclusive`.

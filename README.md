@@ -6,8 +6,8 @@ Semantic RSVP Reader is a mobile-first Flask + HTML5 prototype for reading text 
 
 - Status: green prototype.
 - Current phase: validation-driven refinement.
-- Latest completed slice: Post-Validation Stabilization Pass 1.
-- Primary focus: mobile layout, source-boundary chunking, long-form dates, and phrase cohesion.
+- Active slice: Post-Stabilization Validation Pass.
+- Primary focus: human validation of mobile layout, source-boundary chunking, long-form dates, phrase cohesion, and quote/parenthetical display-state clarity.
 - Timing, playback, navigation, and adaptation semantics are intentionally stable during this phase.
 - Canonical status and roadmap live in [docs/management/](docs/management/index.md).
 
@@ -78,12 +78,7 @@ More details:
 
 ## Current Roadmap
 
-1. Post-Stabilization Validation Pass focused on mobile layout and source-boundary chunking.
-2. Chunking Regression Corpus Expansion if stabilization validates well.
-3. Post-navigation usability validation.
-4. Demo/beta readiness cleanup.
-
-See [docs/management/roadmap.md](docs/management/roadmap.md) for the canonical roadmap.
+See [docs/management/STATUS.md](docs/management/STATUS.md) for the active slice and [docs/management/roadmap.md](docs/management/roadmap.md) for the canonical Now / Next / Later / Parked roadmap.
 
 ## Non-Goals
 

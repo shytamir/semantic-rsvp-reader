@@ -31,5 +31,7 @@
 - [Management index](management/index.md)
 - [Current status](management/STATUS.md)
 - [Roadmap](management/roadmap.md)
-- [Detailed TODO](management/TODO.md)
+- [Completed slice history](management/HISTORY.md)
+- [Project decisions](management/DECISIONS.md)
+- [Parked and unscheduled inventory](management/TODO.md)
 - [Repository maintenance pass 1](management/repo_maintenance_pass_1.md)

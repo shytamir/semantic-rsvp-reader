@@ -1,11 +1,7 @@
-# TODO.md
+# TODO
 
-This root file is a short pointer. The canonical detailed TODO lives at:
+This root file is only a pointer.
 
-- [docs/management/TODO.md](docs/management/TODO.md)
-
-## Current Focus
-
-- [ ] Post-Stabilization Validation Pass focused on mobile ghost layout, active font stability, source-boundary chunking, and phrase-cohesion over-clumping.
-- [ ] Chunking Regression Corpus Expansion if stabilization validates well.
-- [ ] Post-navigation usability validation.
+- Current work: [docs/management/STATUS.md](docs/management/STATUS.md)
+- Priority order: [docs/management/roadmap.md](docs/management/roadmap.md)
+- Parked and unscheduled inventory: [docs/management/TODO.md](docs/management/TODO.md)
