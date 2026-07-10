@@ -58,6 +58,7 @@ def test_schedule_items_include_required_fields(client):
         "in_parenthetical",
         "parenthetical_depth",
         "navigation",
+        "structure",
     }
 
 
@@ -74,6 +75,41 @@ def test_schedule_items_include_navigation_metadata(client):
     assert "paragraph_index" in navigation
     assert 0 <= navigation["progress_percent"] <= 100
     assert navigation["paragraph_index"] == 0
+
+
+def test_schedule_items_include_structure_metadata(client):
+    response = client.post(
+        "/api/schedule",
+        json={"text": "# Main Title\n\nIntro text.\n\n## First Section\n\nSection body."},
+    )
+
+    assert response.status_code == 200
+    schedule = response.get_json()["schedule"]
+    assert all("structure" in item for item in schedule)
+
+    intro_item = next(item for item in schedule if "Intro" in item["text"])
+    section_item = next(item for item in schedule if "Section body" in item["text"])
+    assert intro_item["structure"]["active_h1"] == "Main Title"
+    assert intro_item["structure"]["active_h2"] is None
+    assert intro_item["structure"]["active_label"] == "Main Title"
+    assert section_item["structure"]["active_h1"] == "Main Title"
+    assert section_item["structure"]["active_h2"] == "First Section"
+    assert section_item["structure"]["active_label"] == "First Section"
+    assert section_item["structure"]["active_path"] == ["Main Title", "First Section"]
+
+
+def test_schedule_structure_before_first_header_is_empty(client):
+    response = client.post(
+        "/api/schedule",
+        json={"text": "Intro text.\n\n# Main Title\n\nBody text."},
+    )
+
+    assert response.status_code == 200
+    intro_item = next(item for item in response.get_json()["schedule"] if "Intro" in item["text"])
+    assert intro_item["structure"]["active_h1"] is None
+    assert intro_item["structure"]["active_h2"] is None
+    assert intro_item["structure"]["active_label"] is None
+    assert intro_item["structure"]["active_path"] == []
 
 
 def test_schedule_items_include_quote_and_parenthetical_state(client):

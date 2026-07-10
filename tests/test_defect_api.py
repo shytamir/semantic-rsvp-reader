@@ -50,6 +50,14 @@ def minimal_report():
                 "is_paragraph_end": False,
                 "is_progress_milestone": True,
             },
+            "structure": {
+                "active_h1": "Main Title",
+                "active_h2": "First Section",
+                "active_label": "First Section",
+                "active_path": ["Main Title", "First Section"],
+                "is_header_chunk": False,
+                "header_level": None,
+            },
             "previous_displayed_chunk": {
                 "index": 13,
                 "sentence_index": 3,
@@ -294,6 +302,22 @@ def test_defects_writes_navigability_context(defect_client, defect_report_dir):
     assert "- Indices: 4, 14" in markdown
 
 
+def test_defects_writes_structural_context(defect_client, defect_report_dir):
+    response = defect_client.post("/api/defects", json=minimal_report())
+    report_path = defect_report_dir / response.get_json()["filename"]
+
+    with gzip.open(report_path, "rt", encoding="utf-8") as file:
+        markdown = file.read()
+
+    assert "## Structural Context" in markdown
+    assert "- Active H1: Main Title" in markdown
+    assert "- Active H2: First Section" in markdown
+    assert "- Active label: First Section" in markdown
+    assert "- Active path: Main Title / First Section" in markdown
+    assert "- Is header chunk: false" in markdown
+    assert "- Header level: unknown" in markdown
+
+
 def test_defects_writes_drift_recovery_context(defect_client, defect_report_dir):
     response = defect_client.post("/api/defects", json=minimal_report())
     report_path = defect_report_dir / response.get_json()["filename"]
@@ -313,6 +337,7 @@ def test_defects_writes_drift_recovery_context(defect_client, defect_report_dir)
 def test_defects_escape_html_in_markdown(defect_client, defect_report_dir):
     payload = minimal_report()
     payload["notes"] = '<script>alert("x")</script>'
+    payload["reader_state"]["structure"]["active_label"] = "<b>Unsafe</b>"
 
     response = defect_client.post("/api/defects", json=payload)
     report_path = defect_report_dir / response.get_json()["filename"]
@@ -322,6 +347,8 @@ def test_defects_escape_html_in_markdown(defect_client, defect_report_dir):
 
     assert "<script>" not in markdown
     assert "&lt;script&gt;" in markdown
+    assert "<b>Unsafe</b>" not in markdown
+    assert "&lt;b&gt;Unsafe&lt;/b&gt;" in markdown
 
 
 def test_defects_rejects_oversized_report(defect_client):

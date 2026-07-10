@@ -3,11 +3,11 @@
 > **Status:** GREEN
 > **Last Updated:** 2026-07-10
 > **Current Phase:** Chunker-dominant refinement.
-> **Immediate Focus:** Validate Chunker Refinement Pass 2 while monitoring breakpoint, drift-recovery, and ghost-chunk navigability aids.
+> **Immediate Focus:** Validate Chunker Refinement Pass 2 while monitoring breakpoint, drift-recovery, ghost-chunk, and structure-anchor orientation aids.
 
 ## Current Project Phase
 
-Timing has improved enough that the current useful work is chunk quality. Chunker Refinement Pass 2 addressed repeated phrase-boundary issues around names, titles, articles, prepositions, and apostrophe tokenization while keeping timing/playback semantics stable. Conservative navigability work now includes current-stream breakpoint traversal, drift recovery lead-in, and a ghost previous chunk orientation aid; these should be validated without letting navigation mask chunking defects.
+Timing has improved enough that the current useful work is chunk quality. Chunker Refinement Pass 2 addressed repeated phrase-boundary issues around names, titles, articles, prepositions, and apostrophe tokenization while keeping timing/playback semantics stable. Conservative navigability work now includes current-stream breakpoint traversal, drift recovery lead-in, a ghost previous chunk, and a static structure anchor; these should be validated without letting navigation mask chunking defects.
 
 ## Completed Recent Slices
 
@@ -26,6 +26,7 @@ Timing has improved enough that the current useful work is chunk quality. Chunke
 13. Breakpoint Bookmarking Traversal.
 14. Ghost Previous Chunk.
 15. Drift Recovery Logic.
+16. Structural Hierarchy Anchor.
 
 ## Current Evidence
 
@@ -33,14 +34,14 @@ The latest timing passes reduced the strongest timing complaints, while remainin
 
 JavaScript syntax checking is now CI-backed through a lightweight `node --check` wrapper. Local environments without Node skip with a warning; CI installs Node and enforces the check.
 
-The Passive Spatial Anchor is implemented as a subtle bottom progress bar with milestone-gated updates and coarse tap-to-seek. Breakpoint traversal is implemented with double-tap breakpoint toggles and swipe traversal between saved breakpoints. Drift recovery now starts breakpoint traversal up to three chunks before the target, pauses 500ms, and auto-resumes. The ghost previous chunk is implemented as a low-contrast orientation aid.
+The Passive Spatial Anchor is implemented as a subtle bottom progress bar with milestone-gated updates and coarse tap-to-seek. Breakpoint traversal is implemented with double-tap breakpoint toggles and swipe traversal between saved breakpoints. Drift recovery now starts breakpoint traversal up to three chunks before the target, pauses 500ms, and auto-resumes. The ghost previous chunk is implemented as a low-contrast orientation aid. Simple Markdown H1/H2 headers now provide a static structural label and defect-report context.
 
 ## Next 4 Planned Slices
 
 1. Post-Chunker Refinement Pass 2 validation.
-2. Post-navigation usability validation.
-3. Chunking Regression Corpus Expansion or Chunker Refinement Pass 2 follow-up.
-4. Structural Hierarchy Anchor after core RSVP/navigability validation is stable.
+2. Chunking Regression Corpus Expansion or Chunker Refinement Pass 2 follow-up.
+3. Post-navigation usability validation.
+4. Demo/beta readiness cleanup.
 
 ## Known Risks
 
@@ -59,6 +60,9 @@ The Passive Spatial Anchor is implemented as a subtle bottom progress bar with m
 - The 500ms recovery pause being too short or too long.
 - Three lead-in chunks being insufficient for long or dense sentences.
 - Stale recovery timers resuming playback if cancellation is incomplete.
+- Structural label distracting from RSVP focus.
+- Structure mapping being approximate around unusual Markdown or repeated heading text.
+- Headings being both read as chunks and shown as labels.
 - Navigability features masking chunking defects.
 - Drift recovery becoming surprising if too automatic.
 
@@ -71,4 +75,4 @@ The Passive Spatial Anchor is implemented as a subtle bottom progress bar with m
 - No native app.
 - No public performance claims.
 - No broad timing redesign during chunker-dominant refinement.
-- No structural hierarchy headers before core RSVP/navigability validation is stable.
+- No full Markdown rendering, heading navigation, or table of contents.

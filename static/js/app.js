@@ -61,6 +61,7 @@ const adaptationCount = document.querySelector("#adaptation-count");
 const sessionCurrentSpeed = document.querySelector("#session-current-speed");
 const sessionAdaptationEnabled = document.querySelector("#session-adaptation-enabled");
 const navigationScaffold = document.querySelector("#navigation-scaffold");
+const structureAnchor = document.querySelector("#structure-anchor");
 const progressAnchor = document.querySelector("#progress-anchor");
 const progressAnchorFill = document.querySelector("#progress-anchor-fill");
 const breakpointStatus = document.querySelector("#breakpoint-status");
@@ -167,6 +168,7 @@ async function loadSchedule(text) {
     scheduledSentences = Array.isArray(payload.sentences) ? payload.sentences : [];
     currentIndex = 0;
     resetNavigationScaffold();
+    resetStructureAnchor();
     defectReportCount = 0;
     lastDefectReportId = null;
     resetSpeed({ record: false });
@@ -183,6 +185,7 @@ async function loadSchedule(text) {
     scheduledSentences = [];
     currentIndex = 0;
     resetNavigationScaffold();
+    resetStructureAnchor();
     stopPlayback({ render: false });
     hideSpeedOverlay();
     closeDefectPanel();
@@ -242,6 +245,7 @@ function renderCurrentChunk() {
   if (schedule.length === 0) {
     chunkDisplay.textContent = "No text loaded";
     renderPreviousChunk();
+    updateStructureAnchor();
     setChunkDisplaySizing("No text loaded");
     renderChunkDisplayState(null);
     progressIndicator.textContent = "0 / 0";
@@ -253,6 +257,7 @@ function renderCurrentChunk() {
   const item = schedule[currentIndex];
   chunkDisplay.textContent = item.text;
   renderPreviousChunk();
+  updateStructureAnchor();
   setChunkDisplaySizing(item.text);
   renderChunkDisplayState(item);
   progressIndicator.textContent = `${currentIndex + 1} / ${schedule.length}`;
@@ -319,6 +324,7 @@ function buildDefectPayload() {
       in_parenthetical: item ? Boolean(item.in_parenthetical) : false,
       parenthetical_depth: item ? Number(item.parenthetical_depth || 0) : 0,
       navigation: item && item.navigation ? item.navigation : null,
+      structure: item && item.structure ? item.structure : null,
       previous_displayed_chunk: getPreviousDisplayedChunkMetadata(),
       breakpoints: getBreakpointMetadata(),
       drift_recovery: getDriftRecoveryMetadata(),
@@ -386,6 +392,47 @@ function getPreviousDisplayedChunkMetadata() {
   return previousItem ? formatChunkContextItem(previousItem) : null;
 }
 
+function getCurrentStructureMeta() {
+  const item = getCurrentScheduleItem();
+  return item && item.structure ? item.structure : null;
+}
+
+function getCurrentStructureLabel() {
+  const structure = getCurrentStructureMeta();
+  return structure && typeof structure.active_label === "string"
+    ? structure.active_label.trim()
+    : "";
+}
+
+function updateStructureAnchor() {
+  const label = getCurrentStructureLabel();
+  if (!label) {
+    hideStructureAnchor();
+    return;
+  }
+  showStructureAnchor(label);
+}
+
+function showStructureAnchor(label) {
+  if (!structureAnchor) {
+    return;
+  }
+  structureAnchor.textContent = label;
+  structureAnchor.classList.remove("is-hidden");
+}
+
+function hideStructureAnchor() {
+  if (!structureAnchor) {
+    return;
+  }
+  structureAnchor.textContent = "";
+  structureAnchor.classList.add("is-hidden");
+}
+
+function resetStructureAnchor() {
+  hideStructureAnchor();
+}
+
 function renderDefectContextPreview(payload) {
   const state = payload.reader_state;
   const previous = state.previous_chunks.map((chunk) => `[${chunk.index}] ${chunk.text}`);
@@ -399,6 +446,7 @@ function renderDefectContextPreview(payload) {
     `Content words: ${state.current_content_word_count ?? "unknown"}`,
     `Quote state: ${state.in_quote ? "in quote" : "not in quote"} (${state.quote_boundary || "none"})`,
     `Parenthetical: ${state.in_parenthetical ? "inside" : "outside"} (depth ${state.parenthetical_depth ?? 0})`,
+    `Structure: ${state.structure && state.structure.active_label ? state.structure.active_label : "none"}`,
     `Previous displayed chunk: ${state.previous_displayed_chunk ? `[${state.previous_displayed_chunk.index}] ${state.previous_displayed_chunk.text}` : "none"}`,
     `Breakpoints: ${state.breakpoints ? state.breakpoints.count : 0}`,
     `Drift recovery: ${state.drift_recovery && state.drift_recovery.pending ? "pending" : "not pending"}`,
@@ -665,6 +713,7 @@ function enterInputMode() {
   pause();
   hideSpeedOverlay();
   closeDefectPanel();
+  resetStructureAnchor();
   hideProgressAnchor();
   resetProgressAnchor();
   readerMode.classList.add("is-hidden");
@@ -1034,6 +1083,14 @@ function validateScheduleResponse(payload, response) {
         typeof item.navigation.paragraph_index !== "number")
     ) {
       throw new Error("Schedule item navigation metadata was invalid.");
+    }
+    if (
+      item.structure !== undefined &&
+      (!item.structure ||
+        !Array.isArray(item.structure.active_path) ||
+        typeof item.structure.is_header_chunk !== "boolean")
+    ) {
+      throw new Error("Schedule item structure metadata was invalid.");
     }
   }
 }

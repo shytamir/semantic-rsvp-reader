@@ -31,8 +31,7 @@ Check that:
 - breakpoints clear when new text is loaded
 - swipe left/right jumps between saved breakpoints when breakpoints exist
 - swipe behavior remains old chunk-step behavior when no breakpoints exist
-- breakpoint jumps pause playback and do not auto-resume
-- breakpoint jumps do not use drift recovery or a 3-chunk lead-in yet
+- breakpoint traversal uses drift recovery and auto-resumes after the lead-in pause
 - progress anchor updates after a breakpoint jump
 - defect report after breakpoint navigation includes current chunk, previous displayed chunk, and breakpoint context
 
@@ -75,6 +74,28 @@ Check that:
 13. Confirm loading new text cancels pending auto-resume.
 14. Confirm double-tap breakpoint toggle does not accidentally start drift recovery.
 15. Confirm defect reports include drift recovery context.
+
+## Structural Hierarchy Anchor Validation
+
+Use one sample without Markdown headers and one sample with simple `#` / `##` headers.
+
+Check that:
+
+1. Load text with no Markdown headers.
+2. Confirm no structure label appears.
+3. Load text with one `# H1` header.
+4. Confirm the label appears in reader mode.
+5. Confirm the label is static and does not move.
+6. Confirm the label is hidden in input mode.
+7. Load text with `# H1` and `## H2` sections.
+8. Confirm label updates when entering the H2 section.
+9. Confirm label does not animate or shift layout.
+10. Confirm current chunk remains visually dominant.
+11. Confirm ghost previous chunk remains readable but subordinate.
+12. Confirm progress anchor remains stable.
+13. Confirm breakpoint/drift behavior remains stable.
+14. Submit a defect report under an H2 section.
+15. Confirm saved defect report includes structural context.
 
 ## Manual Test: Breakpoints + Ghost Previous Chunk
 
@@ -134,6 +155,37 @@ Check that:
 22. Run `python -m pytest`.
 23. Run `python scripts/check_js_syntax.py`.
 
+## Manual Test: Structural Hierarchy Anchor
+
+1. Start Flask locally.
+2. Open the app on a phone browser.
+3. Load a text with no Markdown headers.
+4. Enter reader mode.
+5. Confirm no structural label appears.
+6. Return to input mode.
+7. Load text containing one `# Main Title` and two `## Section` headings.
+8. Enter reader mode.
+9. Confirm the top label is visible but subtle.
+10. Confirm the top label is static and does not move.
+11. Confirm the top label does not animate.
+12. Confirm current chunk remains the focus.
+13. Advance from intro into the first H2 section.
+14. Confirm the label updates appropriately.
+15. Advance into the second H2 section.
+16. Confirm the label updates appropriately.
+17. Use manual previous/next.
+18. Confirm the label updates correctly.
+19. Use progress seek if implemented.
+20. Confirm the label updates correctly.
+21. Use breakpoint traversal if implemented.
+22. Confirm the label updates correctly.
+23. Use drift recovery if implemented.
+24. Confirm the label updates correctly during lead-in.
+25. Submit a defect report.
+26. Confirm saved report includes Structural Context.
+27. Run `python -m pytest`.
+28. Run `python scripts/check_js_syntax.py`.
+
 ## Defects To Report
 
 Report navigation defects when:
@@ -149,6 +201,10 @@ Report navigation defects when:
 - three lead-in chunks are insufficient for the surrounding sentence
 - a cancelled drift recovery resumes playback anyway
 - drift recovery lands at the wrong lead-in chunk
+- structure anchor shows the wrong label
+- structure anchor is missing when a simple H1/H2 header is active
+- structure anchor distracts from RSVP focus
+- structure anchor causes layout shift
 - the progress bar blocks controls or creates horizontal scroll
 - adaptation behaves unexpectedly after seek
 
