@@ -1,0 +1,72 @@
+{
+  "slice": "S-023",
+  "name": "Parser-assisted Chunking Spike",
+  "state": "implemented_not_promoted",
+  "frozen_at": "2026-07-10",
+  "starting_commit": "28dcca6fbba8ee972dce7268c62e80f3ad51b8fe",
+  "implementation_commit": "b01085193a36b664b6415686ff835426d0434c92",
+  "baseline_commit": "8b50a3049bb5d92a304a03527385c519194ce8da",
+  "production_default": "semantic_rsvp.chunking.rules.RuleBasedChunker",
+  "experimental_entry_point": "semantic_rsvp.experiments.parser_assisted_chunking.chunker.ParserAssistedChunker",
+  "scoring_configuration": {
+    "version": "parser-assisted-spike-v1",
+    "hash": "0e3266b6917b75da27896b382104ecf164457fee7f28d7e4d835ccb7251accab",
+    "max_chars": 32,
+    "max_content_words_policy": "high-cost soft RSVP density constraint",
+    "unsplittable_token_policy": "single-token exception only",
+    "tie_breaker": "lowest_cost_then_fewest_chunks_then_leftmost_longest"
+  },
+  "dependencies": {
+    "requirements_nlp_spike_sha256": "a07e42352f4f34144321c97a9602ba5dff142f7560d3d1025c49c9e3446f8404",
+    "spacy_version": "3.7.5",
+    "model_package": "en-core-web-sm",
+    "model_version": "3.7.1",
+    "runtime_downloads": "none"
+  },
+  "visible_corpus": {
+    "development_manifest_sha256": "4bfa0409c3d7a15c14e1b7cd3abb9f9ac4a4b209af82cf1ab3439fda018c8b52",
+    "generalization_manifest_sha256": "2e61e30c210e6fe2bf3895e03017131bd7c8da80358456d725b489765901133e",
+    "regression_manifest_sha256": "e9c55c2e957c924d699b57e2622111f044997e821d43d472c7b203b28ba4fe68",
+    "development_regression_result": "evaluation/parser_assisted_chunking/results/parser_assisted_development_regression.json",
+    "development_regression_result_sha256": "1b466ff826e94658a1446d0f059937308175361e872eeff0b6fc2d756ca716a4",
+    "case_count": 16,
+    "fallback_count": 0,
+    "fallback_rate": 0.0,
+    "width_violation_count": 0
+  },
+  "measurements": {
+    "python_version": "3.12.13",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "spacy_package_footprint_mb": 70.0,
+    "model_footprint_mb": 14.54,
+    "parser_initialization_latency_ms": 286.095,
+    "runner_total_elapsed_ms_with_lazy_load": 1054.189,
+    "runner_average_case_ms_with_lazy_load": 60.79,
+    "runner_median_case_ms": 9.441,
+    "runner_ms_per_1000_chars_with_lazy_load": 960.099,
+    "measurement_scope": "development and regression visible cases only; descriptive spike measurement, not a performance claim"
+  },
+  "verification": {
+    "normal_pytest": "210 passed, 3 skipped",
+    "optional_nlp_pytest": "3 passed, 1 warning",
+    "chunking_corpus_validation": "passed for 22 visible cases",
+    "baseline_freeze_check": "rule-based baseline output is reproducible",
+    "javascript_syntax_check": "skipped cleanly; no JavaScript runtime found",
+    "markdown_link_check": "passed",
+    "security_checks": "optional tools skipped cleanly when unavailable"
+  },
+  "fallback_conditions": [
+    "spaCy unavailable",
+    "pinned model unavailable",
+    "parser failure",
+    "alignment validation failure",
+    "no complete optimization path",
+    "hard postcondition failure"
+  ],
+  "scientific_limitations": [
+    "No production promotion decision made in S-023.",
+    "No qualitative generalization-output tuning was performed.",
+    "Held-out comparison and blind evaluation remain S-024 work.",
+    "Visible development/regression behavior does not establish experimental superiority."
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "registered_at": "2026-07-10",
+  "purpose": "S-023 freeze evidence for later held-out comparison",
+  "checksum_record_only": true,
+  "sealed_package_accessed": false,
+  "sealed_package_opened": false,
+  "sealed_package_validated": false,
+  "expected_package": {
+    "filename": "rsvp_blind_challenge_v1.zip",
+    "sha256": "a8926e9dc9cd68399f2c9f6a8b63ee44ac0cdd5b4f4361a20460410617b1f71b"
+  },
+  "attached_checksum_record": {
+    "source_path": "C:/Users/Usuario/Downloads/rsvp_blind_challenge_v1.zip.sha256",
+    "entries": [
+      {
+        "filename": "rsvp_blind_challenge_v1.zip",
+        "sha256": "a8926e9dc9cd68399f2c9f6a8b63ee44ac0cdd5b4f4361a20460410617b1f71b",
+        "matches_expected": true
+      },
+      {
+        "filename": "sealed_blind_set.json",
+        "sha256": "a6647ba26a9e32cfc154bfb904579f57ebdfbef9bdd2b64b7253cfefaa026502",
+        "matches_expected": null
+      }
+    ]
+  },
+  "notes": [
+    "Only the supplied checksum text file was read.",
+    "No blind source text, annotations, archive contents, or derived outputs were accessed, inferred, generated, or committed.",
+    "The sealed package itself remains human-held material for S-024."
+  ]
+}

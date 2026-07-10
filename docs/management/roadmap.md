@@ -4,19 +4,18 @@ This roadmap is the priority-order view. [STATUS](STATUS.md) is the authority fo
 
 ## Now
 
-1. **S-023: Parser-assisted chunking spike**
-   - State: `READY_FOR_IMPLEMENTATION`
-   - Owner: Codex
-   - Goal: implement an isolated experimental parser-assisted path using the frozen design in [Parser-Assisted Chunking Experiment](../experiments/parser_assisted_chunking/README.md).
-   - Constraint: keep the rule-based chunker as the production default and fallback.
+1. **S-024: Baseline versus experiment comparison**
+   - State: `READY_FOR_HUMAN_HANDOFF`
+   - Owner: Human
+   - Goal: compare the frozen rule-based baseline against the frozen parser-assisted experiment using authorized held-out materials.
+   - Blocked on: sealed evaluation material and comparison authorization.
+   - Constraint: do not retune S-023 code, weights, or configuration during comparison.
 
 ## Next
 
-1. **S-024: Baseline versus experiment comparison**
-   - Compare rule-based and parser-assisted outputs using frozen regression, frozen generalization, and human-held blind challenge material when available.
-2. **S-025: Post-experiment disposition**
+1. **S-025: Post-experiment disposition**
    - Decide whether to abandon, revise, or consider promoting the parser-assisted approach after held-out evaluation.
-3. **S-026: Post-navigation usability validation**
+2. **S-026: Post-navigation usability validation**
    - Resume navigation usability validation after the parser-assisted experiment sequence no longer risks masking chunking comparison results.
 
 ## Later

@@ -65,6 +65,13 @@ The runner writes stable side-by-side diagnostics to `evaluation/parser_assisted
 
 The optimizer uses project-owned token, span, relation, parse, and trace records. spaCy objects do not leave the adapter layer. The `max_content_words=2` policy is preserved as a high-cost RSVP density constraint rather than a hard rejection, while `max_chars=32` remains a hard width limit except for explicitly marked unsplittable-token cases.
 
+## S-023 Freeze Records
+
+- Implementation freeze: `evaluation/parser_assisted_chunking/freeze/parser_assisted_implementation_freeze.json`
+- Blind checksum registry: `evaluation/parser_assisted_chunking/freeze/blind_challenge_checksum_registry.json`
+
+The freeze records do not promote the experiment to production. They only freeze the S-023 implementation and record the supplied blind-package checksum for later S-024 comparison.
+
 ## Safe And Unsafe Materials For Codex
 
 Safe for Codex during implementation:
