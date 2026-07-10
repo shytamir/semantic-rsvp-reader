@@ -102,9 +102,24 @@ def test_previous_chunk_display_is_ghosted_and_noninteractive(client):
     assert "position: absolute" in css
     assert "opacity: 0.45" in css
     assert "font-size: clamp(2.1rem, 10.5vw, 4.2rem)" in css
+    assert "white-space: nowrap" in css
+    assert "overflow: hidden" in css
+    assert "text-overflow: ellipsis" in css
     assert "4.4vw" not in css
     assert "pointer-events: none" in css
     assert ".previous-chunk.is-empty" in css
+
+
+def test_active_chunk_sizing_is_explicit_and_independent_from_ghost(client):
+    response = client.get("/static/css/app.css")
+    css = response.data.decode("utf-8")
+
+    assert ".chunk-display" in css
+    assert "font-size: clamp(2.1rem, 10.5vw, 4.2rem)" in css
+    assert ".chunk-display.is-long-chunk" in css
+    assert ".chunk-display.is-extra-long-token" in css
+    assert ".previous-chunk.is-long-chunk" not in css
+    assert ".previous-chunk.is-extra-long-token" not in css
 
 
 def test_navigation_scaffold_is_hidden_and_inert(client):
@@ -179,9 +194,20 @@ def test_static_js_includes_dormant_navigation_helpers(client):
     assert "renderPreviousChunk" in javascript
     assert "getPreviousDisplayedChunkMetadata" in javascript
     assert "previousChunkDisplay" in javascript
-    assert "display.classList.toggle(\"is-long-chunk\"" in javascript
+    assert "chunkDisplay.classList.toggle(\"is-long-chunk\"" in javascript
+    assert "previousChunkDisplay.classList.remove(\"is-long-chunk\", \"is-extra-long-token\")" in javascript
     assert "setBreakpointAtCurrentChunk" in javascript
     assert "computeLeadInIndex" in javascript
+
+
+def test_static_js_collects_layout_context_for_defects(client):
+    response = client.get("/static/js/app.js")
+    javascript = response.data.decode("utf-8")
+
+    assert "layout_context" in javascript
+    assert "previous_chunk_visible" in javascript
+    assert "previous_chunk_text_length" in javascript
+    assert "active_chunk_text_length" in javascript
 
 
 def test_static_js_includes_breakpoint_traversal_feedback(client):

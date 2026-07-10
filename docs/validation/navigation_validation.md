@@ -51,7 +51,24 @@ Check that:
 - previous chunk updates after breakpoint jump
 - previous chunk does not become interactive
 - previous chunk does not cause layout jitter or crowd controls
+- long previous chunks are clipped to one line with ellipsis
+- previous chunk never wraps into or obscures the active chunk
+- active chunk font size remains stable when the previous chunk is long
 - defect report captures previous displayed chunk metadata
+- defect report captures layout context when available
+
+## Post-Stabilization Validation Focus
+
+1. Confirm ghost previous chunk never overlaps or visually competes with active chunk.
+2. Confirm active chunk font size remains stable.
+3. Test article/source text with title, byline, blank lines, and date.
+4. Confirm long-form dates stay coherent.
+5. Confirm headings/source lines do not merge into body prose.
+6. Confirm phrasal verbs and qualifier pairs are less often split.
+7. Confirm coordinated noun phrases remain coherent when compact.
+8. Confirm noun-preposition phrases improve.
+9. Watch for new overlong chunks from phrase preservation.
+10. Watch for new underdense chunks caused by source-boundary splitting.
 
 ## Drift Recovery Validation
 

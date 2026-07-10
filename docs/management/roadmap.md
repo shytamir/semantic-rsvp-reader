@@ -2,9 +2,9 @@
 
 The near-term goal is to refine the reading experience using observed defects rather than speculative feature additions.
 
-## Current Phase: Chunker-Dominant Refinement
+## Current Phase: Validation-Driven Stabilization
 
-**Goal:** Improve phrase-level chunk quality while keeping timing, speed, adaptation, and playback semantics stable.
+**Goal:** Stabilize the mobile reading surface and refine observed chunk/source-boundary defects while keeping timing, speed, adaptation, navigation, and playback semantics stable.
 
 - **Done:** In-app backend defect reporting.
 - **Done:** Defect report security hardening.
@@ -24,15 +24,22 @@ The near-term goal is to refine the reading experience using observed defects ra
 - **Done:** Ghost Previous Chunk.
 - **Done:** Drift Recovery Logic.
 - **Done:** Structural Hierarchy Anchor.
-- **Current:** Validate Chunker Refinement Pass 2 against fresh named-entity, title, article, and weak-boundary evidence.
+- **Done:** Post-Validation Stabilization Pass 1.
+- **Current:** Validate ghost/active chunk layout, source boundaries, long-form dates, and targeted phrase-cohesion repairs against fresh mobile evidence.
 
-**Gate:** Confirm the pass reduces repeated phrase-boundary defects without creating overlong chunks, over-clumped ordinary prose, or timing-masked discomfort.
+**Gate:** Confirm the pass resolves mobile layout/visibility blockers and reduces source-boundary and phrase-cohesion defects without creating overlong chunks, over-clumped ordinary prose, or timing-masked discomfort.
 
-## Next Slice 1: Post-Chunker Refinement Pass 2 Validation
+## Done Slice: Post-Validation Stabilization Pass 1
 
-**Goal:** Validate the latest proper-name, honorific/title, article, preposition, and apostrophe-tokenization changes on fresh text.
+**Goal:** Address the 39-defect third chunking validation pass.
 
-**Gate:** Remaining issues are classified cleanly as chunking, timing, display state, layout, or navigation defects.
+**Status:** Implemented mobile ghost/active chunk layout stabilization first, then source-boundary preservation, long-form date cohesion, and targeted phrasal verb, qualifier-pair, coordinated-form, noun-preposition, proper-name, title, underdense, and overlong repairs.
+
+## Next Slice 1: Post-Stabilization Validation Pass
+
+**Goal:** Validate mobile ghost layout and source-boundary chunking on Android/Firefox and desktop.
+
+**Gate:** Confirm active font size remains stable, ghost text never overlaps the active chunk, headings/bylines/dates do not merge into prose, and remaining issues are classified cleanly as chunking, timing, display state, layout, or navigation defects.
 
 ## Done Slice: Breakpoint Bookmarking Traversal
 
@@ -46,9 +53,9 @@ The near-term goal is to refine the reading experience using observed defects ra
 
 **Status:** Implemented for breakpoint traversal only. Jumps land at `max(0, n - 3)`, pause 500ms, and auto-resume unless cancelled by explicit user action.
 
-## Next Slice 2: Chunking Regression Corpus Expansion / Pass 2 Follow-Up
+## Next Slice 2: Chunking Regression Corpus Expansion
 
-**Goal:** Expand focused regression coverage or refine chunker behavior based on post-pass validation results.
+**Goal:** Expand focused regression coverage if stabilization validates well.
 
 **Gate:** New chunker changes remain report-driven and do not alter timing formulas.
 

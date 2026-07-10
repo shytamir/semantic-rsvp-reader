@@ -60,11 +60,27 @@ STOPWORDS = {
     "than",
     "therefore",
     "whether",
+    "who",
+    "whom",
+    "which",
     "it",
+    "its",
+    "his",
+    "her",
+    "their",
+    "our",
+    "your",
+    "my",
     "this",
     "that",
     "these",
     "those",
+    "up",
+    "out",
+    "off",
+    "over",
+    "down",
+    "around",
 }
 
 _TOKEN_PATTERN = re.compile(
@@ -137,9 +153,84 @@ _AUXILIARIES = {
     "would",
 }
 _INFLECTIONAL_SUPPORT = {"to", "not"}
-_QUALIFIERS = {"too", "still", "not", "only"}
+_QUALIFIERS = {"too", "still", "not", "only", "far", "even", "quite", "rather"}
 _HONORIFICS = {"mr.", "mrs.", "ms.", "dr.", "prof.", "gen.", "sen.", "rep."}
-_TITLE_TOKENS = {"ayatollah", "president", "secretary"}
+_TITLE_TOKENS = {
+    "ayatollah",
+    "president",
+    "secretary",
+    "minister",
+    "fellow",
+    "leader",
+}
+_MONTHS = {
+    "jan",
+    "january",
+    "feb",
+    "february",
+    "mar",
+    "march",
+    "apr",
+    "april",
+    "may",
+    "jun",
+    "june",
+    "jul",
+    "july",
+    "aug",
+    "august",
+    "sep",
+    "sept",
+    "september",
+    "oct",
+    "october",
+    "nov",
+    "november",
+    "dec",
+    "december",
+}
+_WEEKDAYS = {
+    "monday",
+    "tuesday",
+    "wednesday",
+    "thursday",
+    "friday",
+    "saturday",
+    "sunday",
+}
+_PHRASAL_PARTICLES = {"up", "out", "off", "over", "down", "away", "back", "on"}
+_QUALIFIER_PAIR_STARTS = {
+    "far",
+    "even",
+    "quite",
+    "rather",
+    "at",
+    "as",
+    "more",
+    "less",
+    "not",
+}
+_QUALIFIER_PAIR_SECONDS = {
+    "less",
+    "more",
+    "much",
+    "little",
+    "many",
+    "few",
+    "least",
+    "most",
+    "than",
+    "only",
+}
+_TITLE_PHRASES = {
+    ("prime", "minister"),
+    ("senior", "fellow"),
+    ("foreign", "relations"),
+    ("the", "council"),
+    ("council", "on", "foreign", "relations"),
+    ("defense", "minister"),
+    ("chief", "executive"),
+}
 _KNOWN_PHRASES = {
     ("air", "force"),
     ("air", "force", "one"),
@@ -157,12 +248,29 @@ _KNOWN_PHRASES = {
     ("iran's", "revolutionary", "guards", "navy"),
     ("revolutionary", "guards", "navy"),
     ("strait", "of", "hormuz"),
+    ("council", "on", "foreign", "relations"),
     ("president", "trump"),
     ("president", "donald", "trump"),
     ("mr.", "trump"),
     ("mr.", "kendall"),
     ("dr.", "kudrenko"),
     ("dr.", "gaynor"),
+    ("ray", "takeyh"),
+    ("ali", "khamenei"),
+    ("ali", "akbar", "hashemi", "rafsanjani"),
+    ("the", "country"),
+    ("will", "navigate"),
+    ("built", "up"),
+    ("wields", "great", "power"),
+    ("far", "less", "impressive"),
+    ("less", "powerful"),
+    ("left", "and", "right", "wings"),
+    ("the", "primary", "language"),
+    ("of", "international", "credibility"),
+    ("the", "men", "who", "led"),
+    ("the", "movement"),
+    ("were", "loyal"),
+    ("to", "the", "islamic", "revolution"),
 }
 
 
@@ -219,7 +327,11 @@ class RuleBasedChunker(Chunker):
                     continue
                 if current:
                     current.append(token)
-                    if token in ".,!?;:" and next_token not in _CLOSING_PUNCTUATION:
+                    if (
+                        token in ".,!?;:"
+                        and next_token not in _CLOSING_PUNCTUATION
+                        and not _comma_is_inside_date(current, token, next_token)
+                    ):
                         self._flush(current, chunks)
                         current = []
                 continue
@@ -236,7 +348,7 @@ class RuleBasedChunker(Chunker):
                 current.append(token)
 
         self._flush(current, chunks)
-        return chunks
+        return _repair_chunk_sequence(chunks, self.max_chars, self.max_content_words)
 
     def _should_split_before(
         self,
@@ -352,7 +464,11 @@ def _starts_new_phrase(
         return False
     if _is_known_phrase_candidate(_normalized_words([*current, token])):
         return False
+    if tuple(_normalized_words(current)) in _KNOWN_PHRASES and _is_word(token):
+        return True
     if token_lower in _BOUNDARY_CONNECTORS and count_content_words(current) > 0:
+        if _is_coordinated_phrase_prefix(current, token, next_token):
+            return False
         return True
     if token_lower == "whether" and count_content_words(current) > 0:
         return True
@@ -404,9 +520,15 @@ def _should_preserve_candidate(candidate: list[str]) -> bool:
     words = _normalized_words(candidate)
     if _is_known_phrase_candidate(words):
         return True
+    if _is_long_form_date_candidate(candidate):
+        return True
     if _is_honorific_name_candidate(candidate):
         return True
+    if _is_two_word_name_candidate(candidate):
+        return True
     if _is_title_name_candidate(candidate):
+        return True
+    if _is_title_phrase_candidate(words):
         return True
     if _is_article_modifier_head(words):
         return True
@@ -414,7 +536,15 @@ def _should_preserve_candidate(candidate: list[str]) -> bool:
         return True
     if _is_auxiliary_chain(candidate):
         return True
+    if _is_phrasal_verb_candidate(words):
+        return True
     if _is_quantifier_phrase(words):
+        return True
+    if _is_qualifier_pair_candidate(words):
+        return True
+    if _is_compact_coordinated_candidate(words):
+        return True
+    if _is_noun_preposition_candidate(words):
         return True
     return False
 
@@ -443,12 +573,53 @@ def _is_auxiliary_chain(tokens: list[str]) -> bool:
 
 
 def _is_quantifier_phrase(words: list[str]) -> bool:
-    return len(words) >= 2 and words[0] == "too" and words[1] in {
+    return len(words) >= 2 and words[0] in {"too", "at"} and words[1] in {
         "much",
         "many",
         "few",
         "little",
+        "least",
+        "most",
     }
+
+
+def _is_qualifier_pair_candidate(words: list[str]) -> bool:
+    if len(words) < 2 or len(words) > 3:
+        return False
+    return words[0] in _QUALIFIER_PAIR_STARTS and words[1] in _QUALIFIER_PAIR_SECONDS
+
+
+def _is_phrasal_verb_candidate(words: list[str]) -> bool:
+    return (
+        2 <= len(words) <= 3
+        and words[-1] in _PHRASAL_PARTICLES
+        and words[-2] not in _ARTICLES
+        and words[-2] not in _PREPOSITIONS
+    )
+
+
+def _is_compact_coordinated_candidate(words: list[str]) -> bool:
+    return 3 <= len(words) <= 4 and "and" in words[1:-1]
+
+
+def _is_noun_preposition_candidate(words: list[str]) -> bool:
+    return (
+        3 <= len(words) <= 4
+        and words[1] in {"of", "for", "with"}
+        and words[0] not in _ARTICLES
+    )
+
+
+def _is_title_phrase_candidate(words: list[str]) -> bool:
+    variants = [tuple(words)]
+    if words and words[0] in _ARTICLES:
+        variants.append(tuple(words[1:]))
+    return any(variant in _TITLE_PHRASES for variant in variants) or any(
+        phrase[: len(variant)] == variant
+        for phrase in _TITLE_PHRASES
+        for variant in variants
+        if len(variant) < len(phrase)
+    )
 
 
 def _normalized_words(tokens: list[str]) -> list[str]:
@@ -496,6 +667,16 @@ def _is_honorific_name_candidate(tokens: list[str]) -> bool:
     )
 
 
+def _is_two_word_name_candidate(tokens: list[str]) -> bool:
+    word_tokens = _word_tokens(tokens)
+    words = [token.lower() for token in word_tokens]
+    if len(words) != 2:
+        return False
+    if words[0] in _ARTICLES or words[0] in _PREPOSITIONS or words[0] in _AUXILIARIES:
+        return False
+    return all(_is_titlecase_word(token) for token in word_tokens)
+
+
 def _is_title_name_candidate(tokens: list[str]) -> bool:
     word_tokens = _word_tokens(tokens)
     words = [token.lower() for token in word_tokens]
@@ -522,3 +703,141 @@ def _is_auxiliary(token: str | None) -> bool:
 
 def _next_is_auxiliary_or_word(token: str | None) -> bool:
     return bool(token and _is_word(token))
+
+
+def _comma_is_inside_date(current: list[str], token: str, next_token: str | None) -> bool:
+    if token != "," or not next_token:
+        return False
+    words = _normalized_words(current)
+    next_lower = next_token.lower()
+    if len(words) == 1 and words[0] in _WEEKDAYS and next_lower in _MONTHS:
+        return True
+    if len(words) >= 2 and words[0] in _MONTHS and _is_day_token(words[1]) and _is_year_token(next_lower):
+        return True
+    return False
+
+
+def _is_long_form_date_candidate(tokens: list[str]) -> bool:
+    words = _normalized_words(tokens)
+    if len(words) >= 4 and words[0] in _WEEKDAYS:
+        words = words[1:]
+    if len(words) == 3 and words[0] in _MONTHS and _is_day_token(words[1]) and _is_year_token(words[2]):
+        return True
+    if len(words) == 3 and _is_day_token(words[0]) and words[1] in _MONTHS and _is_year_token(words[2]):
+        return True
+    if len(words) == 2 and words[0] in _MONTHS and _is_year_token(words[1]):
+        return True
+    return False
+
+
+def _is_day_token(token: str) -> bool:
+    return token.isdigit() and 1 <= int(token) <= 31
+
+
+def _is_year_token(token: str) -> bool:
+    return token.isdigit() and 1900 <= int(token) <= 2200
+
+
+def _is_coordinated_phrase_prefix(
+    current: list[str],
+    token: str,
+    next_token: str | None,
+) -> bool:
+    return (
+        token.lower() == "and"
+        and next_token is not None
+        and _word_count(current) <= 2
+        and count_content_words(current) <= 2
+        and _is_word(next_token)
+    )
+
+
+def _repair_chunk_sequence(
+    chunks: list[Chunk],
+    max_chars: int,
+    max_content_words: int,
+) -> list[Chunk]:
+    repaired: list[Chunk] = []
+    index = 0
+    while index < len(chunks):
+        chunk = chunks[index]
+        words = _normalized_words(tokenize(chunk.text))
+        if words in (["as"], ["whether"]) and index + 1 < len(chunks):
+            candidate_text = f"{chunk.text} {chunks[index + 1].text}"
+            if (
+                len(candidate_text) <= max_chars
+                and count_content_words(tokenize(candidate_text)) <= max_content_words
+            ):
+                repaired.append(_chunk_from_text(candidate_text))
+                index += 2
+                continue
+
+        if (
+            len(words) == 4
+            and words[0] in _ARTICLES
+            and words[2] in _AUXILIARIES
+        ):
+            tokens = tokenize(chunk.text)
+            repaired.extend(
+                [
+                    _chunk_from_text(_render_chunk(tokens[:2])),
+                    _chunk_from_text(_render_chunk(tokens[2:])),
+                ]
+            )
+            index += 1
+            continue
+
+        if (
+            repaired
+            and len(words) == 1
+            and words[0] not in STOPWORDS
+            and chunk.char_length <= 10
+            and not chunk.text.endswith(".")
+            and tuple(_normalized_words(tokenize(repaired[-1].text))) not in _KNOWN_PHRASES
+        ):
+            candidate_text = f"{repaired[-1].text} {chunk.text}"
+            if (
+                len(candidate_text) <= max_chars
+                and count_content_words(tokenize(candidate_text)) <= max_content_words
+            ):
+                repaired[-1] = _chunk_from_text(candidate_text)
+                index += 1
+                continue
+
+        repaired.append(chunk)
+        index += 1
+    return _merge_function_word_forward(repaired, max_chars, max_content_words)
+
+
+def _merge_function_word_forward(
+    chunks: list[Chunk],
+    max_chars: int,
+    max_content_words: int,
+) -> list[Chunk]:
+    merged: list[Chunk] = []
+    index = 0
+    while index < len(chunks):
+        chunk = chunks[index]
+        if chunk.text.lower() in {"as", "whether"} and index + 1 < len(chunks):
+            candidate_text = f"{chunk.text} {chunks[index + 1].text}"
+            if (
+                len(candidate_text) <= max_chars
+                and count_content_words(tokenize(candidate_text)) <= max_content_words
+            ):
+                merged.append(_chunk_from_text(candidate_text))
+                index += 2
+                continue
+        merged.append(chunk)
+        index += 1
+    return merged
+
+
+def _chunk_from_text(text: str) -> Chunk:
+    tokens = tokenize(text)
+    content_word_count = count_content_words(tokens)
+    return Chunk(
+        text=text,
+        content_word_count=content_word_count,
+        char_length=len(text),
+        syntactic_hint=_syntactic_hint(tokens, content_word_count),
+    )

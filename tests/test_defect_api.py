@@ -162,6 +162,13 @@ def minimal_report():
             "chunk_scroll_width_px": 330,
             "chunk_client_width_px": 330,
             "chunk_may_overflow": False,
+            "layout_context": {
+                "previous_chunk_visible": True,
+                "previous_chunk_text_length": 24,
+                "active_chunk_text_length": 15,
+                "viewport_width": 390,
+                "viewport_height": 844,
+            },
         },
     }
 
@@ -279,6 +286,11 @@ def test_defects_writes_display_metadata_when_available(defect_client, defect_re
     assert "Chunk scroll width px: 330" in markdown
     assert "Chunk client width px: 330" in markdown
     assert "Chunk may overflow: false" in markdown
+    assert "Layout context:" in markdown
+    assert "- Previous chunk visible: true" in markdown
+    assert "- Previous chunk text length: 24" in markdown
+    assert "- Active chunk text length: 15" in markdown
+    assert "- Viewport: 390x844" in markdown
 
 
 def test_defects_writes_navigability_context(defect_client, defect_report_dir):

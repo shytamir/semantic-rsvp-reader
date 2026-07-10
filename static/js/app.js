@@ -272,6 +272,7 @@ function renderPreviousChunk() {
   const previousItem = getPreviousDisplayedScheduleItem();
   previousChunkDisplay.textContent = previousItem ? previousItem.text : "";
   previousChunkDisplay.classList.toggle("is-empty", !previousItem);
+  previousChunkDisplay.classList.remove("is-long-chunk", "is-extra-long-token");
 }
 
 function openDefectPanel() {
@@ -350,14 +351,11 @@ function setChunkDisplaySizing(text) {
     (longest, word) => Math.max(longest, word.length),
     0,
   );
-  const isLongChunk = String(text || "").length > 24;
-  const isExtraLongToken = longestWordLength > 12;
-  for (const display of [chunkDisplay, previousChunkDisplay]) {
-    if (!display) {
-      continue;
-    }
-    display.classList.toggle("is-long-chunk", isLongChunk);
-    display.classList.toggle("is-extra-long-token", isExtraLongToken);
+  const isLongChunk = String(text || "").length > 32;
+  const isExtraLongToken = longestWordLength > 22;
+  if (chunkDisplay) {
+    chunkDisplay.classList.toggle("is-long-chunk", isLongChunk);
+    chunkDisplay.classList.toggle("is-extra-long-token", isExtraLongToken);
   }
 }
 
@@ -370,6 +368,11 @@ function renderChunkDisplayState(item) {
 }
 
 function getChunkDisplayMetadata() {
+  const previousChunkVisible = Boolean(
+    previousChunkDisplay &&
+      !previousChunkDisplay.classList.contains("is-empty") &&
+      previousChunkDisplay.textContent,
+  );
   return {
     display_width_px: Math.round(readerArea ? readerArea.clientWidth : 0),
     chunk_scroll_width_px: Math.round(chunkDisplay ? chunkDisplay.scrollWidth : 0),
@@ -377,6 +380,15 @@ function getChunkDisplayMetadata() {
     chunk_may_overflow: Boolean(
       chunkDisplay && chunkDisplay.scrollWidth > chunkDisplay.clientWidth + 1,
     ),
+    layout_context: {
+      previous_chunk_visible: previousChunkVisible,
+      previous_chunk_text_length: previousChunkDisplay
+        ? previousChunkDisplay.textContent.length
+        : 0,
+      active_chunk_text_length: chunkDisplay ? chunkDisplay.textContent.length : 0,
+      viewport_width: window.innerWidth,
+      viewport_height: window.innerHeight,
+    },
   };
 }
 

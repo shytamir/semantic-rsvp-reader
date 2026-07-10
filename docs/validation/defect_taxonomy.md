@@ -87,6 +87,66 @@ Likely source area: chunking
 
 Severity scale: use the shared 1-4 scale above.
 
+## source_boundary_flattening
+
+Definition: A title, heading, byline, date, source line, or blank-line paragraph boundary is flattened into neighboring prose.
+
+Example symptom: `Apr 02, 2026 There` or `Economic Deterrence Alex` appears as one chunk.
+
+Likely source area: segmentation / source-boundary handling
+
+Severity scale: use the shared 1-4 scale above.
+
+## date_split
+
+Definition: A long-form date is split so the year or day no longer stays with the date phrase.
+
+Example symptom: `July 4,` appears separately from `2026`.
+
+Likely source area: chunking / source-boundary handling
+
+Severity scale: use the shared 1-4 scale above.
+
+## phrasal_verb_split
+
+Definition: A compact verb-particle phrase is divided in a way that changes the felt verb.
+
+Example symptom: `built` appears separately from `up`.
+
+Likely source area: chunking
+
+Severity scale: use the shared 1-4 scale above.
+
+## qualifier_pair_split
+
+Definition: A compact qualifier or quantifier pair is split from the phrase it modifies.
+
+Example symptom: `far` trails one chunk and `less impressive` arrives later.
+
+Likely source area: chunking
+
+Severity scale: use the shared 1-4 scale above.
+
+## coordinated_phrase_split
+
+Definition: A short coordinated form is split into weak pieces instead of staying readable as a compact unit.
+
+Example symptom: `left`, `and right`, then `wings` appear as separate chunks.
+
+Likely source area: chunking
+
+Severity scale: use the shared 1-4 scale above.
+
+## noun_preposition_split
+
+Definition: A compact noun-preposition-noun phrase is split through the preposition in a way that weakens the relationship.
+
+Example symptom: `language of international` appears without `credibility`.
+
+Likely source area: chunking
+
+Severity scale: use the shared 1-4 scale above.
+
 ## overlong_chunk
 
 Definition: A chunk contains too much text to read comfortably at the displayed size or duration.

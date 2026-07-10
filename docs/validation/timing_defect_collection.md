@@ -44,6 +44,8 @@ If the chunk is hard to read because the browser visibly wraps, clips, hyphenate
 
 If the issue is tokenization or segmentation noise, such as `a.m.` becoming a separate punctuation-like chunk, fix that before timing calibration. Dense-chunk timing should be retested after display and tokenization cleanup.
 
+If the issue is source/title/byline/date structure being flattened into prose, classify it as `source_boundary_flattening` or `date_split`, not timing. If the issue is a split phrasal verb, qualifier pair, coordinated phrase, or noun-preposition phrase, use `phrasal_verb_split`, `qualifier_pair_split`, `coordinated_phrase_split`, or `noun_preposition_split` before interpreting the discomfort as a duration problem.
+
 If the issue is that a quote or parenthetical aside is visually hard to track, classify it as `quote_state_confusion` or `parenthetical_state_confusion`, not timing. Use `punctuation_rhythm_issue` for quote-adjacent punctuation only when the visual quote/parenthetical state is already clear and the remaining problem is dwell, pause, or rhythm.
 
 Navigation metadata is now available for future orientation and recovery features, but active navigability behavior is not enabled yet. Do not report progress bar, seeking, bookmark traversal, or drift recovery defects until those features are intentionally activated.

@@ -54,6 +54,17 @@
   - Implemented for breakpoint traversal only; progress seek, reset, manual previous/next, and ordinary swipe fallback do not use drift recovery.
 
 ## Backlog / Post-Validation
+- [x] **Post-Validation Stabilization Pass 1**
+  - Latest validation included 39 defects, with layout/visibility as a major mobile blocker.
+  - Stabilized ghost/active chunk layout first.
+  - Added source-boundary preservation, long-form date cohesion, and targeted phrase-cohesion repairs.
+  - Added focused regression tests and documentation.
+
+- [ ] **Post-Stabilization Validation Pass**
+  - Confirm ghost previous chunk never overlaps or visually competes with active chunk.
+  - Confirm active chunk font size remains stable on phone viewports.
+  - Validate title/byline/date/source-line boundaries and watch for over-clumping from phrase preservation.
+
 - [x] **Structural Hierarchy Anchor**
   - Detect Markdown headers (#, ##) during ingestion and display as a static label at the top of the viewport.
   - Requirement: Maintain static positioning; no movement.

@@ -6,8 +6,8 @@ Semantic RSVP Reader is a mobile-first HTML5 reading prototype served by Flask. 
 
 > **Status:** GREEN
 > **Last Updated:** 2026-07-10
-> **Current Phase:** Chunker-dominant refinement
-> **Immediate Focus:** Post-Chunker Refinement Pass 2 validation focused on named entities, titles, articles, and weak boundaries
+> **Current Phase:** Validation-driven stabilization
+> **Immediate Focus:** Post-stabilization validation focused on mobile layout, source boundaries, dates, and phrase cohesion
 
 ## Current State: Prototype Complete
 The stable development base is finished. Text can enter the system cleanly, normalize into stable sentence units, and process through a rule-based chunking and deterministic timing engine. The mobile-first RSVP playback loop is fully operational with gesture interactions, speed controls, local behavioral telemetry, backend defect reports, display-state annotations for quoted and parenthetical spans, and conservative navigability aids.
@@ -26,6 +26,7 @@ The app can generate `.md.gz` backend defect report files directly from the mobi
 | Pure-Python rule-based semantic chunking | Done | Inspectable semantic chunker exists |
 | Chunking refinement pass 1 from observed defects | Done | Observed modifier/head, verb-support, and punctuation-boundary defects addressed |
 | Chunking refinement pass 2 from observed defects | Done | Proper-name, honorific/title, article, preposition, and curly apostrophe defects addressed |
+| Post-validation stabilization pass 1 | Done | Mobile ghost/active chunk layout stabilization, source-boundary preservation, long-form date cohesion, and targeted phrase-cohesion chunking refinements |
 | Deterministic timing engine | Done | Chunks receive deterministic durations |
 | Timing Calibration Pass 1 from clean timing-context defect reports | Done | Dense, extra-dense, punctuation, and quote rhythm are conservatively adjusted |
 | Dense chunk dwell calibration | Done | Dense chunks get a modest baseline dwell increase |
@@ -46,6 +47,10 @@ The app can generate `.md.gz` backend defect report files directly from the mobi
 | Breakpoint bookmarking and traversal | Done | Double-tap toggles current-stream breakpoints; swipes traverse breakpoints when any exist |
 | Drift recovery lead-in | Done | Breakpoint traversal jumps to up to three chunks before the target, pauses 500ms, then resumes |
 | Ghost previous chunk display | Done | Previous chunk appears above the current chunk at reduced contrast |
+| Mobile ghost/active chunk layout stabilization | Done | Ghost previous chunk is clipped to one line and cannot wrap into the active chunk |
+| Source-boundary preservation | Done | Title, byline, blank-line, Markdown H1/H2, and date-like source lines remain separate from prose |
+| Long-form date cohesion | Done | Month/day/year forms stay together instead of orphaning the year |
+| Targeted phrase-cohesion chunking refinements | Done | Observed phrasal verb, qualifier-pair, coordinated-form, noun-preposition, name, and title cases improved |
 | Navigability context in defect reports | Done | Reports include previous displayed chunk, breakpoint, and drift recovery context |
 | Markdown H1/H2 structural context detection | Done | Simple `#` and `##` headers are detected as structure metadata |
 | Static structural hierarchy anchor | Done | A fixed, low-distraction top label shows the active section |
@@ -105,13 +110,13 @@ The app supports in-app defect reporting during reader playback. Reports are sav
 
 Defect report storage uses generated filenames, bounded/escaped Markdown fields, a request size limit, and a best-effort local storage encryption check. If encrypted storage cannot be confirmed, the app logs a warning and continues.
 
-Chunking refinement pass 1 is documented in `docs/validation/chunking_refinement_pass_1.md`. It addresses the first observed modifier/head, verb-support, and punctuation-boundary defects. Chunking refinement pass 2 is documented in `docs/validation/chunking_refinement_pass_2.md`, with implementation results in `docs/validation/chunking_refinement_pass_2_results.md`; it addresses observed proper-name, honorific/title, article, preposition, and curly apostrophe defects while keeping timing/playback behavior stable. A follow-up evidence-hygiene cleanup reduces display wrapping, `a.m.`/`p.m.` initialism, and `whether ... would` noise before calibration. Timing Calibration Pass 1 is documented in `docs/validation/timing_calibration_pass_1.md`, and the targeted third-pass follow-up is documented in `docs/validation/post_validation_targeted_calibration.md`.
+Chunking refinement pass 1 is documented in `docs/validation/chunking_refinement_pass_1.md`. It addresses the first observed modifier/head, verb-support, and punctuation-boundary defects. Chunking refinement pass 2 is documented in `docs/validation/chunking_refinement_pass_2.md`, with implementation results in `docs/validation/chunking_refinement_pass_2_results.md`; it addresses observed proper-name, honorific/title, article, preposition, and curly apostrophe defects while keeping timing/playback behavior stable. Post-validation stabilization pass 1 is documented in `docs/validation/post_validation_stabilization_pass_1.md`; it addresses the 39-defect third pass by fixing mobile ghost/active chunk layout first, then preserving source boundaries, long-form dates, and targeted phrase-cohesion cases. A follow-up evidence-hygiene cleanup reduces display wrapping, `a.m.`/`p.m.` initialism, and `whether ... would` noise before calibration. Timing Calibration Pass 1 is documented in `docs/validation/timing_calibration_pass_1.md`, and the targeted third-pass follow-up is documented in `docs/validation/post_validation_targeted_calibration.md`.
 
 Quote and parenthetical state indicators are documented in `docs/validation/quote_parenthetical_state_indicators.md`. Use `quote_state_confusion` and `parenthetical_state_confusion` when the issue is visual context, not timing.
 
 Defect reports now include timing context such as base duration, effective duration, playback speed, syntactic hint, content word count, character length, quote state, parenthetical state, nearby chunk timing, session timing summary, optional navigation metadata, and display metadata. See `docs/validation/timing_defect_collection.md` for the timing defect collection workflow and `scripts/review_defects.py` for local report review/export.
 
-Navigation metadata is available in schedule items for future orientation and recovery features. The passive spatial anchor uses that metadata for a low-distraction bottom progress bar. Updates are intentionally milestone-gated rather than per-chunk, and progress-bar tap seeking is coarse. Breakpoints are current-stream/session-only: double-tap toggles a breakpoint at the current chunk, and horizontal swipes traverse saved breakpoints when any exist while preserving the old chunk-step swipe behavior when none exist. Breakpoint traversal uses drift recovery: it jumps to `max(0, n - 3)`, pauses for 500ms, then auto-resumes so the saved breakpoint arrives with context. Progress seek and ordinary manual previous/next do not use drift recovery. The ghost previous chunk provides a quiet orientation aid above the current chunk. Simple Markdown `#` and `##` headers are detected as structural metadata for a static top label; this is an orientation aid, not a full Markdown renderer or navigation surface.
+Navigation metadata is available in schedule items for future orientation and recovery features. The passive spatial anchor uses that metadata for a low-distraction bottom progress bar. Updates are intentionally milestone-gated rather than per-chunk, and progress-bar tap seeking is coarse. Breakpoints are current-stream/session-only: double-tap toggles a breakpoint at the current chunk, and horizontal swipes traverse saved breakpoints when any exist while preserving the old chunk-step swipe behavior when none exist. Breakpoint traversal uses drift recovery: it jumps to `max(0, n - 3)`, pauses for 500ms, then auto-resumes so the saved breakpoint arrives with context. Progress seek and ordinary manual previous/next do not use drift recovery. The ghost previous chunk provides a quiet orientation aid above the current chunk and is clipped to one line with ellipsis so it cannot overlap the active chunk. Simple Markdown `#` and `##` headers are detected as structural metadata for a static top label; this is an orientation aid, not a full Markdown renderer or navigation surface.
 
 Log defects with the in-app `Report Defect` button, or use `docs/validation/defect_log_template.md` when working outside the app. Choose categories from `docs/validation/defect_taxonomy.md`. Interpret severity as:
 
@@ -134,8 +139,8 @@ python scripts/schedule_sample.py --json < sample.txt
 
 ## Next Milestones
 
-1. Post-Chunker Refinement Pass 2 validation
-2. Chunking Regression Corpus Expansion or Chunker Refinement Pass 2 follow-up
+1. Post-Stabilization Validation Pass focused on mobile layout and source-boundary chunking
+2. Chunking Regression Corpus Expansion if stabilization validates well
 3. Post-navigation usability validation
 4. Demo/beta readiness cleanup
 

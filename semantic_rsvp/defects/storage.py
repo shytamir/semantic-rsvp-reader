@@ -23,6 +23,12 @@ KNOWN_CATEGORIES = {
     "article_noun_split",
     "weak_boundary_chunk",
     "pronoun_or_preposition_bookend",
+    "source_boundary_flattening",
+    "date_split",
+    "phrasal_verb_split",
+    "qualifier_pair_split",
+    "coordinated_phrase_split",
+    "noun_preposition_split",
     "overlong_chunk",
     "underdense_chunk",
     "rushed_dense_chunk",
@@ -207,6 +213,8 @@ def render_defect_report_markdown(
             f"Chunk scroll width px: {_value(client, 'chunk_scroll_width_px')}",
             f"Chunk client width px: {_value(client, 'chunk_client_width_px')}",
             f"Chunk may overflow: {_value(client, 'chunk_may_overflow')}",
+            "Layout context:",
+            *_format_layout_context(client.get("layout_context")),
             "",
         ]
     )
@@ -377,6 +385,30 @@ def _sanitize_client(client: dict) -> dict:
         "chunk_scroll_width_px": client.get("chunk_scroll_width_px"),
         "chunk_client_width_px": client.get("chunk_client_width_px"),
         "chunk_may_overflow": client.get("chunk_may_overflow"),
+        "layout_context": _sanitize_layout_context(client.get("layout_context")),
+    }
+
+
+def _format_layout_context(layout_context) -> list[str]:
+    if not isinstance(layout_context, dict) or not layout_context:
+        return ["- none"]
+    return [
+        f"- Previous chunk visible: {_value(layout_context, 'previous_chunk_visible')}",
+        f"- Previous chunk text length: {_value(layout_context, 'previous_chunk_text_length')}",
+        f"- Active chunk text length: {_value(layout_context, 'active_chunk_text_length')}",
+        f"- Viewport: {_value(layout_context, 'viewport_width')}x{_value(layout_context, 'viewport_height')}",
+    ]
+
+
+def _sanitize_layout_context(layout_context) -> dict:
+    if not isinstance(layout_context, dict):
+        return {}
+    return {
+        "previous_chunk_visible": layout_context.get("previous_chunk_visible"),
+        "previous_chunk_text_length": layout_context.get("previous_chunk_text_length"),
+        "active_chunk_text_length": layout_context.get("active_chunk_text_length"),
+        "viewport_width": layout_context.get("viewport_width"),
+        "viewport_height": layout_context.get("viewport_height"),
     }
 
 
