@@ -54,6 +54,7 @@
   - Implemented for breakpoint traversal only; progress seek, reset, manual previous/next, and ordinary swipe fallback do not use drift recovery.
 
 ## Backlog / Post-Validation
-- [ ] **Structural Hierarchy Anchor**
+- [x] **Structural Hierarchy Anchor**
   - Detect Markdown headers (#, ##) during ingestion and display as a static label at the top of the viewport.
   - Requirement: Maintain static positioning; no movement.
+  - Implemented simple `#`/`##` detection, schedule structure metadata, a static top label, and structural context in defect reports.

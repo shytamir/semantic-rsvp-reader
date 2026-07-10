@@ -47,6 +47,9 @@ The app can generate `.md.gz` backend defect report files directly from the mobi
 | Drift recovery lead-in | Done | Breakpoint traversal jumps to up to three chunks before the target, pauses 500ms, then resumes |
 | Ghost previous chunk display | Done | Previous chunk appears above the current chunk at reduced contrast |
 | Navigability context in defect reports | Done | Reports include previous displayed chunk, breakpoint, and drift recovery context |
+| Markdown H1/H2 structural context detection | Done | Simple `#` and `##` headers are detected as structure metadata |
+| Static structural hierarchy anchor | Done | A fixed, low-distraction top label shows the active section |
+| Structural context in defect reports | Done | Reports include active H1/H2 label and header-chunk state |
 | JavaScript syntax check | Done | Lightweight `node --check` wrapper runs locally when Node exists and is enforced in CI |
 | `/api/schedule` | Done | Backend emits frontend-ready schedule |
 | Mobile RSVP playback loop | Done | Reader advances scheduled chunks |
@@ -108,7 +111,7 @@ Quote and parenthetical state indicators are documented in `docs/validation/quot
 
 Defect reports now include timing context such as base duration, effective duration, playback speed, syntactic hint, content word count, character length, quote state, parenthetical state, nearby chunk timing, session timing summary, optional navigation metadata, and display metadata. See `docs/validation/timing_defect_collection.md` for the timing defect collection workflow and `scripts/review_defects.py` for local report review/export.
 
-Navigation metadata is available in schedule items for future orientation and recovery features. The passive spatial anchor uses that metadata for a low-distraction bottom progress bar. Updates are intentionally milestone-gated rather than per-chunk, and progress-bar tap seeking is coarse. Breakpoints are current-stream/session-only: double-tap toggles a breakpoint at the current chunk, and horizontal swipes traverse saved breakpoints when any exist while preserving the old chunk-step swipe behavior when none exist. Breakpoint traversal uses drift recovery: it jumps to `max(0, n - 3)`, pauses for 500ms, then auto-resumes so the saved breakpoint arrives with context. Progress seek and ordinary manual previous/next do not use drift recovery. The ghost previous chunk provides a quiet orientation aid above the current chunk.
+Navigation metadata is available in schedule items for future orientation and recovery features. The passive spatial anchor uses that metadata for a low-distraction bottom progress bar. Updates are intentionally milestone-gated rather than per-chunk, and progress-bar tap seeking is coarse. Breakpoints are current-stream/session-only: double-tap toggles a breakpoint at the current chunk, and horizontal swipes traverse saved breakpoints when any exist while preserving the old chunk-step swipe behavior when none exist. Breakpoint traversal uses drift recovery: it jumps to `max(0, n - 3)`, pauses for 500ms, then auto-resumes so the saved breakpoint arrives with context. Progress seek and ordinary manual previous/next do not use drift recovery. The ghost previous chunk provides a quiet orientation aid above the current chunk. Simple Markdown `#` and `##` headers are detected as structural metadata for a static top label; this is an orientation aid, not a full Markdown renderer or navigation surface.
 
 Log defects with the in-app `Report Defect` button, or use `docs/validation/defect_log_template.md` when working outside the app. Choose categories from `docs/validation/defect_taxonomy.md`. Interpret severity as:
 
@@ -132,9 +135,9 @@ python scripts/schedule_sample.py --json < sample.txt
 ## Next Milestones
 
 1. Post-Chunker Refinement Pass 2 validation
-2. Post-navigation usability validation
-3. Chunking Regression Corpus Expansion or Chunker Refinement Pass 2 follow-up
-4. Structural Hierarchy Anchor after core RSVP/navigability validation is stable
+2. Chunking Regression Corpus Expansion or Chunker Refinement Pass 2 follow-up
+3. Post-navigation usability validation
+4. Demo/beta readiness cleanup
 
 ## Manual Test Checklist
 

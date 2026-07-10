@@ -192,6 +192,7 @@ def _scheduled_chunk_to_dict(scheduled_chunk):
     chunk = scheduled_chunk.chunk
     display_state = scheduled_chunk.display_state
     navigation = scheduled_chunk.navigation
+    structure = scheduled_chunk.structure
     return {
         "index": scheduled_chunk.index,
         "sentence_index": scheduled_chunk.sentence_index,
@@ -205,6 +206,10 @@ def _scheduled_chunk_to_dict(scheduled_chunk):
         "in_parenthetical": display_state.in_parenthetical,
         "parenthetical_depth": display_state.parenthetical_depth,
         "navigation": asdict(navigation),
+        "structure": {
+            **asdict(structure),
+            "active_path": list(structure.active_path),
+        },
     }
 
 

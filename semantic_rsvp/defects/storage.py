@@ -155,6 +155,10 @@ def render_defect_report_markdown(
             f"Navigation progress percent: {_value(reader_state.get('navigation', {}), 'progress_percent')}",
             f"Navigation paragraph index: {_value(reader_state.get('navigation', {}), 'paragraph_index')}",
             "",
+            "## Structural Context",
+            "",
+            *_format_structure(reader_state.get("structure")),
+            "",
             "## Navigability Context",
             "",
             "Previous displayed chunk:",
@@ -270,6 +274,24 @@ def _format_previous_displayed_chunk(chunk) -> list[str]:
     ]
 
 
+def _format_structure(structure) -> list[str]:
+    if not isinstance(structure, dict) or not structure:
+        return ["- none"]
+    active_path = structure.get("active_path", [])
+    if isinstance(active_path, list):
+        formatted_path = " / ".join(_sanitize_text(str(label)) for label in active_path)
+    else:
+        formatted_path = "unknown"
+    return [
+        f"- Active H1: {_value(structure, 'active_h1')}",
+        f"- Active H2: {_value(structure, 'active_h2')}",
+        f"- Active label: {_value(structure, 'active_label')}",
+        f"- Active path: {formatted_path or 'none'}",
+        f"- Is header chunk: {_value(structure, 'is_header_chunk')}",
+        f"- Header level: {_value(structure, 'header_level')}",
+    ]
+
+
 def _format_breakpoints(breakpoints) -> list[str]:
     if not isinstance(breakpoints, dict) or not breakpoints:
         return ["- none"]
@@ -338,6 +360,7 @@ def _sanitize_reader_state(reader_state: dict) -> dict:
     sanitized["drift_recovery"] = _sanitize_drift_recovery(
         reader_state.get("drift_recovery")
     )
+    sanitized["structure"] = _sanitize_structure(reader_state.get("structure"))
     sanitized["navigation"] = _sanitize_navigation(reader_state.get("navigation"))
     sanitized["session_summary"] = _sanitize_session_summary(
         reader_state.get("session_summary", {})
@@ -425,6 +448,26 @@ def _sanitize_breakpoints(breakpoints) -> dict:
         "nearest_previous": breakpoints.get("nearest_previous"),
         "nearest_next": breakpoints.get("nearest_next"),
         "current_is_breakpoint": breakpoints.get("current_is_breakpoint"),
+    }
+
+
+def _sanitize_structure(structure) -> dict:
+    if not isinstance(structure, dict):
+        return {}
+    active_path = structure.get("active_path", [])
+    if not isinstance(active_path, list):
+        active_path = []
+    return {
+        "active_h1": _bounded_text(structure.get("active_h1", ""), max_chars=500),
+        "active_h2": _bounded_text(structure.get("active_h2", ""), max_chars=500),
+        "active_label": _bounded_text(structure.get("active_label", ""), max_chars=500),
+        "active_path": [
+            _bounded_text(label, max_chars=500)
+            for label in active_path[:10]
+            if isinstance(label, str)
+        ],
+        "is_header_chunk": structure.get("is_header_chunk"),
+        "header_level": structure.get("header_level"),
     }
 
 

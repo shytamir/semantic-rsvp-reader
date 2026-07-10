@@ -23,6 +23,7 @@ The near-term goal is to refine the reading experience using observed defects ra
 - **Done:** Breakpoint Bookmarking Traversal.
 - **Done:** Ghost Previous Chunk.
 - **Done:** Drift Recovery Logic.
+- **Done:** Structural Hierarchy Anchor.
 - **Current:** Validate Chunker Refinement Pass 2 against fresh named-entity, title, article, and weak-boundary evidence.
 
 **Gate:** Confirm the pass reduces repeated phrase-boundary defects without creating overlong chunks, over-clumped ordinary prose, or timing-masked discomfort.
@@ -45,23 +46,29 @@ The near-term goal is to refine the reading experience using observed defects ra
 
 **Status:** Implemented for breakpoint traversal only. Jumps land at `max(0, n - 3)`, pause 500ms, and auto-resume unless cancelled by explicit user action.
 
-## Next Slice 2: Post-Navigation Usability Validation
-
-**Goal:** Validate the passive anchor, coarse seek, and later navigation behavior without letting navigation mask chunking defects.
-
-**Gate:** Remaining issues are classified cleanly as navigation, chunking, timing, or layout defects.
-
-## Next Slice 3: Chunking Regression Corpus Expansion / Pass 2 Follow-Up
+## Next Slice 2: Chunking Regression Corpus Expansion / Pass 2 Follow-Up
 
 **Goal:** Expand focused regression coverage or refine chunker behavior based on post-pass validation results.
 
 **Gate:** New chunker changes remain report-driven and do not alter timing formulas.
 
-## Next Slice 4: Structural Hierarchy Anchor
+## Next Slice 3: Post-Navigation Usability Validation
 
-**Goal:** Explore static structural labels only after core RSVP and navigability validation is stable.
+**Goal:** Validate the passive anchor, coarse seek, and later navigation behavior without letting navigation mask chunking defects.
 
-**Gate:** The anchor does not add motion, clutter, or a second reading surface.
+**Gate:** Remaining issues are classified cleanly as navigation, chunking, timing, or layout defects.
+
+## Done Slice: Structural Hierarchy Anchor
+
+**Goal:** Provide a static orientation label from simple Markdown `#` and `##` headers.
+
+**Status:** Implemented as schedule structure metadata, a fixed low-distraction reader label, and structural context in defect reports. This is not a full Markdown renderer.
+
+## Next Slice 4: Demo/Beta Readiness Cleanup
+
+**Goal:** Clean up documentation, validation workflow, and small ergonomics after core RSVP/navigability validation.
+
+**Gate:** No new major feature surface is introduced.
 
 ## Explicit Non-Goals For The Current Phase
 
@@ -71,4 +78,4 @@ The near-term goal is to refine the reading experience using observed defects ra
 - No frontend framework migration or browser automation tooling.
 - No native app, EPUB/PDF import, or cloud sync.
 - No broad timing redesign during chunker-dominant refinement.
-- No structural hierarchy headers before core RSVP/navigability validation is stable.
+- No full Markdown rendering, heading navigation, or table of contents.

@@ -14,6 +14,7 @@ def test_index_includes_reader_and_input_ids(client):
     for marker in [
         b'id="input-mode"',
         b'id="reader-mode"',
+        b'id="structure-anchor"',
         b'id="schedule-form"',
         b'id="text-input"',
         b'id="validation-samples-title"',
@@ -119,6 +120,17 @@ def test_navigation_scaffold_is_hidden_and_inert(client):
     assert ".progress-anchor-fill" in css
 
 
+def test_structure_anchor_is_static_and_inert(client):
+    response = client.get("/static/css/app.css")
+    css = response.data.decode("utf-8")
+
+    assert ".structure-anchor" in css
+    assert "position: fixed" in css
+    assert "pointer-events: none" in css
+    assert "transition" not in css
+    assert "animation" not in css
+
+
 def test_static_js_route_returns_ok(client):
     response = client.get("/static/js/app.js")
 
@@ -160,6 +172,10 @@ def test_static_js_includes_dormant_navigation_helpers(client):
     assert "completeDriftRecovery" in javascript
     assert "cancelPendingDriftRecovery" in javascript
     assert "getDriftRecoveryMetadata" in javascript
+    assert "updateStructureAnchor" in javascript
+    assert "getCurrentStructureMeta" in javascript
+    assert "getCurrentStructureLabel" in javascript
+    assert "resetStructureAnchor" in javascript
     assert "renderPreviousChunk" in javascript
     assert "getPreviousDisplayedChunkMetadata" in javascript
     assert "previousChunkDisplay" in javascript
