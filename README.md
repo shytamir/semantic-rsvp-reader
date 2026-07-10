@@ -95,4 +95,4 @@ See [docs/management/roadmap.md](docs/management/roadmap.md) for the canonical r
 
 ## License
 
-No license has been selected yet.
+This project is licensed under the Apache License 2.0. See [LICENSE](LICENSE) for details.

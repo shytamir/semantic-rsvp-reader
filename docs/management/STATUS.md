@@ -4,6 +4,7 @@
 > **Last Updated:** 2026-07-10
 > **Current Phase:** Validation-driven stabilization.
 > **Immediate Focus:** Post-stabilization validation focused on mobile layout, source boundaries, dates, and phrase cohesion.
+> **License:** Apache License 2.0.
 
 ## Current Project Phase
 

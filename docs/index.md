@@ -3,6 +3,7 @@
 ## Overview
 
 - [README](../README.md): project front page and quick start.
+- [License](../LICENSE): Apache License 2.0.
 - [Architecture](development/architecture.md): current code layout and request flow.
 - [Setup](development/setup.md): local environment and app startup.
 - [Testing](development/testing.md): pytest, JavaScript syntax checks, and CI notes.
