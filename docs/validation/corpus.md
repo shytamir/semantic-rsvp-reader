@@ -2,6 +2,8 @@
 
 All passages in this corpus are original project-owned text for prototype validation. They are meant to expose chunking, timing, layout, gesture, and comprehension issues during manual reading sessions.
 
+This refreshed set keeps the original six validation roles while reducing overfitting to earlier passages. It intentionally preserves dense clauses, punctuation rhythm, quoted phrases, abbreviations, time expressions, long content words, and mixed sentence lengths.
+
 ## Sample DN-001
 
 Sample ID: DN-001
@@ -14,11 +16,13 @@ Expected difficulty: High
 
 Text:
 
-Attention is not a single switch that turns toward a page; it is a negotiated pattern between the reader, the sentence, and the surrounding interruptions that keep asking to be noticed. When people say they lost focus, they often mean that the cost of rebuilding context became greater than the reward promised by the next clause. This is why a paragraph can feel easy when read in a quiet room and nearly impossible on a train, even if the words have not changed. The material does not simply enter the mind; it must be held long enough for relationships to become visible.
+Concentration is often described as if it were a lamp aimed at a page, but in practice it behaves more like a temporary agreement among body, memory, sentence, and setting. A reader brings momentum from the previous paragraph, a room contributes temperature and interruption, and the sentence asks to be held long enough for its parts to become mutually informative. When that agreement fails, the failure rarely announces itself as confusion. It first appears as a tiny delay: the reader recognizes every word, yet the relation between the words has stopped arriving.
 
-A reading tool therefore has to respect two different forms of effort. The first is mechanical effort: moving the eyes, finding the next line, and correcting small jumps when the page shifts or the body moves. The second is conceptual effort: deciding which words carry the argument, which phrases merely connect ideas, and which sentence is revising a claim rather than adding a new one. Reducing mechanical effort is useful, but it does not guarantee understanding. If the tool also fragments meaning, or if it pauses where the thought does not pause, the saved motion can become a new burden.
+This is why a difficult passage can become exhausting even when its vocabulary is ordinary. The burden is not only lexical; it is reconstructive. A clause may revise the promise of the clause before it, a parenthetical may quietly narrow the claim, and a final phrase may turn a description into an argument. If the reader loses the thread during any of those movements, recovery requires more than rereading a word. It requires rebuilding the local architecture of expectation, contrast, and consequence.
 
-The hardest passages are often not the ones with the longest words. They are the ones that require the reader to preserve a claim while several qualifications pass by. A phrase such as "not because the evidence is weak, but because the explanation is incomplete" asks the reader to hold a contrast in working memory. If a display rushes through the first half and overemphasizes the second, the argument may feel stronger, weaker, or simply different from what was written.
+An RSVP reader can help by removing some mechanical work, but it can also make conceptual work more fragile. The display decides when a phrase appears, when it disappears, and whether punctuation is felt as a hinge or a decoration. A sequence such as "not because the claim is simple, but because the evidence is staged" is not just a row of tokens. It is a held opposition. If the first half is rushed and the second half lingers, the argument can feel subtly rewritten.
+
+The useful question, therefore, is not whether speed is good or bad. The useful question is whether the rhythm preserves the reader's ability to assemble meaning while the words are moving.
 
 ## Sample TS-001
 
@@ -32,11 +36,13 @@ Expected difficulty: Medium-high
 
 Text:
 
-A small scheduling service can look simple from the outside because each request appears to follow the same path: accept input, normalize it, divide it into units, compute durations, and return a response. The difficulty is that each step makes assumptions that the next step quietly depends on. If normalization removes too much punctuation, the segmenter may not know where the writer changed direction. If segmentation creates awkward boundaries, the chunker receives pieces that are technically valid but semantically unhelpful. Nothing has crashed, yet the final experience can feel wrong.
+A validation pipeline can look reassuringly linear in a diagram: collect reports, normalize the fields, filter unusable evidence, group the remaining cases, adjust the rule, and rerun the tests. The implementation is less tidy because each stage inherits the assumptions of the stage before it. If report collection captures layout problems as timing problems, the review step may summarize the wrong signal. If filtering is too aggressive, the calibration step may become clean but unrepresentative. Nothing in the code has failed, yet the evidence has drifted away from the experience it was supposed to describe.
 
-The timing engine has a similar dependency chain. It does not know whether a reader is tired, whether a sentence is introducing a definition, or whether a short phrase is actually the hinge of an argument. It only sees features such as length, content words, punctuation hints, and sentence position. Those features are useful, but they are proxies. A reliable prototype should make the proxies explicit enough that a developer can inspect the schedule and ask whether the result matches the felt rhythm of the text.
+The scheduler has the same kind of dependency. It receives a chunk with text, length, syntactic hint, and content-word count; it does not receive the reader's private effort. A deterministic engine must therefore use visible proxies: dense chunks should usually wait longer than light chunks, sentence endings should settle, and punctuation should sometimes act like a small traffic signal. Those rules are valuable precisely because they are inspectable. When a duration feels wrong, the developer should be able to explain which rule contributed to it.
 
-This is why validation should not begin with a large automated benchmark. The system is still young, and the failures are likely to be qualitative: a chunk that begins with "however," a pause after a phrase that should flow, or a dense definition that disappears too quickly. A repeatable manual loop can expose these failures without pretending they have already been reduced to a metric. Later, when the defect patterns become stable, tests can protect the rules that actually improved reading.
+That explainability also limits the design. A rule that says "add a little time to dense chunks with long reflective words" can be tested, challenged, and removed. A rule that says "trust the model's intuition" cannot. The point of this prototype is not to imitate comprehension from the outside; it is to create a small rhythm machine whose mistakes are visible enough to improve.
+
+The hard cases will still arrive at the boundaries. A short quoted transition such as "however," may be semantically heavy. A phrase with interoperability, reconstruction, or preservation may need more time than its word count suggests. A semicolon may behave like a pause in one sentence and a bridge in another. The system should not pretend those cases are solved; it should make them easy to notice.
 
 ## Sample PA-001
 
@@ -50,13 +56,13 @@ Expected difficulty: High
 
 Text:
 
-Memory does not preserve experience as a cabinet preserves a document. It rearranges what happened around what later seemed to matter, and it does so with such ordinary confidence that the revision rarely feels like revision. A person may insist that a decision was inevitable, not because the earlier moment contained no alternatives, but because the chosen path has since gathered explanations around itself. The past becomes legible by borrowing structure from the present.
+Trust is not the opposite of doubt. It is a way of living with doubt when complete verification would arrive too late to be useful. A person who trusts a bridge does not inspect every bolt before crossing; a person who trusts a friend does not rehearse every possible betrayal before speaking. In both cases, judgment moves ahead of certainty, but it does not become irrational merely because it moves first. It carries a history of encounters, failures, repairs, and small confirmations.
 
-This does not mean that memory is false in a simple sense. A recollection can be inaccurate and still reveal something true about fear, loyalty, shame, or hope. The mistake is to treat factual precision and personal meaning as enemies. They are different layers of the same fragile act. When someone remembers a conversation, the exact words may blur, but the felt pressure of the exchange can remain remarkably durable. A careful listener should not accept every detail, yet should not dismiss the whole account merely because one detail moved.
+The difficulty is that trust can borrow the language of knowledge without earning its authority. Someone may say, "I know this will hold," when what they mean is that the cost of suspicion has become too high. That shift is not always dishonest. Human beings often need a livable confidence before they have a provable conclusion. Still, the distinction matters, because misplaced trust can make an unsupported arrangement appear natural, permanent, or morally deserved.
 
-The same tension appears when we read difficult ideas. We want a sentence to deliver a stable meaning, but the meaning often arrives as a relation between what was said, what was denied, and what remains implied. If a tool presents language too aggressively, it may flatten this relation into a sequence of isolated claims. If it presents language too cautiously, the thought may lose its force. Good pacing leaves room for uncertainty without turning uncertainty into fog.
+Reading difficult prose creates a smaller version of the same problem. The reader grants a sentence provisional trust while waiting to see whether its parts justify the grant. A qualifying phrase may weaken an assertion; a final clause may rescue it; an exception may reveal that the argument was narrower than it first appeared. If the rhythm forces every piece to arrive with equal urgency, the reader has less room to test those relations.
 
-That balance is not decorative; it is part of the argument itself. A reader should be allowed to hesitate without being abandoned by the sentence.
+Good pacing does not remove uncertainty. It gives uncertainty a shape. The reader should be allowed to hesitate, consider, and revise without feeling that the sentence has walked away.
 
 ## Sample NP-001
 
@@ -70,13 +76,15 @@ Expected difficulty: Medium
 
 Text:
 
-Mara reached the station before sunrise, carrying a paper cup that had gone cold while she waited at the wrong platform. The departure board kept blinking between cities she had never visited, and each change made the hall seem briefly awake. She checked her ticket again, although she knew the number by then, and told herself that this was not nervousness. It was preparation. The distinction mattered less than she wanted it to.
+Jonah arrived at the clinic before the receptionist had turned on the desk lamp. The waiting room smelled faintly of floor polish and rainwater, although the rain had stopped sometime before dawn. A television above the coat rack showed a weather map with no sound. Cities flashed in blue rectangles, then disappeared behind a banner about traffic delays. Jonah watched the map because it was easier than watching the door.
 
-Near the vending machines, a man in a blue coat argued softly with his phone. He was not angry enough to draw a crowd, but every few seconds he looked toward the entrance as if the doors had failed him personally. A child rolled a suitcase in slow circles around a bench. The wheels made a thin clicking sound over the tile, stopped, then started again. Mara watched the suitcase instead of watching the clock.
+He had brought the envelope in the inside pocket of his jacket. Every few minutes he touched the pocket with two fingers, not to check whether the envelope was still there, but to remind himself that he had already decided to bring it. That difference mattered. It meant he was not improvising. It meant he could still pretend the morning belonged to a plan.
 
-When the train finally arrived, it did not feel dramatic. A low wind moved through the platform, a strip of light opened along the cars, and people stepped forward with the obedient hesitation of strangers sharing a narrow path. Mara found her seat beside the window. The city outside was still mostly dark, but a bakery sign flickered on across the street, and for a moment she could see her reflection over the first pale loaves stacked in the glass.
+At 7 a.m., a nurse unlocked the side entrance and apologized to nobody in particular. "We are running behind already," she said, as if the building itself had overslept. Jonah smiled because smiling was what people did when a stranger gave them a manageable problem. Across the room, an older woman folded and unfolded a bus schedule until the creases made a soft grid in the paper.
 
-She did not know whether leaving would make the problem smaller. She only knew that staying had made it familiar, and familiarity had begun to look too much like permission.
+When his phone vibrated, Jonah did not look at it immediately. He knew who had written, and he knew the message would be kind. Kindness was not the obstacle. The obstacle was that a kind message could still ask him to return to the version of himself he had been trying to leave.
+
+The receptionist called his name at 7:18 a.m. Jonah stood, touched the envelope once more, and walked toward the hallway before he could reconsider.
 
 ## Sample NF-001
 
@@ -90,13 +98,13 @@ Expected difficulty: Medium
 
 Text:
 
-The city council approved a six-month pilot program on Tuesday to convert three curbside parking zones into shared loading and pickup areas. The measure passed by a narrow vote after local shop owners argued that delivery vans were blocking travel lanes during the morning rush. Supporters said the change should reduce congestion without removing permanent parking, while opponents warned that enforcement would be inconsistent unless the city assigns staff to monitor the zones.
+The regional transit board voted Thursday to test a new fare rule on two express bus routes that connect the airport, the medical district, and three suburban park-and-ride lots. The pilot will begin on Sept. 3 and run for ninety days. Under the plan, riders who tap a contactless card before 6 a.m. or after 8 p.m. will receive a reduced transfer fare, while riders during the busiest period will pay the current rate. Officials said the goal is to shift some discretionary trips away from crowded buses without cutting service.
 
-Under the pilot, the transportation department will install temporary signs on Oak Street, Mercer Avenue, and the north side of Grand Market Square. Commercial vehicles will have priority access from 6 a.m. to 11 a.m., and short passenger pickups will be allowed later in the day. Private cars that remain in the zones longer than ten minutes may receive warnings during the first month and fines afterward. The city has not yet published the final fine schedule.
+Several board members emphasized that the pilot is not a fare increase. They said the agency is using a federal grant to cover the discount and will publish weekly ridership summaries. The U.S. Department of Transportation approved the grant in May, but the board delayed the vote after disability advocates asked whether the policy would confuse riders who use paratransit connections. Agency staff said printed notices, audio announcements, and multilingual signs will be ready by Aug. 20.
 
-Officials said the program will be evaluated using traffic camera counts, bus delay reports, and feedback from nearby businesses. The department will also compare collision reports from the pilot streets with similar corridors that keep the current parking rules. A public report is expected before the council decides whether to extend, revise, or end the program. Several council members emphasized that approval of the pilot does not guarantee a permanent change.
+Business groups supported the measure, arguing that lower off-peak fares could help airport workers whose shifts start before 5 a.m. Labor representatives were more cautious. They warned that a discount will not help if buses remain unreliable or if supervisors continue to schedule workers around missed connections. One union official said the board should evaluate lateness, not just ridership.
 
-Residents who spoke after the vote asked the city to publish monthly updates rather than waiting until the end of the trial. The transportation director said the request was reasonable, but not yet included in the formal plan.
+The pilot report will compare fare data, passenger counts, complaint logs, and bus arrival times. If the results are inconclusive, the board may extend the trial through the winter schedule rather than adopting a permanent policy.
 
 ## Sample AE-001
 
@@ -110,10 +118,10 @@ Expected difficulty: Medium-high
 
 Text:
 
-Tools that promise efficiency often become disappointing when they treat every saved second as an equal victory. Reading is a good example. It is tempting to measure improvement by counting words per minute, because speed is visible and easy to compare. But a faster passage through a paragraph is not necessarily a better encounter with the paragraph. If the reader remembers less, resents the interface, or needs to reread every important sentence, the apparent gain has only moved the cost somewhere else.
+The strongest argument for a reading interface is not that it makes everyone faster. That promise is too crude. A tool can accelerate the visible movement through a paragraph while slowing the invisible work of understanding, and the reader may not notice the trade-off until the summary comes out thin. The better argument is that an interface can redistribute effort. It can remove some accidental labor, such as line tracking on a narrow screen, and spend the saved attention on timing, recall, and control.
 
-This does not mean that reading tools should avoid speed. Some friction is accidental, not meaningful. A narrow phone screen can make the eyes work harder than the sentence deserves. Line breaks can interrupt attention, and crowded pages can punish tired readers before the ideas become difficult. A well-designed reader may reduce those burdens and leave more energy for interpretation. The point is not to slow everything down in the name of seriousness.
+This distinction matters because efficiency language tends to flatten different kinds of cost. A second saved from eye movement is not equivalent to a second stolen from interpretation. A pause after a dense sentence ending may look inefficient in a stopwatch view, but it may be exactly what allows the reader to preserve the argument. Conversely, a long pause on a function word may feel ceremonious and irritating, even if the duration is mathematically consistent.
 
-The better argument is that speed should be subordinate to control. Readers need ways to pause, rewind, adjust pace, and notice when comprehension has slipped. Designers need evidence about which failures are rare irritations and which ones repeatedly damage understanding. Without that evidence, refinement becomes a matter of taste disguised as engineering. A prototype should therefore invite complaint, not hide from it, because the complaint names the place where the tool meets the reader.
+Skeptics are right to worry that tools can make readers passive. If the system decides every rhythm in advance, the reader may become a passenger in someone else's theory of comprehension. But that objection is not a reason to abandon the experiment. It is a reason to build the experiment around complaint, adjustment, and evidence. A useful prototype should invite the reader to say, "this was too fast," "this pause was false," or "this split changed the thought."
 
-That invitation has to be practical. If reporting a defect requires too much ceremony, only the most dramatic failures will survive long enough to be written down.
+Progress will not come from proving that the interface is generally good. It will come from discovering which failures repeat, which fixes survive new text, and which attractive ideas collapse when the sample changes.
