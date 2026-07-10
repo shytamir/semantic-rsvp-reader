@@ -12,6 +12,7 @@ DEFAULT_REPORT_DIR = PROJECT_ROOT / "data" / "defect_reports"
 MAX_REPORT_MARKDOWN_CHARS = 24_000
 MAX_FIELD_CHARS = 4_000
 MAX_CHUNKS_PER_SIDE = 5
+MAX_BREAKPOINT_INDICES = 200
 
 KNOWN_CATEGORIES = {
     "bad_chunk_split",
@@ -154,6 +155,18 @@ def render_defect_report_markdown(
             f"Navigation progress percent: {_value(reader_state.get('navigation', {}), 'progress_percent')}",
             f"Navigation paragraph index: {_value(reader_state.get('navigation', {}), 'paragraph_index')}",
             "",
+            "## Navigability Context",
+            "",
+            "Previous displayed chunk:",
+            *_format_previous_displayed_chunk(reader_state.get("previous_displayed_chunk")),
+            "",
+            "Breakpoints:",
+            *_format_breakpoints(reader_state.get("breakpoints")),
+            "",
+            "## Drift Recovery Context",
+            "",
+            *_format_drift_recovery(reader_state.get("drift_recovery")),
+            "",
             "Original sentence:",
             _string_value(reader_state, "original_sentence"),
             "",
@@ -245,6 +258,50 @@ def _format_chunks(chunks) -> list[str]:
     return formatted or ["- none"]
 
 
+def _format_previous_displayed_chunk(chunk) -> list[str]:
+    if not isinstance(chunk, dict) or not chunk:
+        return ["- none"]
+    return [
+        f"- Index: {_value(chunk, 'index')}",
+        f"- Text: {_string_value(chunk, 'text')}",
+        f"- Duration ms: {_value(chunk, 'duration_ms')}",
+        f"- Progress percent: {_value(chunk.get('navigation', {}), 'progress_percent')}",
+        f"- Paragraph index: {_value(chunk.get('navigation', {}), 'paragraph_index')}",
+    ]
+
+
+def _format_breakpoints(breakpoints) -> list[str]:
+    if not isinstance(breakpoints, dict) or not breakpoints:
+        return ["- none"]
+    indices = breakpoints.get("indices", [])
+    if isinstance(indices, list):
+        formatted_indices = ", ".join(
+            _sanitize_text(str(index), max_chars=20) for index in indices[:MAX_BREAKPOINT_INDICES]
+        )
+    else:
+        formatted_indices = "unknown"
+    return [
+        f"- Count: {_value(breakpoints, 'count')}",
+        f"- Current is breakpoint: {_value(breakpoints, 'current_is_breakpoint')}",
+        f"- Previous breakpoint: {_value(breakpoints, 'nearest_previous')}",
+        f"- Next breakpoint: {_value(breakpoints, 'nearest_next')}",
+        f"- Indices: {formatted_indices or 'none'}",
+    ]
+
+
+def _format_drift_recovery(drift_recovery) -> list[str]:
+    if not isinstance(drift_recovery, dict) or not drift_recovery:
+        return ["- none"]
+    return [
+        f"- Active: {_value(drift_recovery, 'active')}",
+        f"- Pending: {_value(drift_recovery, 'pending')}",
+        f"- Target breakpoint: {_value(drift_recovery, 'target_breakpoint_index')}",
+        f"- Lead-in index: {_value(drift_recovery, 'lead_in_index')}",
+        f"- Delay ms: {_value(drift_recovery, 'delay_ms')}",
+        f"- Direction: {_value(drift_recovery, 'direction')}",
+    ]
+
+
 def _sanitize_reader_state(reader_state: dict) -> dict:
     sanitized = {}
     for key in (
@@ -274,6 +331,13 @@ def _sanitize_reader_state(reader_state: dict) -> dict:
 
     sanitized["previous_chunks"] = _sanitize_chunks(reader_state.get("previous_chunks"))
     sanitized["next_chunks"] = _sanitize_chunks(reader_state.get("next_chunks"))
+    sanitized["previous_displayed_chunk"] = _sanitize_chunk(
+        reader_state.get("previous_displayed_chunk")
+    )
+    sanitized["breakpoints"] = _sanitize_breakpoints(reader_state.get("breakpoints"))
+    sanitized["drift_recovery"] = _sanitize_drift_recovery(
+        reader_state.get("drift_recovery")
+    )
     sanitized["navigation"] = _sanitize_navigation(reader_state.get("navigation"))
     sanitized["session_summary"] = _sanitize_session_summary(
         reader_state.get("session_summary", {})
@@ -318,28 +382,63 @@ def _sanitize_chunks(chunks) -> list[dict]:
         return []
     sanitized = []
     for chunk in chunks[:MAX_CHUNKS_PER_SIDE]:
-        if not isinstance(chunk, dict):
-            continue
-        sanitized.append(
-            {
-                "index": chunk.get("index"),
-                "sentence_index": chunk.get("sentence_index"),
-                "text": _bounded_text(chunk.get("text", ""), max_chars=500),
-                "duration_ms": chunk.get("duration_ms"),
-                "base_duration_ms": chunk.get("base_duration_ms"),
-                "effective_duration_ms": chunk.get("effective_duration_ms"),
-                "duration_source": _bounded_text(chunk.get("duration_source", "")),
-                "syntactic_hint": _bounded_text(chunk.get("syntactic_hint", "")),
-                "content_word_count": chunk.get("content_word_count"),
-                "char_length": chunk.get("char_length"),
-                "in_quote": chunk.get("in_quote"),
-                "quote_boundary": _bounded_text(chunk.get("quote_boundary", "")),
-                "in_parenthetical": chunk.get("in_parenthetical"),
-                "parenthetical_depth": chunk.get("parenthetical_depth"),
-                "navigation": _sanitize_navigation(chunk.get("navigation")),
-            }
-        )
+        sanitized_chunk = _sanitize_chunk(chunk)
+        if sanitized_chunk:
+            sanitized.append(sanitized_chunk)
     return sanitized
+
+
+def _sanitize_chunk(chunk) -> dict:
+    if not isinstance(chunk, dict):
+        return {}
+    return {
+        "index": chunk.get("index"),
+        "sentence_index": chunk.get("sentence_index"),
+        "text": _bounded_text(chunk.get("text", ""), max_chars=500),
+        "duration_ms": chunk.get("duration_ms"),
+        "base_duration_ms": chunk.get("base_duration_ms"),
+        "effective_duration_ms": chunk.get("effective_duration_ms"),
+        "duration_source": _bounded_text(chunk.get("duration_source", "")),
+        "syntactic_hint": _bounded_text(chunk.get("syntactic_hint", "")),
+        "content_word_count": chunk.get("content_word_count"),
+        "char_length": chunk.get("char_length"),
+        "in_quote": chunk.get("in_quote"),
+        "quote_boundary": _bounded_text(chunk.get("quote_boundary", "")),
+        "in_parenthetical": chunk.get("in_parenthetical"),
+        "parenthetical_depth": chunk.get("parenthetical_depth"),
+        "navigation": _sanitize_navigation(chunk.get("navigation")),
+    }
+
+
+def _sanitize_breakpoints(breakpoints) -> dict:
+    if not isinstance(breakpoints, dict):
+        return {}
+    indices = breakpoints.get("indices", [])
+    if not isinstance(indices, list):
+        indices = []
+    return {
+        "count": breakpoints.get("count"),
+        "indices": [
+            index for index in indices[:MAX_BREAKPOINT_INDICES]
+            if isinstance(index, int) and not isinstance(index, bool)
+        ],
+        "nearest_previous": breakpoints.get("nearest_previous"),
+        "nearest_next": breakpoints.get("nearest_next"),
+        "current_is_breakpoint": breakpoints.get("current_is_breakpoint"),
+    }
+
+
+def _sanitize_drift_recovery(drift_recovery) -> dict:
+    if not isinstance(drift_recovery, dict):
+        return {}
+    return {
+        "active": drift_recovery.get("active"),
+        "pending": drift_recovery.get("pending"),
+        "target_breakpoint_index": drift_recovery.get("target_breakpoint_index"),
+        "lead_in_index": drift_recovery.get("lead_in_index"),
+        "delay_ms": drift_recovery.get("delay_ms"),
+        "direction": _bounded_text(drift_recovery.get("direction", ""), max_chars=100),
+    }
 
 
 def _sanitize_navigation(navigation) -> dict:

@@ -10,7 +10,7 @@ Semantic RSVP Reader is a mobile-first HTML5 reading prototype served by Flask. 
 > **Immediate Focus:** Post-Chunker Refinement Pass 2 validation focused on named entities, titles, articles, and weak boundaries
 
 ## Current State: Prototype Complete
-The stable development base is finished. Text can enter the system cleanly, normalize into stable sentence units, and process through a rule-based chunking and deterministic timing engine. The mobile-first RSVP playback loop is fully operational with gesture interactions, speed controls, local behavioral telemetry, backend defect reports, display-state annotations for quoted and parenthetical spans, and dormant navigation metadata scaffolding.
+The stable development base is finished. Text can enter the system cleanly, normalize into stable sentence units, and process through a rule-based chunking and deterministic timing engine. The mobile-first RSVP playback loop is fully operational with gesture interactions, speed controls, local behavioral telemetry, backend defect reports, display-state annotations for quoted and parenthetical spans, and conservative navigability aids.
 
 ## Current Validation Flow
 The app can generate `.md.gz` backend defect report files directly from the mobile reading session. Reports carry explicit timing context, display metadata, quote state, parenthetical state, and optional navigation metadata so validation can separate timing rhythm, chunk shape, layout, visual-context, and future orientation defects.
@@ -43,6 +43,10 @@ The app can generate `.md.gz` backend defect report files directly from the mobi
 | Passive bottom progress anchor | Done | Subtle 2px bottom bar provides spatial orientation in reader mode |
 | Milestone-gated progress updates | Done | Visible progress advances only at paragraph starts, 5% milestones, and forced navigation events |
 | Coarse tap-to-seek navigation | Done | Progress-bar taps pause playback and jump to a nearby progress milestone |
+| Breakpoint bookmarking and traversal | Done | Double-tap toggles current-stream breakpoints; swipes traverse breakpoints when any exist |
+| Drift recovery lead-in | Done | Breakpoint traversal jumps to up to three chunks before the target, pauses 500ms, then resumes |
+| Ghost previous chunk display | Done | Previous chunk appears above the current chunk at reduced contrast |
+| Navigability context in defect reports | Done | Reports include previous displayed chunk, breakpoint, and drift recovery context |
 | JavaScript syntax check | Done | Lightweight `node --check` wrapper runs locally when Node exists and is enforced in CI |
 | `/api/schedule` | Done | Backend emits frontend-ready schedule |
 | Mobile RSVP playback loop | Done | Reader advances scheduled chunks |
@@ -104,7 +108,7 @@ Quote and parenthetical state indicators are documented in `docs/validation/quot
 
 Defect reports now include timing context such as base duration, effective duration, playback speed, syntactic hint, content word count, character length, quote state, parenthetical state, nearby chunk timing, session timing summary, optional navigation metadata, and display metadata. See `docs/validation/timing_defect_collection.md` for the timing defect collection workflow and `scripts/review_defects.py` for local report review/export.
 
-Navigation metadata is available in schedule items for future orientation and recovery features. The passive spatial anchor uses that metadata for a low-distraction bottom progress bar. Updates are intentionally milestone-gated rather than per-chunk, and progress-bar tap seeking is coarse. Bookmark traversal and drift recovery are not implemented yet.
+Navigation metadata is available in schedule items for future orientation and recovery features. The passive spatial anchor uses that metadata for a low-distraction bottom progress bar. Updates are intentionally milestone-gated rather than per-chunk, and progress-bar tap seeking is coarse. Breakpoints are current-stream/session-only: double-tap toggles a breakpoint at the current chunk, and horizontal swipes traverse saved breakpoints when any exist while preserving the old chunk-step swipe behavior when none exist. Breakpoint traversal uses drift recovery: it jumps to `max(0, n - 3)`, pauses for 500ms, then auto-resumes so the saved breakpoint arrives with context. Progress seek and ordinary manual previous/next do not use drift recovery. The ghost previous chunk provides a quiet orientation aid above the current chunk.
 
 Log defects with the in-app `Report Defect` button, or use `docs/validation/defect_log_template.md` when working outside the app. Choose categories from `docs/validation/defect_taxonomy.md`. Interpret severity as:
 
@@ -128,9 +132,9 @@ python scripts/schedule_sample.py --json < sample.txt
 ## Next Milestones
 
 1. Post-Chunker Refinement Pass 2 validation
-2. Breakpoint Bookmarking Traversal
-3. Drift Recovery Logic
-4. Post-navigation usability validation
+2. Post-navigation usability validation
+3. Chunking Regression Corpus Expansion or Chunker Refinement Pass 2 follow-up
+4. Structural Hierarchy Anchor after core RSVP/navigability validation is stable
 
 ## Manual Test Checklist
 

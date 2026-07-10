@@ -1,6 +1,9 @@
 const SWIPE_MIN_DISTANCE_PX = 40;
 const SWIPE_MAX_VERTICAL_DRIFT_PX = 60;
 const LONG_PRESS_MS = 500;
+const DOUBLE_TAP_MS = 280;
+const DRIFT_RECOVERY_DELAY_MS = 500;
+const DRIFT_RECOVERY_LEAD_IN_CHUNKS = 3;
 const TAP_MAX_DISTANCE_PX = 12;
 const JUMP_CHUNK_COUNT = 5;
 const SPEED_LEVELS = [0.75, 0.85, 1.0, 1.15, 1.3, 1.5];
@@ -61,6 +64,7 @@ const navigationScaffold = document.querySelector("#navigation-scaffold");
 const progressAnchor = document.querySelector("#progress-anchor");
 const progressAnchorFill = document.querySelector("#progress-anchor-fill");
 const breakpointStatus = document.querySelector("#breakpoint-status");
+const previousChunkDisplay = document.querySelector("#previous-chunk");
 
 let schedule = [];
 let currentIndex = 0;
@@ -70,10 +74,14 @@ let lastProgressMilestoneIndex = 0;
 let displayedProgressPercent = 0;
 let isPlaying = false;
 let timerId = null;
+let driftRecoveryTimerId = null;
+let driftRecoveryState = null;
 let touchStartX = 0;
 let touchStartY = 0;
 let touchStartTime = 0;
 let longPressTimerId = null;
+let pendingSingleTapTimerId = null;
+let lastTapAt = 0;
 let suppressNextTap = false;
 let gestureStarted = false;
 let longPressActivated = false;
@@ -138,6 +146,8 @@ async function loadSchedule(text) {
     return;
   }
 
+  cancelPendingDriftRecovery("load_schedule");
+  clearPendingSingleTapTimer();
   pause({ record: false, render: false });
   hideSpeedOverlay();
   setLoading(true);
@@ -231,6 +241,7 @@ function loadValidationSample(sample) {
 function renderCurrentChunk() {
   if (schedule.length === 0) {
     chunkDisplay.textContent = "No text loaded";
+    renderPreviousChunk();
     setChunkDisplaySizing("No text loaded");
     renderChunkDisplayState(null);
     progressIndicator.textContent = "0 / 0";
@@ -241,6 +252,7 @@ function renderCurrentChunk() {
   currentIndex = clampIndex(currentIndex);
   const item = schedule[currentIndex];
   chunkDisplay.textContent = item.text;
+  renderPreviousChunk();
   setChunkDisplaySizing(item.text);
   renderChunkDisplayState(item);
   progressIndicator.textContent = `${currentIndex + 1} / ${schedule.length}`;
@@ -248,11 +260,21 @@ function renderCurrentChunk() {
   updateProgressAnchor();
 }
 
+function renderPreviousChunk() {
+  if (!previousChunkDisplay) {
+    return;
+  }
+  const previousItem = getPreviousDisplayedScheduleItem();
+  previousChunkDisplay.textContent = previousItem ? previousItem.text : "";
+  previousChunkDisplay.classList.toggle("is-empty", !previousItem);
+}
+
 function openDefectPanel() {
   if (!isReaderModeActive() || schedule.length === 0) {
     return;
   }
 
+  cancelPendingDriftRecovery("defect_report");
   pause();
   hideSpeedOverlay();
   defectNotes.value = "";
@@ -297,6 +319,9 @@ function buildDefectPayload() {
       in_parenthetical: item ? Boolean(item.in_parenthetical) : false,
       parenthetical_depth: item ? Number(item.parenthetical_depth || 0) : 0,
       navigation: item && item.navigation ? item.navigation : null,
+      previous_displayed_chunk: getPreviousDisplayedChunkMetadata(),
+      breakpoints: getBreakpointMetadata(),
+      drift_recovery: getDriftRecoveryMetadata(),
       original_sentence: getOriginalSentenceForCurrentChunk(),
       previous_chunks: context.previous_chunks,
       next_chunks: context.next_chunks,
@@ -342,6 +367,18 @@ function getChunkDisplayMetadata() {
   };
 }
 
+function getPreviousDisplayedScheduleItem() {
+  if (schedule.length === 0 || currentIndex <= 0) {
+    return null;
+  }
+  return schedule[clampIndex(currentIndex - 1)] || null;
+}
+
+function getPreviousDisplayedChunkMetadata() {
+  const previousItem = getPreviousDisplayedScheduleItem();
+  return previousItem ? formatChunkContextItem(previousItem) : null;
+}
+
 function renderDefectContextPreview(payload) {
   const state = payload.reader_state;
   const previous = state.previous_chunks.map((chunk) => `[${chunk.index}] ${chunk.text}`);
@@ -355,6 +392,9 @@ function renderDefectContextPreview(payload) {
     `Content words: ${state.current_content_word_count ?? "unknown"}`,
     `Quote state: ${state.in_quote ? "in quote" : "not in quote"} (${state.quote_boundary || "none"})`,
     `Parenthetical: ${state.in_parenthetical ? "inside" : "outside"} (depth ${state.parenthetical_depth ?? 0})`,
+    `Previous displayed chunk: ${state.previous_displayed_chunk ? `[${state.previous_displayed_chunk.index}] ${state.previous_displayed_chunk.text}` : "none"}`,
+    `Breakpoints: ${state.breakpoints ? state.breakpoints.count : 0}`,
+    `Drift recovery: ${state.drift_recovery && state.drift_recovery.pending ? "pending" : "not pending"}`,
     `Original sentence: ${state.original_sentence || "unknown"}`,
     `Previous: ${previous.length ? previous.join(" | ") : "none"}`,
     `Next: ${next.length ? next.join(" | ") : "none"}`,
@@ -367,6 +407,7 @@ async function submitDefectReport() {
     return;
   }
 
+  cancelPendingDriftRecovery("defect_submit");
   const payload = buildDefectPayload();
   renderDefectContextPreview(payload);
   setDefectStatus("Saving...");
@@ -505,6 +546,7 @@ function togglePlayback() {
     return;
   }
 
+  cancelPendingDriftRecovery("play_pause");
   if (isPlaying) {
     pause();
   } else {
@@ -513,6 +555,9 @@ function togglePlayback() {
 }
 
 function nextChunk({ auto = false } = {}) {
+  if (!auto) {
+    cancelPendingDriftRecovery("manual_next");
+  }
   clearPlaybackTimer();
 
   if (schedule.length === 0) {
@@ -572,6 +617,7 @@ function nextFiveChunks() {
 }
 
 function moveManualChunks(delta, eventType) {
+  cancelPendingDriftRecovery(eventType);
   if (schedule.length === 0) {
     pause();
     return;
@@ -593,6 +639,7 @@ function moveManualChunks(delta, eventType) {
 }
 
 function resetReader() {
+  cancelPendingDriftRecovery("reset");
   const oldIndex = currentIndex;
   currentIndex = 0;
   recordSessionEvent("reset", {
@@ -605,7 +652,9 @@ function resetReader() {
 }
 
 function enterInputMode() {
+  cancelPendingDriftRecovery("back_to_input");
   recordSessionEvent("back_to_input");
+  clearPendingSingleTapTimer();
   pause();
   hideSpeedOverlay();
   closeDefectPanel();
@@ -698,6 +747,8 @@ function handlePointerStart(event) {
   }
 
   preventGestureDefault(event);
+  cancelPendingDriftRecovery("reader_gesture");
+  clearPendingSingleTapTimer();
   gestureStarted = true;
   suppressNextTap = false;
   longPressActivated = false;
@@ -764,9 +815,9 @@ function handlePointerEnd(event) {
   if (isSwipe(deltaX, deltaY)) {
     suppressNextTap = true;
     if (deltaX < 0) {
-      previousChunk();
+      traverseBreakpointOrStep("next");
     } else {
-      nextChunk();
+      traverseBreakpointOrStep("previous");
     }
     window.setTimeout(() => {
       suppressNextTap = false;
@@ -775,7 +826,7 @@ function handlePointerEnd(event) {
   }
 
   if (Math.hypot(deltaX, deltaY) <= TAP_MAX_DISTANCE_PX && elapsed < LONG_PRESS_MS) {
-    togglePlayback();
+    handleReaderTap();
   }
 }
 
@@ -785,6 +836,7 @@ function cancelGesture(event) {
   suppressNextTap = false;
   longPressActivated = false;
   clearLongPressTimer();
+  clearPendingSingleTapTimer();
 }
 
 function handleLongPress() {
@@ -806,11 +858,13 @@ function isSwipe(deltaX, deltaY) {
 }
 
 function toggleSpeedOverlay() {
+  cancelPendingDriftRecovery("speed_overlay");
   renderSpeedControls();
   speedOverlay.classList.toggle("is-hidden");
 }
 
 function hideSpeedOverlay() {
+  cancelPendingDriftRecovery("speed_overlay");
   speedOverlay.classList.add("is-hidden");
 }
 
@@ -819,6 +873,31 @@ function clearLongPressTimer() {
     window.clearTimeout(longPressTimerId);
     longPressTimerId = null;
   }
+}
+
+function clearPendingSingleTapTimer() {
+  if (pendingSingleTapTimerId !== null) {
+    window.clearTimeout(pendingSingleTapTimerId);
+    pendingSingleTapTimerId = null;
+  }
+}
+
+function handleReaderTap() {
+  const now = Date.now();
+  if (now - lastTapAt <= DOUBLE_TAP_MS) {
+    lastTapAt = 0;
+    clearPendingSingleTapTimer();
+    toggleBreakpoint();
+    return;
+  }
+
+  lastTapAt = now;
+  clearPendingSingleTapTimer();
+  pendingSingleTapTimerId = window.setTimeout(() => {
+    pendingSingleTapTimerId = null;
+    lastTapAt = 0;
+    togglePlayback();
+  }, DOUBLE_TAP_MS);
 }
 
 function isReaderModeActive() {
@@ -841,6 +920,9 @@ function setSpeedIndex(
   nextIndex,
   { record = true, reschedule = true, suppressAdaptation = true } = {},
 ) {
+  if (record) {
+    cancelPendingDriftRecovery("speed_change");
+  }
   const oldSpeed = playbackSpeed;
   speedIndex = Math.min(Math.max(nextIndex, 0), SPEED_LEVELS.length - 1);
   playbackSpeed = SPEED_LEVELS[speedIndex];
@@ -1029,6 +1111,7 @@ function handleProgressAnchorClick(event) {
   if (!isReaderModeActive() || schedule.length === 0 || !progressAnchor) {
     return;
   }
+  cancelPendingDriftRecovery("progress_seek");
   const bounds = progressAnchor.getBoundingClientRect();
   if (!bounds.width) {
     return;
@@ -1059,6 +1142,14 @@ function handleProgressAnchorClick(event) {
 
 function getCurrentNavigationMeta() {
   const item = getCurrentScheduleItem();
+  return item && item.navigation ? item.navigation : null;
+}
+
+function getNavigationMetaForIndex(index) {
+  if (schedule.length === 0) {
+    return null;
+  }
+  const item = schedule[clampIndex(index)];
   return item && item.navigation ? item.navigation : null;
 }
 
@@ -1100,29 +1191,262 @@ function getNearestProgressMilestoneIndex(targetPercent) {
   return nearestIndex;
 }
 
-function setBreakpointAtCurrentChunk() {
+function normalizeBreakpoints() {
+  if (schedule.length === 0) {
+    breakpoints = [];
+    return [];
+  }
+  breakpoints = [...new Set(breakpoints.map((index) => clampIndex(index)))]
+    .sort((left, right) => left - right);
+  return [...breakpoints];
+}
+
+function hasBreakpoint(index) {
+  return normalizeBreakpoints().includes(clampIndex(index));
+}
+
+function addBreakpoint(index) {
+  breakpoints = [...breakpoints, clampIndex(index)];
+  return normalizeBreakpoints();
+}
+
+function removeBreakpoint(index) {
+  const resolvedIndex = clampIndex(index);
+  breakpoints = normalizeBreakpoints().filter(
+    (breakpointIndex) => breakpointIndex !== resolvedIndex,
+  );
+  return [...breakpoints];
+}
+
+function toggleBreakpoint(index = currentIndex) {
   if (schedule.length === 0) {
     return [];
   }
-  const index = clampIndex(currentIndex);
-  if (!breakpoints.includes(index)) {
-    breakpoints = [...breakpoints, index].sort((left, right) => left - right);
+  cancelPendingDriftRecovery("breakpoint_toggle");
+  const resolvedIndex = clampIndex(index);
+  const navigation = getNavigationMetaForIndex(resolvedIndex);
+  const metadata = {
+    index: resolvedIndex,
+    progress_percent: navigation ? navigation.progress_percent : 0,
+    paragraph_index: navigation ? navigation.paragraph_index : null,
+  };
+  if (hasBreakpoint(resolvedIndex)) {
+    removeBreakpoint(resolvedIndex);
+    recordSessionEvent("breakpoint_removed", metadata);
+    setBreakpointStatus("Breakpoint removed");
+  } else {
+    addBreakpoint(resolvedIndex);
+    recordSessionEvent("breakpoint_added", metadata);
+    setBreakpointStatus("Breakpoint set");
   }
+  flashReaderSurface();
   return [...breakpoints];
+}
+
+function setBreakpointAtCurrentChunk() {
+  return addBreakpoint(currentIndex);
 }
 
 function clearBreakpoints() {
   breakpoints = [];
 }
 
-function getPreviousBreakpointIndex() {
-  const previous = breakpoints.filter((index) => index < currentIndex);
+function getPreviousBreakpointIndex(fromIndex = currentIndex) {
+  const resolvedIndex = clampIndex(fromIndex);
+  const previous = normalizeBreakpoints().filter((index) => index < resolvedIndex);
   return previous.length ? previous[previous.length - 1] : null;
 }
 
-function getNextBreakpointIndex() {
-  const next = breakpoints.find((index) => index > currentIndex);
+function getNextBreakpointIndex(fromIndex = currentIndex) {
+  const resolvedIndex = clampIndex(fromIndex);
+  const next = normalizeBreakpoints().find((index) => index > resolvedIndex);
   return next === undefined ? null : next;
+}
+
+function traverseBreakpointOrStep(direction) {
+  if (normalizeBreakpoints().length === 0) {
+    if (direction === "next") {
+      previousChunk();
+    } else {
+      nextChunk();
+    }
+    return;
+  }
+
+  const targetIndex = direction === "next"
+    ? getNextBreakpointIndex()
+    : getPreviousBreakpointIndex();
+  if (targetIndex === null) {
+    setBreakpointStatus("No breakpoint");
+    flashReaderSurface();
+    pause({ record: false });
+    return;
+  }
+  startDriftRecoveryToBreakpoint(targetIndex, direction);
+}
+
+function jumpToBreakpoint(index, { direction = "unknown" } = {}) {
+  if (schedule.length === 0) {
+    return false;
+  }
+  const oldIndex = currentIndex;
+  const resolvedIndex = clampIndex(index);
+  pause({ record: false, render: false });
+  currentIndex = resolvedIndex;
+  smoothChunkRun = 0;
+  adaptationSuppressedUntilEventCount = sessionEvents.length + 3;
+  resetAdaptationWindow();
+  renderCurrentChunk();
+  updateProgressAnchor({ force: true });
+  const navigation = getCurrentNavigationMeta();
+  recordSessionEvent("breakpoint_jump", {
+    from_index: oldIndex,
+    to_index: currentIndex,
+    direction,
+    breakpoint_count: normalizeBreakpoints().length,
+    progress_percent: navigation ? navigation.progress_percent : 0,
+  });
+  setBreakpointStatus("Jumped to breakpoint");
+  flashReaderSurface();
+  return true;
+}
+
+function startDriftRecoveryToBreakpoint(targetIndex, direction = "unknown") {
+  if (schedule.length === 0) {
+    return false;
+  }
+  cancelPendingDriftRecovery("new_drift_recovery");
+  const resolvedTargetIndex = clampIndex(targetIndex);
+  const leadInIndex = computeLeadInIndex(
+    resolvedTargetIndex,
+    DRIFT_RECOVERY_LEAD_IN_CHUNKS,
+  );
+  pause({ record: false, render: false });
+  currentIndex = leadInIndex;
+  smoothChunkRun = 0;
+  adaptationSuppressedUntilEventCount = sessionEvents.length + 3;
+  resetAdaptationWindow();
+  renderCurrentChunk();
+  updateProgressAnchor({ force: true });
+  const navigation = getCurrentNavigationMeta();
+  driftRecoveryState = {
+    active: true,
+    pending: true,
+    targetBreakpointIndex: resolvedTargetIndex,
+    leadInIndex,
+    startedAt: Date.now(),
+    delayMs: DRIFT_RECOVERY_DELAY_MS,
+    direction,
+  };
+  recordSessionEvent("drift_recovery_started", {
+    target_breakpoint_index: resolvedTargetIndex,
+    lead_in_index: leadInIndex,
+    lead_in_chunks: DRIFT_RECOVERY_LEAD_IN_CHUNKS,
+    delay_ms: DRIFT_RECOVERY_DELAY_MS,
+    direction,
+    progress_percent: navigation ? navigation.progress_percent : 0,
+  });
+  setBreakpointStatus("Recovering context before breakpoint");
+  flashReaderSurface();
+  driftRecoveryTimerId = window.setTimeout(
+    completeDriftRecovery,
+    DRIFT_RECOVERY_DELAY_MS,
+  );
+  return true;
+}
+
+function completeDriftRecovery() {
+  if (!driftRecoveryState || !driftRecoveryState.pending) {
+    return false;
+  }
+  const recovery = driftRecoveryState;
+  driftRecoveryTimerId = null;
+  driftRecoveryState = {
+    ...recovery,
+    active: false,
+    pending: false,
+  };
+  recordSessionEvent("drift_recovery_resumed", {
+    target_breakpoint_index: recovery.targetBreakpointIndex,
+    lead_in_index: recovery.leadInIndex,
+    delay_ms: recovery.delayMs,
+  });
+  setBreakpointStatus("Playback resumed");
+  play();
+  return true;
+}
+
+function cancelPendingDriftRecovery(reason = "user_action") {
+  if (driftRecoveryTimerId !== null) {
+    window.clearTimeout(driftRecoveryTimerId);
+    driftRecoveryTimerId = null;
+  }
+  if (!driftRecoveryState || !driftRecoveryState.pending) {
+    driftRecoveryState = null;
+    return false;
+  }
+  const recovery = driftRecoveryState;
+  driftRecoveryState = {
+    ...recovery,
+    active: false,
+    pending: false,
+  };
+  recordSessionEvent("drift_recovery_cancelled", {
+    reason,
+    target_breakpoint_index: recovery.targetBreakpointIndex,
+    lead_in_index: recovery.leadInIndex,
+  });
+  return true;
+}
+
+function getBreakpointMetadata() {
+  const normalized = normalizeBreakpoints();
+  return {
+    count: normalized.length,
+    indices: normalized,
+    nearest_previous: getPreviousBreakpointIndex(),
+    nearest_next: getNextBreakpointIndex(),
+    current_is_breakpoint: hasBreakpoint(currentIndex),
+  };
+}
+
+function getDriftRecoveryMetadata() {
+  if (!driftRecoveryState) {
+    return {
+      active: false,
+      pending: false,
+      target_breakpoint_index: null,
+      lead_in_index: null,
+      delay_ms: DRIFT_RECOVERY_DELAY_MS,
+      direction: null,
+    };
+  }
+  return {
+    active: Boolean(driftRecoveryState.active),
+    pending: Boolean(driftRecoveryState.pending),
+    target_breakpoint_index: driftRecoveryState.targetBreakpointIndex,
+    lead_in_index: driftRecoveryState.leadInIndex,
+    delay_ms: driftRecoveryState.delayMs,
+    direction: driftRecoveryState.direction,
+  };
+}
+
+function setBreakpointStatus(message) {
+  if (breakpointStatus) {
+    breakpointStatus.textContent = message;
+  }
+}
+
+function flashReaderSurface() {
+  if (!readerArea) {
+    return;
+  }
+  readerArea.classList.add("reader-flash");
+  window.requestAnimationFrame(() => {
+    window.requestAnimationFrame(() => {
+      readerArea.classList.remove("reader-flash");
+    });
+  });
 }
 
 function computeLeadInIndex(targetIndex, leadInChunks = 3) {
@@ -1229,6 +1553,7 @@ function resetAdaptationState() {
 }
 
 function setAdaptationEnabled(enabled) {
+  cancelPendingDriftRecovery("adaptation_toggle");
   if (adaptationEnabled === enabled) {
     renderAdaptationStatus();
     return;
@@ -1241,6 +1566,7 @@ function setAdaptationEnabled(enabled) {
 }
 
 function resetAdaptationWindowFromControl() {
+  cancelPendingDriftRecovery("adaptation_reset");
   resetAdaptationWindow();
   adaptationSuppressedUntilEventCount = 0;
   recordSessionEvent("adaptation_reset");

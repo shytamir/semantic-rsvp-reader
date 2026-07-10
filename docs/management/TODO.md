@@ -38,14 +38,20 @@
   - Interaction: Single-tap to seek (coarse navigation).
   - Implemented as a milestone-gated passive anchor with coarse tap-to-seek.
 
-- [ ] **Breakpoint Bookmarking Traversal**
+- [x] **Breakpoint Bookmarking Traversal**
   - Implement gesture-based bookmarking (e.g., Double-tap or Long-press) to set persistent breakpoints in the stream.
   - Implement gesture-based traversal (Swipe Left/Right) to jump between saved breakpoints.
   - Visual Feedback: Subtle, 1-frame background shade shift (no animations/borders).
+  - Implemented with double-tap toggle, current-stream/session-only breakpoints, swipe traversal when breakpoints exist, chunk-step swipe fallback when none exist, and subtle reader-surface flash feedback.
 
-- [ ] **Drift Recovery Logic (The 3-Chunk Lead-in)**
+- [x] **Ghost Previous Chunk**
+  - Displays the immediately previous chunk above the current chunk at reduced contrast.
+  - Adds previous displayed chunk context to defect reports.
+
+- [x] **Drift Recovery Logic (The 3-Chunk Lead-in)**
   - Implement a state-recovery mechanic for when the user jumps to a bookmark.
   - Logic: Upon jumping to breakpoint `n`, the engine should automatically pause at `n-3` for 500ms before resuming, providing the brain a "buffer" to re-orient to the sentence structure.
+  - Implemented for breakpoint traversal only; progress seek, reset, manual previous/next, and ordinary swipe fallback do not use drift recovery.
 
 ## Backlog / Post-Validation
 - [ ] **Structural Hierarchy Anchor**

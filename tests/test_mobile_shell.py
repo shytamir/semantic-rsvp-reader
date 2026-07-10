@@ -21,6 +21,7 @@ def test_index_includes_reader_and_input_ids(client):
         b'id="sample-status"',
         b'id="status-message"',
         b'id="reader-area"',
+        b'id="previous-chunk"',
         b'id="chunk-display"',
         b'id="progress-anchor"',
         b'id="progress-anchor-fill"',
@@ -92,6 +93,17 @@ def test_chunk_display_has_quote_and_parenthetical_state_styles(client):
     assert "border-left" in css
 
 
+def test_previous_chunk_display_is_ghosted_and_noninteractive(client):
+    response = client.get("/static/css/app.css")
+    css = response.data.decode("utf-8")
+
+    assert ".previous-chunk" in css
+    assert "position: absolute" in css
+    assert "opacity: 0.45" in css
+    assert "pointer-events: none" in css
+    assert ".previous-chunk.is-empty" in css
+
+
 def test_navigation_scaffold_is_hidden_and_inert(client):
     response = client.get("/static/css/app.css")
     css = response.data.decode("utf-8")
@@ -138,8 +150,32 @@ def test_static_js_includes_dormant_navigation_helpers(client):
     assert "navigationEnabled = false" in javascript
     assert "getCurrentNavigationMeta" in javascript
     assert "getNearestProgressMilestoneIndex" in javascript
+    assert "toggleBreakpoint" in javascript
+    assert "getPreviousBreakpointIndex" in javascript
+    assert "getNextBreakpointIndex" in javascript
+    assert "jumpToBreakpoint" in javascript
+    assert "startDriftRecoveryToBreakpoint" in javascript
+    assert "completeDriftRecovery" in javascript
+    assert "cancelPendingDriftRecovery" in javascript
+    assert "getDriftRecoveryMetadata" in javascript
+    assert "renderPreviousChunk" in javascript
+    assert "getPreviousDisplayedChunkMetadata" in javascript
     assert "setBreakpointAtCurrentChunk" in javascript
     assert "computeLeadInIndex" in javascript
+
+
+def test_static_js_includes_breakpoint_traversal_feedback(client):
+    response = client.get("/static/js/app.js")
+    javascript = response.data.decode("utf-8")
+
+    assert "breakpoint_added" in javascript
+    assert "breakpoint_removed" in javascript
+    assert "breakpoint_jump" in javascript
+    assert "drift_recovery_started" in javascript
+    assert "drift_recovery_resumed" in javascript
+    assert "drift_recovery_cancelled" in javascript
+    assert "reader-flash" in javascript
+    assert "traverseBreakpointOrStep" in javascript
 
 
 def test_static_js_updates_and_seeks_progress_anchor(client):

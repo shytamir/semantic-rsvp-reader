@@ -20,6 +20,9 @@ The near-term goal is to refine the reading experience using observed defects ra
 - **Done:** JavaScript syntax verification hardening.
 - **Done:** Passive Spatial Anchor implementation.
 - **Done:** Chunker Refinement Pass 2.
+- **Done:** Breakpoint Bookmarking Traversal.
+- **Done:** Ghost Previous Chunk.
+- **Done:** Drift Recovery Logic.
 - **Current:** Validate Chunker Refinement Pass 2 against fresh named-entity, title, article, and weak-boundary evidence.
 
 **Gate:** Confirm the pass reduces repeated phrase-boundary defects without creating overlong chunks, over-clumped ordinary prose, or timing-masked discomfort.
@@ -30,23 +33,35 @@ The near-term goal is to refine the reading experience using observed defects ra
 
 **Gate:** Remaining issues are classified cleanly as chunking, timing, display state, layout, or navigation defects.
 
-## Next Slice 2: Breakpoint Bookmarking Traversal
+## Done Slice: Breakpoint Bookmarking Traversal
 
-**Goal:** Add breakpoint setting and traversal without fighting existing swipe and long-press gestures.
+**Goal:** Add current-stream breakpoint setting and traversal without fighting long-press speed controls.
 
-**Gate:** Gesture behavior is explicit, tested manually on mobile, and does not destabilize current chunk navigation.
+**Status:** Implemented with double-tap toggle, swipe traversal when breakpoints exist, chunk-step swipe fallback when none exist, and subtle flash feedback. Drift recovery is intentionally not included.
 
-## Next Slice 3: Drift Recovery Logic
+## Done Slice: Drift Recovery Logic
 
 **Goal:** Add the 3-chunk lead-in behavior for bookmark jumps.
 
-**Gate:** Recovery feels predictable, avoids surprise autoplay, and can be validated without masking chunking defects.
+**Status:** Implemented for breakpoint traversal only. Jumps land at `max(0, n - 3)`, pause 500ms, and auto-resume unless cancelled by explicit user action.
 
-## Next Slice 4: Post-Navigation Usability Validation
+## Next Slice 2: Post-Navigation Usability Validation
 
 **Goal:** Validate the passive anchor, coarse seek, and later navigation behavior without letting navigation mask chunking defects.
 
 **Gate:** Remaining issues are classified cleanly as navigation, chunking, timing, or layout defects.
+
+## Next Slice 3: Chunking Regression Corpus Expansion / Pass 2 Follow-Up
+
+**Goal:** Expand focused regression coverage or refine chunker behavior based on post-pass validation results.
+
+**Gate:** New chunker changes remain report-driven and do not alter timing formulas.
+
+## Next Slice 4: Structural Hierarchy Anchor
+
+**Goal:** Explore static structural labels only after core RSVP and navigability validation is stable.
+
+**Gate:** The anchor does not add motion, clutter, or a second reading surface.
 
 ## Explicit Non-Goals For The Current Phase
 
@@ -56,4 +71,4 @@ The near-term goal is to refine the reading experience using observed defects ra
 - No frontend framework migration or browser automation tooling.
 - No native app, EPUB/PDF import, or cloud sync.
 - No broad timing redesign during chunker-dominant refinement.
-- No bookmark traversal or drift recovery before their dedicated implementation slices.
+- No structural hierarchy headers before core RSVP/navigability validation is stable.

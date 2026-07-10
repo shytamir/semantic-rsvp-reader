@@ -176,17 +176,51 @@ textarea:focus-visible,
 }
 
 .reader-area {
+  --reader-left-offset: clamp(16px, 5vw, 36px);
+
   position: relative;
   display: grid;
   align-items: start;
   justify-items: start;
+  align-content: start;
   min-height: 36vh;
-  padding: clamp(36px, 8vh, 72px) 6px 12px clamp(16px, 5vw, 36px);
+  padding: clamp(36px, 8vh, 72px) 6px 12px var(--reader-left-offset);
   text-align: left;
   touch-action: none;
   user-select: none;
   -webkit-user-select: none;
   -webkit-touch-callout: none;
+}
+
+.reader-area.reader-flash {
+  background: rgb(23 23 23 / 4%);
+}
+
+.previous-chunk {
+  position: absolute;
+  top: clamp(8px, 2.5vh, 24px);
+  left: calc(var(--reader-left-offset) + 11px);
+  right: 6px;
+  width: auto;
+  max-width: min(92vw, 30ch);
+  min-height: 1.3em;
+  margin: 0;
+  padding: 0;
+  color: currentColor;
+  opacity: 0.45;
+  overflow: hidden;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+  -webkit-hyphens: none;
+  font-size: clamp(1rem, 4.4vw, 1.7rem);
+  font-weight: 700;
+  line-height: 1.15;
+  pointer-events: none;
+}
+
+.previous-chunk.is-empty {
+  visibility: hidden;
 }
 
 .chunk-display {
@@ -479,7 +513,7 @@ textarea:focus-visible,
 
 @media (max-width: 380px) {
   .reader-area {
-    padding-left: 14px;
+    --reader-left-offset: 14px;
   }
 
   .chunk-display {
@@ -511,6 +545,12 @@ textarea:focus-visible,
   .reader-area {
     min-height: 30vh;
     padding-top: clamp(20px, 6vh, 42px);
+  }
+
+  .previous-chunk {
+    top: 3px;
+    font-size: clamp(0.82rem, 3.7vw, 1.2rem);
+    line-height: 1.08;
   }
 
   .chunk-display {

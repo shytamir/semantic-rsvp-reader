@@ -3,11 +3,11 @@
 > **Status:** GREEN
 > **Last Updated:** 2026-07-10
 > **Current Phase:** Chunker-dominant refinement.
-> **Immediate Focus:** Validate Chunker Refinement Pass 2 while keeping navigation additions conservative and low-distraction.
+> **Immediate Focus:** Validate Chunker Refinement Pass 2 while monitoring breakpoint, drift-recovery, and ghost-chunk navigability aids.
 
 ## Current Project Phase
 
-Timing has improved enough that the current useful work is chunk quality. Chunker Refinement Pass 2 addressed repeated phrase-boundary issues around names, titles, articles, prepositions, and apostrophe tokenization while keeping timing/playback semantics stable. This phase now needs post-pass validation and conservative navigability work that avoids peripheral distraction.
+Timing has improved enough that the current useful work is chunk quality. Chunker Refinement Pass 2 addressed repeated phrase-boundary issues around names, titles, articles, prepositions, and apostrophe tokenization while keeping timing/playback semantics stable. Conservative navigability work now includes current-stream breakpoint traversal, drift recovery lead-in, and a ghost previous chunk orientation aid; these should be validated without letting navigation mask chunking defects.
 
 ## Completed Recent Slices
 
@@ -23,6 +23,9 @@ Timing has improved enough that the current useful work is chunk quality. Chunke
 10. JavaScript syntax verification hardening.
 11. Passive Spatial Anchor implementation.
 12. Chunker Refinement Pass 2.
+13. Breakpoint Bookmarking Traversal.
+14. Ghost Previous Chunk.
+15. Drift Recovery Logic.
 
 ## Current Evidence
 
@@ -30,14 +33,14 @@ The latest timing passes reduced the strongest timing complaints, while remainin
 
 JavaScript syntax checking is now CI-backed through a lightweight `node --check` wrapper. Local environments without Node skip with a warning; CI installs Node and enforces the check.
 
-The Passive Spatial Anchor is implemented as a subtle bottom progress bar with milestone-gated updates and coarse tap-to-seek. Active bookmark traversal and drift recovery remain future slices.
+The Passive Spatial Anchor is implemented as a subtle bottom progress bar with milestone-gated updates and coarse tap-to-seek. Breakpoint traversal is implemented with double-tap breakpoint toggles and swipe traversal between saved breakpoints. Drift recovery now starts breakpoint traversal up to three chunks before the target, pauses 500ms, and auto-resumes. The ghost previous chunk is implemented as a low-contrast orientation aid.
 
 ## Next 4 Planned Slices
 
 1. Post-Chunker Refinement Pass 2 validation.
-2. Breakpoint Bookmarking Traversal.
-3. Drift Recovery Logic.
-4. Post-navigation usability validation.
+2. Post-navigation usability validation.
+3. Chunking Regression Corpus Expansion or Chunker Refinement Pass 2 follow-up.
+4. Structural Hierarchy Anchor after core RSVP/navigability validation is stable.
 
 ## Known Risks
 
@@ -51,6 +54,11 @@ The Passive Spatial Anchor is implemented as a subtle bottom progress bar with m
 - Navigation UI causing peripheral distraction.
 - Progress updates causing flicker/strobe effects.
 - Bookmark traversal fighting existing swipe gestures.
+- Ghost previous chunk turning RSVP into conventional two-line reading.
+- Auto-resume after bookmark traversal surprising users.
+- The 500ms recovery pause being too short or too long.
+- Three lead-in chunks being insufficient for long or dense sentences.
+- Stale recovery timers resuming playback if cancellation is incomplete.
 - Navigability features masking chunking defects.
 - Drift recovery becoming surprising if too automatic.
 
@@ -63,4 +71,4 @@ The Passive Spatial Anchor is implemented as a subtle bottom progress bar with m
 - No native app.
 - No public performance claims.
 - No broad timing redesign during chunker-dominant refinement.
-- No active navigation behavior in the scaffolding slice.
+- No structural hierarchy headers before core RSVP/navigability validation is stable.

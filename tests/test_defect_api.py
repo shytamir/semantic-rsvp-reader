@@ -50,6 +50,41 @@ def minimal_report():
                 "is_paragraph_end": False,
                 "is_progress_milestone": True,
             },
+            "previous_displayed_chunk": {
+                "index": 13,
+                "sentence_index": 3,
+                "text": "does not",
+                "duration_ms": 360,
+                "base_duration_ms": 360,
+                "effective_duration_ms": 313,
+                "duration_source": "schedule",
+                "syntactic_hint": "normal",
+                "content_word_count": 1,
+                "char_length": 8,
+                "in_quote": False,
+                "quote_boundary": "none",
+                "in_parenthetical": False,
+                "parenthetical_depth": 0,
+                "navigation": {
+                    "progress_percent": 42,
+                    "paragraph_index": 1,
+                },
+            },
+            "breakpoints": {
+                "count": 2,
+                "indices": [4, 14],
+                "nearest_previous": 4,
+                "nearest_next": None,
+                "current_is_breakpoint": True,
+            },
+            "drift_recovery": {
+                "active": True,
+                "pending": True,
+                "target_breakpoint_index": 14,
+                "lead_in_index": 11,
+                "delay_ms": 500,
+                "direction": "previous",
+            },
             "original_sentence": "The system does not merely retrieve context.",
             "previous_chunks": [
                 {
@@ -236,6 +271,43 @@ def test_defects_writes_display_metadata_when_available(defect_client, defect_re
     assert "Chunk scroll width px: 330" in markdown
     assert "Chunk client width px: 330" in markdown
     assert "Chunk may overflow: false" in markdown
+
+
+def test_defects_writes_navigability_context(defect_client, defect_report_dir):
+    response = defect_client.post("/api/defects", json=minimal_report())
+    report_path = defect_report_dir / response.get_json()["filename"]
+
+    with gzip.open(report_path, "rt", encoding="utf-8") as file:
+        markdown = file.read()
+
+    assert "## Navigability Context" in markdown
+    assert "Previous displayed chunk:" in markdown
+    assert "- Index: 13" in markdown
+    assert "- Text: does not" in markdown
+    assert "- Duration ms: 360" in markdown
+    assert "- Progress percent: 42" in markdown
+    assert "Breakpoints:" in markdown
+    assert "- Count: 2" in markdown
+    assert "- Current is breakpoint: true" in markdown
+    assert "- Previous breakpoint: 4" in markdown
+    assert "- Next breakpoint: unknown" in markdown
+    assert "- Indices: 4, 14" in markdown
+
+
+def test_defects_writes_drift_recovery_context(defect_client, defect_report_dir):
+    response = defect_client.post("/api/defects", json=minimal_report())
+    report_path = defect_report_dir / response.get_json()["filename"]
+
+    with gzip.open(report_path, "rt", encoding="utf-8") as file:
+        markdown = file.read()
+
+    assert "## Drift Recovery Context" in markdown
+    assert "- Active: true" in markdown
+    assert "- Pending: true" in markdown
+    assert "- Target breakpoint: 14" in markdown
+    assert "- Lead-in index: 11" in markdown
+    assert "- Delay ms: 500" in markdown
+    assert "- Direction: previous" in markdown
 
 
 def test_defects_escape_html_in_markdown(defect_client, defect_report_dir):
