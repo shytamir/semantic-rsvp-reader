@@ -1,5 +1,20 @@
 # Observed Defects Review
 
+## Human Summary
+
+Top recurring issues:
+1. Bad chunk splits remain the largest category, but the failures are now more specific: long-form dates are split from their year, source/title line breaks are flattened into confusing chunks, and cohesive phrases such as phrasal verbs, qualifier pairs, coordinated nouns, and noun-preposition phrases are still being separated.
+2. Layout and visibility defects are a major user-facing blocker on mobile: long ghosted previous chunks can wrap into the active chunk area, and several reports note unexplained reduced font sizing.
+3. Underdense chunks still appear where a verb, object, or connector is stranded instead of being grouped with the phrase that gives it meaning.
+4. Proper-name and title handling still needs narrower protection, especially for two-word person names and occupational or institutional title phrases.
+5. A smaller number of overlong chunks show that the chunker sometimes over-preserves subject/verb cohesion when the pieces would read cleanly as separate beats.
+
+Priority for next refinement:
+- Fix the ghost/active chunk layout and default font-size behavior first, because it can obscure the text even when chunking is otherwise acceptable.
+- Then preserve source structure boundaries: headings, bylines, blank lines, and long-form dates should not be merged into neighboring prose.
+- Then tighten phrase cohesion for phrasal verbs, qualifier pairs, coordinated forms, proper names, and two-word titles.
+- Then rebalance underdense and overlong edge cases with focused regressions from this pass.
+
 ## Summary
 
 - Total reports: 39
