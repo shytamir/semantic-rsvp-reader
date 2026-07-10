@@ -100,6 +100,8 @@ def test_previous_chunk_display_is_ghosted_and_noninteractive(client):
     assert ".previous-chunk" in css
     assert "position: absolute" in css
     assert "opacity: 0.45" in css
+    assert "font-size: clamp(2.1rem, 10.5vw, 4.2rem)" in css
+    assert "4.4vw" not in css
     assert "pointer-events: none" in css
     assert ".previous-chunk.is-empty" in css
 
@@ -160,6 +162,8 @@ def test_static_js_includes_dormant_navigation_helpers(client):
     assert "getDriftRecoveryMetadata" in javascript
     assert "renderPreviousChunk" in javascript
     assert "getPreviousDisplayedChunkMetadata" in javascript
+    assert "previousChunkDisplay" in javascript
+    assert "display.classList.toggle(\"is-long-chunk\"" in javascript
     assert "setBreakpointAtCurrentChunk" in javascript
     assert "computeLeadInIndex" in javascript
 

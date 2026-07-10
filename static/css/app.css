@@ -213,9 +213,9 @@ textarea:focus-visible,
   word-break: normal;
   hyphens: none;
   -webkit-hyphens: none;
-  font-size: clamp(1rem, 4.4vw, 1.7rem);
-  font-weight: 700;
-  line-height: 1.15;
+  font-size: clamp(2.1rem, 10.5vw, 4.2rem);
+  font-weight: 800;
+  line-height: 1.05;
   pointer-events: none;
 }
 
@@ -293,11 +293,13 @@ textarea:focus-visible,
   overflow: hidden;
 }
 
+.previous-chunk.is-long-chunk,
 .chunk-display.is-long-chunk {
   max-width: min(94vw, 28ch);
   font-size: clamp(1.65rem, 8.5vw, 3.35rem);
 }
 
+.previous-chunk.is-extra-long-token,
 .chunk-display.is-extra-long-token {
   max-width: min(94vw, 32ch);
   font-size: clamp(1.3rem, 7vw, 2.55rem);
@@ -516,15 +518,18 @@ textarea:focus-visible,
     --reader-left-offset: 14px;
   }
 
+  .previous-chunk,
   .chunk-display {
     max-width: 94vw;
     font-size: clamp(1.85rem, 9.5vw, 3.25rem);
   }
 
+  .previous-chunk.is-long-chunk,
   .chunk-display.is-long-chunk {
     font-size: clamp(1.45rem, 7.8vw, 2.75rem);
   }
 
+  .previous-chunk.is-extra-long-token,
   .chunk-display.is-extra-long-token {
     font-size: clamp(1.15rem, 6.6vw, 2.2rem);
   }
@@ -549,19 +554,20 @@ textarea:focus-visible,
 
   .previous-chunk {
     top: 3px;
-    font-size: clamp(0.82rem, 3.7vw, 1.2rem);
-    line-height: 1.08;
   }
 
+  .previous-chunk,
   .chunk-display {
     min-height: 1.8em;
     font-size: clamp(1.7rem, 8.8vw, 3.25rem);
   }
 
+  .previous-chunk.is-long-chunk,
   .chunk-display.is-long-chunk {
     font-size: clamp(1.4rem, 7.4vw, 2.7rem);
   }
 
+  .previous-chunk.is-extra-long-token,
   .chunk-display.is-extra-long-token {
     font-size: clamp(1.1rem, 6.2vw, 2.15rem);
   }

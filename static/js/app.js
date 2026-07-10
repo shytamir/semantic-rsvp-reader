@@ -344,8 +344,15 @@ function setChunkDisplaySizing(text) {
     (longest, word) => Math.max(longest, word.length),
     0,
   );
-  chunkDisplay.classList.toggle("is-long-chunk", String(text || "").length > 24);
-  chunkDisplay.classList.toggle("is-extra-long-token", longestWordLength > 12);
+  const isLongChunk = String(text || "").length > 24;
+  const isExtraLongToken = longestWordLength > 12;
+  for (const display of [chunkDisplay, previousChunkDisplay]) {
+    if (!display) {
+      continue;
+    }
+    display.classList.toggle("is-long-chunk", isLongChunk);
+    display.classList.toggle("is-extra-long-token", isExtraLongToken);
+  }
 }
 
 function renderChunkDisplayState(item) {
