@@ -1,3 +1,6 @@
 [tool.pytest.ini_options]
 pythonpath = ["."]
 testpaths = ["tests"]
+markers = [
+    "nlp_spike: optional parser-assisted chunking integration tests requiring spaCy and the pinned model",
+]

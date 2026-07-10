@@ -27,7 +27,7 @@ The future experimental path is:
 
 Parser output is evidence, not grammatical truth. RSVP policy remains project-owned: display width, punctuation behavior, source structure, timing compatibility, visual balance, and fallback behavior are not delegated to a parser.
 
-## What This Pass Freezes
+## What The Design Pass Froze
 
 - Experiment contract and evaluation protocol.
 - Corpus taxonomy and committed visible inputs.
@@ -39,13 +39,31 @@ Parser output is evidence, not grammatical truth. RSVP policy remains project-ow
 
 ## Deliberately Unimplemented
 
-- No spaCy integration.
-- No NLP dependency or model download.
-- No dependency parsing, named-entity recognition, noun-phrase extraction, or feature adapter.
-- No boundary optimizer.
 - No user-facing chunker selector.
 - No production chunker, timing, schedule, navigation, layout, or API behavior change.
 - No committed blind challenge source text or gold annotations.
+
+## Parser-Assisted Spike Operation
+
+S-023 adds an isolated experimental parser-assisted chunker under `semantic_rsvp.experiments.parser_assisted_chunking`. It is not a production default and is only selected by explicit imports or the experiment runner.
+
+Install the optional NLP environment separately:
+
+```bash
+python -m venv .venv-nlp
+.venv-nlp\Scripts\python.exe -m pip install -r requirements-nlp-spike.txt
+```
+
+Run the optional integration tests and visible-corpus experiment:
+
+```bash
+.venv-nlp\Scripts\python.exe -m pytest tests\test_parser_assisted_spacy_integration.py
+.venv-nlp\Scripts\python.exe scripts\run_parser_assisted_experiment.py --corpus development --corpus regression --write
+```
+
+The runner writes stable side-by-side diagnostics to `evaluation/parser_assisted_chunking/results/parser_assisted_development_regression.json`. Use `--include-latency` for local timing measurements; latency values are intentionally omitted from the committed reproducible result file.
+
+The optimizer uses project-owned token, span, relation, parse, and trace records. spaCy objects do not leave the adapter layer. The `max_content_words=2` policy is preserved as a high-cost RSVP density constraint rather than a hard rejection, while `max_chars=32` remains a hard width limit except for explicitly marked unsplittable-token cases.
 
 ## Safe And Unsafe Materials For Codex
 

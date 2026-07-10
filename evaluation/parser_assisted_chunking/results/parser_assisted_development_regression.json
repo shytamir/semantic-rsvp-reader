@@ -1,0 +1,2063 @@
+{
+  "metadata": {
+    "case_count": 16,
+    "fallback_count": 0,
+    "fallback_rate": 0.0,
+    "manifest_hashes": {
+      "development": "4bfa0409c3d7a15c14e1b7cd3abb9f9ac4a4b209af82cf1ab3439fda018c8b52",
+      "generalization": "2e61e30c210e6fe2bf3895e03017131bd7c8da80358456d725b489765901133e",
+      "regression": "e9c55c2e957c924d699b57e2622111f044997e821d43d472c7b203b28ba4fe68"
+    },
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python_version": "3.12.13",
+    "spacy_availability_reason": "available",
+    "spacy_available": true
+  },
+  "results": [
+    {
+      "baseline_chunks": [
+        "Dr. Mira",
+        "Patel met",
+        "Air Force officials",
+        "near the",
+        "Strait of Hormuz."
+      ],
+      "case_id": "dev-names-0001",
+      "config_hash": "0e3266b6917b75da27896b382104ecf164457fee7f28d7e4d835ccb7251accab",
+      "config_version": "parser-assisted-spike-v1",
+      "corpus": "development",
+      "experimental_chunks": [
+        "Dr. Mira Patel",
+        "met Air Force officials",
+        "near the Strait of Hormuz."
+      ],
+      "fallback_reason": null,
+      "fallback_used": false,
+      "hard_compliance": {
+        "fallback_used": false,
+        "source_ordering": true,
+        "width_violation_count": 0,
+        "width_violations": []
+      },
+      "sentence_count": 1,
+      "trace": [
+        {
+          "char_length": 14,
+          "content_word_count": 3,
+          "cost": 48.6,
+          "end": 14,
+          "features": [
+            "split_relation:dependency"
+          ],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [
+            {
+              "detail": "3",
+              "name": "content_word_overage_penalty",
+              "value": 18.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            }
+          ],
+          "positive": [],
+          "start": 0,
+          "text": "Dr. Mira Patel"
+        },
+        {
+          "char_length": 23,
+          "content_word_count": 4,
+          "cost": 96.75,
+          "end": 38,
+          "features": [
+            "split_relation:dependency",
+            "split_relation:dependency"
+          ],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [
+            {
+              "detail": "4",
+              "name": "content_word_overage_penalty",
+              "value": 36.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            }
+          ],
+          "positive": [],
+          "start": 15,
+          "text": "met Air Force officials"
+        },
+        {
+          "char_length": 26,
+          "content_word_count": 2,
+          "cost": -18.8,
+          "end": 65,
+          "features": [],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [],
+          "positive": [
+            {
+              "detail": "end of sentence",
+              "name": "terminal_boundary_reward",
+              "value": -12.0
+            },
+            {
+              "detail": ".",
+              "name": "punctuation_boundary_reward",
+              "value": -8.0
+            }
+          ],
+          "start": 39,
+          "text": "near the Strait of Hormuz."
+        }
+      ]
+    },
+    {
+      "baseline_chunks": [
+        "July 4, 2026",
+        "Inherent in",
+        "the agreement",
+        "were several",
+        "unresolved questions."
+      ],
+      "case_id": "dev-date-0002",
+      "config_hash": "0e3266b6917b75da27896b382104ecf164457fee7f28d7e4d835ccb7251accab",
+      "config_version": "parser-assisted-spike-v1",
+      "corpus": "development",
+      "experimental_chunks": [
+        "July 4, 2026",
+        "Inherent in the agreement were",
+        "several unresolved questions."
+      ],
+      "fallback_reason": null,
+      "fallback_used": false,
+      "hard_compliance": {
+        "fallback_used": false,
+        "source_ordering": true,
+        "width_violation_count": 0,
+        "width_violations": []
+      },
+      "sentence_count": 2,
+      "trace": [
+        {
+          "char_length": 12,
+          "content_word_count": 3,
+          "cost": 6.899999999999999,
+          "end": 12,
+          "features": [],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [
+            {
+              "detail": "3",
+              "name": "content_word_overage_penalty",
+              "value": 18.0
+            }
+          ],
+          "positive": [
+            {
+              "detail": "end of sentence",
+              "name": "terminal_boundary_reward",
+              "value": -12.0
+            }
+          ],
+          "start": 0,
+          "text": "July 4, 2026"
+        },
+        {
+          "char_length": 30,
+          "content_word_count": 2,
+          "cost": 69.8,
+          "end": 30,
+          "features": [
+            "split_relation:dependency",
+            "split_relation:dependency"
+          ],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [
+            {
+              "detail": "30",
+              "name": "long_chunk_penalty",
+              "value": 8.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            }
+          ],
+          "positive": [],
+          "start": 0,
+          "text": "Inherent in the agreement were"
+        },
+        {
+          "char_length": 29,
+          "content_word_count": 3,
+          "cost": 7.649999999999999,
+          "end": 60,
+          "features": [],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [
+            {
+              "detail": "3",
+              "name": "content_word_overage_penalty",
+              "value": 18.0
+            },
+            {
+              "detail": "29",
+              "name": "long_chunk_penalty",
+              "value": 8.0
+            }
+          ],
+          "positive": [
+            {
+              "detail": "end of sentence",
+              "name": "terminal_boundary_reward",
+              "value": -12.0
+            },
+            {
+              "detail": ".",
+              "name": "punctuation_boundary_reward",
+              "value": -8.0
+            }
+          ],
+          "start": 31,
+          "text": "several unresolved questions."
+        }
+      ]
+    },
+    {
+      "baseline_chunks": [
+        "The panel",
+        "did not back",
+        "down when",
+        "the first",
+        "objections arrived."
+      ],
+      "case_id": "dev-negation-0003",
+      "config_hash": "0e3266b6917b75da27896b382104ecf164457fee7f28d7e4d835ccb7251accab",
+      "config_version": "parser-assisted-spike-v1",
+      "corpus": "development",
+      "experimental_chunks": [
+        "The panel did not back down when",
+        "the first objections arrived."
+      ],
+      "fallback_reason": null,
+      "fallback_used": false,
+      "hard_compliance": {
+        "fallback_used": false,
+        "source_ordering": true,
+        "width_violation_count": 0,
+        "width_violations": []
+      },
+      "sentence_count": 1,
+      "trace": [
+        {
+          "char_length": 32,
+          "content_word_count": 3,
+          "cost": 118.1,
+          "end": 32,
+          "features": [
+            "split_relation:dependency",
+            "split_relation:dependency",
+            "split_relation:dependency"
+          ],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [
+            {
+              "detail": "3",
+              "name": "content_word_overage_penalty",
+              "value": 18.0
+            },
+            {
+              "detail": "32",
+              "name": "long_chunk_penalty",
+              "value": 8.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            }
+          ],
+          "positive": [],
+          "start": 0,
+          "text": "The panel did not back down when"
+        },
+        {
+          "char_length": 29,
+          "content_word_count": 3,
+          "cost": 7.649999999999999,
+          "end": 62,
+          "features": [],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [
+            {
+              "detail": "3",
+              "name": "content_word_overage_penalty",
+              "value": 18.0
+            },
+            {
+              "detail": "29",
+              "name": "long_chunk_penalty",
+              "value": 8.0
+            }
+          ],
+          "positive": [
+            {
+              "detail": "end of sentence",
+              "name": "terminal_boundary_reward",
+              "value": -12.0
+            },
+            {
+              "detail": ".",
+              "name": "punctuation_boundary_reward",
+              "value": -8.0
+            }
+          ],
+          "start": 33,
+          "text": "the first objections arrived."
+        }
+      ]
+    },
+    {
+      "baseline_chunks": [
+        "The budget",
+        "rose from three",
+        "million dollars",
+        "to four million",
+        "after the review."
+      ],
+      "case_id": "dev-money-0004",
+      "config_hash": "0e3266b6917b75da27896b382104ecf164457fee7f28d7e4d835ccb7251accab",
+      "config_version": "parser-assisted-spike-v1",
+      "corpus": "development",
+      "experimental_chunks": [
+        "The budget",
+        "rose from three million dollars",
+        "to four million",
+        "after the review."
+      ],
+      "fallback_reason": null,
+      "fallback_used": false,
+      "hard_compliance": {
+        "fallback_used": false,
+        "source_ordering": true,
+        "width_violation_count": 0,
+        "width_violations": []
+      },
+      "sentence_count": 1,
+      "trace": [
+        {
+          "char_length": 10,
+          "content_word_count": 1,
+          "cost": 31.2,
+          "end": 10,
+          "features": [
+            "split_relation:dependency"
+          ],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            }
+          ],
+          "positive": [],
+          "start": 0,
+          "text": "The budget"
+        },
+        {
+          "char_length": 31,
+          "content_word_count": 4,
+          "cost": 135.95,
+          "end": 42,
+          "features": [
+            "split_relation:dependency",
+            "split_relation:dependency",
+            "split_relation:dependency"
+          ],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [
+            {
+              "detail": "4",
+              "name": "content_word_overage_penalty",
+              "value": 36.0
+            },
+            {
+              "detail": "31",
+              "name": "long_chunk_penalty",
+              "value": 8.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            }
+          ],
+          "positive": [],
+          "start": 11,
+          "text": "rose from three million dollars"
+        },
+        {
+          "char_length": 15,
+          "content_word_count": 2,
+          "cost": 60.45,
+          "end": 58,
+          "features": [
+            "split_relation:dependency",
+            "split_relation:dependency"
+          ],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            }
+          ],
+          "positive": [],
+          "start": 43,
+          "text": "to four million"
+        },
+        {
+          "char_length": 17,
+          "content_word_count": 2,
+          "cost": -19.85,
+          "end": 76,
+          "features": [],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [],
+          "positive": [
+            {
+              "detail": "end of sentence",
+              "name": "terminal_boundary_reward",
+              "value": -12.0
+            },
+            {
+              "detail": ".",
+              "name": "punctuation_boundary_reward",
+              "value": -8.0
+            }
+          ],
+          "start": 59,
+          "text": "after the review."
+        }
+      ]
+    },
+    {
+      "baseline_chunks": [
+        "Toward",
+        "a Global",
+        "Security System",
+        "Built on Economic",
+        "Deterrence",
+        "Alex",
+        "Apr 02, 2026",
+        "There is",
+        "a persistent",
+        "mistake in how",
+        "we imagine",
+        "peace."
+      ],
+      "case_id": "dev-source-0005",
+      "config_hash": "0e3266b6917b75da27896b382104ecf164457fee7f28d7e4d835ccb7251accab",
+      "config_version": "parser-assisted-spike-v1",
+      "corpus": "development",
+      "experimental_chunks": [
+        "Toward a Global Security System",
+        "Built on Economic Deterrence",
+        "Alex",
+        "Apr 02, 2026",
+        "There is a persistent mistake",
+        "in how we imagine peace."
+      ],
+      "fallback_reason": null,
+      "fallback_used": false,
+      "hard_compliance": {
+        "fallback_used": false,
+        "source_ordering": true,
+        "width_violation_count": 0,
+        "width_violations": []
+      },
+      "sentence_count": 4,
+      "trace": [
+        {
+          "char_length": 31,
+          "content_word_count": 4,
+          "cost": 75.95,
+          "end": 31,
+          "features": [
+            "split_relation:dependency"
+          ],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [
+            {
+              "detail": "4",
+              "name": "content_word_overage_penalty",
+              "value": 36.0
+            },
+            {
+              "detail": "31",
+              "name": "long_chunk_penalty",
+              "value": 8.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            }
+          ],
+          "positive": [],
+          "start": 0,
+          "text": "Toward a Global Security System"
+        },
+        {
+          "char_length": 28,
+          "content_word_count": 3,
+          "cost": 15.5,
+          "end": 60,
+          "features": [],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [
+            {
+              "detail": "3",
+              "name": "content_word_overage_penalty",
+              "value": 18.0
+            },
+            {
+              "detail": "28",
+              "name": "long_chunk_penalty",
+              "value": 8.0
+            }
+          ],
+          "positive": [
+            {
+              "detail": "end of sentence",
+              "name": "terminal_boundary_reward",
+              "value": -12.0
+            }
+          ],
+          "start": 32,
+          "text": "Built on Economic Deterrence"
+        },
+        {
+          "char_length": 4,
+          "content_word_count": 1,
+          "cost": -3.9000000000000004,
+          "end": 4,
+          "features": [],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [
+            {
+              "detail": "Alex",
+              "name": "underfilled_chunk_penalty",
+              "value": 6.0
+            }
+          ],
+          "positive": [
+            {
+              "detail": "end of sentence",
+              "name": "terminal_boundary_reward",
+              "value": -12.0
+            }
+          ],
+          "start": 0,
+          "text": "Alex"
+        },
+        {
+          "char_length": 12,
+          "content_word_count": 3,
+          "cost": 6.899999999999999,
+          "end": 12,
+          "features": [],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [
+            {
+              "detail": "3",
+              "name": "content_word_overage_penalty",
+              "value": 18.0
+            }
+          ],
+          "positive": [
+            {
+              "detail": "end of sentence",
+              "name": "terminal_boundary_reward",
+              "value": -12.0
+            }
+          ],
+          "start": 0,
+          "text": "Apr 02, 2026"
+        },
+        {
+          "char_length": 29,
+          "content_word_count": 3,
+          "cost": 87.65,
+          "end": 29,
+          "features": [
+            "split_relation:dependency",
+            "split_relation:dependency"
+          ],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [
+            {
+              "detail": "3",
+              "name": "content_word_overage_penalty",
+              "value": 18.0
+            },
+            {
+              "detail": "29",
+              "name": "long_chunk_penalty",
+              "value": 8.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            }
+          ],
+          "positive": [],
+          "start": 0,
+          "text": "There is a persistent mistake"
+        },
+        {
+          "char_length": 24,
+          "content_word_count": 4,
+          "cost": 16.9,
+          "end": 54,
+          "features": [],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [
+            {
+              "detail": "4",
+              "name": "content_word_overage_penalty",
+              "value": 36.0
+            }
+          ],
+          "positive": [
+            {
+              "detail": "end of sentence",
+              "name": "terminal_boundary_reward",
+              "value": -12.0
+            },
+            {
+              "detail": ".",
+              "name": "punctuation_boundary_reward",
+              "value": -8.0
+            }
+          ],
+          "start": 30,
+          "text": "in how we imagine peace."
+        }
+      ]
+    },
+    {
+      "baseline_chunks": [
+        "The reader",
+        "saw complementary",
+        "explanations beside",
+        "antidisestablishmentarianism."
+      ],
+      "case_id": "dev-width-0006",
+      "config_hash": "0e3266b6917b75da27896b382104ecf164457fee7f28d7e4d835ccb7251accab",
+      "config_version": "parser-assisted-spike-v1",
+      "corpus": "development",
+      "experimental_chunks": [
+        "The reader",
+        "saw complementary explanations",
+        "beside",
+        "antidisestablishmentarianism."
+      ],
+      "fallback_reason": null,
+      "fallback_used": false,
+      "hard_compliance": {
+        "fallback_used": false,
+        "source_ordering": true,
+        "width_violation_count": 0,
+        "width_violations": []
+      },
+      "sentence_count": 1,
+      "trace": [
+        {
+          "char_length": 10,
+          "content_word_count": 1,
+          "cost": 31.2,
+          "end": 10,
+          "features": [
+            "split_relation:dependency"
+          ],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            }
+          ],
+          "positive": [],
+          "start": 0,
+          "text": "The reader"
+        },
+        {
+          "char_length": 30,
+          "content_word_count": 3,
+          "cost": 87.8,
+          "end": 41,
+          "features": [
+            "split_relation:dependency",
+            "split_relation:dependency"
+          ],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [
+            {
+              "detail": "3",
+              "name": "content_word_overage_penalty",
+              "value": 18.0
+            },
+            {
+              "detail": "30",
+              "name": "long_chunk_penalty",
+              "value": 8.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            }
+          ],
+          "positive": [],
+          "start": 11,
+          "text": "saw complementary explanations"
+        },
+        {
+          "char_length": 6,
+          "content_word_count": 1,
+          "cost": 67.8,
+          "end": 48,
+          "features": [
+            "split_relation:dependency",
+            "split_relation:dependency"
+          ],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [
+            {
+              "detail": "beside",
+              "name": "underfilled_chunk_penalty",
+              "value": 6.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            }
+          ],
+          "positive": [],
+          "start": 42,
+          "text": "beside"
+        },
+        {
+          "char_length": 29,
+          "content_word_count": 1,
+          "cost": -10.35,
+          "end": 78,
+          "features": [],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [
+            {
+              "detail": "29",
+              "name": "long_chunk_penalty",
+              "value": 8.0
+            }
+          ],
+          "positive": [
+            {
+              "detail": "end of sentence",
+              "name": "terminal_boundary_reward",
+              "value": -12.0
+            },
+            {
+              "detail": ".",
+              "name": "punctuation_boundary_reward",
+              "value": -8.0
+            }
+          ],
+          "start": 49,
+          "text": "antidisestablishmentarianism."
+        }
+      ]
+    },
+    {
+      "baseline_chunks": [
+        "The chair said,",
+        "We",
+        "should not split",
+        "the core claim,",
+        "and closed",
+        "the file."
+      ],
+      "case_id": "dev-quote-0007",
+      "config_hash": "0e3266b6917b75da27896b382104ecf164457fee7f28d7e4d835ccb7251accab",
+      "config_version": "parser-assisted-spike-v1",
+      "corpus": "development",
+      "experimental_chunks": [
+        "The chair said, \u201cWe",
+        "should not split the core claim,",
+        "\u201d and closed the file."
+      ],
+      "fallback_reason": null,
+      "fallback_used": false,
+      "hard_compliance": {
+        "fallback_used": false,
+        "source_ordering": true,
+        "width_violation_count": 0,
+        "width_violations": []
+      },
+      "sentence_count": 1,
+      "trace": [
+        {
+          "char_length": 19,
+          "content_word_count": 3,
+          "cost": 108.15,
+          "end": 19,
+          "features": [
+            "split_relation:dependency",
+            "split_relation:dependency",
+            "split_relation:dependency"
+          ],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [
+            {
+              "detail": "3",
+              "name": "content_word_overage_penalty",
+              "value": 18.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            }
+          ],
+          "positive": [],
+          "start": 0,
+          "text": "The chair said, \u201cWe"
+        },
+        {
+          "char_length": 32,
+          "content_word_count": 3,
+          "cost": 140.1,
+          "end": 52,
+          "features": [
+            "split_relation:dependency",
+            "split_relation:dependency",
+            "split_relation:dependency",
+            "split_relation:dependency"
+          ],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [
+            {
+              "detail": "3",
+              "name": "content_word_overage_penalty",
+              "value": 18.0
+            },
+            {
+              "detail": "32",
+              "name": "long_chunk_penalty",
+              "value": 8.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            }
+          ],
+          "positive": [
+            {
+              "detail": ",",
+              "name": "punctuation_boundary_reward",
+              "value": -8.0
+            }
+          ],
+          "start": 20,
+          "text": "should not split the core claim,"
+        },
+        {
+          "char_length": 22,
+          "content_word_count": 2,
+          "cost": -19.4,
+          "end": 74,
+          "features": [],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [],
+          "positive": [
+            {
+              "detail": "end of sentence",
+              "name": "terminal_boundary_reward",
+              "value": -12.0
+            },
+            {
+              "detail": ".",
+              "name": "punctuation_boundary_reward",
+              "value": -8.0
+            }
+          ],
+          "start": 52,
+          "text": "\u201d and closed the file."
+        }
+      ]
+    },
+    {
+      "baseline_chunks": [
+        "The system kept",
+        "the phrase together",
+        "(even when",
+        "the aside",
+        "was brief)",
+        "before resuming."
+      ],
+      "case_id": "dev-parenthetical-0008",
+      "config_hash": "0e3266b6917b75da27896b382104ecf164457fee7f28d7e4d835ccb7251accab",
+      "config_version": "parser-assisted-spike-v1",
+      "corpus": "development",
+      "experimental_chunks": [
+        "The system",
+        "kept the phrase together (",
+        "even when the aside was brief)",
+        "before resuming."
+      ],
+      "fallback_reason": null,
+      "fallback_used": false,
+      "hard_compliance": {
+        "fallback_used": false,
+        "source_ordering": true,
+        "width_violation_count": 0,
+        "width_violations": []
+      },
+      "sentence_count": 1,
+      "trace": [
+        {
+          "char_length": 10,
+          "content_word_count": 1,
+          "cost": 31.2,
+          "end": 10,
+          "features": [
+            "split_relation:dependency"
+          ],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            }
+          ],
+          "positive": [],
+          "start": 0,
+          "text": "The system"
+        },
+        {
+          "char_length": 26,
+          "content_word_count": 3,
+          "cost": 79.2,
+          "end": 37,
+          "features": [
+            "split_relation:dependency",
+            "split_relation:dependency"
+          ],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [
+            {
+              "detail": "3",
+              "name": "content_word_overage_penalty",
+              "value": 18.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            }
+          ],
+          "positive": [],
+          "start": 11,
+          "text": "kept the phrase together ("
+        },
+        {
+          "char_length": 30,
+          "content_word_count": 4,
+          "cost": 105.8,
+          "end": 67,
+          "features": [
+            "split_relation:dependency",
+            "split_relation:dependency"
+          ],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [
+            {
+              "detail": "4",
+              "name": "content_word_overage_penalty",
+              "value": 36.0
+            },
+            {
+              "detail": "30",
+              "name": "long_chunk_penalty",
+              "value": 8.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            }
+          ],
+          "positive": [],
+          "start": 37,
+          "text": "even when the aside was brief)"
+        },
+        {
+          "char_length": 16,
+          "content_word_count": 2,
+          "cost": -19.7,
+          "end": 84,
+          "features": [],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [],
+          "positive": [
+            {
+              "detail": "end of sentence",
+              "name": "terminal_boundary_reward",
+              "value": -12.0
+            },
+            {
+              "detail": ".",
+              "name": "punctuation_boundary_reward",
+              "value": -8.0
+            }
+          ],
+          "start": 68,
+          "text": "before resuming."
+        }
+      ]
+    },
+    {
+      "baseline_chunks": [
+        "The system",
+        "learns from",
+        "the reader."
+      ],
+      "case_id": "reg-basic-0001",
+      "config_hash": "0e3266b6917b75da27896b382104ecf164457fee7f28d7e4d835ccb7251accab",
+      "config_version": "parser-assisted-spike-v1",
+      "corpus": "regression",
+      "experimental_chunks": [
+        "The system",
+        "learns from the reader."
+      ],
+      "fallback_reason": null,
+      "fallback_used": false,
+      "hard_compliance": {
+        "fallback_used": false,
+        "source_ordering": true,
+        "width_violation_count": 0,
+        "width_violations": []
+      },
+      "sentence_count": 1,
+      "trace": [
+        {
+          "char_length": 10,
+          "content_word_count": 1,
+          "cost": 31.2,
+          "end": 10,
+          "features": [
+            "split_relation:dependency"
+          ],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            }
+          ],
+          "positive": [],
+          "start": 0,
+          "text": "The system"
+        },
+        {
+          "char_length": 23,
+          "content_word_count": 2,
+          "cost": -19.25,
+          "end": 34,
+          "features": [],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [],
+          "positive": [
+            {
+              "detail": "end of sentence",
+              "name": "terminal_boundary_reward",
+              "value": -12.0
+            },
+            {
+              "detail": ".",
+              "name": "punctuation_boundary_reward",
+              "value": -8.0
+            }
+          ],
+          "start": 11,
+          "text": "learns from the reader."
+        }
+      ]
+    },
+    {
+      "baseline_chunks": [
+        "Modern AI",
+        "systems are moving",
+        "beyond sealed",
+        "text generators."
+      ],
+      "case_id": "reg-dense-0002",
+      "config_hash": "0e3266b6917b75da27896b382104ecf164457fee7f28d7e4d835ccb7251accab",
+      "config_version": "parser-assisted-spike-v1",
+      "corpus": "regression",
+      "experimental_chunks": [
+        "Modern AI systems",
+        "are moving beyond",
+        "sealed text generators."
+      ],
+      "fallback_reason": null,
+      "fallback_used": false,
+      "hard_compliance": {
+        "fallback_used": false,
+        "source_ordering": true,
+        "width_violation_count": 0,
+        "width_violations": []
+      },
+      "sentence_count": 1,
+      "trace": [
+        {
+          "char_length": 17,
+          "content_word_count": 3,
+          "cost": 48.15,
+          "end": 17,
+          "features": [
+            "split_relation:dependency"
+          ],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [
+            {
+              "detail": "3",
+              "name": "content_word_overage_penalty",
+              "value": 18.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            }
+          ],
+          "positive": [],
+          "start": 0,
+          "text": "Modern AI systems"
+        },
+        {
+          "char_length": 17,
+          "content_word_count": 2,
+          "cost": 60.15,
+          "end": 35,
+          "features": [
+            "split_relation:dependency",
+            "split_relation:dependency"
+          ],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            }
+          ],
+          "positive": [],
+          "start": 18,
+          "text": "are moving beyond"
+        },
+        {
+          "char_length": 23,
+          "content_word_count": 3,
+          "cost": -1.25,
+          "end": 59,
+          "features": [],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [
+            {
+              "detail": "3",
+              "name": "content_word_overage_penalty",
+              "value": 18.0
+            }
+          ],
+          "positive": [
+            {
+              "detail": "end of sentence",
+              "name": "terminal_boundary_reward",
+              "value": -12.0
+            },
+            {
+              "detail": ".",
+              "name": "punctuation_boundary_reward",
+              "value": -8.0
+            }
+          ],
+          "start": 36,
+          "text": "sealed text generators."
+        }
+      ]
+    },
+    {
+      "baseline_chunks": [
+        "The temporary plane",
+        "did not have all",
+        "the equipment",
+        "usually found",
+        "on an",
+        "Air Force One."
+      ],
+      "case_id": "reg-air-force-0003",
+      "config_hash": "0e3266b6917b75da27896b382104ecf164457fee7f28d7e4d835ccb7251accab",
+      "config_version": "parser-assisted-spike-v1",
+      "corpus": "regression",
+      "experimental_chunks": [
+        "The temporary plane",
+        "did not have all the equipment",
+        "usually found on",
+        "an Air Force One."
+      ],
+      "fallback_reason": null,
+      "fallback_used": false,
+      "hard_compliance": {
+        "fallback_used": false,
+        "source_ordering": true,
+        "width_violation_count": 0,
+        "width_violations": []
+      },
+      "sentence_count": 1,
+      "trace": [
+        {
+          "char_length": 19,
+          "content_word_count": 2,
+          "cost": 30.15,
+          "end": 19,
+          "features": [
+            "split_relation:dependency"
+          ],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            }
+          ],
+          "positive": [],
+          "start": 0,
+          "text": "The temporary plane"
+        },
+        {
+          "char_length": 30,
+          "content_word_count": 2,
+          "cost": 69.8,
+          "end": 50,
+          "features": [
+            "split_relation:dependency",
+            "split_relation:dependency"
+          ],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [
+            {
+              "detail": "30",
+              "name": "long_chunk_penalty",
+              "value": 8.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            }
+          ],
+          "positive": [],
+          "start": 20,
+          "text": "did not have all the equipment"
+        },
+        {
+          "char_length": 16,
+          "content_word_count": 2,
+          "cost": 60.3,
+          "end": 67,
+          "features": [
+            "split_relation:dependency",
+            "split_relation:dependency"
+          ],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            }
+          ],
+          "positive": [],
+          "start": 51,
+          "text": "usually found on"
+        },
+        {
+          "char_length": 17,
+          "content_word_count": 3,
+          "cost": -1.8500000000000014,
+          "end": 85,
+          "features": [],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [
+            {
+              "detail": "3",
+              "name": "content_word_overage_penalty",
+              "value": 18.0
+            }
+          ],
+          "positive": [
+            {
+              "detail": "end of sentence",
+              "name": "terminal_boundary_reward",
+              "value": -12.0
+            },
+            {
+              "detail": ".",
+              "name": "punctuation_boundary_reward",
+              "value": -8.0
+            }
+          ],
+          "start": 68,
+          "text": "an Air Force One."
+        }
+      ]
+    },
+    {
+      "baseline_chunks": [
+        "Ayatollah Ali Khamenei",
+        "met",
+        "Air Force officials",
+        "near the",
+        "Strait of Hormuz."
+      ],
+      "case_id": "reg-khamenei-0004",
+      "config_hash": "0e3266b6917b75da27896b382104ecf164457fee7f28d7e4d835ccb7251accab",
+      "config_version": "parser-assisted-spike-v1",
+      "corpus": "regression",
+      "experimental_chunks": [
+        "Ayatollah Ali Khamenei",
+        "met Air Force officials",
+        "near the Strait of Hormuz."
+      ],
+      "fallback_reason": null,
+      "fallback_used": false,
+      "hard_compliance": {
+        "fallback_used": false,
+        "source_ordering": true,
+        "width_violation_count": 0,
+        "width_violations": []
+      },
+      "sentence_count": 1,
+      "trace": [
+        {
+          "char_length": 22,
+          "content_word_count": 3,
+          "cost": 48.6,
+          "end": 22,
+          "features": [
+            "split_relation:dependency"
+          ],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [
+            {
+              "detail": "3",
+              "name": "content_word_overage_penalty",
+              "value": 18.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            }
+          ],
+          "positive": [],
+          "start": 0,
+          "text": "Ayatollah Ali Khamenei"
+        },
+        {
+          "char_length": 23,
+          "content_word_count": 4,
+          "cost": 96.75,
+          "end": 46,
+          "features": [
+            "split_relation:dependency",
+            "split_relation:dependency"
+          ],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [
+            {
+              "detail": "4",
+              "name": "content_word_overage_penalty",
+              "value": 36.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            }
+          ],
+          "positive": [],
+          "start": 23,
+          "text": "met Air Force officials"
+        },
+        {
+          "char_length": 26,
+          "content_word_count": 2,
+          "cost": -18.8,
+          "end": 73,
+          "features": [],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [],
+          "positive": [
+            {
+              "detail": "end of sentence",
+              "name": "terminal_boundary_reward",
+              "value": -12.0
+            },
+            {
+              "detail": ".",
+              "name": "punctuation_boundary_reward",
+              "value": -8.0
+            }
+          ],
+          "start": 47,
+          "text": "near the Strait of Hormuz."
+        }
+      ]
+    },
+    {
+      "baseline_chunks": [
+        "During his tenure,",
+        "he had",
+        "built up",
+        "his office into",
+        "a center."
+      ],
+      "case_id": "reg-phrasal-0005",
+      "config_hash": "0e3266b6917b75da27896b382104ecf164457fee7f28d7e4d835ccb7251accab",
+      "config_version": "parser-assisted-spike-v1",
+      "corpus": "regression",
+      "experimental_chunks": [
+        "During his tenure",
+        ", he had built up his office",
+        "into a center."
+      ],
+      "fallback_reason": null,
+      "fallback_used": false,
+      "hard_compliance": {
+        "fallback_used": false,
+        "source_ordering": true,
+        "width_violation_count": 0,
+        "width_violations": []
+      },
+      "sentence_count": 1,
+      "trace": [
+        {
+          "char_length": 17,
+          "content_word_count": 2,
+          "cost": 30.15,
+          "end": 17,
+          "features": [
+            "split_relation:dependency"
+          ],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            }
+          ],
+          "positive": [],
+          "start": 0,
+          "text": "During his tenure"
+        },
+        {
+          "char_length": 28,
+          "content_word_count": 3,
+          "cost": 87.5,
+          "end": 45,
+          "features": [
+            "split_relation:dependency",
+            "split_relation:dependency"
+          ],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [
+            {
+              "detail": "3",
+              "name": "content_word_overage_penalty",
+              "value": 18.0
+            },
+            {
+              "detail": "28",
+              "name": "long_chunk_penalty",
+              "value": 8.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            }
+          ],
+          "positive": [],
+          "start": 17,
+          "text": ", he had built up his office"
+        },
+        {
+          "char_length": 14,
+          "content_word_count": 2,
+          "cost": -19.4,
+          "end": 60,
+          "features": [],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [],
+          "positive": [
+            {
+              "detail": "end of sentence",
+              "name": "terminal_boundary_reward",
+              "value": -12.0
+            },
+            {
+              "detail": ".",
+              "name": "punctuation_boundary_reward",
+              "value": -8.0
+            }
+          ],
+          "start": 46,
+          "text": "into a center."
+        }
+      ]
+    },
+    {
+      "baseline_chunks": [
+        "He had",
+        "far less impressive",
+        "religious credentials."
+      ],
+      "case_id": "reg-qualifier-0006",
+      "config_hash": "0e3266b6917b75da27896b382104ecf164457fee7f28d7e4d835ccb7251accab",
+      "config_version": "parser-assisted-spike-v1",
+      "corpus": "regression",
+      "experimental_chunks": [
+        "He had far less impressive",
+        "religious credentials."
+      ],
+      "fallback_reason": null,
+      "fallback_used": false,
+      "hard_compliance": {
+        "fallback_used": false,
+        "source_ordering": true,
+        "width_violation_count": 0,
+        "width_violations": []
+      },
+      "sentence_count": 1,
+      "trace": [
+        {
+          "char_length": 26,
+          "content_word_count": 4,
+          "cost": 180.2,
+          "end": 26,
+          "features": [
+            "split_span:noun_phrase:",
+            "split_relation:dependency",
+            "split_relation:dependency",
+            "split_relation:dependency"
+          ],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [
+            {
+              "detail": "4",
+              "name": "content_word_overage_penalty",
+              "value": 36.0
+            },
+            {
+              "detail": "",
+              "name": "noun_phrase_split_penalty",
+              "value": 35.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 48.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            }
+          ],
+          "positive": [],
+          "start": 0,
+          "text": "He had far less impressive"
+        },
+        {
+          "char_length": 22,
+          "content_word_count": 2,
+          "cost": -19.4,
+          "end": 49,
+          "features": [],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [],
+          "positive": [
+            {
+              "detail": "end of sentence",
+              "name": "terminal_boundary_reward",
+              "value": -12.0
+            },
+            {
+              "detail": ".",
+              "name": "punctuation_boundary_reward",
+              "value": -8.0
+            }
+          ],
+          "start": 27,
+          "text": "religious credentials."
+        }
+      ]
+    },
+    {
+      "baseline_chunks": [
+        "He sought",
+        "balance between",
+        "Iran's",
+        "left and right wings."
+      ],
+      "case_id": "reg-coordinated-0007",
+      "config_hash": "0e3266b6917b75da27896b382104ecf164457fee7f28d7e4d835ccb7251accab",
+      "config_version": "parser-assisted-spike-v1",
+      "corpus": "regression",
+      "experimental_chunks": [
+        "He sought balance between",
+        "Iran's left and right wings."
+      ],
+      "fallback_reason": null,
+      "fallback_used": false,
+      "hard_compliance": {
+        "fallback_used": false,
+        "source_ordering": true,
+        "width_violation_count": 0,
+        "width_violations": []
+      },
+      "sentence_count": 1,
+      "trace": [
+        {
+          "char_length": 25,
+          "content_word_count": 4,
+          "cost": 97.05,
+          "end": 25,
+          "features": [
+            "split_relation:dependency",
+            "split_relation:dependency"
+          ],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [
+            {
+              "detail": "4",
+              "name": "content_word_overage_penalty",
+              "value": 36.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            },
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            }
+          ],
+          "positive": [],
+          "start": 0,
+          "text": "He sought balance between"
+        },
+        {
+          "char_length": 28,
+          "content_word_count": 4,
+          "cost": 25.5,
+          "end": 54,
+          "features": [],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [
+            {
+              "detail": "4",
+              "name": "content_word_overage_penalty",
+              "value": 36.0
+            },
+            {
+              "detail": "28",
+              "name": "long_chunk_penalty",
+              "value": 8.0
+            }
+          ],
+          "positive": [
+            {
+              "detail": "end of sentence",
+              "name": "terminal_boundary_reward",
+              "value": -12.0
+            },
+            {
+              "detail": ".",
+              "name": "punctuation_boundary_reward",
+              "value": -8.0
+            }
+          ],
+          "start": 26,
+          "text": "Iran's left and right wings."
+        }
+      ]
+    },
+    {
+      "baseline_chunks": [
+        "The country",
+        "will navigate",
+        "the issue."
+      ],
+      "case_id": "reg-overlong-0008",
+      "config_hash": "0e3266b6917b75da27896b382104ecf164457fee7f28d7e4d835ccb7251accab",
+      "config_version": "parser-assisted-spike-v1",
+      "corpus": "regression",
+      "experimental_chunks": [
+        "The country",
+        "will navigate the issue."
+      ],
+      "fallback_reason": null,
+      "fallback_used": false,
+      "hard_compliance": {
+        "fallback_used": false,
+        "source_ordering": true,
+        "width_violation_count": 0,
+        "width_violations": []
+      },
+      "sentence_count": 1,
+      "trace": [
+        {
+          "char_length": 11,
+          "content_word_count": 1,
+          "cost": 31.05,
+          "end": 11,
+          "features": [
+            "split_relation:dependency"
+          ],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [
+            {
+              "detail": "",
+              "name": "dependency_split_penalty",
+              "value": 30.0
+            }
+          ],
+          "positive": [],
+          "start": 0,
+          "text": "The country"
+        },
+        {
+          "char_length": 24,
+          "content_word_count": 2,
+          "cost": -19.1,
+          "end": 36,
+          "features": [],
+          "hard_constraints": [
+            "contiguous_source_range",
+            "safe_alignment"
+          ],
+          "negative": [],
+          "positive": [
+            {
+              "detail": "end of sentence",
+              "name": "terminal_boundary_reward",
+              "value": -12.0
+            },
+            {
+              "detail": ".",
+              "name": "punctuation_boundary_reward",
+              "value": -8.0
+            }
+          ],
+          "start": 12,
+          "text": "will navigate the issue."
+        }
+      ]
+    }
+  ]
+}
