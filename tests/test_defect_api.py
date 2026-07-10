@@ -39,6 +39,17 @@ def minimal_report():
             "quote_boundary": "open",
             "in_parenthetical": False,
             "parenthetical_depth": 0,
+            "navigation": {
+                "char_start": 30,
+                "char_end": 45,
+                "char_count_total": 80,
+                "progress_ratio": 0.56,
+                "progress_percent": 56,
+                "paragraph_index": 1,
+                "is_paragraph_start": False,
+                "is_paragraph_end": False,
+                "is_progress_milestone": True,
+            },
             "original_sentence": "The system does not merely retrieve context.",
             "previous_chunks": [
                 {
@@ -56,6 +67,10 @@ def minimal_report():
                     "quote_boundary": "none",
                     "in_parenthetical": False,
                     "parenthetical_depth": 0,
+                    "navigation": {
+                        "progress_percent": 42,
+                        "paragraph_index": 1,
+                    },
                 }
             ],
             "next_chunks": [
@@ -74,6 +89,10 @@ def minimal_report():
                     "quote_boundary": "close",
                     "in_parenthetical": False,
                     "parenthetical_depth": 0,
+                    "navigation": {
+                        "progress_percent": 64,
+                        "paragraph_index": 1,
+                    },
                 }
             ],
             "playback_speed": 1.0,
@@ -184,6 +203,8 @@ def test_defects_writes_timing_context_to_markdown(defect_client, defect_report_
     assert "Quote boundary: open" in markdown
     assert "In parenthetical: false" in markdown
     assert "Parenthetical depth: 0" in markdown
+    assert "Navigation progress percent: 56" in markdown
+    assert "Navigation paragraph index: 1" in markdown
 
 
 def test_defects_writes_nearby_chunk_timing_details(defect_client, defect_report_dir):

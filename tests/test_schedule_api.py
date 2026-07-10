@@ -57,7 +57,23 @@ def test_schedule_items_include_required_fields(client):
         "quote_boundary",
         "in_parenthetical",
         "parenthetical_depth",
+        "navigation",
     }
+
+
+def test_schedule_items_include_navigation_metadata(client):
+    response = client.post(
+        "/api/schedule",
+        json={"text": "The system learns from the reader."},
+    )
+
+    assert response.status_code == 200
+    item = response.get_json()["schedule"][0]
+    navigation = item["navigation"]
+    assert "progress_percent" in navigation
+    assert "paragraph_index" in navigation
+    assert 0 <= navigation["progress_percent"] <= 100
+    assert navigation["paragraph_index"] == 0
 
 
 def test_schedule_items_include_quote_and_parenthetical_state(client):

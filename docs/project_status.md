@@ -3,11 +3,11 @@
 > **Status:** GREEN
 > **Last Updated:** 2026-07-10
 > **Current Phase:** Chunker-dominant refinement.
-> **Immediate Focus:** Collect and address chunk quality defects without further timing calibration unless clean evidence justifies it.
+> **Immediate Focus:** Prepare chunker refinement while keeping navigation scaffolding dormant.
 
 ## Current Project Phase
 
-Timing has improved enough that the next useful work is chunk quality. Recent validation evidence points to phrase-boundary issues around names, titles, articles, prepositions, pronouns, quotes, and parentheticals. This phase keeps timing stable while improving report quality and preparing targeted chunker changes.
+Timing has improved enough that the next useful work is chunk quality. Recent validation evidence points to phrase-boundary issues around names, titles, articles, prepositions, pronouns, quotes, and parentheticals. This phase keeps timing stable while improving report quality, preparing targeted chunker changes, and laying inert foundations for future navigability.
 
 ## Completed Recent Slices
 
@@ -19,17 +19,18 @@ Timing has improved enough that the next useful work is chunk quality. Recent va
 6. Refreshed validation corpus.
 7. Post-validation targeted calibration.
 8. Quote/parenthetical state annotation and reporting prep.
+9. Navigation Scaffolding Pass 1.
 
 ## Current Evidence
 
-The latest timing passes reduced the strongest timing complaints, while remaining recurring defects increasingly describe chunk shape, phrase attachment, and display-state orientation. Defect reports now include quote and parenthetical state so future reviews can separate visual context confusion from timing rhythm.
+The latest timing passes reduced the strongest timing complaints, while remaining recurring defects increasingly describe chunk shape, phrase attachment, and display-state orientation. Defect reports now include quote, parenthetical, and optional navigation state so future reviews can separate visual context and orientation evidence from timing rhythm.
 
 ## Next 4 Planned Slices
 
-1. Chunker Refinement Pass 2 for names, titles, honorifics, articles, prepositions, and weak boundaries.
-2. Quote/parenthetical validation pass using the new display-state categories.
-3. Timing Calibration Pass 2 only if clean timing-context reports show repeated timing-only defects.
-4. Session summary / validation UX polish.
+1. Proper Noun / Honorific / Article / Function-Word Chunking Refinement Pass.
+2. Passive Spatial Anchor implementation.
+3. Breakpoint Bookmarking Traversal.
+4. Drift Recovery Logic.
 
 ## Known Risks
 
@@ -38,6 +39,11 @@ The latest timing passes reduced the strongest timing complaints, while remainin
 - Quote/parenthetical indicators being too subtle or too visually heavy.
 - Proper-name heuristics improving one sample while harming ordinary prose.
 - Adaptation or speed changes masking baseline schedule quality.
+- Navigation UI causing peripheral distraction.
+- Progress updates causing flicker/strobe effects.
+- Bookmark traversal fighting existing swipe gestures.
+- Navigability features masking chunking defects.
+- Drift recovery becoming surprising if too automatic.
 
 ## Explicit Non-Goals
 
@@ -48,3 +54,4 @@ The latest timing passes reduced the strongest timing complaints, while remainin
 - No native app.
 - No public performance claims.
 - No broad timing redesign during chunker-dominant refinement.
+- No active navigation behavior in the scaffolding slice.

@@ -46,6 +46,8 @@ If the issue is tokenization or segmentation noise, such as `a.m.` becoming a se
 
 If the issue is that a quote or parenthetical aside is visually hard to track, classify it as `quote_state_confusion` or `parenthetical_state_confusion`, not timing. Use `punctuation_rhythm_issue` for quote-adjacent punctuation only when the visual quote/parenthetical state is already clear and the remaining problem is dwell, pause, or rhythm.
 
+Navigation metadata is now available for future orientation and recovery features, but active navigability behavior is not enabled yet. Do not report progress bar, seeking, bookmark traversal, or drift recovery defects until those features are intentionally activated.
+
 ## Suggested Timing Validation Pass
 
 1. Load a validation sample after chunking refinement.

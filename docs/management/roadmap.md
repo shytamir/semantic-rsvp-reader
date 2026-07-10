@@ -16,33 +16,34 @@ The near-term goal is to refine the reading experience using observed defects ra
 - **Done:** Third-pass post-calibration timing report review.
 - **Done:** Post-validation targeted calibration.
 - **Done:** Quote/parenthetical display-state annotation and defect taxonomy prep.
+- **Done:** Navigation Scaffolding Pass 1.
 - **Current:** Prepare Chunker Refinement Pass 2 using clearer defect categories.
 
 **Gate:** Collect enough clean chunking/display-state evidence to identify repeated phrase-boundary patterns without treating every discomfort as timing.
 
-## Next Slice 1: Chunker Refinement Pass 2
+## Next Slice 1: Proper Noun / Honorific / Article / Function-Word Chunking Refinement Pass
 
 **Goal:** Address recurring name/title/honorific, article-noun, preposition/pronoun bookend, and weak-boundary chunk defects.
 
 **Gate:** Changes are deterministic, covered by focused tests, and do not alter timing formulas.
 
-## Next Slice 2: Quote/Parenthetical Validation Pass
+## Next Slice 2: Passive Spatial Anchor Implementation
 
-**Goal:** Check whether quote and parenthetical state indicators help orientation without moving the anchored text or adding visual clutter.
+**Goal:** Turn existing paragraph/progress metadata into a subtle 2px passive progress anchor.
 
-**Gate:** Defects classify visual context with `quote_state_confusion` or `parenthetical_state_confusion`, and rhythm with `punctuation_rhythm_issue` only when visual state is clear.
+**Gate:** Updates occur only at paragraph breaks or 5% progress milestones, with no flicker or peripheral distraction.
 
-## Next Slice 3: Timing Calibration Pass 2, If Justified
+## Next Slice 3: Breakpoint Bookmarking Traversal
 
-**Goal:** Make another timing formula change only if clean reports show repeated pure timing defects.
+**Goal:** Add breakpoint setting and traversal without fighting existing swipe and long-press gestures.
 
-**Gate:** Any adjustment is narrow, test-covered, and backed by timing-context evidence.
+**Gate:** Gesture behavior is explicit, tested manually on mobile, and does not destabilize current chunk navigation.
 
-## Next Slice 4: Session Summary / Validation UX Polish
+## Next Slice 4: Drift Recovery Logic
 
-**Goal:** Improve demo validation ergonomics without changing timing semantics.
+**Goal:** Add the 3-chunk lead-in behavior for bookmark jumps.
 
-**Gate:** A tester can finish a session and understand what happened without reading raw debug output.
+**Gate:** Recovery feels predictable, avoids surprise autoplay, and can be validated without masking chunking defects.
 
 ## Explicit Non-Goals For The Current Phase
 
@@ -52,3 +53,4 @@ The near-term goal is to refine the reading experience using observed defects ra
 - No frontend framework migration or browser automation tooling.
 - No native app, EPUB/PDF import, or cloud sync.
 - No broad timing redesign during chunker-dominant refinement.
+- No active navigation behavior before its dedicated implementation slice.

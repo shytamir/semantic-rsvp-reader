@@ -10,10 +10,10 @@ Semantic RSVP Reader is a mobile-first HTML5 reading prototype served by Flask. 
 > **Immediate Focus:** Proper-name, title, article, preposition, quote, and parenthetical chunk quality
 
 ## Current State: Prototype Complete
-The stable development base is finished. Text can enter the system cleanly, normalize into stable sentence units, and process through a rule-based chunking and deterministic timing engine. The mobile-first RSVP playback loop is fully operational with gesture interactions, speed controls, local behavioral telemetry, backend defect reports, and display-state annotations for quoted and parenthetical spans.
+The stable development base is finished. Text can enter the system cleanly, normalize into stable sentence units, and process through a rule-based chunking and deterministic timing engine. The mobile-first RSVP playback loop is fully operational with gesture interactions, speed controls, local behavioral telemetry, backend defect reports, display-state annotations for quoted and parenthetical spans, and dormant navigation metadata scaffolding.
 
 ## Current Validation Flow
-The app can generate `.md.gz` backend defect report files directly from the mobile reading session. Reports carry explicit timing context, display metadata, quote state, and parenthetical state so validation can separate timing rhythm, chunk shape, layout, and visual-context defects.
+The app can generate `.md.gz` backend defect report files directly from the mobile reading session. Reports carry explicit timing context, display metadata, quote state, parenthetical state, and optional navigation metadata so validation can separate timing rhythm, chunk shape, layout, visual-context, and future orientation defects.
 
 ## Completed Capabilities
 | Area | Status | Notes |
@@ -36,6 +36,9 @@ The app can generate `.md.gz` backend defect report files directly from the mobi
 | Chunking cleanup for `as` and `should` | Done | Short `as` phrases and modal/auxiliary attachment are less likely to pollute timing reports |
 | Quote-spacing/text-cleanliness cleanup | Done | Closing quote followed by a word is normalized into readable spacing |
 | Quote/parenthetical display-state indicators | Done | Schedule metadata and frontend styling identify quote and parenthetical spans |
+| Navigation metadata scaffolding | Done | Schedule items include character span, paragraph, and coarse progress metadata |
+| Paragraph/progress milestone metadata | Done | Paragraph starts and 5% progress crossings are computed for future navigability |
+| Dormant navigability UI scaffolding | Done | Hidden progress/breakpoint placeholders and inactive JS helpers exist |
 | `/api/schedule` | Done | Backend emits frontend-ready schedule |
 | Mobile RSVP playback loop | Done | Reader advances scheduled chunks |
 | Touch gestures | Done | Tap/swipe/long-press interaction exists |
@@ -86,7 +89,9 @@ Chunking refinement pass 1 is documented in `docs/validation/chunking_refinement
 
 Quote and parenthetical state indicators are documented in `docs/validation/quote_parenthetical_state_indicators.md`. Use `quote_state_confusion` and `parenthetical_state_confusion` when the issue is visual context, not timing.
 
-Defect reports now include timing context such as base duration, effective duration, playback speed, syntactic hint, content word count, character length, quote state, parenthetical state, nearby chunk timing, session timing summary, and display metadata. See `docs/validation/timing_defect_collection.md` for the timing defect collection workflow and `scripts/review_defects.py` for local report review/export.
+Defect reports now include timing context such as base duration, effective duration, playback speed, syntactic hint, content word count, character length, quote state, parenthetical state, nearby chunk timing, session timing summary, optional navigation metadata, and display metadata. See `docs/validation/timing_defect_collection.md` for the timing defect collection workflow and `scripts/review_defects.py` for local report review/export.
+
+Navigation metadata is available in schedule items for future orientation and recovery features. Active progress bars, seeking, bookmark traversal, and drift recovery are not enabled yet.
 
 Log defects with the in-app `Report Defect` button, or use `docs/validation/defect_log_template.md` when working outside the app. Choose categories from `docs/validation/defect_taxonomy.md`. Interpret severity as:
 
@@ -109,10 +114,10 @@ python scripts/schedule_sample.py --json < sample.txt
 
 ## Next Milestones
 
-1. Chunker Refinement Pass 2 for names, titles, honorifics, articles, prepositions, and weak boundaries
-2. Quote/parenthetical validation using the new display-state categories
-3. Timing Calibration Pass 2 only if clean timing-context reports justify it
-4. Session summary / validation UX polish
+1. Chunker Refinement Pass 2 for proper nouns, honorifics, articles, and function-word boundaries
+2. Passive Spatial Anchor implementation
+3. Breakpoint Bookmarking Traversal
+4. Drift Recovery Logic
 
 ## Manual Test Checklist
 

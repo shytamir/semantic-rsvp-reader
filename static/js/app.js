@@ -57,9 +57,15 @@ const adaptationReset = document.querySelector("#adaptation-reset");
 const adaptationCount = document.querySelector("#adaptation-count");
 const sessionCurrentSpeed = document.querySelector("#session-current-speed");
 const sessionAdaptationEnabled = document.querySelector("#session-adaptation-enabled");
+const progressAnchor = document.querySelector("#progress-anchor");
+const progressAnchorFill = document.querySelector("#progress-anchor-fill");
+const breakpointStatus = document.querySelector("#breakpoint-status");
 
 let schedule = [];
 let currentIndex = 0;
+let navigationEnabled = false;
+let breakpoints = [];
+let lastProgressMilestoneIndex = 0;
 let isPlaying = false;
 let timerId = null;
 let touchStartX = 0;
@@ -146,6 +152,7 @@ async function loadSchedule(text) {
     schedule = payload.schedule;
     scheduledSentences = Array.isArray(payload.sentences) ? payload.sentences : [];
     currentIndex = 0;
+    resetNavigationScaffold();
     defectReportCount = 0;
     lastDefectReportId = null;
     resetSpeed({ record: false });
@@ -161,6 +168,7 @@ async function loadSchedule(text) {
     schedule = [];
     scheduledSentences = [];
     currentIndex = 0;
+    resetNavigationScaffold();
     stopPlayback({ render: false });
     hideSpeedOverlay();
     closeDefectPanel();
@@ -283,6 +291,7 @@ function buildDefectPayload() {
       quote_boundary: item ? item.quote_boundary || "none" : "none",
       in_parenthetical: item ? Boolean(item.in_parenthetical) : false,
       parenthetical_depth: item ? Number(item.parenthetical_depth || 0) : 0,
+      navigation: item && item.navigation ? item.navigation : null,
       original_sentence: getOriginalSentenceForCurrentChunk(),
       previous_chunks: context.previous_chunks,
       next_chunks: context.next_chunks,
@@ -430,6 +439,7 @@ function formatChunkContextItem(item) {
     quote_boundary: item.quote_boundary || "none",
     in_parenthetical: Boolean(item.in_parenthetical),
     parenthetical_depth: Number(item.parenthetical_depth || 0),
+    navigation: item.navigation || null,
   };
 }
 
@@ -913,6 +923,14 @@ function validateScheduleResponse(payload, response) {
     ) {
       throw new Error("Schedule item parenthetical state was invalid.");
     }
+    if (
+      item.navigation !== undefined &&
+      (!item.navigation ||
+        typeof item.navigation.progress_percent !== "number" ||
+        typeof item.navigation.paragraph_index !== "number")
+    ) {
+      throw new Error("Schedule item navigation metadata was invalid.");
+    }
   }
 }
 
@@ -930,6 +948,86 @@ function getCurrentScheduleItem() {
     return null;
   }
   return schedule[clampIndex(currentIndex)] || null;
+}
+
+function resetNavigationScaffold() {
+  navigationEnabled = false;
+  breakpoints = [];
+  lastProgressMilestoneIndex = 0;
+  if (progressAnchorFill) {
+    progressAnchorFill.style.width = "0%";
+  }
+  if (breakpointStatus) {
+    breakpointStatus.textContent = "";
+  }
+}
+
+function getCurrentNavigationMeta() {
+  const item = getCurrentScheduleItem();
+  return item && item.navigation ? item.navigation : null;
+}
+
+function getCurrentProgressPercent() {
+  const navigation = getCurrentNavigationMeta();
+  return navigation ? clampPercent(navigation.progress_percent) : 0;
+}
+
+function getNearestProgressMilestoneIndex(targetPercent) {
+  if (schedule.length === 0) {
+    return 0;
+  }
+  const target = clampPercent(targetPercent);
+  let nearestIndex = 0;
+  let nearestDistance = Infinity;
+  schedule.forEach((item, index) => {
+    const navigation = item.navigation || {};
+    if (!navigation.is_progress_milestone) {
+      return;
+    }
+    const distance = Math.abs(clampPercent(navigation.progress_percent || 0) - target);
+    if (distance < nearestDistance) {
+      nearestIndex = index;
+      nearestDistance = distance;
+    }
+  });
+  return nearestIndex;
+}
+
+function setBreakpointAtCurrentChunk() {
+  if (schedule.length === 0) {
+    return [];
+  }
+  const index = clampIndex(currentIndex);
+  if (!breakpoints.includes(index)) {
+    breakpoints = [...breakpoints, index].sort((left, right) => left - right);
+  }
+  return [...breakpoints];
+}
+
+function clearBreakpoints() {
+  breakpoints = [];
+}
+
+function getPreviousBreakpointIndex() {
+  const previous = breakpoints.filter((index) => index < currentIndex);
+  return previous.length ? previous[previous.length - 1] : null;
+}
+
+function getNextBreakpointIndex() {
+  const next = breakpoints.find((index) => index > currentIndex);
+  return next === undefined ? null : next;
+}
+
+function computeLeadInIndex(targetIndex, leadInChunks = 3) {
+  return clampIndex(Number(targetIndex || 0) - Number(leadInChunks || 0));
+}
+
+function clampPercent(value) {
+  const percent = Number(value);
+  if (!Number.isFinite(percent)) {
+    return 0;
+  }
+  return Math.min(Math.max(percent, 0), 100);
 }
 
 function recordSessionEvent(type, metadata = {}) {

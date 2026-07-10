@@ -14,6 +14,12 @@
 ## Navigation & Navigability
 *Goal: Address user orientation and state recovery without introducing UI clutter or peripheral distraction.*
 
+- [x] **Navigation Scaffolding Pass 1**
+  - Added schedule-level navigation metadata.
+  - Added paragraph/progress milestone scaffolding.
+  - Added dormant frontend helpers and hidden UI placeholders.
+  - No user-visible navigation behavior enabled yet.
+
 - [ ] **Spatial Anchor (Passive Progress Bar)**
   - Implement a 2px-high, low-opacity (#333) progress bar at the bottom of the viewport.
   - Requirement: Update only at significant logical boundaries (paragraph breaks or every 5% character count) to avoid flicker/strobe effects.

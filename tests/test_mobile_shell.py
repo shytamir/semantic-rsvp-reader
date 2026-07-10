@@ -22,6 +22,9 @@ def test_index_includes_reader_and_input_ids(client):
         b'id="status-message"',
         b'id="reader-area"',
         b'id="chunk-display"',
+        b'id="progress-anchor"',
+        b'id="progress-anchor-fill"',
+        b'id="breakpoint-status"',
         b'id="speed-overlay"',
         b'id="speed-label"',
         b'id="speed-slower"',
@@ -89,6 +92,15 @@ def test_chunk_display_has_quote_and_parenthetical_state_styles(client):
     assert "border-left" in css
 
 
+def test_navigation_scaffold_is_hidden_and_inert(client):
+    response = client.get("/static/css/app.css")
+    css = response.data.decode("utf-8")
+
+    assert ".navigation-scaffold[hidden]" in css
+    assert "pointer-events: none" in css
+    assert ".progress-anchor-fill" in css
+
+
 def test_static_js_route_returns_ok(client):
     response = client.get("/static/js/app.js")
 
@@ -113,3 +125,14 @@ def test_static_js_applies_quote_and_parenthetical_state(client):
     assert "state-quote" in javascript
     assert "state-parenthetical" in javascript
     assert "parenthetical_depth" in javascript
+
+
+def test_static_js_includes_dormant_navigation_helpers(client):
+    response = client.get("/static/js/app.js")
+    javascript = response.data.decode("utf-8")
+
+    assert "navigationEnabled = false" in javascript
+    assert "getCurrentNavigationMeta" in javascript
+    assert "getNearestProgressMilestoneIndex" in javascript
+    assert "setBreakpointAtCurrentChunk" in javascript
+    assert "computeLeadInIndex" in javascript

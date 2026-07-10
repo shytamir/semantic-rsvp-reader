@@ -71,6 +71,14 @@ def test_schedule_chunks_include_display_state_defaults():
     assert all(item.display_state.parenthetical_depth == 0 for item in schedule)
 
 
+def test_build_schedule_chunks_include_navigation_defaults():
+    schedule = build_schedule(["The system learns."])
+
+    assert all(item.navigation.char_start == 0 for item in schedule)
+    assert all(item.navigation.progress_percent == 0 for item in schedule)
+    assert all(item.navigation.paragraph_index == 0 for item in schedule)
+
+
 def test_malformed_parenthesis_does_not_make_depth_negative():
     schedule = schedule_text("The system closes) safely.")
 

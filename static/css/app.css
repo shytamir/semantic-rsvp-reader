@@ -219,6 +219,32 @@ textarea:focus-visible,
 
 /* Italic quote styling may be tested later; it is avoided here to preserve word shape. */
 
+.navigation-scaffold[hidden] {
+  display: none;
+}
+
+.navigation-scaffold {
+  pointer-events: none;
+}
+
+.progress-anchor {
+  height: 2px;
+  opacity: 0;
+}
+
+.progress-anchor-fill {
+  width: 0%;
+  height: 100%;
+  background: #333;
+}
+
+.breakpoint-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .chunk-display.is-long-chunk {
   max-width: min(94vw, 28ch);
   font-size: clamp(1.65rem, 8.5vw, 3.35rem);

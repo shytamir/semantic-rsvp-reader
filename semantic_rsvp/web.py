@@ -191,6 +191,7 @@ def _timing_config_from_payload(payload: dict) -> TimingConfig:
 def _scheduled_chunk_to_dict(scheduled_chunk):
     chunk = scheduled_chunk.chunk
     display_state = scheduled_chunk.display_state
+    navigation = scheduled_chunk.navigation
     return {
         "index": scheduled_chunk.index,
         "sentence_index": scheduled_chunk.sentence_index,
@@ -203,6 +204,7 @@ def _scheduled_chunk_to_dict(scheduled_chunk):
         "quote_boundary": display_state.quote_boundary,
         "in_parenthetical": display_state.in_parenthetical,
         "parenthetical_depth": display_state.parenthetical_depth,
+        "navigation": asdict(navigation),
     }
 
 

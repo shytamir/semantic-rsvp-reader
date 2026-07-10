@@ -151,6 +151,8 @@ def render_defect_report_markdown(
             f"Quote boundary: {_value(reader_state, 'quote_boundary')}",
             f"In parenthetical: {_value(reader_state, 'in_parenthetical')}",
             f"Parenthetical depth: {_value(reader_state, 'parenthetical_depth')}",
+            f"Navigation progress percent: {_value(reader_state.get('navigation', {}), 'progress_percent')}",
+            f"Navigation paragraph index: {_value(reader_state.get('navigation', {}), 'paragraph_index')}",
             "",
             "Original sentence:",
             _string_value(reader_state, "original_sentence"),
@@ -224,7 +226,7 @@ def _format_chunks(chunks) -> list[str]:
             "- [{index}] \"{text}\" - {base}ms base / {effective}ms effective - "
             "{hint} - {content_words} content word(s) - {chars} chars - "
             "quote={in_quote}/{quote_boundary} - parenthetical={in_parenthetical}/"
-            "{parenthetical_depth}".format(
+            "{parenthetical_depth} - navigation={progress_percent}%/p{paragraph_index}".format(
                 index=_value(chunk, "index"),
                 text=_string_value(chunk, "text"),
                 base=_value(chunk, "base_duration_ms"),
@@ -236,6 +238,8 @@ def _format_chunks(chunks) -> list[str]:
                 quote_boundary=_value(chunk, "quote_boundary"),
                 in_parenthetical=_value(chunk, "in_parenthetical"),
                 parenthetical_depth=_value(chunk, "parenthetical_depth"),
+                progress_percent=_value(chunk.get("navigation", {}), "progress_percent"),
+                paragraph_index=_value(chunk.get("navigation", {}), "paragraph_index"),
             )
         )
     return formatted or ["- none"]
@@ -270,6 +274,7 @@ def _sanitize_reader_state(reader_state: dict) -> dict:
 
     sanitized["previous_chunks"] = _sanitize_chunks(reader_state.get("previous_chunks"))
     sanitized["next_chunks"] = _sanitize_chunks(reader_state.get("next_chunks"))
+    sanitized["navigation"] = _sanitize_navigation(reader_state.get("navigation"))
     sanitized["session_summary"] = _sanitize_session_summary(
         reader_state.get("session_summary", {})
     )
@@ -331,9 +336,26 @@ def _sanitize_chunks(chunks) -> list[dict]:
                 "quote_boundary": _bounded_text(chunk.get("quote_boundary", "")),
                 "in_parenthetical": chunk.get("in_parenthetical"),
                 "parenthetical_depth": chunk.get("parenthetical_depth"),
+                "navigation": _sanitize_navigation(chunk.get("navigation")),
             }
         )
     return sanitized
+
+
+def _sanitize_navigation(navigation) -> dict:
+    if not isinstance(navigation, dict):
+        return {}
+    return {
+        "char_start": navigation.get("char_start"),
+        "char_end": navigation.get("char_end"),
+        "char_count_total": navigation.get("char_count_total"),
+        "progress_ratio": navigation.get("progress_ratio"),
+        "progress_percent": navigation.get("progress_percent"),
+        "paragraph_index": navigation.get("paragraph_index"),
+        "is_paragraph_start": navigation.get("is_paragraph_start"),
+        "is_paragraph_end": navigation.get("is_paragraph_end"),
+        "is_progress_milestone": navigation.get("is_progress_milestone"),
+    }
 
 
 def _sanitize_text(value, max_chars: int = MAX_FIELD_CHARS) -> str:
