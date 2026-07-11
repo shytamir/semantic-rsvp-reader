@@ -8,7 +8,7 @@ This roadmap is the priority-order view. [STATUS](STATUS.md) is the authority fo
    - State: `AWAITING_HUMAN_VALIDATION`
    - Owner: Human
    - Scope: [S-032](s032_navigation_interaction.md).
-   - Handoff: [fixed navigation and interaction protocol](../validation/s032_navigation_interaction_validation.md).
+   - Handoff: [fixed navigation and interaction protocol](../validation/navigation_validation.md#s-032-navigation-and-interaction-validation).
 
 ## Next
 

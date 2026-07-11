@@ -14,7 +14,7 @@ previous_slice: S-031
 
 ## Current Slice
 
-S-032 is the sole active slice at `AWAITING_HUMAN_VALIDATION`, owned by the human. Automated characterization and one narrow direction-consistency stabilization are complete. The fixed phone-browser protocol is in [S-032 Navigation and Interaction Validation](../validation/s032_navigation_interaction_validation.md). S-033 remains scheduled and inactive.
+S-032 is the sole active slice at `AWAITING_HUMAN_VALIDATION`, owned by the human. Automated characterization and one narrow direction-consistency stabilization are complete. The fixed phone-browser protocol is in [Navigation Validation](../validation/navigation_validation.md#s-032-navigation-and-interaction-validation). S-033 remains scheduled and inactive.
 
 ## S-031 Outcome
 
