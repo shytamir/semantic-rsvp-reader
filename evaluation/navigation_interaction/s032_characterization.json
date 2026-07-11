@@ -1,0 +1,596 @@
+{
+  "cancellation_reasons": [
+    "adaptation_reset",
+    "adaptation_toggle",
+    "back_to_input",
+    "breakpoint_toggle",
+    "defect_report",
+    "defect_submit",
+    "load_schedule",
+    "manual_next",
+    "new_drift_recovery",
+    "play_pause",
+    "progress_seek",
+    "reader_gesture",
+    "reset",
+    "speed_change",
+    "speed_overlay"
+  ],
+  "drift_recovery": {
+    "delay_ms": 500,
+    "lead_in_chunks": 3
+  },
+  "gesture_thresholds": {
+    "double_tap_ms": 280,
+    "long_press_ms": 500,
+    "swipe_max_vertical_drift_px": 60,
+    "swipe_min_distance_px": 40,
+    "tap_max_distance_px": 12
+  },
+  "hard_failures": [],
+  "interaction_matrix": [
+    {
+      "actions": [
+        "tap",
+        "swipe_left",
+        "swipe_right",
+        "hold_swipe"
+      ],
+      "expected": "tap toggles playback; left moves to previous and right moves to next; hold-swipe moves five chunks",
+      "path": "ordinary_traversal"
+    },
+    {
+      "actions": [
+        "double_tap_toggle",
+        "swipe_left",
+        "swipe_right"
+      ],
+      "expected": "toggle has no play side effect; swipe direction matches ordinary traversal and starts lead-in recovery",
+      "path": "breakpoints"
+    },
+    {
+      "actions": [
+        "tap_progress_anchor"
+      ],
+      "expected": "pending recovery cancels, playback pauses, and the nearest milestone is selected",
+      "path": "coarse_seek"
+    },
+    {
+      "actions": [
+        "reset",
+        "load_new_stream"
+      ],
+      "expected": "reset returns to index zero while same-stream breakpoints remain; loading new text clears navigation state",
+      "path": "reset"
+    },
+    {
+      "actions": [
+        "breakpoint_traversal",
+        "wait_500ms"
+      ],
+      "expected": "three-chunk lead-in renders, then playback resumes through the target context",
+      "path": "drift_recovery"
+    },
+    {
+      "actions": [
+        "start_recovery",
+        "tap_or_control_before_delay"
+      ],
+      "expected": "the pending timer clears, cancellation is recorded, and delayed playback does not resume",
+      "path": "cancellation"
+    },
+    {
+      "actions": [
+        "ordinary",
+        "seek",
+        "breakpoint",
+        "reset"
+      ],
+      "expected": "ghost is index minus one and active H1/H2 label follows schedule metadata",
+      "path": "ghost_and_structure"
+    }
+  ],
+  "invariants": [
+    {
+      "id": "gesture_direction_consistency",
+      "passed": true
+    },
+    {
+      "id": "gesture_arbitration",
+      "passed": true
+    },
+    {
+      "id": "coarse_seek_pauses_and_resolves_milestone",
+      "passed": true
+    },
+    {
+      "id": "breakpoint_toggle_and_ordered_traversal",
+      "passed": true
+    },
+    {
+      "id": "ghost_context_tracks_current_index",
+      "passed": true
+    },
+    {
+      "id": "drift_recovery_lead_in_resume_and_cancel",
+      "passed": true
+    },
+    {
+      "id": "reset_and_new_stream_boundaries",
+      "passed": true
+    },
+    {
+      "id": "structural_orientation_tracks_schedule_metadata",
+      "passed": true
+    }
+  ],
+  "method": "static_source_and_deterministic_stream_characterization",
+  "presentation_findings_for_s033": [],
+  "slice": "S-032",
+  "source": "static/js/app.js",
+  "source_sha256": "14c2459efc6f413675312e55cbbd218d3958829f097d69c4459106d2a2e011db",
+  "stabilized_defects": [
+    {
+      "after": "ordinary and breakpoint traversal share left-previous and right-next semantics",
+      "before": "left/right swipes reversed direction only when breakpoints existed",
+      "id": "breakpoint_swipe_direction_mismatch"
+    }
+  ],
+  "streams": {
+    "ordinary": {
+      "schedule": [
+        {
+          "active_label": null,
+          "active_path": [],
+          "index": 0,
+          "is_header_chunk": false,
+          "is_progress_milestone": true,
+          "paragraph_index": 0,
+          "progress_percent": 4,
+          "text": "First paragraph"
+        },
+        {
+          "active_label": null,
+          "active_path": [],
+          "index": 1,
+          "is_header_chunk": false,
+          "is_progress_milestone": true,
+          "paragraph_index": 0,
+          "progress_percent": 7,
+          "text": "establishes"
+        },
+        {
+          "active_label": null,
+          "active_path": [],
+          "index": 2,
+          "is_header_chunk": false,
+          "is_progress_milestone": true,
+          "paragraph_index": 0,
+          "progress_percent": 10,
+          "text": "the ordinary"
+        },
+        {
+          "active_label": null,
+          "active_path": [],
+          "index": 3,
+          "is_header_chunk": false,
+          "is_progress_milestone": true,
+          "paragraph_index": 0,
+          "progress_percent": 17,
+          "text": "traversal path and gives"
+        },
+        {
+          "active_label": null,
+          "active_path": [],
+          "index": 4,
+          "is_header_chunk": false,
+          "is_progress_milestone": true,
+          "paragraph_index": 0,
+          "progress_percent": 20,
+          "text": "the reader"
+        },
+        {
+          "active_label": null,
+          "active_path": [],
+          "index": 5,
+          "is_header_chunk": false,
+          "is_progress_milestone": false,
+          "paragraph_index": 0,
+          "progress_percent": 24,
+          "text": "enough chunks"
+        },
+        {
+          "active_label": null,
+          "active_path": [],
+          "index": 6,
+          "is_header_chunk": false,
+          "is_progress_milestone": true,
+          "paragraph_index": 0,
+          "progress_percent": 26,
+          "text": "to move"
+        },
+        {
+          "active_label": null,
+          "active_path": [],
+          "index": 7,
+          "is_header_chunk": false,
+          "is_progress_milestone": true,
+          "paragraph_index": 0,
+          "progress_percent": 32,
+          "text": "in both directions."
+        },
+        {
+          "active_label": null,
+          "active_path": [],
+          "index": 8,
+          "is_header_chunk": false,
+          "is_progress_milestone": true,
+          "paragraph_index": 1,
+          "progress_percent": 37,
+          "text": "Second paragraph"
+        },
+        {
+          "active_label": null,
+          "active_path": [],
+          "index": 9,
+          "is_header_chunk": false,
+          "is_progress_milestone": false,
+          "paragraph_index": 1,
+          "progress_percent": 39,
+          "text": "provides"
+        },
+        {
+          "active_label": null,
+          "active_path": [],
+          "index": 10,
+          "is_header_chunk": false,
+          "is_progress_milestone": true,
+          "paragraph_index": 1,
+          "progress_percent": 42,
+          "text": "a coarse"
+        },
+        {
+          "active_label": null,
+          "active_path": [],
+          "index": 11,
+          "is_header_chunk": false,
+          "is_progress_milestone": true,
+          "paragraph_index": 1,
+          "progress_percent": 50,
+          "text": "progress milestone and several"
+        },
+        {
+          "active_label": null,
+          "active_path": [],
+          "index": 12,
+          "is_header_chunk": false,
+          "is_progress_milestone": true,
+          "paragraph_index": 1,
+          "progress_percent": 55,
+          "text": "useful breakpoint"
+        },
+        {
+          "active_label": null,
+          "active_path": [],
+          "index": 13,
+          "is_header_chunk": false,
+          "is_progress_milestone": true,
+          "paragraph_index": 1,
+          "progress_percent": 62,
+          "text": "targets for deterministic"
+        },
+        {
+          "active_label": null,
+          "active_path": [],
+          "index": 14,
+          "is_header_chunk": false,
+          "is_progress_milestone": true,
+          "paragraph_index": 1,
+          "progress_percent": 65,
+          "text": "validation."
+        },
+        {
+          "active_label": null,
+          "active_path": [],
+          "index": 15,
+          "is_header_chunk": false,
+          "is_progress_milestone": true,
+          "paragraph_index": 2,
+          "progress_percent": 70,
+          "text": "Third paragraph"
+        },
+        {
+          "active_label": null,
+          "active_path": [],
+          "index": 16,
+          "is_header_chunk": false,
+          "is_progress_milestone": false,
+          "paragraph_index": 2,
+          "progress_percent": 72,
+          "text": "closes"
+        },
+        {
+          "active_label": null,
+          "active_path": [],
+          "index": 17,
+          "is_header_chunk": false,
+          "is_progress_milestone": true,
+          "paragraph_index": 2,
+          "progress_percent": 75,
+          "text": "the stream"
+        },
+        {
+          "active_label": null,
+          "active_path": [],
+          "index": 18,
+          "is_header_chunk": false,
+          "is_progress_milestone": false,
+          "paragraph_index": 2,
+          "progress_percent": 78,
+          "text": "so reset,"
+        },
+        {
+          "active_label": null,
+          "active_path": [],
+          "index": 19,
+          "is_header_chunk": false,
+          "is_progress_milestone": true,
+          "paragraph_index": 2,
+          "progress_percent": 82,
+          "text": "end boundaries,"
+        },
+        {
+          "active_label": null,
+          "active_path": [],
+          "index": 20,
+          "is_header_chunk": false,
+          "is_progress_milestone": true,
+          "paragraph_index": 2,
+          "progress_percent": 88,
+          "text": "and cancellation can"
+        },
+        {
+          "active_label": null,
+          "active_path": [],
+          "index": 21,
+          "is_header_chunk": false,
+          "is_progress_milestone": true,
+          "paragraph_index": 2,
+          "progress_percent": 91,
+          "text": "be checked"
+        },
+        {
+          "active_label": null,
+          "active_path": [],
+          "index": 22,
+          "is_header_chunk": false,
+          "is_progress_milestone": true,
+          "paragraph_index": 2,
+          "progress_percent": 95,
+          "text": "without changing"
+        },
+        {
+          "active_label": null,
+          "active_path": [],
+          "index": 23,
+          "is_header_chunk": false,
+          "is_progress_milestone": true,
+          "paragraph_index": 2,
+          "progress_percent": 100,
+          "text": "timing policy."
+        }
+      ],
+      "source_text": "First paragraph establishes the ordinary traversal path and gives the reader enough chunks to move in both directions.\n\nSecond paragraph provides a coarse progress milestone and several useful breakpoint targets for deterministic validation.\n\nThird paragraph closes the stream so reset, end boundaries, and cancellation can be checked without changing timing policy."
+    },
+    "structural": {
+      "schedule": [
+        {
+          "active_label": "Main Route",
+          "active_path": [
+            "Main Route"
+          ],
+          "index": 0,
+          "is_header_chunk": true,
+          "is_progress_milestone": true,
+          "paragraph_index": 0,
+          "progress_percent": 4,
+          "text": "Main Route"
+        },
+        {
+          "active_label": "Main Route",
+          "active_path": [
+            "Main Route"
+          ],
+          "index": 1,
+          "is_header_chunk": false,
+          "is_progress_milestone": true,
+          "paragraph_index": 1,
+          "progress_percent": 15,
+          "text": "Introductory navigation"
+        },
+        {
+          "active_label": "Main Route",
+          "active_path": [
+            "Main Route"
+          ],
+          "index": 2,
+          "is_header_chunk": false,
+          "is_progress_milestone": false,
+          "paragraph_index": 1,
+          "progress_percent": 17,
+          "text": "text."
+        },
+        {
+          "active_label": "First Turn",
+          "active_path": [
+            "Main Route",
+            "First Turn"
+          ],
+          "index": 3,
+          "is_header_chunk": true,
+          "is_progress_milestone": true,
+          "paragraph_index": 2,
+          "progress_percent": 24,
+          "text": "First Turn"
+        },
+        {
+          "active_label": "First Turn",
+          "active_path": [
+            "Main Route",
+            "First Turn"
+          ],
+          "index": 4,
+          "is_header_chunk": false,
+          "is_progress_milestone": true,
+          "paragraph_index": 3,
+          "progress_percent": 28,
+          "text": "The first"
+        },
+        {
+          "active_label": "First Turn",
+          "active_path": [
+            "Main Route",
+            "First Turn"
+          ],
+          "index": 5,
+          "is_header_chunk": false,
+          "is_progress_milestone": true,
+          "paragraph_index": 3,
+          "progress_percent": 35,
+          "text": "section supplies"
+        },
+        {
+          "active_label": "First Turn",
+          "active_path": [
+            "Main Route",
+            "First Turn"
+          ],
+          "index": 6,
+          "is_header_chunk": false,
+          "is_progress_milestone": true,
+          "paragraph_index": 3,
+          "progress_percent": 41,
+          "text": "several chunks"
+        },
+        {
+          "active_label": "First Turn",
+          "active_path": [
+            "Main Route",
+            "First Turn"
+          ],
+          "index": 7,
+          "is_header_chunk": false,
+          "is_progress_milestone": true,
+          "paragraph_index": 3,
+          "progress_percent": 48,
+          "text": "for a breakpoint"
+        },
+        {
+          "active_label": "First Turn",
+          "active_path": [
+            "Main Route",
+            "First Turn"
+          ],
+          "index": 8,
+          "is_header_chunk": false,
+          "is_progress_milestone": true,
+          "paragraph_index": 3,
+          "progress_percent": 55,
+          "text": "and a recovery"
+        },
+        {
+          "active_label": "First Turn",
+          "active_path": [
+            "Main Route",
+            "First Turn"
+          ],
+          "index": 9,
+          "is_header_chunk": false,
+          "is_progress_milestone": false,
+          "paragraph_index": 3,
+          "progress_percent": 58,
+          "text": "lead-in."
+        },
+        {
+          "active_label": "Second Turn",
+          "active_path": [
+            "Main Route",
+            "Second Turn"
+          ],
+          "index": 10,
+          "is_header_chunk": true,
+          "is_progress_milestone": true,
+          "paragraph_index": 4,
+          "progress_percent": 65,
+          "text": "Second Turn"
+        },
+        {
+          "active_label": "Second Turn",
+          "active_path": [
+            "Main Route",
+            "Second Turn"
+          ],
+          "index": 11,
+          "is_header_chunk": false,
+          "is_progress_milestone": true,
+          "paragraph_index": 5,
+          "progress_percent": 70,
+          "text": "The second"
+        },
+        {
+          "active_label": "Second Turn",
+          "active_path": [
+            "Main Route",
+            "Second Turn"
+          ],
+          "index": 12,
+          "is_header_chunk": false,
+          "is_progress_milestone": true,
+          "paragraph_index": 5,
+          "progress_percent": 79,
+          "text": "section confirms that"
+        },
+        {
+          "active_label": "Second Turn",
+          "active_path": [
+            "Main Route",
+            "Second Turn"
+          ],
+          "index": 13,
+          "is_header_chunk": false,
+          "is_progress_milestone": true,
+          "paragraph_index": 5,
+          "progress_percent": 89,
+          "text": "structural orientation"
+        },
+        {
+          "active_label": "Second Turn",
+          "active_path": [
+            "Main Route",
+            "Second Turn"
+          ],
+          "index": 14,
+          "is_header_chunk": false,
+          "is_progress_milestone": true,
+          "paragraph_index": 5,
+          "progress_percent": 95,
+          "text": "changes during"
+        },
+        {
+          "active_label": "Second Turn",
+          "active_path": [
+            "Main Route",
+            "Second Turn"
+          ],
+          "index": 15,
+          "is_header_chunk": false,
+          "is_progress_milestone": true,
+          "paragraph_index": 5,
+          "progress_percent": 100,
+          "text": "traversal."
+        }
+      ],
+      "source_text": "# Main Route\n\nIntroductory navigation text.\n\n## First Turn\n\nThe first section supplies several chunks for a breakpoint and a recovery lead-in.\n\n## Second Turn\n\nThe second section confirms that structural orientation changes during traversal."
+    }
+  }
+}

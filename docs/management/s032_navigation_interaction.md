@@ -2,7 +2,7 @@
 
 ## Status
 
-Active and authorized for implementation at `READY_FOR_IMPLEMENTATION`, owned by Codex. S-033 remains scheduled and inactive.
+Active at `AWAITING_HUMAN_VALIDATION`, owned by the human. Automated characterization and narrow stabilization are complete; S-033 remains scheduled and inactive.
 
 ## Objective
 

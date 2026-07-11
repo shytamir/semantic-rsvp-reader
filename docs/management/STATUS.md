@@ -3,10 +3,10 @@
 ```yaml
 current_slice: S-032
 name: Navigation and Interaction
-state: READY_FOR_IMPLEMENTATION
-owner: Codex
-agent_action: implement the preserved S-032 scope
-blocked_on: none
+state: AWAITING_HUMAN_VALIDATION
+owner: Human
+agent_action: run the fixed S-032 phone-browser protocol and record the disposition
+blocked_on: human navigation and interaction validation
 started: 2026-07-11
 scope: docs/management/s032_navigation_interaction.md
 previous_slice: S-031
@@ -14,7 +14,7 @@ previous_slice: S-031
 
 ## Current Slice
 
-S-032 is the sole active slice at `READY_FOR_IMPLEMENTATION`, owned by Codex. Its preserved scope validates functional navigation and recovery behavior. S-033 remains scheduled and inactive.
+S-032 is the sole active slice at `AWAITING_HUMAN_VALIDATION`, owned by the human. Automated characterization and one narrow direction-consistency stabilization are complete. The fixed phone-browser protocol is in [S-032 Navigation and Interaction Validation](../validation/s032_navigation_interaction_validation.md). S-033 remains scheduled and inactive.
 
 ## S-031 Outcome
 

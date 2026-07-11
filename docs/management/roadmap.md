@@ -5,9 +5,10 @@ This roadmap is the priority-order view. [STATUS](STATUS.md) is the authority fo
 ## Now
 
 1. **S-032: Navigation and Interaction**
-   - State: `READY_FOR_IMPLEMENTATION`
-   - Owner: Codex
+   - State: `AWAITING_HUMAN_VALIDATION`
+   - Owner: Human
    - Scope: [S-032](s032_navigation_interaction.md).
+   - Handoff: [fixed navigation and interaction protocol](../validation/s032_navigation_interaction_validation.md).
 
 ## Next
 

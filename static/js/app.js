@@ -907,9 +907,9 @@ function handlePointerEnd(event) {
   if (isSwipe(deltaX, deltaY)) {
     suppressNextTap = true;
     if (deltaX < 0) {
-      traverseBreakpointOrStep("next");
-    } else {
       traverseBreakpointOrStep("previous");
+    } else {
+      traverseBreakpointOrStep("next");
     }
     window.setTimeout(() => {
       suppressNextTap = false;
@@ -1365,7 +1365,7 @@ function getNextBreakpointIndex(fromIndex = currentIndex) {
 
 function traverseBreakpointOrStep(direction) {
   if (normalizeBreakpoints().length === 0) {
-    if (direction === "next") {
+    if (direction === "previous") {
       previousChunk();
     } else {
       nextChunk();
