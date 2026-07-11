@@ -4,8 +4,8 @@
 
 `scripts/measure_s029_density_timing.py` measures all 22 project-owned visible corpus cases under both chunkers on identical normalized text. Machine-readable records preserve per-case chunk counts, word and content-word density, character-length distributions, hint distributions, total duration, milliseconds per word/content word, and clamp incidence:
 
-- [Before adjustment](../../evaluation/timing/s029_density_timing_before.json)
-- [After adjustment](../../evaluation/timing/s029_density_timing_after.json)
+- [Before adjustment](../../../evaluation/timing/s029_density_timing_before.json)
+- [After adjustment](../../../evaluation/timing/s029_density_timing_after.json)
 
 Aggregate baseline results show that parser-assisted output uses 74 chunks versus 124 rule-based chunks (-40.3%). It contains 3.662 versus 2.185 words per chunk and 2.541 versus 1.516 content words per chunk, both +67.6%. The human “nearly doubled” description was directionally useful but is not the measured result.
 

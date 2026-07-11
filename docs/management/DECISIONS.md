@@ -129,4 +129,4 @@ Consequences:
 * Broad hand-written semantic-rule expansion remains disallowed while the adopted path is being validated.
 * Public superiority claims remain prohibited.
 
-References: D-007, D-008, [S-024 objective comparison](../experiments/parser_assisted_chunking/s024_objective_comparison.md), and [S-024 human preference summary](../validation/s024_human_ab_preference_summary.md).
+References: D-007, D-008, [S-024 objective comparison](../experiments/parser_assisted_chunking/s024_objective_comparison.md), and [S-024 human preference summary](../validation/archive/s024_human_ab_preference_summary.md).

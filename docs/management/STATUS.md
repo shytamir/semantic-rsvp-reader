@@ -44,7 +44,7 @@ The previously unvalidated structural hierarchy anchor was tested separately wit
 
 S-026 completed as `passed` on 2026-07-11.
 
-Human validation reported that the protocol went smoothly, the implementation behaved as expected, and no acceptance-blocking regressions were observed. See [S-026 parser integration validation](../validation/s026_parser_integration_validation.md).
+Human validation reported that the protocol went smoothly, the implementation behaved as expected, and no acceptance-blocking regressions were observed. See [S-026 parser integration validation](../validation/archive/s026_parser_integration_validation.md).
 
 ## S-025 Outcome
 
@@ -64,7 +64,7 @@ The objective comparison was run against the authorized sealed blind challenge p
 
 - Redacted objective report: [s024_objective_comparison.md](../experiments/parser_assisted_chunking/s024_objective_comparison.md)
 - Redacted objective JSON: [s024_objective_comparison.json](../../evaluation/parser_assisted_chunking/results/s024_objective_comparison.json)
-- Human A/B preference summary: [s024_human_ab_preference_summary.md](../validation/s024_human_ab_preference_summary.md)
+- Human A/B preference summary: [s024_human_ab_preference_summary.md](../validation/archive/s024_human_ab_preference_summary.md)
 - Human A/B preference JSON: [s024_human_ab_preference.json](../../evaluation/parser_assisted_chunking/results/s024_human_ab_preference.json)
 
 Human A/B scoring result: parser-assisted preferred in 12 decisive cases, rule-based preferred in 0, with 3 equivalent and 1 both-poor responses.
