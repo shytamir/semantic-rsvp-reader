@@ -14,10 +14,10 @@ Historical slice scopes are preserved in the [management archive](archive/index.
 
 ## Active Slice
 
-- S-031 is the sole active slice, with state `AWAITING_HUMAN_VALIDATION` and owner Human.
+- S-032 is the sole active slice, with state `READY_FOR_IMPLEMENTATION` and owner Codex.
 - The [Prototype Validation and Stabilization Program](prototype_validation_stabilization_program.md) schedules S-030 through S-036 in strict order.
 - Scope documents: [S-030](s030_semantic_output_structural_integrity.md), [S-031](s031_playback_adaptation.md), [S-032](s032_navigation_interaction.md), [S-033](s033_mobile_presentation_accessibility.md), [S-034](s034_evidence_capture_reproducibility.md), [S-035](s035_service_surfaces_fallback.md), [S-036](s036_end_to_end_prototype_readiness.md).
-- S-032 through S-036 are scheduled only and are not authorized for implementation.
+- S-033 through S-036 are scheduled only and are not authorized for implementation.
 
 Compatibility pointers:
 

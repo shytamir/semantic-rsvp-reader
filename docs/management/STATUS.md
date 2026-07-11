@@ -1,20 +1,24 @@
 # Project Status
 
 ```yaml
-current_slice: S-031
-name: Playback and Adaptation
-state: AWAITING_HUMAN_VALIDATION
-owner: Human
-agent_action: run the fixed S-031 phone-browser protocol and record the disposition
-blocked_on: human playback and adaptation validation
+current_slice: S-032
+name: Navigation and Interaction
+state: READY_FOR_IMPLEMENTATION
+owner: Codex
+agent_action: implement the preserved S-032 scope
+blocked_on: none
 started: 2026-07-11
-scope: docs/management/s031_playback_adaptation.md
-previous_slice: S-030
+scope: docs/management/s032_navigation_interaction.md
+previous_slice: S-031
 ```
 
 ## Current Slice
 
-S-031 is the sole active slice at `AWAITING_HUMAN_VALIDATION`. Automated characterization found the shipped playback, timer, visibility, speed-control, session-reset, and conservative-adaptation invariants intact without reproducing a defect or changing behavior. The human owns the fixed phone-browser protocol in [S-031 Playback and Adaptation Validation](../validation/s031_playback_adaptation_validation.md). S-032 remains scheduled and inactive.
+S-032 is the sole active slice at `READY_FOR_IMPLEMENTATION`, owned by Codex. Its preserved scope validates functional navigation and recovery behavior. S-033 remains scheduled and inactive.
+
+## S-031 Outcome
+
+S-031 completed as `passed` on 2026-07-11 from human-owned evidence commit `f39dc15`. Both fixed scenarios passed with zero reported defects. Session reset, playback lifecycle, visibility behavior, controls, and conservative adaptation behaved as intended. The reported scenario summaries remain in [S-031 Playback and Adaptation Validation](../validation/s031_playback_adaptation_validation.md); no playback, timing, adaptation, or validation behavior changed during closure.
 
 ## S-030 Outcome
 
@@ -123,7 +127,7 @@ Detailed in-app defect reports from the S-021 validation session were accidental
 
 ## Next Actions
 
-- Implement the preserved [S-031 scope](s031_playback_adaptation.md).
+- Implement the preserved [S-032 scope](s032_navigation_interaction.md).
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks

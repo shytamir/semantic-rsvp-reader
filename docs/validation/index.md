@@ -18,8 +18,9 @@ Current focus:
 2. S-027 post-navigation usability validation completed as `passed`; the recorded evidence is in [Navigation Validation](navigation_validation.md).
 3. S-029 Density-Aware Dwell-Time Recalibration completed as `passed`.
 4. S-030 Semantic Output and Structural Integrity completed as `passed`; non-blocking semantic observations remain evaluation evidence.
-5. S-031 Playback and Adaptation is the sole active slice and awaits the fixed human phone-browser protocol.
-6. Parser-assisted chunking remains frozen unless a new authorized evaluation slice changes it.
+5. S-031 Playback and Adaptation completed as `passed`; both fixed human scenarios reported zero defects.
+6. S-032 Navigation and Interaction is the sole active slice at `READY_FOR_IMPLEMENTATION`.
+7. Parser-assisted chunking remains frozen unless a new authorized evaluation slice changes it.
 
 ## Defect Reporting Workflow
 

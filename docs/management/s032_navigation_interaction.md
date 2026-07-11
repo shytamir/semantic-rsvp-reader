@@ -1,5 +1,9 @@
 # S-032 Navigation and Interaction
 
+## Status
+
+Active and authorized for implementation at `READY_FOR_IMPLEMENTATION`, owned by Codex. S-033 remains scheduled and inactive.
+
 ## Objective
 
 Validate functional navigation and recovery behavior across the shipped reader without conflating presentation polish with interaction correctness.

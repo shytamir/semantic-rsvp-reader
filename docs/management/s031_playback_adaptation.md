@@ -2,7 +2,7 @@
 
 ## Status
 
-Active at `AWAITING_HUMAN_VALIDATION`, owned by the human. Automated characterization is complete; S-032 remains scheduled and inactive.
+Completed as `passed` from human-owned evidence commit `f39dc15`. Both fixed scenarios passed with zero reported defects; S-032 was activated separately without implementing its scope.
 
 ## Objective
 
