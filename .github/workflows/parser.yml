@@ -49,7 +49,9 @@ jobs:
       - name: Verify pinned parser dependencies
         run: python -c "import importlib.metadata as m; assert m.version('spacy') == '3.7.5'; assert m.version('en-core-web-sm') == '3.7.1'"
       - name: Validate parser integration and frozen parity
-        run: python -m pytest tests/test_parser_assisted_spacy_integration.py tests/test_parser_integration_freeze.py tests/test_chunker_selection.py tests/test_web_chunking_integration.py
+        run: |
+          python -m pytest tests/test_parser_assisted_spacy_integration.py tests/test_parser_integration_freeze.py tests/test_chunker_selection.py tests/test_web_chunking_integration.py
+          python scripts/characterize_s030_semantic_integrity.py --check
       - name: Smoke-test parser-default Flask mode
         run: python scripts/smoke_test_app.py
       - if: always()

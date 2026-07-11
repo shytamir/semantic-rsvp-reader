@@ -3,9 +3,9 @@
 ```yaml
 current_slice: S-030
 name: Semantic Output and Structural Integrity
-state: READY_FOR_IMPLEMENTATION
-owner: Codex
-agent_action: implement the preserved S-030 scope
+state: AWAITING_HUMAN_VALIDATION
+owner: Human
+agent_action: run the fixed S-030 human validation protocol
 blocked_on: none
 started: 2026-07-11
 scope: docs/management/s030_semantic_output_structural_integrity.md
@@ -14,7 +14,7 @@ previous_slice: S-029
 
 ## Current Slice
 
-S-030 is the sole active slice. It validates shipped parser-default semantic output, structural metadata, protected spans, representative difficult cases, and mandatory rule-based fallback without retuning the frozen parser.
+S-030 is the sole active slice and awaits human validation. Automated characterization passed parser hard invariants across all 22 visible cases and the fixed H1/H2 fixture. Two rule-based protected-span splits were observed in already recorded evaluation cases; no parser, rule, timing, or playback behavior was changed.
 
 ## S-029 Outcome
 
@@ -119,7 +119,7 @@ Detailed in-app defect reports from the S-021 validation session were accidental
 
 ## Next Actions
 
-- Implement the preserved [S-030 scope](s030_semantic_output_structural_integrity.md).
+- Run the fixed [S-030 human validation protocol](../validation/s030_semantic_structural_validation.md#fixed-human-validation-protocol).
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks

@@ -12,7 +12,7 @@ These files are the project-management source of truth for the solo human/Codex 
 
 ## Active Slice
 
-- S-030 is the sole active slice, with state `READY_FOR_IMPLEMENTATION` and owner Codex.
+- S-030 is the sole active slice, with state `AWAITING_HUMAN_VALIDATION` and owner Human.
 - The [Prototype Validation and Stabilization Program](prototype_validation_stabilization_program.md) schedules S-030 through S-036 in strict order.
 - Scope documents: [S-030](s030_semantic_output_structural_integrity.md), [S-031](s031_playback_adaptation.md), [S-032](s032_navigation_interaction.md), [S-033](s033_mobile_presentation_accessibility.md), [S-034](s034_evidence_capture_reproducibility.md), [S-035](s035_service_surfaces_fallback.md), [S-036](s036_end_to_end_prototype_readiness.md).
 - S-031 through S-036 are scheduled only and are not authorized for implementation.

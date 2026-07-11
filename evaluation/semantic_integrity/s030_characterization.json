@@ -1,0 +1,668 @@
+{
+  "case_count": 22,
+  "cases": [
+    {
+      "case_id": "dev-names-0001",
+      "corpus": "development",
+      "notes": [
+        "names",
+        "named_entities",
+        "source-boundary neutral"
+      ],
+      "parser_chunk_count": 3,
+      "parser_chunks": [
+        "Dr. Mira Patel",
+        "met Air Force officials",
+        "near the Strait of Hormuz."
+      ],
+      "parser_fallback_used": false,
+      "parser_protected_span_splits": [],
+      "parser_width_violations": [],
+      "protected_spans": [
+        "Dr. Mira Patel",
+        "Air Force officials",
+        "Strait of Hormuz"
+      ],
+      "rule_based_chunk_count": 5,
+      "rule_based_chunks": [
+        "Dr. Mira",
+        "Patel met",
+        "Air Force officials",
+        "near the",
+        "Strait of Hormuz."
+      ],
+      "rule_based_protected_span_splits": [
+        "Dr. Mira Patel"
+      ],
+      "text": "Dr. Mira Patel met Air Force officials near the Strait of Hormuz."
+    },
+    {
+      "case_id": "dev-date-0002",
+      "corpus": "development",
+      "notes": [
+        "long_form_date",
+        "source_boundary"
+      ],
+      "parser_chunk_count": 3,
+      "parser_chunks": [
+        "July 4, 2026",
+        "Inherent in the agreement were",
+        "several unresolved questions."
+      ],
+      "parser_fallback_used": false,
+      "parser_protected_span_splits": [],
+      "parser_width_violations": [],
+      "protected_spans": [
+        "July 4, 2026"
+      ],
+      "rule_based_chunk_count": 5,
+      "rule_based_chunks": [
+        "July 4, 2026",
+        "Inherent in",
+        "the agreement",
+        "were several",
+        "unresolved questions."
+      ],
+      "rule_based_protected_span_splits": [],
+      "text": "July 4, 2026\nInherent in the agreement were several unresolved questions."
+    },
+    {
+      "case_id": "dev-negation-0003",
+      "corpus": "development",
+      "notes": [
+        "negation",
+        "phrasal_verb"
+      ],
+      "parser_chunk_count": 2,
+      "parser_chunks": [
+        "The panel did not back down when",
+        "the first objections arrived."
+      ],
+      "parser_fallback_used": false,
+      "parser_protected_span_splits": [],
+      "parser_width_violations": [],
+      "protected_spans": [
+        "did not",
+        "back down"
+      ],
+      "rule_based_chunk_count": 5,
+      "rule_based_chunks": [
+        "The panel",
+        "did not back",
+        "down when",
+        "the first",
+        "objections arrived."
+      ],
+      "rule_based_protected_span_splits": [
+        "back down"
+      ],
+      "text": "The panel did not back down when the first objections arrived."
+    },
+    {
+      "case_id": "dev-money-0004",
+      "corpus": "development",
+      "notes": [
+        "money",
+        "numbers",
+        "punctuation"
+      ],
+      "parser_chunk_count": 4,
+      "parser_fallback_used": false,
+      "parser_protected_span_splits": [],
+      "parser_width_violations": [],
+      "protected_spans": [],
+      "rule_based_chunk_count": 5,
+      "rule_based_protected_span_splits": []
+    },
+    {
+      "case_id": "dev-source-0005",
+      "corpus": "development",
+      "notes": [
+        "title",
+        "byline",
+        "date",
+        "source_boundary"
+      ],
+      "parser_chunk_count": 6,
+      "parser_chunks": [
+        "Toward a Global Security System",
+        "Built on Economic Deterrence",
+        "Alex",
+        "Apr 02, 2026",
+        "There is a persistent mistake",
+        "in how we imagine peace."
+      ],
+      "parser_fallback_used": false,
+      "parser_protected_span_splits": [],
+      "parser_width_violations": [],
+      "protected_spans": [],
+      "rule_based_chunk_count": 12,
+      "rule_based_chunks": [
+        "Toward",
+        "a Global",
+        "Security System",
+        "Built on Economic",
+        "Deterrence",
+        "Alex",
+        "Apr 02, 2026",
+        "There is",
+        "a persistent",
+        "mistake in how",
+        "we imagine",
+        "peace."
+      ],
+      "rule_based_protected_span_splits": [],
+      "text": "Toward a Global Security System Built on Economic Deterrence\nAlex\nApr 02, 2026\n\nThere is a persistent mistake in how we imagine peace."
+    },
+    {
+      "case_id": "dev-width-0006",
+      "corpus": "development",
+      "notes": [
+        "maximum_width_pressure",
+        "long_token"
+      ],
+      "parser_chunk_count": 4,
+      "parser_chunks": [
+        "The reader",
+        "saw complementary explanations",
+        "beside",
+        "antidisestablishmentarianism."
+      ],
+      "parser_fallback_used": false,
+      "parser_protected_span_splits": [],
+      "parser_width_violations": [],
+      "protected_spans": [],
+      "rule_based_chunk_count": 4,
+      "rule_based_chunks": [
+        "The reader",
+        "saw complementary",
+        "explanations beside",
+        "antidisestablishmentarianism."
+      ],
+      "rule_based_protected_span_splits": [],
+      "text": "The reader saw complementary explanations beside antidisestablishmentarianism."
+    },
+    {
+      "case_id": "dev-quote-0007",
+      "corpus": "development",
+      "notes": [
+        "quote",
+        "negation",
+        "punctuation"
+      ],
+      "parser_chunk_count": 3,
+      "parser_chunks": [
+        "The chair said, \u201cWe",
+        "should not split the core claim,",
+        "\u201d and closed the file."
+      ],
+      "parser_fallback_used": false,
+      "parser_protected_span_splits": [],
+      "parser_width_violations": [],
+      "protected_spans": [
+        "the core claim"
+      ],
+      "rule_based_chunk_count": 6,
+      "rule_based_chunks": [
+        "The chair said,",
+        "We",
+        "should not split",
+        "the core claim,",
+        "and closed",
+        "the file."
+      ],
+      "rule_based_protected_span_splits": [],
+      "text": "The chair said, \u201cWe should not split the core claim,\u201d and closed the file."
+    },
+    {
+      "case_id": "dev-parenthetical-0008",
+      "corpus": "development",
+      "notes": [
+        "parenthetical",
+        "display_state"
+      ],
+      "parser_chunk_count": 4,
+      "parser_chunks": [
+        "The system",
+        "kept the phrase together (",
+        "even when the aside was brief)",
+        "before resuming."
+      ],
+      "parser_fallback_used": false,
+      "parser_protected_span_splits": [],
+      "parser_width_violations": [],
+      "protected_spans": [],
+      "rule_based_chunk_count": 6,
+      "rule_based_chunks": [
+        "The system kept",
+        "the phrase together",
+        "(even when",
+        "the aside",
+        "was brief)",
+        "before resuming."
+      ],
+      "rule_based_protected_span_splits": [],
+      "text": "The system kept the phrase together (even when the aside was brief) before resuming."
+    },
+    {
+      "case_id": "reg-basic-0001",
+      "corpus": "regression",
+      "notes": [
+        "baseline_success"
+      ],
+      "parser_chunk_count": 2,
+      "parser_fallback_used": false,
+      "parser_protected_span_splits": [],
+      "parser_width_violations": [],
+      "protected_spans": [],
+      "rule_based_chunk_count": 3,
+      "rule_based_protected_span_splits": []
+    },
+    {
+      "case_id": "reg-dense-0002",
+      "corpus": "regression",
+      "notes": [
+        "dense_nonfiction"
+      ],
+      "parser_chunk_count": 3,
+      "parser_fallback_used": false,
+      "parser_protected_span_splits": [],
+      "parser_width_violations": [],
+      "protected_spans": [],
+      "rule_based_chunk_count": 4,
+      "rule_based_protected_span_splits": []
+    },
+    {
+      "case_id": "reg-air-force-0003",
+      "corpus": "regression",
+      "notes": [
+        "known_entity",
+        "negation"
+      ],
+      "parser_chunk_count": 4,
+      "parser_chunks": [
+        "The temporary plane",
+        "did not have all the equipment",
+        "usually found on",
+        "an Air Force One."
+      ],
+      "parser_fallback_used": false,
+      "parser_protected_span_splits": [],
+      "parser_width_violations": [],
+      "protected_spans": [
+        "Air Force One"
+      ],
+      "rule_based_chunk_count": 6,
+      "rule_based_chunks": [
+        "The temporary plane",
+        "did not have all",
+        "the equipment",
+        "usually found",
+        "on an",
+        "Air Force One."
+      ],
+      "rule_based_protected_span_splits": [],
+      "text": "The temporary plane did not have all the equipment usually found on an Air Force One."
+    },
+    {
+      "case_id": "reg-khamenei-0004",
+      "corpus": "regression",
+      "notes": [
+        "proper_name",
+        "known_entity"
+      ],
+      "parser_chunk_count": 3,
+      "parser_chunks": [
+        "Ayatollah Ali Khamenei",
+        "met Air Force officials",
+        "near the Strait of Hormuz."
+      ],
+      "parser_fallback_used": false,
+      "parser_protected_span_splits": [],
+      "parser_width_violations": [],
+      "protected_spans": [
+        "Ayatollah Ali Khamenei",
+        "Air Force officials",
+        "Strait of Hormuz"
+      ],
+      "rule_based_chunk_count": 5,
+      "rule_based_chunks": [
+        "Ayatollah Ali Khamenei",
+        "met",
+        "Air Force officials",
+        "near the",
+        "Strait of Hormuz."
+      ],
+      "rule_based_protected_span_splits": [],
+      "text": "Ayatollah Ali Khamenei met Air Force officials near the Strait of Hormuz."
+    },
+    {
+      "case_id": "reg-phrasal-0005",
+      "corpus": "regression",
+      "notes": [
+        "phrasal_verb"
+      ],
+      "parser_chunk_count": 3,
+      "parser_chunks": [
+        "During his tenure",
+        ", he had built up his office",
+        "into a center."
+      ],
+      "parser_fallback_used": false,
+      "parser_protected_span_splits": [],
+      "parser_width_violations": [],
+      "protected_spans": [
+        "built up"
+      ],
+      "rule_based_chunk_count": 5,
+      "rule_based_chunks": [
+        "During his tenure,",
+        "he had",
+        "built up",
+        "his office into",
+        "a center."
+      ],
+      "rule_based_protected_span_splits": [],
+      "text": "During his tenure, he had built up his office into a center."
+    },
+    {
+      "case_id": "reg-qualifier-0006",
+      "corpus": "regression",
+      "notes": [
+        "qualifier_pair"
+      ],
+      "parser_chunk_count": 2,
+      "parser_chunks": [
+        "He had far less impressive",
+        "religious credentials."
+      ],
+      "parser_fallback_used": false,
+      "parser_protected_span_splits": [],
+      "parser_width_violations": [],
+      "protected_spans": [
+        "far less"
+      ],
+      "rule_based_chunk_count": 3,
+      "rule_based_chunks": [
+        "He had",
+        "far less impressive",
+        "religious credentials."
+      ],
+      "rule_based_protected_span_splits": [],
+      "text": "He had far less impressive religious credentials."
+    },
+    {
+      "case_id": "reg-coordinated-0007",
+      "corpus": "regression",
+      "notes": [
+        "coordinated_phrase"
+      ],
+      "parser_chunk_count": 2,
+      "parser_chunks": [
+        "He sought balance between",
+        "Iran's left and right wings."
+      ],
+      "parser_fallback_used": false,
+      "parser_protected_span_splits": [],
+      "parser_width_violations": [],
+      "protected_spans": [
+        "left and right wings"
+      ],
+      "rule_based_chunk_count": 4,
+      "rule_based_chunks": [
+        "He sought",
+        "balance between",
+        "Iran's",
+        "left and right wings."
+      ],
+      "rule_based_protected_span_splits": [],
+      "text": "He sought balance between Iran's left and right wings."
+    },
+    {
+      "case_id": "reg-overlong-0008",
+      "corpus": "regression",
+      "notes": [
+        "overlong_subject_verb"
+      ],
+      "parser_chunk_count": 2,
+      "parser_fallback_used": false,
+      "parser_protected_span_splits": [],
+      "parser_width_violations": [],
+      "protected_spans": [],
+      "rule_based_chunk_count": 3,
+      "rule_based_protected_span_splits": []
+    },
+    {
+      "case_id": "gen-public-0001",
+      "corpus": "generalization",
+      "notes": [
+        "balanced_clause",
+        "simple_prose"
+      ],
+      "parser_chunk_count": 2,
+      "parser_fallback_used": false,
+      "parser_protected_span_splits": [],
+      "parser_width_violations": [],
+      "protected_spans": [],
+      "rule_based_chunk_count": 6,
+      "rule_based_protected_span_splits": []
+    },
+    {
+      "case_id": "gen-public-0002",
+      "corpus": "generalization",
+      "notes": [
+        "sentence_boundary",
+        "punctuation"
+      ],
+      "parser_chunk_count": 5,
+      "parser_fallback_used": false,
+      "parser_protected_span_splits": [],
+      "parser_width_violations": [],
+      "protected_spans": [],
+      "rule_based_chunk_count": 11,
+      "rule_based_protected_span_splits": []
+    },
+    {
+      "case_id": "gen-synthetic-0003",
+      "corpus": "generalization",
+      "notes": [
+        "clause_boundary",
+        "auxiliary_verb",
+        "phrasal_verb"
+      ],
+      "parser_chunk_count": 4,
+      "parser_chunks": [
+        "Before the committee voted",
+        ", the deputy mayor",
+        "had quietly ruled out",
+        "the cheaper plan."
+      ],
+      "parser_fallback_used": false,
+      "parser_protected_span_splits": [],
+      "parser_width_violations": [],
+      "protected_spans": [
+        "ruled out"
+      ],
+      "rule_based_chunk_count": 7,
+      "rule_based_chunks": [
+        "Before the committee",
+        "voted,",
+        "the deputy",
+        "mayor had quietly",
+        "ruled out",
+        "the cheaper",
+        "plan."
+      ],
+      "rule_based_protected_span_splits": [],
+      "text": "Before the committee voted, the deputy mayor had quietly ruled out the cheaper plan."
+    },
+    {
+      "case_id": "gen-synthetic-0004",
+      "corpus": "generalization",
+      "notes": [
+        "noun_phrase",
+        "hyphenated_terms"
+      ],
+      "parser_chunk_count": 5,
+      "parser_fallback_used": false,
+      "parser_protected_span_splits": [],
+      "parser_width_violations": [],
+      "protected_spans": [],
+      "rule_based_chunk_count": 5,
+      "rule_based_protected_span_splits": []
+    },
+    {
+      "case_id": "gen-synthetic-0005",
+      "corpus": "generalization",
+      "notes": [
+        "byline",
+        "date",
+        "negation",
+        "source_boundary"
+      ],
+      "parser_chunk_count": 5,
+      "parser_chunks": [
+        "Analysis by Priya Shah",
+        "June 18, 2026",
+        "The first paragraph",
+        "did not explain",
+        "why the pilot changed course."
+      ],
+      "parser_fallback_used": false,
+      "parser_protected_span_splits": [],
+      "parser_width_violations": [],
+      "protected_spans": [
+        "June 18, 2026"
+      ],
+      "rule_based_chunk_count": 7,
+      "rule_based_chunks": [
+        "Analysis by Priya",
+        "Shah",
+        "June 18, 2026",
+        "The first paragraph",
+        "did not explain why",
+        "the pilot",
+        "changed course."
+      ],
+      "rule_based_protected_span_splits": [],
+      "text": "Analysis by Priya Shah\nJune 18, 2026\n\nThe first paragraph did not explain why the pilot changed course."
+    },
+    {
+      "case_id": "gen-synthetic-0006",
+      "corpus": "generalization",
+      "notes": [
+        "colon",
+        "list",
+        "navigation_language"
+      ],
+      "parser_chunk_count": 3,
+      "parser_fallback_used": false,
+      "parser_protected_span_splits": [],
+      "parser_width_violations": [],
+      "protected_spans": [],
+      "rule_based_chunk_count": 7,
+      "rule_based_protected_span_splits": []
+    }
+  ],
+  "fixed_human_case_ids": [
+    "dev-date-0002",
+    "dev-names-0001",
+    "dev-negation-0003",
+    "dev-parenthetical-0008",
+    "dev-quote-0007",
+    "dev-source-0005",
+    "dev-width-0006",
+    "gen-synthetic-0003",
+    "gen-synthetic-0005",
+    "reg-air-force-0003",
+    "reg-coordinated-0007",
+    "reg-khamenei-0004",
+    "reg-phrasal-0005",
+    "reg-qualifier-0006"
+  ],
+  "hard_failures": [],
+  "slice": "S-030",
+  "structural_fixture": {
+    "schedule": [
+      {
+        "active_h1": "Main Title",
+        "active_h2": null,
+        "active_label": "Main Title",
+        "active_path": [
+          "Main Title"
+        ],
+        "header_level": 1,
+        "is_header_chunk": true,
+        "text": "# Main Title"
+      },
+      {
+        "active_h1": "Main Title",
+        "active_h2": null,
+        "active_label": "Main Title",
+        "active_path": [
+          "Main Title"
+        ],
+        "header_level": null,
+        "is_header_chunk": false,
+        "text": "Intro text."
+      },
+      {
+        "active_h1": "Main Title",
+        "active_h2": "First Section",
+        "active_label": "First Section",
+        "active_path": [
+          "Main Title",
+          "First Section"
+        ],
+        "header_level": 2,
+        "is_header_chunk": true,
+        "text": "## First Section"
+      },
+      {
+        "active_h1": "Main Title",
+        "active_h2": "First Section",
+        "active_label": "First Section",
+        "active_path": [
+          "Main Title",
+          "First Section"
+        ],
+        "header_level": null,
+        "is_header_chunk": false,
+        "text": "Section body."
+      },
+      {
+        "active_h1": "Main Title",
+        "active_h2": "Second Section",
+        "active_label": "Second Section",
+        "active_path": [
+          "Main Title",
+          "Second Section"
+        ],
+        "header_level": 2,
+        "is_header_chunk": true,
+        "text": "## Second Section"
+      },
+      {
+        "active_h1": "Main Title",
+        "active_h2": "Second Section",
+        "active_label": "Second Section",
+        "active_path": [
+          "Main Title",
+          "Second Section"
+        ],
+        "header_level": null,
+        "is_header_chunk": false,
+        "text": "Closing body."
+      }
+    ],
+    "text": "# Main Title\n\nIntro text.\n\n## First Section\n\nSection body.\n\n## Second Section\n\nClosing body."
+  },
+  "summary": {
+    "parser_fallback_count": 0,
+    "parser_protected_span_split_count": 0,
+    "parser_width_violation_count": 0,
+    "protected_span_count": 16,
+    "rule_based_protected_span_split_count": 2,
+    "structural_failure_count": 0
+  }
+}

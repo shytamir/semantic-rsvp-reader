@@ -1,5 +1,9 @@
 # S-030 Semantic Output and Structural Integrity
 
+## Status
+
+Automated characterization complete; awaiting human validation. S-031 remains scheduled and inactive.
+
 ## Objective
 
 Validate that the shipped parser-default path produces coherent, deterministic semantic chunks and correct H1/H2 structural metadata while mandatory rule-based fallback remains safe.

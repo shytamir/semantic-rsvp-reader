@@ -5,9 +5,10 @@ This roadmap is the priority-order view. [STATUS](STATUS.md) is the authority fo
 ## Now
 
 1. **S-030: Semantic Output and Structural Integrity**
-   - State: `READY_FOR_IMPLEMENTATION`
-   - Owner: Codex
+   - State: `AWAITING_HUMAN_VALIDATION`
+   - Owner: Human
    - Scope: [S-030](s030_semantic_output_structural_integrity.md).
+   - Handoff: [S-030 semantic/structural validation](../validation/s030_semantic_structural_validation.md).
 
 ## Next
 
