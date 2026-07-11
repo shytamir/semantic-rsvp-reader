@@ -1,20 +1,24 @@
 # Project Status
 
 ```yaml
-current_slice: S-030
-name: Semantic Output and Structural Integrity
-state: AWAITING_HUMAN_VALIDATION
-owner: Human
-agent_action: run the fixed S-030 human validation protocol
+current_slice: S-031
+name: Playback and Adaptation
+state: READY_FOR_IMPLEMENTATION
+owner: Codex
+agent_action: implement the preserved S-031 scope
 blocked_on: none
 started: 2026-07-11
-scope: docs/management/s030_semantic_output_structural_integrity.md
-previous_slice: S-029
+scope: docs/management/s031_playback_adaptation.md
+previous_slice: S-030
 ```
 
 ## Current Slice
 
-S-030 is the sole active slice and awaits human validation. Automated characterization passed parser hard invariants across all 22 visible cases and the fixed H1/H2 fixture. Two rule-based protected-span splits were observed in already recorded evaluation cases; no parser, rule, timing, or playback behavior was changed.
+S-031 is the sole active slice. Its preserved scope validates playback lifecycle, speed controls, visibility behavior, and conservative session-only adaptation without changing the passed S-029 dwell calibration.
+
+## S-030 Outcome
+
+S-030 completed as `passed` on 2026-07-11 from human-owned evidence commit `c632b71`. Parser-default semantic output, structural metadata, and mandatory fallback passed with non-blocking observations. The authorized narrow CSS stabilization now reserves the structural-orientation lane above the ghost chunk. Long-word, quote-closure, and parenthetical-closure observations remain evaluation evidence; no semantic rules or parser behavior changed.
 
 ## S-029 Outcome
 
@@ -119,7 +123,7 @@ Detailed in-app defect reports from the S-021 validation session were accidental
 
 ## Next Actions
 
-- Run the fixed [S-030 human validation protocol](../validation/s030_semantic_structural_validation.md#fixed-human-validation-protocol).
+- Implement the preserved [S-031 scope](s031_playback_adaptation.md).
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks

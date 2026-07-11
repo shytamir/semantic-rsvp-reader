@@ -2,7 +2,7 @@
 
 ## Status
 
-Automated characterization complete; awaiting human validation. S-031 remains scheduled and inactive.
+Completed as `passed` from human-owned evidence commit `c632b71`. The authorized structural/ghost lane CSS fix was completed without semantic or parser changes. Long-word, quote, and parenthetical observations remain evaluation evidence.
 
 ## Objective
 

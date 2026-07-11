@@ -4,20 +4,18 @@ This roadmap is the priority-order view. [STATUS](STATUS.md) is the authority fo
 
 ## Now
 
-1. **S-030: Semantic Output and Structural Integrity**
-   - State: `AWAITING_HUMAN_VALIDATION`
-   - Owner: Human
-   - Scope: [S-030](s030_semantic_output_structural_integrity.md).
-   - Handoff: [S-030 semantic/structural validation](../validation/s030_semantic_structural_validation.md).
+1. **S-031: Playback and Adaptation**
+   - State: `READY_FOR_IMPLEMENTATION`
+   - Owner: Codex
+   - Scope: [S-031](s031_playback_adaptation.md).
 
 ## Next
 
-1. **S-031: Playback and Adaptation** — `SCHEDULED`; [scope](s031_playback_adaptation.md).
-2. **S-032: Navigation and Interaction** — `SCHEDULED`; [scope](s032_navigation_interaction.md).
-3. **S-033: Mobile Presentation and Accessibility** — `SCHEDULED`; [scope](s033_mobile_presentation_accessibility.md).
-4. **S-034: Evidence Capture and Reproducibility** — `SCHEDULED`; [scope](s034_evidence_capture_reproducibility.md).
-5. **S-035: Service Surfaces and Fallback** — `SCHEDULED`; [scope](s035_service_surfaces_fallback.md).
-6. **S-036: End-to-End Prototype Readiness** — `SCHEDULED`; [scope](s036_end_to_end_prototype_readiness.md).
+1. **S-032: Navigation and Interaction** — `SCHEDULED`; [scope](s032_navigation_interaction.md).
+2. **S-033: Mobile Presentation and Accessibility** — `SCHEDULED`; [scope](s033_mobile_presentation_accessibility.md).
+3. **S-034: Evidence Capture and Reproducibility** — `SCHEDULED`; [scope](s034_evidence_capture_reproducibility.md).
+4. **S-035: Service Surfaces and Fallback** — `SCHEDULED`; [scope](s035_service_surfaces_fallback.md).
+5. **S-036: End-to-End Prototype Readiness** — `SCHEDULED`; [scope](s036_end_to_end_prototype_readiness.md).
 
 These slices are ordered but not authorized for implementation until separately activated.
 

@@ -164,6 +164,13 @@ def test_structure_anchor_is_static_and_inert(client):
     assert "animation" not in css
 
 
+def test_visible_structure_anchor_reserves_ghost_chunk_lane(client):
+    css = client.get("/static/css/app.css").data.decode("utf-8")
+
+    assert ".reader-mode:has(.structure-anchor:not(.is-hidden)) .reader-area" in css
+    assert "--previous-chunk-top: max(30px, calc(env(safe-area-inset-top) + 24px))" in css
+
+
 def test_static_js_route_returns_ok(client):
     response = client.get("/static/js/app.js")
 

@@ -8,6 +8,12 @@
 - Only one actionable UI issue:
     - CSS fix for structural fixtures not to clash with ghost chunk render
 
+## Disposition Preservation
+
+- S-030 human disposition: `passed` from commit `c632b71`.
+- Structural/ghost clash: resolved by the authorized CSS-only lane reservation.
+- Long-word, quote-closure, and parenthetical-closure observations: retained as non-blocking evaluation evidence; no semantic exception, closure-rule, parser, or manifest change was made.
+
 ## Summary
 
 - Total reports: 4

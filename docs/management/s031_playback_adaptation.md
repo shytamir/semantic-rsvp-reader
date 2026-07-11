@@ -1,5 +1,9 @@
 # S-031 Playback and Adaptation
 
+## Status
+
+Active and authorized for implementation at `READY_FOR_IMPLEMENTATION`. S-032 remains scheduled and inactive.
+
 ## Objective
 
 Validate the shipped reader lifecycle, speed controls, visibility behavior, and conservative session-only adaptation without disturbing the passed S-029 dwell calibration.

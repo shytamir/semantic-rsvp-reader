@@ -204,6 +204,10 @@ textarea:focus-visible,
   pointer-events: none;
 }
 
+.reader-mode:has(.structure-anchor:not(.is-hidden)) .reader-area {
+  --previous-chunk-top: max(30px, calc(env(safe-area-inset-top) + 24px));
+}
+
 .reader-area {
   --reader-left-offset: clamp(16px, 5vw, 36px);
   --reader-chunk-font-size: clamp(2.1rem, 10.5vw, 4.2rem);
