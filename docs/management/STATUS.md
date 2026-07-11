@@ -1,22 +1,24 @@
 # Project Status
 
 ```yaml
-current_slice: S-029
-name: Density-Aware Dwell-Time Recalibration
-state: PASSED
-owner: Human
-agent_action: await human selection of a future slice
+current_slice: S-030
+name: Semantic Output and Structural Integrity
+state: READY_FOR_IMPLEMENTATION
+owner: Codex
+agent_action: implement the preserved S-030 scope
 blocked_on: none
 started: 2026-07-11
-scope: docs/management/s029_density_aware_dwell_time_recalibration.md
-previous_slice: S-028
+scope: docs/management/s030_semantic_output_structural_integrity.md
+previous_slice: S-029
 ```
 
 ## Current Slice
 
-S-029 completed as `passed` on 2026-07-11. No successor slice is active. Human validation passed all six corpus-sample validations and reported that default `1.0x` dwell times are now as manageable as the prior build at `0.85x`.
+S-030 is the sole active slice. It validates shipped parser-default semantic output, structural metadata, protected spans, representative difficult cases, and mandatory rule-based fallback without retuning the frozen parser.
 
-Measurement found parser-assisted chunks contain 67.6% more words and content words per chunk, not nearly double. The bounded density dwell component increased aggregate parser timing by 16.8% while protecting light and punctuation chunks.
+## S-029 Outcome
+
+S-029 completed as `passed` on 2026-07-11. Human validation passed all six corpus-sample validations and reported that default `1.0x` is as manageable as the prior build at `0.85x`.
 
 ## S-028 Outcome
 
@@ -117,7 +119,7 @@ Detailed in-app defect reports from the S-021 validation session were accidental
 
 ## Next Actions
 
-- Await human selection and authorization of a future stabilization slice.
+- Implement the preserved [S-030 scope](s030_semantic_output_structural_integrity.md).
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks

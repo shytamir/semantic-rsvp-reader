@@ -4,17 +4,21 @@ This roadmap is the priority-order view. [STATUS](STATUS.md) is the authority fo
 
 ## Now
 
-1. **S-029: Density-Aware Dwell-Time Recalibration**
-   - State: `PASSED`
-   - Owner: Human
-   - Outcome: human validation passed all six corpus samples; default `1.0x` is as manageable as the prior build at `0.85x`.
-   - Scope: [S-029](s029_density_aware_dwell_time_recalibration.md).
-   - Evidence: [S-029 density and timing report](../validation/s029_density_timing_report.md).
-   - No successor slice is active.
+1. **S-030: Semantic Output and Structural Integrity**
+   - State: `READY_FOR_IMPLEMENTATION`
+   - Owner: Codex
+   - Scope: [S-030](s030_semantic_output_structural_integrity.md).
 
 ## Next
 
-- Follow the ordered [Prototype Validation and Stabilization Program](prototype_validation_stabilization_program.md). Later passes are not active or authorized for implementation.
+1. **S-031: Playback and Adaptation** — `SCHEDULED`; [scope](s031_playback_adaptation.md).
+2. **S-032: Navigation and Interaction** — `SCHEDULED`; [scope](s032_navigation_interaction.md).
+3. **S-033: Mobile Presentation and Accessibility** — `SCHEDULED`; [scope](s033_mobile_presentation_accessibility.md).
+4. **S-034: Evidence Capture and Reproducibility** — `SCHEDULED`; [scope](s034_evidence_capture_reproducibility.md).
+5. **S-035: Service Surfaces and Fallback** — `SCHEDULED`; [scope](s035_service_surfaces_fallback.md).
+6. **S-036: End-to-End Prototype Readiness** — `SCHEDULED`; [scope](s036_end_to_end_prototype_readiness.md).
+
+These slices are ordered but not authorized for implementation until separately activated.
 
 ## Later
 
@@ -23,7 +27,6 @@ This roadmap is the priority-order view. [STATUS](STATUS.md) is the authority fo
 - Application-service refinements only if validation exposes a need.
 - Investigation of the S-024 rule-based coverage/mapping anomalies.
 - Additional management-doc cleanup if the one-human/one-Codex workflow changes.
-- Demo/beta readiness cleanup.
 
 ## Parked
 

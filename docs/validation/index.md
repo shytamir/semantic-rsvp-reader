@@ -13,8 +13,9 @@ Current focus:
 
 1. S-026 parser-assisted Flask prototype integration passed human validation with no acceptance-blocking regressions.
 2. S-027 post-navigation usability validation completed as `passed`; the recorded evidence is in [Navigation Validation](navigation_validation.md).
-3. S-029 Density-Aware Dwell-Time Recalibration completed as `passed`; no successor slice is active.
-4. Parser-assisted chunking remains frozen unless a new authorized evaluation slice changes it.
+3. S-029 Density-Aware Dwell-Time Recalibration completed as `passed`.
+4. S-030 Semantic Output and Structural Integrity is the sole active slice and is ready for implementation.
+5. Parser-assisted chunking remains frozen unless a new authorized evaluation slice changes it.
 
 ## Defect Reporting Workflow
 
