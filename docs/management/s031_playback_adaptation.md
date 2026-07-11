@@ -2,7 +2,7 @@
 
 ## Status
 
-Active and authorized for implementation at `READY_FOR_IMPLEMENTATION`. S-032 remains scheduled and inactive.
+Active at `AWAITING_HUMAN_VALIDATION`, owned by the human. Automated characterization is complete; S-032 remains scheduled and inactive.
 
 ## Objective
 

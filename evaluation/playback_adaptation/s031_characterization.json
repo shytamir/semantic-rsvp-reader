@@ -1,0 +1,74 @@
+{
+  "adaptation_thresholds": {
+    "manual_or_seek_suppression_events": 3,
+    "minimum_events": 3,
+    "pauses_for_slower_step": 3,
+    "rewinds_for_slower_step": 2,
+    "smooth_chunks_for_faster_step": 12
+  },
+  "characterized_behavior": [
+    "play_pause_resume_uses_one_replaceable_timeout",
+    "manual_navigation_and_reset_pause_playback",
+    "automatic_completion_cancels_the_timer_and_records_once",
+    "backgrounding_pauses_and_foregrounding_does_not_auto_resume",
+    "speed_changes_are_bounded_and_reschedule_the_current_chunk_when_playing",
+    "new_text_resets_speed_session_events_and_adaptation_state",
+    "adaptation_can_be_disabled_or_reset_and_is_not_persisted",
+    "rewinds_or_pauses_can_slow_by_one_step_and_a_smooth_run_can_speed_by_one_step",
+    "manual_speed_changes_and_progress_seeking_suppress_immediate_adaptation",
+    "session_summary_exposes_counts_completion_speed_and_adaptation_state"
+  ],
+  "default_speed": 1.0,
+  "hard_failures": [],
+  "invariants": [
+    {
+      "id": "single_playback_timer_replaced_before_schedule",
+      "passed": true
+    },
+    {
+      "id": "pause_cancels_timer",
+      "passed": true
+    },
+    {
+      "id": "completion_cancels_timer_and_is_recorded_once",
+      "passed": true
+    },
+    {
+      "id": "hidden_page_pauses_without_auto_resume",
+      "passed": true
+    },
+    {
+      "id": "manual_speed_change_is_bounded_and_suppresses_adaptation",
+      "passed": true
+    },
+    {
+      "id": "new_schedule_resets_speed_session_and_adaptation",
+      "passed": true
+    },
+    {
+      "id": "progress_seek_pauses_and_suppresses_adaptation",
+      "passed": true
+    },
+    {
+      "id": "adaptation_is_session_only_and_conservative",
+      "passed": true
+    },
+    {
+      "id": "session_summary_is_observable",
+      "passed": true
+    }
+  ],
+  "method": "static_source_characterization",
+  "runtime_changes": [],
+  "slice": "S-031",
+  "source": "static/js/app.js",
+  "source_sha256": "18afc54aa4a4c21c4e8205d7da28cc2ae0d024f9f329d83b6bfde5801162c892",
+  "speed_levels": [
+    0.75,
+    0.85,
+    1.0,
+    1.15,
+    1.3,
+    1.5
+  ]
+}

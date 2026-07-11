@@ -5,9 +5,10 @@ This roadmap is the priority-order view. [STATUS](STATUS.md) is the authority fo
 ## Now
 
 1. **S-031: Playback and Adaptation**
-   - State: `READY_FOR_IMPLEMENTATION`
-   - Owner: Codex
+   - State: `AWAITING_HUMAN_VALIDATION`
+   - Owner: Human
    - Scope: [S-031](s031_playback_adaptation.md).
+   - Handoff: [fixed playback and adaptation protocol](../validation/s031_playback_adaptation_validation.md).
 
 ## Next
 

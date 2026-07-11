@@ -6,6 +6,7 @@
 - [S-026 Parser Integration Validation](s026_parser_integration_validation.md)
 - [S-029 Density and Timing Report](s029_density_timing_report.md)
 - [S-030 Semantic and Structural Validation](s030_semantic_structural_validation.md)
+- [S-031 Playback and Adaptation Validation](s031_playback_adaptation_validation.md)
 - [Post-Validation Stabilization Pass 1](post_validation_stabilization_pass_1.md)
 - [Navigation Validation](navigation_validation.md)
 - [Validation Corpus](corpus.md)
@@ -16,7 +17,7 @@ Current focus:
 2. S-027 post-navigation usability validation completed as `passed`; the recorded evidence is in [Navigation Validation](navigation_validation.md).
 3. S-029 Density-Aware Dwell-Time Recalibration completed as `passed`.
 4. S-030 Semantic Output and Structural Integrity completed as `passed`; non-blocking semantic observations remain evaluation evidence.
-5. S-031 Playback and Adaptation is the sole active slice and is ready for implementation.
+5. S-031 Playback and Adaptation is the sole active slice and awaits the fixed human phone-browser protocol.
 6. Parser-assisted chunking remains frozen unless a new authorized evaluation slice changes it.
 
 ## Defect Reporting Workflow

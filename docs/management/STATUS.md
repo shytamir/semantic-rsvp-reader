@@ -3,10 +3,10 @@
 ```yaml
 current_slice: S-031
 name: Playback and Adaptation
-state: READY_FOR_IMPLEMENTATION
-owner: Codex
-agent_action: implement the preserved S-031 scope
-blocked_on: none
+state: AWAITING_HUMAN_VALIDATION
+owner: Human
+agent_action: run the fixed S-031 phone-browser protocol and record the disposition
+blocked_on: human playback and adaptation validation
 started: 2026-07-11
 scope: docs/management/s031_playback_adaptation.md
 previous_slice: S-030
@@ -14,7 +14,7 @@ previous_slice: S-030
 
 ## Current Slice
 
-S-031 is the sole active slice. Its preserved scope validates playback lifecycle, speed controls, visibility behavior, and conservative session-only adaptation without changing the passed S-029 dwell calibration.
+S-031 is the sole active slice at `AWAITING_HUMAN_VALIDATION`. Automated characterization found the shipped playback, timer, visibility, speed-control, session-reset, and conservative-adaptation invariants intact without reproducing a defect or changing behavior. The human owns the fixed phone-browser protocol in [S-031 Playback and Adaptation Validation](../validation/s031_playback_adaptation_validation.md). S-032 remains scheduled and inactive.
 
 ## S-030 Outcome
 
