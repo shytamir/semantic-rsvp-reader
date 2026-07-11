@@ -3,9 +3,9 @@
 ```yaml
 current_slice: S-028
 name: Compact CI and Evidence Integrity
-state: READY_FOR_IMPLEMENTATION
+state: PASSED
 owner: Codex
-agent_action: implement the preserved S-028 scope
+agent_action: await human selection of a future slice
 blocked_on: none
 started: 2026-07-11
 scope: docs/management/s028_compact_ci_evidence_integrity.md
@@ -14,9 +14,9 @@ previous_slice: S-027
 
 ## Current Slice
 
-S-028 is the sole active slice. Its preserved scope adds compact CI for core/fallback and parser-default operation plus management and experimental-evidence integrity checks.
+S-028 completed as `passed` on 2026-07-11. No successor slice is active.
 
-GitHub issue #3 remains open and is included as an S-028 maintenance item. No S-028 implementation was performed while activating the slice.
+Compact GitHub Actions jobs now cover repository/evidence integrity, the dependency-light rule-based path, and the pinned parser-default path. GitHub issue #3 was resolved by finalizing the S-026 integration commit identity and registered file hashes. Required remote jobs passed on the pushed S-028 implementation.
 
 ## S-027 Outcome
 
@@ -113,8 +113,7 @@ Detailed in-app defect reports from the S-021 validation session were accidental
 
 ## Next Actions
 
-- Implement the preserved [S-028 scope](s028_compact_ci_evidence_integrity.md).
-- Resolve the integration-record maintenance item tracked by open GitHub issue #3 within S-028.
+- Await human selection and authorization of a future slice.
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks

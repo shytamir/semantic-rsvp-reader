@@ -5,15 +5,15 @@ This roadmap is the priority-order view. [STATUS](STATUS.md) is the authority fo
 ## Now
 
 1. **S-028: Compact CI and Evidence Integrity**
-   - State: `READY_FOR_IMPLEMENTATION`
+   - State: `PASSED`
    - Owner: Codex
-   - Goal: protect core/fallback operation, parser-default operation, management consistency, and experimental evidence with a compact automation layer.
+   - Outcome: compact integrity, dependency-light core, and pinned parser-default CI passed remotely; GitHub issue #3 was resolved.
    - Scope: [S-028 planning document](s028_compact_ci_evidence_integrity.md).
-   - Included maintenance: open GitHub issue #3.
+   - No successor slice is active.
 
 ## Next
 
-- No separately scheduled slice. Complete S-028 before selecting another slice.
+- No separately scheduled slice. Await human selection and authorization.
 
 ## Later
 

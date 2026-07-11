@@ -12,8 +12,8 @@ These files are the project-management source of truth for the solo human/Codex 
 
 ## Active Slice
 
-- S-028 is the sole active slice in [STATUS](STATUS.md), with state `READY_FOR_IMPLEMENTATION` and owner Codex.
-- The preserved [S-028: Compact CI and Evidence Integrity](s028_compact_ci_evidence_integrity.md) scope protects core/fallback operation, parser-default operation, management consistency, and experimental evidence. Open GitHub issue #3 remains included.
+- S-028 completed as `passed`; no successor slice is active.
+- The implemented [S-028: Compact CI and Evidence Integrity](s028_compact_ci_evidence_integrity.md) scope protects core/fallback operation, parser-default operation, management consistency, and experimental evidence. GitHub issue #3 is resolved.
 
 Compatibility pointers:
 

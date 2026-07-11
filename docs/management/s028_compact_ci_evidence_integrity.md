@@ -2,7 +2,7 @@
 
 ## Status
 
-Scheduled immediately after S-027. S-027 remains the sole active slice.
+Completed as `passed` on 2026-07-11. No successor slice was activated.
 
 ## Objective
 
@@ -85,4 +85,4 @@ A later security pass may separately consider `pip-audit`, one secret scanner, `
 
 ## Completion Boundary
 
-S-028 is planning-only until it becomes the active authorized slice. This document does not add workflows, validators, requirements, tests, or runtime behavior.
+S-028 added only the compact workflows, validators, focused tests, integration-record maintenance, and documentation described above. It did not change runtime or optimizer behavior.
