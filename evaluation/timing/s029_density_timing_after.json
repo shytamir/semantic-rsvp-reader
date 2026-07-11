@@ -1,0 +1,1144 @@
+{
+  "aggregate": {
+    "comparison": {
+      "chunk_count_change_percent": -40.323,
+      "content_words_per_chunk_change_percent": 67.612,
+      "parser_effective_rate_change_percent": 22.537,
+      "parser_minus_rule_ms_per_word": -49.299,
+      "words_per_chunk_change_percent": 67.597
+    },
+    "parser_assisted": {
+      "chunk_count": 74,
+      "content_word_count": 188,
+      "content_words_per_chunk": 2.541,
+      "maximum_clamp_count": 0,
+      "milliseconds_per_content_word": 315.319,
+      "milliseconds_per_word": 218.745,
+      "minimum_clamp_count": 0,
+      "sample_count": 22,
+      "syntactic_hints": {
+        "dense": 62,
+        "normal": 11,
+        "punctuation": 1
+      },
+      "total_duration_ms": 59280,
+      "word_count": 271,
+      "words_per_chunk": 3.662
+    },
+    "rule_based": {
+      "chunk_count": 124,
+      "content_word_count": 188,
+      "content_words_per_chunk": 1.516,
+      "maximum_clamp_count": 0,
+      "milliseconds_per_content_word": 386.383,
+      "milliseconds_per_word": 268.044,
+      "minimum_clamp_count": 0,
+      "sample_count": 22,
+      "syntactic_hints": {
+        "dense": 61,
+        "light": 6,
+        "normal": 57
+      },
+      "total_duration_ms": 72640,
+      "word_count": 271,
+      "words_per_chunk": 2.185
+    }
+  },
+  "phase": "after",
+  "samples": [
+    {
+      "case_id": "dev-names-0001",
+      "corpus": "development",
+      "parser_assisted": {
+        "character_length": {
+          "max": 26,
+          "mean": 21,
+          "median": 23,
+          "min": 14,
+          "p90": 23
+        },
+        "chunk_count": 3,
+        "content_word_count": 9,
+        "content_words_per_chunk": 3.0,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 305.556,
+        "milliseconds_per_word": 229.167,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "dense": 3
+        },
+        "total_duration_ms": 2750,
+        "word_count": 12,
+        "words_per_chunk": 4.0
+      },
+      "rule_based": {
+        "character_length": {
+          "max": 19,
+          "mean": 12.2,
+          "median": 9,
+          "min": 8,
+          "p90": 17
+        },
+        "chunk_count": 5,
+        "content_word_count": 9,
+        "content_words_per_chunk": 1.8,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 365.556,
+        "milliseconds_per_word": 274.167,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "dense": 4,
+          "light": 1
+        },
+        "total_duration_ms": 3290,
+        "word_count": 12,
+        "words_per_chunk": 2.4
+      }
+    },
+    {
+      "case_id": "dev-date-0002",
+      "corpus": "development",
+      "parser_assisted": {
+        "character_length": {
+          "max": 30,
+          "mean": 23.667,
+          "median": 29,
+          "min": 12,
+          "p90": 29
+        },
+        "chunk_count": 3,
+        "content_word_count": 8,
+        "content_words_per_chunk": 2.667,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 320.0,
+        "milliseconds_per_word": 232.727,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "dense": 3
+        },
+        "total_duration_ms": 2560,
+        "word_count": 11,
+        "words_per_chunk": 3.667
+      },
+      "rule_based": {
+        "character_length": {
+          "max": 21,
+          "mean": 13.8,
+          "median": 12,
+          "min": 11,
+          "p90": 13
+        },
+        "chunk_count": 5,
+        "content_word_count": 8,
+        "content_words_per_chunk": 1.6,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 368.75,
+        "milliseconds_per_word": 268.182,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "dense": 2,
+          "normal": 3
+        },
+        "total_duration_ms": 2950,
+        "word_count": 11,
+        "words_per_chunk": 2.2
+      }
+    },
+    {
+      "case_id": "dev-negation-0003",
+      "corpus": "development",
+      "parser_assisted": {
+        "character_length": {
+          "max": 32,
+          "mean": 30.5,
+          "median": 30.5,
+          "min": 29,
+          "p90": 29
+        },
+        "chunk_count": 2,
+        "content_word_count": 6,
+        "content_words_per_chunk": 3.0,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 321.667,
+        "milliseconds_per_word": 175.455,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "dense": 2
+        },
+        "total_duration_ms": 1930,
+        "word_count": 11,
+        "words_per_chunk": 5.5
+      },
+      "rule_based": {
+        "character_length": {
+          "max": 19,
+          "mean": 11.6,
+          "median": 9,
+          "min": 9,
+          "p90": 12
+        },
+        "chunk_count": 5,
+        "content_word_count": 6,
+        "content_words_per_chunk": 1.2,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 456.667,
+        "milliseconds_per_word": 249.091,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "dense": 1,
+          "normal": 4
+        },
+        "total_duration_ms": 2740,
+        "word_count": 11,
+        "words_per_chunk": 2.2
+      }
+    },
+    {
+      "case_id": "dev-money-0004",
+      "corpus": "development",
+      "parser_assisted": {
+        "character_length": {
+          "max": 31,
+          "mean": 18.25,
+          "median": 16.0,
+          "min": 10,
+          "p90": 17
+        },
+        "chunk_count": 4,
+        "content_word_count": 9,
+        "content_words_per_chunk": 2.25,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 316.667,
+        "milliseconds_per_word": 219.231,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "dense": 3,
+          "normal": 1
+        },
+        "total_duration_ms": 2850,
+        "word_count": 13,
+        "words_per_chunk": 3.25
+      },
+      "rule_based": {
+        "character_length": {
+          "max": 17,
+          "mean": 14.4,
+          "median": 15,
+          "min": 10,
+          "p90": 15
+        },
+        "chunk_count": 5,
+        "content_word_count": 9,
+        "content_words_per_chunk": 1.8,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 365.556,
+        "milliseconds_per_word": 253.077,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "dense": 4,
+          "normal": 1
+        },
+        "total_duration_ms": 3290,
+        "word_count": 13,
+        "words_per_chunk": 2.6
+      }
+    },
+    {
+      "case_id": "dev-source-0005",
+      "corpus": "development",
+      "parser_assisted": {
+        "character_length": {
+          "max": 31,
+          "mean": 21.333,
+          "median": 26.0,
+          "min": 4,
+          "p90": 29
+        },
+        "chunk_count": 6,
+        "content_word_count": 18,
+        "content_words_per_chunk": 3.0,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 266.111,
+        "milliseconds_per_word": 208.261,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "dense": 5,
+          "normal": 1
+        },
+        "total_duration_ms": 4790,
+        "word_count": 23,
+        "words_per_chunk": 3.833
+      },
+      "rule_based": {
+        "character_length": {
+          "max": 17,
+          "mean": 10.167,
+          "median": 10.0,
+          "min": 4,
+          "p90": 14
+        },
+        "chunk_count": 12,
+        "content_word_count": 18,
+        "content_words_per_chunk": 1.5,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 355.556,
+        "milliseconds_per_word": 278.261,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "dense": 5,
+          "normal": 7
+        },
+        "total_duration_ms": 6400,
+        "word_count": 23,
+        "words_per_chunk": 1.917
+      }
+    },
+    {
+      "case_id": "dev-width-0006",
+      "corpus": "development",
+      "parser_assisted": {
+        "character_length": {
+          "max": 30,
+          "mean": 18.75,
+          "median": 19.5,
+          "min": 6,
+          "p90": 29
+        },
+        "chunk_count": 4,
+        "content_word_count": 6,
+        "content_words_per_chunk": 1.5,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 390.0,
+        "milliseconds_per_word": 334.286,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "dense": 1,
+          "normal": 3
+        },
+        "total_duration_ms": 2340,
+        "word_count": 7,
+        "words_per_chunk": 1.75
+      },
+      "rule_based": {
+        "character_length": {
+          "max": 29,
+          "mean": 18.75,
+          "median": 18.0,
+          "min": 10,
+          "p90": 19
+        },
+        "chunk_count": 4,
+        "content_word_count": 6,
+        "content_words_per_chunk": 1.5,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 413.333,
+        "milliseconds_per_word": 354.286,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "dense": 2,
+          "normal": 2
+        },
+        "total_duration_ms": 2480,
+        "word_count": 7,
+        "words_per_chunk": 1.75
+      }
+    },
+    {
+      "case_id": "dev-quote-0007",
+      "corpus": "development",
+      "parser_assisted": {
+        "character_length": {
+          "max": 32,
+          "mean": 24.333,
+          "median": 22,
+          "min": 19,
+          "p90": 22
+        },
+        "chunk_count": 3,
+        "content_word_count": 8,
+        "content_words_per_chunk": 2.667,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 330.0,
+        "milliseconds_per_word": 188.571,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "dense": 3
+        },
+        "total_duration_ms": 2640,
+        "word_count": 14,
+        "words_per_chunk": 4.667
+      },
+      "rule_based": {
+        "character_length": {
+          "max": 16,
+          "mean": 11.167,
+          "median": 12.5,
+          "min": 2,
+          "p90": 15
+        },
+        "chunk_count": 6,
+        "content_word_count": 8,
+        "content_words_per_chunk": 1.333,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 411.25,
+        "milliseconds_per_word": 235.0,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "dense": 2,
+          "normal": 4
+        },
+        "total_duration_ms": 3290,
+        "word_count": 14,
+        "words_per_chunk": 2.333
+      }
+    },
+    {
+      "case_id": "dev-parenthetical-0008",
+      "corpus": "development",
+      "parser_assisted": {
+        "character_length": {
+          "max": 30,
+          "mean": 20.5,
+          "median": 21.0,
+          "min": 10,
+          "p90": 26
+        },
+        "chunk_count": 4,
+        "content_word_count": 10,
+        "content_words_per_chunk": 2.5,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 294.0,
+        "milliseconds_per_word": 210.0,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "dense": 3,
+          "normal": 1
+        },
+        "total_duration_ms": 2940,
+        "word_count": 14,
+        "words_per_chunk": 3.5
+      },
+      "rule_based": {
+        "character_length": {
+          "max": 19,
+          "mean": 13.167,
+          "median": 12.5,
+          "min": 9,
+          "p90": 16
+        },
+        "chunk_count": 6,
+        "content_word_count": 10,
+        "content_words_per_chunk": 1.667,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 372.0,
+        "milliseconds_per_word": 265.714,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "dense": 4,
+          "normal": 2
+        },
+        "total_duration_ms": 3720,
+        "word_count": 14,
+        "words_per_chunk": 2.333
+      }
+    },
+    {
+      "case_id": "reg-basic-0001",
+      "corpus": "regression",
+      "parser_assisted": {
+        "character_length": {
+          "max": 23,
+          "mean": 16.5,
+          "median": 16.5,
+          "min": 10,
+          "p90": 10
+        },
+        "chunk_count": 2,
+        "content_word_count": 3,
+        "content_words_per_chunk": 1.5,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 473.333,
+        "milliseconds_per_word": 236.667,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "dense": 1,
+          "normal": 1
+        },
+        "total_duration_ms": 1420,
+        "word_count": 6,
+        "words_per_chunk": 3.0
+      },
+      "rule_based": {
+        "character_length": {
+          "max": 11,
+          "mean": 10.667,
+          "median": 11,
+          "min": 10,
+          "p90": 11
+        },
+        "chunk_count": 3,
+        "content_word_count": 3,
+        "content_words_per_chunk": 1.0,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 500.0,
+        "milliseconds_per_word": 250.0,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "normal": 3
+        },
+        "total_duration_ms": 1500,
+        "word_count": 6,
+        "words_per_chunk": 2.0
+      }
+    },
+    {
+      "case_id": "reg-dense-0002",
+      "corpus": "regression",
+      "parser_assisted": {
+        "character_length": {
+          "max": 23,
+          "mean": 19,
+          "median": 17,
+          "min": 17,
+          "p90": 17
+        },
+        "chunk_count": 3,
+        "content_word_count": 8,
+        "content_words_per_chunk": 2.667,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 295.0,
+        "milliseconds_per_word": 262.222,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "dense": 3
+        },
+        "total_duration_ms": 2360,
+        "word_count": 9,
+        "words_per_chunk": 3.0
+      },
+      "rule_based": {
+        "character_length": {
+          "max": 18,
+          "mean": 14,
+          "median": 14.5,
+          "min": 9,
+          "p90": 16
+        },
+        "chunk_count": 4,
+        "content_word_count": 8,
+        "content_words_per_chunk": 2.0,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 350.0,
+        "milliseconds_per_word": 311.111,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "dense": 4
+        },
+        "total_duration_ms": 2800,
+        "word_count": 9,
+        "words_per_chunk": 2.25
+      }
+    },
+    {
+      "case_id": "reg-air-force-0003",
+      "corpus": "regression",
+      "parser_assisted": {
+        "character_length": {
+          "max": 30,
+          "mean": 20.5,
+          "median": 18.0,
+          "min": 16,
+          "p90": 19
+        },
+        "chunk_count": 4,
+        "content_word_count": 9,
+        "content_words_per_chunk": 2.25,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 373.333,
+        "milliseconds_per_word": 210.0,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "dense": 4
+        },
+        "total_duration_ms": 3360,
+        "word_count": 16,
+        "words_per_chunk": 4.0
+      },
+      "rule_based": {
+        "character_length": {
+          "max": 19,
+          "mean": 13.333,
+          "median": 13.5,
+          "min": 5,
+          "p90": 16
+        },
+        "chunk_count": 6,
+        "content_word_count": 9,
+        "content_words_per_chunk": 1.5,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 403.333,
+        "milliseconds_per_word": 226.875,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "dense": 3,
+          "light": 1,
+          "normal": 2
+        },
+        "total_duration_ms": 3630,
+        "word_count": 16,
+        "words_per_chunk": 2.667
+      }
+    },
+    {
+      "case_id": "reg-khamenei-0004",
+      "corpus": "regression",
+      "parser_assisted": {
+        "character_length": {
+          "max": 26,
+          "mean": 23.667,
+          "median": 23,
+          "min": 22,
+          "p90": 23
+        },
+        "chunk_count": 3,
+        "content_word_count": 9,
+        "content_words_per_chunk": 3.0,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 315.556,
+        "milliseconds_per_word": 236.667,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "dense": 3
+        },
+        "total_duration_ms": 2840,
+        "word_count": 12,
+        "words_per_chunk": 4.0
+      },
+      "rule_based": {
+        "character_length": {
+          "max": 22,
+          "mean": 13.8,
+          "median": 17,
+          "min": 3,
+          "p90": 19
+        },
+        "chunk_count": 5,
+        "content_word_count": 9,
+        "content_words_per_chunk": 1.8,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 370.0,
+        "milliseconds_per_word": 277.5,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "dense": 3,
+          "light": 1,
+          "normal": 1
+        },
+        "total_duration_ms": 3330,
+        "word_count": 12,
+        "words_per_chunk": 2.4
+      }
+    },
+    {
+      "case_id": "reg-phrasal-0005",
+      "corpus": "regression",
+      "parser_assisted": {
+        "character_length": {
+          "max": 28,
+          "mean": 19.667,
+          "median": 17,
+          "min": 14,
+          "p90": 17
+        },
+        "chunk_count": 3,
+        "content_word_count": 7,
+        "content_words_per_chunk": 2.333,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 348.571,
+        "milliseconds_per_word": 203.333,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "dense": 3
+        },
+        "total_duration_ms": 2440,
+        "word_count": 12,
+        "words_per_chunk": 4.0
+      },
+      "rule_based": {
+        "character_length": {
+          "max": 18,
+          "mean": 11.2,
+          "median": 9,
+          "min": 6,
+          "p90": 15
+        },
+        "chunk_count": 5,
+        "content_word_count": 7,
+        "content_words_per_chunk": 1.4,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 394.286,
+        "milliseconds_per_word": 230.0,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "dense": 2,
+          "normal": 3
+        },
+        "total_duration_ms": 2760,
+        "word_count": 12,
+        "words_per_chunk": 2.4
+      }
+    },
+    {
+      "case_id": "reg-qualifier-0006",
+      "corpus": "regression",
+      "parser_assisted": {
+        "character_length": {
+          "max": 26,
+          "mean": 24,
+          "median": 24.0,
+          "min": 22,
+          "p90": 22
+        },
+        "chunk_count": 2,
+        "content_word_count": 6,
+        "content_words_per_chunk": 3.0,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 315.0,
+        "milliseconds_per_word": 270.0,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "dense": 2
+        },
+        "total_duration_ms": 1890,
+        "word_count": 7,
+        "words_per_chunk": 3.5
+      },
+      "rule_based": {
+        "character_length": {
+          "max": 22,
+          "mean": 15.667,
+          "median": 19,
+          "min": 6,
+          "p90": 19
+        },
+        "chunk_count": 3,
+        "content_word_count": 6,
+        "content_words_per_chunk": 2.0,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 361.667,
+        "milliseconds_per_word": 310.0,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "dense": 2,
+          "normal": 1
+        },
+        "total_duration_ms": 2170,
+        "word_count": 7,
+        "words_per_chunk": 2.333
+      }
+    },
+    {
+      "case_id": "reg-coordinated-0007",
+      "corpus": "regression",
+      "parser_assisted": {
+        "character_length": {
+          "max": 28,
+          "mean": 26.5,
+          "median": 26.5,
+          "min": 25,
+          "p90": 25
+        },
+        "chunk_count": 2,
+        "content_word_count": 8,
+        "content_words_per_chunk": 4.0,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 233.75,
+        "milliseconds_per_word": 207.778,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "dense": 2
+        },
+        "total_duration_ms": 1870,
+        "word_count": 9,
+        "words_per_chunk": 4.5
+      },
+      "rule_based": {
+        "character_length": {
+          "max": 21,
+          "mean": 12.75,
+          "median": 12.0,
+          "min": 6,
+          "p90": 15
+        },
+        "chunk_count": 4,
+        "content_word_count": 8,
+        "content_words_per_chunk": 2.0,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 330.0,
+        "milliseconds_per_word": 293.333,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "dense": 3,
+          "normal": 1
+        },
+        "total_duration_ms": 2640,
+        "word_count": 9,
+        "words_per_chunk": 2.25
+      }
+    },
+    {
+      "case_id": "reg-overlong-0008",
+      "corpus": "regression",
+      "parser_assisted": {
+        "character_length": {
+          "max": 24,
+          "mean": 17.5,
+          "median": 17.5,
+          "min": 11,
+          "p90": 11
+        },
+        "chunk_count": 2,
+        "content_word_count": 3,
+        "content_words_per_chunk": 1.5,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 473.333,
+        "milliseconds_per_word": 236.667,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "dense": 1,
+          "normal": 1
+        },
+        "total_duration_ms": 1420,
+        "word_count": 6,
+        "words_per_chunk": 3.0
+      },
+      "rule_based": {
+        "character_length": {
+          "max": 13,
+          "mean": 11.333,
+          "median": 11,
+          "min": 10,
+          "p90": 11
+        },
+        "chunk_count": 3,
+        "content_word_count": 3,
+        "content_words_per_chunk": 1.0,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 500.0,
+        "milliseconds_per_word": 250.0,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "normal": 3
+        },
+        "total_duration_ms": 1500,
+        "word_count": 6,
+        "words_per_chunk": 2.0
+      }
+    },
+    {
+      "case_id": "gen-public-0001",
+      "corpus": "generalization",
+      "parser_assisted": {
+        "character_length": {
+          "max": 28,
+          "mean": 26,
+          "median": 26.0,
+          "min": 24,
+          "p90": 24
+        },
+        "chunk_count": 2,
+        "content_word_count": 4,
+        "content_words_per_chunk": 2.0,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 485.0,
+        "milliseconds_per_word": 161.667,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "dense": 2
+        },
+        "total_duration_ms": 1940,
+        "word_count": 12,
+        "words_per_chunk": 6.0
+      },
+      "rule_based": {
+        "character_length": {
+          "max": 9,
+          "mean": 7.833,
+          "median": 8.5,
+          "min": 6,
+          "p90": 9
+        },
+        "chunk_count": 6,
+        "content_word_count": 4,
+        "content_words_per_chunk": 0.667,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 625.0,
+        "milliseconds_per_word": 208.333,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "light": 2,
+          "normal": 4
+        },
+        "total_duration_ms": 2500,
+        "word_count": 12,
+        "words_per_chunk": 2.0
+      }
+    },
+    {
+      "case_id": "gen-public-0002",
+      "corpus": "generalization",
+      "parser_assisted": {
+        "character_length": {
+          "max": 29,
+          "mean": 19.8,
+          "median": 16,
+          "min": 12,
+          "p90": 28
+        },
+        "chunk_count": 5,
+        "content_word_count": 16,
+        "content_words_per_chunk": 3.2,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 268.75,
+        "milliseconds_per_word": 226.316,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "dense": 5
+        },
+        "total_duration_ms": 4300,
+        "word_count": 19,
+        "words_per_chunk": 3.8
+      },
+      "rule_based": {
+        "character_length": {
+          "max": 12,
+          "mean": 8.364,
+          "median": 9,
+          "min": 4,
+          "p90": 10
+        },
+        "chunk_count": 11,
+        "content_word_count": 16,
+        "content_words_per_chunk": 1.455,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 378.125,
+        "milliseconds_per_word": 318.421,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "dense": 6,
+          "light": 1,
+          "normal": 4
+        },
+        "total_duration_ms": 6050,
+        "word_count": 19,
+        "words_per_chunk": 1.727
+      }
+    },
+    {
+      "case_id": "gen-synthetic-0003",
+      "corpus": "generalization",
+      "parser_assisted": {
+        "character_length": {
+          "max": 26,
+          "mean": 20.5,
+          "median": 19.5,
+          "min": 17,
+          "p90": 21
+        },
+        "chunk_count": 4,
+        "content_word_count": 9,
+        "content_words_per_chunk": 2.25,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 350.0,
+        "milliseconds_per_word": 225.0,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "dense": 4
+        },
+        "total_duration_ms": 3150,
+        "word_count": 14,
+        "words_per_chunk": 3.5
+      },
+      "rule_based": {
+        "character_length": {
+          "max": 20,
+          "mean": 11.143,
+          "median": 10,
+          "min": 5,
+          "p90": 17
+        },
+        "chunk_count": 7,
+        "content_word_count": 9,
+        "content_words_per_chunk": 1.286,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 414.444,
+        "milliseconds_per_word": 266.429,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "dense": 2,
+          "normal": 5
+        },
+        "total_duration_ms": 3730,
+        "word_count": 14,
+        "words_per_chunk": 2.0
+      }
+    },
+    {
+      "case_id": "gen-synthetic-0004",
+      "corpus": "generalization",
+      "parser_assisted": {
+        "character_length": {
+          "max": 32,
+          "mean": 16,
+          "median": 12,
+          "min": 1,
+          "p90": 26
+        },
+        "chunk_count": 5,
+        "content_word_count": 8,
+        "content_words_per_chunk": 1.6,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 365.0,
+        "milliseconds_per_word": 243.333,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "dense": 2,
+          "normal": 2,
+          "punctuation": 1
+        },
+        "total_duration_ms": 2920,
+        "word_count": 12,
+        "words_per_chunk": 2.4
+      },
+      "rule_based": {
+        "character_length": {
+          "max": 23,
+          "mean": 15.8,
+          "median": 16,
+          "min": 9,
+          "p90": 19
+        },
+        "chunk_count": 5,
+        "content_word_count": 8,
+        "content_words_per_chunk": 1.6,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 405.0,
+        "milliseconds_per_word": 270.0,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "dense": 3,
+          "normal": 2
+        },
+        "total_duration_ms": 3240,
+        "word_count": 12,
+        "words_per_chunk": 2.4
+      }
+    },
+    {
+      "case_id": "gen-synthetic-0005",
+      "corpus": "generalization",
+      "parser_assisted": {
+        "character_length": {
+          "max": 29,
+          "mean": 19.6,
+          "median": 19,
+          "min": 13,
+          "p90": 22
+        },
+        "chunk_count": 5,
+        "content_word_count": 13,
+        "content_words_per_chunk": 2.6,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 292.308,
+        "milliseconds_per_word": 211.111,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "dense": 4,
+          "normal": 1
+        },
+        "total_duration_ms": 3800,
+        "word_count": 18,
+        "words_per_chunk": 3.6
+      },
+      "rule_based": {
+        "character_length": {
+          "max": 19,
+          "mean": 13.714,
+          "median": 15,
+          "min": 4,
+          "p90": 19
+        },
+        "chunk_count": 7,
+        "content_word_count": 13,
+        "content_words_per_chunk": 1.857,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 351.538,
+        "milliseconds_per_word": 253.889,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "dense": 5,
+          "normal": 2
+        },
+        "total_duration_ms": 4570,
+        "word_count": 18,
+        "words_per_chunk": 2.571
+      }
+    },
+    {
+      "case_id": "gen-synthetic-0006",
+      "corpus": "generalization",
+      "parser_assisted": {
+        "character_length": {
+          "max": 30,
+          "mean": 26.667,
+          "median": 28,
+          "min": 22,
+          "p90": 28
+        },
+        "chunk_count": 3,
+        "content_word_count": 11,
+        "content_words_per_chunk": 3.667,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 251.818,
+        "milliseconds_per_word": 197.857,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "dense": 3
+        },
+        "total_duration_ms": 2770,
+        "word_count": 14,
+        "words_per_chunk": 4.667
+      },
+      "rule_based": {
+        "character_length": {
+          "max": 14,
+          "mean": 10.857,
+          "median": 12,
+          "min": 8,
+          "p90": 12
+        },
+        "chunk_count": 7,
+        "content_word_count": 11,
+        "content_words_per_chunk": 1.571,
+        "maximum_clamp_count": 0,
+        "milliseconds_per_content_word": 369.091,
+        "milliseconds_per_word": 290.0,
+        "minimum_clamp_count": 0,
+        "syntactic_hints": {
+          "dense": 4,
+          "normal": 3
+        },
+        "total_duration_ms": 4060,
+        "word_count": 14,
+        "words_per_chunk": 2.0
+      }
+    }
+  ],
+  "slice": "S-029",
+  "timing_config": {
+    "base_beat_ms": 400,
+    "max_duration_ms": 1200,
+    "min_duration_ms": 150,
+    "sentence_pause_ms": 180
+  }
+}

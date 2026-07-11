@@ -50,7 +50,8 @@ def test_dense_chunks_receive_calibrated_settling_bonus():
 
     assert explanation["syntactic_multiplier"] == 1.3
     assert explanation["dense_settling_bonus_ms"] == 40
-    assert compute_duration_ms(dense) == 600
+    assert explanation["density_dwell_bonus_ms"] == 70
+    assert compute_duration_ms(dense) == 670
 
 
 def test_representative_dense_chunk_avoids_problematic_effective_band_at_115x():
@@ -164,3 +165,56 @@ def test_unknown_syntactic_hint_falls_back_safely():
     normal = make_chunk("system", "normal")
 
     assert compute_duration_ms(unknown) == compute_duration_ms(normal)
+
+
+def test_density_dwell_bonus_is_monotonic_across_thresholds():
+    two_words = make_chunk("clear system", "normal", content_word_count=1)
+    three_words = make_chunk("clear system response", "normal", content_word_count=2)
+    four_words = make_chunk("clear system response pattern", "normal", content_word_count=3)
+
+    assert explain_duration(two_words)["density_dwell_bonus_ms"] == 0
+    assert explain_duration(three_words)["density_dwell_bonus_ms"] == 70
+    assert explain_duration(four_words)["density_dwell_bonus_ms"] == 140
+    assert compute_duration_ms(two_words) < compute_duration_ms(three_words) < compute_duration_ms(four_words)
+
+
+def test_density_dwell_bonus_protects_light_and_punctuation_chunks():
+    light = make_chunk("in the short phrase", "light", content_word_count=2)
+    punctuation = make_chunk("however, for example", "punctuation", content_word_count=2)
+
+    assert explain_duration(light)["density_dwell_bonus_ms"] == 0
+    assert explain_duration(punctuation)["density_dwell_bonus_ms"] == 0
+
+
+def test_density_dwell_can_be_disabled_for_frozen_baseline_reproduction():
+    chunk = make_chunk("clear system response", "normal", content_word_count=2)
+
+    assert explain_duration(chunk, TimingConfig(density_aware=False))["density_dwell_bonus_ms"] == 0
+
+
+def test_density_dwell_bonus_is_bounded_before_duration_clamp():
+    chunk = make_chunk("one two three four five six seven eight", "dense", content_word_count=8)
+    explanation = explain_duration(chunk)
+
+    assert explanation["density_dwell_bonus_ms"] == 240
+    assert explanation["duration_ms"] <= TimingConfig().max_duration_ms
+
+
+def test_representative_parser_sized_dense_chunk_receives_density_dwell():
+    chunk = make_chunk("deterministic semantic boundary evidence", "dense", content_word_count=4)
+
+    assert explain_duration(chunk)["density_dwell_bonus_ms"] == 160
+    assert compute_duration_ms(chunk) >= 800
+
+
+def test_consolidated_semantic_material_retains_most_split_dwell_time():
+    consolidated = make_chunk("clear system response pattern", "dense", content_word_count=3)
+    split = [
+        make_chunk("clear system", "normal", content_word_count=1),
+        make_chunk("response pattern", "normal", content_word_count=2),
+    ]
+
+    consolidated_duration = compute_duration_ms(consolidated)
+    split_duration = sum(compute_duration_ms(chunk) for chunk in split)
+
+    assert consolidated_duration >= split_duration * 0.8

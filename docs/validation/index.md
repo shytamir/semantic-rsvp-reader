@@ -4,6 +4,7 @@
 
 - [S-021 Post-Stabilization Human Summary](s021_post_stabilization_human_summary.md)
 - [S-026 Parser Integration Validation](s026_parser_integration_validation.md)
+- [S-029 Density and Timing Report](s029_density_timing_report.md)
 - [Post-Validation Stabilization Pass 1](post_validation_stabilization_pass_1.md)
 - [Navigation Validation](navigation_validation.md)
 - [Validation Corpus](corpus.md)
@@ -12,7 +13,7 @@ Current focus:
 
 1. S-026 parser-assisted Flask prototype integration passed human validation with no acceptance-blocking regressions.
 2. S-027 post-navigation usability validation completed as `passed`; the recorded evidence is in [Navigation Validation](navigation_validation.md).
-3. S-029 Density-Aware Dwell-Time Recalibration is the sole active slice.
+3. S-029 Density-Aware Dwell-Time Recalibration is the sole active slice and awaits human validation.
 4. Parser-assisted chunking remains frozen unless a new authorized evaluation slice changes it.
 
 ## Defect Reporting Workflow

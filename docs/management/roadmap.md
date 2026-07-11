@@ -5,10 +5,11 @@ This roadmap is the priority-order view. [STATUS](STATUS.md) is the authority fo
 ## Now
 
 1. **S-029: Density-Aware Dwell-Time Recalibration**
-   - State: `IN_IMPLEMENTATION`
-   - Owner: Codex
+   - State: `AWAITING_HUMAN_VALIDATION`
+   - Owner: Human
    - Goal: measure the parser density shift and make default `1.0x` timing comfortable through a bounded, inspectable adjustment.
    - Scope: [S-029](s029_density_aware_dwell_time_recalibration.md).
+   - Evidence and handoff: [S-029 density and timing report](../validation/s029_density_timing_report.md).
 
 ## Next
 

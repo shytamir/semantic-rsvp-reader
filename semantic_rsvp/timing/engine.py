@@ -13,6 +13,7 @@ _DENSE_SETTLING_BONUS_MS = 40
 _EXTRA_DENSE_BONUS_MS = 50
 _DENSE_SENTENCE_END_BONUS_MS = 40
 _EXTREME_DENSITY_BONUS_MS = 60
+_MAX_DENSITY_DWELL_BONUS_MS = 240
 _QUOTE_BOUNDARY_BONUS_MS = 70
 _STRONG_PUNCTUATION_BONUS_MS = 70
 _COMMA_LIST_EMPHASIS_BONUS_MS = 20
@@ -51,6 +52,7 @@ def explain_duration(chunk: Chunk, config: TimingConfig | None = None) -> dict:
     dense_bonus_ms = _dense_settling_bonus_ms(chunk)
     extra_dense_bonus_ms = _extra_dense_bonus_ms(chunk)
     extreme_density_bonus_ms = _extreme_density_bonus_ms(chunk)
+    density_dwell_bonus_ms = _density_dwell_bonus_ms(chunk, timing_config)
     punctuation_bonus_ms = _punctuation_bonus_ms(chunk)
     sentence_pause_ms = timing_config.sentence_pause_ms if _ends_sentence(chunk.text) else 0
     dense_sentence_end_bonus_ms = (
@@ -63,6 +65,7 @@ def explain_duration(chunk: Chunk, config: TimingConfig | None = None) -> dict:
     duration += dense_bonus_ms
     duration += extra_dense_bonus_ms
     duration += extreme_density_bonus_ms
+    duration += density_dwell_bonus_ms
     duration += punctuation_bonus_ms
     duration += sentence_pause_ms
     duration += dense_sentence_end_bonus_ms
@@ -76,6 +79,7 @@ def explain_duration(chunk: Chunk, config: TimingConfig | None = None) -> dict:
         "dense_settling_bonus_ms": dense_bonus_ms,
         "extra_dense_bonus_ms": extra_dense_bonus_ms,
         "extreme_density_bonus_ms": extreme_density_bonus_ms,
+        "density_dwell_bonus_ms": density_dwell_bonus_ms,
         "punctuation_bonus_ms": punctuation_bonus_ms,
         "sentence_pause_ms": sentence_pause_ms,
         "dense_sentence_end_bonus_ms": dense_sentence_end_bonus_ms,
@@ -109,6 +113,15 @@ def _extreme_density_bonus_ms(chunk: Chunk) -> int:
     if not is_extreme_semantic_density(chunk):
         return 0
     return _EXTREME_DENSITY_BONUS_MS
+
+
+def _density_dwell_bonus_ms(chunk: Chunk, config: TimingConfig) -> int:
+    if not config.density_aware or chunk.syntactic_hint in {"light", "punctuation"}:
+        return 0
+    word_count = len(_words(chunk.text))
+    word_bonus = max(0, word_count - 2) * 50
+    content_bonus = max(0, chunk.content_word_count - 1) * 20
+    return min(_MAX_DENSITY_DWELL_BONUS_MS, word_bonus + content_bonus)
 
 
 def is_extra_dense_chunk(chunk: Chunk) -> bool:

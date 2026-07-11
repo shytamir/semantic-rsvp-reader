@@ -7,6 +7,7 @@ class TimingConfig:
     min_duration_ms: int = 150
     max_duration_ms: int = 1200
     sentence_pause_ms: int = 180
+    density_aware: bool = True
 
     def __post_init__(self) -> None:
         if self.base_beat_ms < 1:

@@ -105,14 +105,14 @@ def _structure_payload(structure: Any) -> dict[str, Any]:
 def build_baseline_payload() -> dict[str, Any]:
     cases = load_cases()
     hashes = manifest_hashes()
-    timing_config = TimingConfig()
+    timing_config = TimingConfig(density_aware=False)
     chunker = RuleBasedChunker()
 
     payload_cases = []
     for case in cases:
         normalized = normalize_text(case["text"])
         sentences = split_sentences(normalized)
-        schedule = schedule_text(case["text"])
+        schedule = schedule_text(case["text"], config=timing_config)
         chunk_texts = [scheduled.chunk.text for scheduled in schedule]
         offsets = _find_source_offsets(normalized, chunk_texts)
         payload_cases.append(

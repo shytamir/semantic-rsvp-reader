@@ -2,7 +2,7 @@
 
 ## Status
 
-Active and authorized for implementation. No successor slice is active.
+Implemented and awaiting human validation. No successor slice is active.
 
 ## Initiating Evidence
 
