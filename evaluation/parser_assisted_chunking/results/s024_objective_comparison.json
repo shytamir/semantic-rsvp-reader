@@ -1,0 +1,4521 @@
+{
+  "cases": {
+    "blind": [
+      {
+        "annotation_validation_failures": [],
+        "case_id": "blind-0001",
+        "corpus": "blind",
+        "normalized_identical": true,
+        "parser_assisted": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 1,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 2,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 1,
+              "numerator": 0
+            },
+            "protected_spans": {
+              "denominator": 2,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 2,
+          "distribution": {
+            "char_width_distribution": {
+              "21": 1,
+              "26": 1
+            },
+            "chunks_exceeding_density_target": 1,
+            "chunks_per_1000_words": 250.0,
+            "chunks_per_sentence": 2.0,
+            "long_chunk_rate": 0.0,
+            "mean_chars_per_chunk": 23.5,
+            "mean_words_per_chunk": 4,
+            "median_chars_per_chunk": 23.5,
+            "median_words_per_chunk": 4.0,
+            "single_word_chunk_rate": 0.0,
+            "total_chunks": 2
+          },
+          "fallback_reason": null,
+          "fallback_used": false,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "rule_based": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 1,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 2,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 1,
+              "numerator": 1
+            },
+            "protected_spans": {
+              "denominator": 2,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 4,
+          "distribution": {
+            "char_width_distribution": {
+              "10": 1,
+              "22": 1,
+              "4": 1,
+              "8": 1
+            },
+            "chunks_exceeding_density_target": 0,
+            "chunks_per_1000_words": 500.0,
+            "chunks_per_sentence": 4.0,
+            "long_chunk_rate": 0.0,
+            "mean_chars_per_chunk": 11,
+            "mean_words_per_chunk": 2,
+            "median_chars_per_chunk": 9.0,
+            "median_words_per_chunk": 2.0,
+            "single_word_chunk_rate": 0.25,
+            "total_chunks": 4
+          },
+          "fallback_reason": null,
+          "fallback_used": null,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "source_sha256": "79e282b3d7a369a75ef21c0c9016b70c3a528e21868a496b47e38d6e3625ca75"
+      },
+      {
+        "annotation_validation_failures": [],
+        "case_id": "blind-0002",
+        "corpus": "blind",
+        "normalized_identical": true,
+        "parser_assisted": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 1,
+            "complete_segmentation_match": true,
+            "forbidden": {
+              "denominator": 4,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 1,
+              "numerator": 1
+            },
+            "protected_spans": {
+              "denominator": 2,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 2,
+          "distribution": {
+            "char_width_distribution": {
+              "20": 1,
+              "26": 1
+            },
+            "chunks_exceeding_density_target": 2,
+            "chunks_per_1000_words": 285.714,
+            "chunks_per_sentence": 2.0,
+            "long_chunk_rate": 0.0,
+            "mean_chars_per_chunk": 23,
+            "mean_words_per_chunk": 3.5,
+            "median_chars_per_chunk": 23.0,
+            "median_words_per_chunk": 3.5,
+            "single_word_chunk_rate": 0.0,
+            "total_chunks": 2
+          },
+          "fallback_reason": null,
+          "fallback_used": false,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "rule_based": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 1,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 4,
+              "numerator": 2
+            },
+            "preferred": {
+              "denominator": 1,
+              "numerator": 0
+            },
+            "protected_spans": {
+              "denominator": 2,
+              "numerator": 2
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 4,
+          "distribution": {
+            "char_width_distribution": {
+              "11": 1,
+              "14": 1,
+              "15": 1,
+              "4": 1
+            },
+            "chunks_exceeding_density_target": 0,
+            "chunks_per_1000_words": 571.429,
+            "chunks_per_sentence": 4.0,
+            "long_chunk_rate": 0.0,
+            "mean_chars_per_chunk": 11,
+            "mean_words_per_chunk": 1.75,
+            "median_chars_per_chunk": 12.5,
+            "median_words_per_chunk": 2.0,
+            "single_word_chunk_rate": 0.25,
+            "total_chunks": 4
+          },
+          "fallback_reason": null,
+          "fallback_used": null,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "source_sha256": "788b7084a1067b7fd4435839abbb389b9ead3360a6e61b175b2a7916bad133be"
+      },
+      {
+        "annotation_validation_failures": [],
+        "case_id": "blind-0003",
+        "corpus": "blind",
+        "normalized_identical": true,
+        "parser_assisted": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 1,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 4,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 2,
+              "numerator": 1
+            },
+            "protected_spans": {
+              "denominator": 2,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 3,
+          "distribution": {
+            "char_width_distribution": {
+              "11": 1,
+              "23": 1,
+              "30": 1
+            },
+            "chunks_exceeding_density_target": 2,
+            "chunks_per_1000_words": 272.727,
+            "chunks_per_sentence": 3.0,
+            "long_chunk_rate": 0.333333,
+            "mean_chars_per_chunk": 21.333,
+            "mean_words_per_chunk": 3.667,
+            "median_chars_per_chunk": 23,
+            "median_words_per_chunk": 4,
+            "single_word_chunk_rate": 0.0,
+            "total_chunks": 3
+          },
+          "fallback_reason": null,
+          "fallback_used": false,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "rule_based": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 1,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 4,
+              "numerator": 2
+            },
+            "preferred": {
+              "denominator": 2,
+              "numerator": 1
+            },
+            "protected_spans": {
+              "denominator": 2,
+              "numerator": 2
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 6,
+          "distribution": {
+            "char_width_distribution": {
+              "10": 1,
+              "11": 1,
+              "20": 1,
+              "5": 1,
+              "6": 1,
+              "9": 1
+            },
+            "chunks_exceeding_density_target": 0,
+            "chunks_per_1000_words": 545.455,
+            "chunks_per_sentence": 6.0,
+            "long_chunk_rate": 0.0,
+            "mean_chars_per_chunk": 10.167,
+            "mean_words_per_chunk": 1.833,
+            "median_chars_per_chunk": 9.5,
+            "median_words_per_chunk": 2.0,
+            "single_word_chunk_rate": 0.333333,
+            "total_chunks": 6
+          },
+          "fallback_reason": null,
+          "fallback_used": null,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "source_sha256": "657d7fe0929c448bc4278875d8dc0b6e04339fa309112ef9d5eb31b133dfdae7"
+      },
+      {
+        "annotation_validation_failures": [],
+        "case_id": "blind-0004",
+        "corpus": "blind",
+        "normalized_identical": true,
+        "parser_assisted": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 1,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 2,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 3,
+              "numerator": 0
+            },
+            "protected_spans": {
+              "denominator": 2,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 3,
+          "distribution": {
+            "char_width_distribution": {
+              "10": 1,
+              "24": 1,
+              "29": 1
+            },
+            "chunks_exceeding_density_target": 2,
+            "chunks_per_1000_words": 272.727,
+            "chunks_per_sentence": 3.0,
+            "long_chunk_rate": 0.333333,
+            "mean_chars_per_chunk": 21,
+            "mean_words_per_chunk": 3.667,
+            "median_chars_per_chunk": 24,
+            "median_words_per_chunk": 4,
+            "single_word_chunk_rate": 0.0,
+            "total_chunks": 3
+          },
+          "fallback_reason": null,
+          "fallback_used": false,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "rule_based": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 0,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "protected_spans": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 0,
+          "distribution": {
+            "char_width_distribution": {},
+            "chunks_exceeding_density_target": 0,
+            "chunks_per_1000_words": 0.0,
+            "chunks_per_sentence": 0.0,
+            "long_chunk_rate": null,
+            "mean_chars_per_chunk": 0,
+            "mean_words_per_chunk": 0,
+            "median_chars_per_chunk": 0,
+            "median_words_per_chunk": 0,
+            "single_word_chunk_rate": null,
+            "total_chunks": 0
+          },
+          "fallback_reason": null,
+          "fallback_used": null,
+          "hard": {
+            "dropped_text": true,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": true,
+            "source_ordering_failure": true,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": true,
+            "unscorable_reason": "chunk_mapping_failed"
+          }
+        },
+        "source_sha256": "4454f1af188676396490b3297db2a99b721c29432adff7255bc98df701e7e063"
+      },
+      {
+        "annotation_validation_failures": [],
+        "case_id": "blind-0005",
+        "corpus": "blind",
+        "normalized_identical": true,
+        "parser_assisted": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 1,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 5,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 2,
+              "numerator": 1
+            },
+            "protected_spans": {
+              "denominator": 2,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 2,
+          "distribution": {
+            "char_width_distribution": {
+              "30": 1,
+              "31": 1
+            },
+            "chunks_exceeding_density_target": 2,
+            "chunks_per_1000_words": 181.818,
+            "chunks_per_sentence": 2.0,
+            "long_chunk_rate": 1.0,
+            "mean_chars_per_chunk": 30.5,
+            "mean_words_per_chunk": 5.5,
+            "median_chars_per_chunk": 30.5,
+            "median_words_per_chunk": 5.5,
+            "single_word_chunk_rate": 0.0,
+            "total_chunks": 2
+          },
+          "fallback_reason": null,
+          "fallback_used": false,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "rule_based": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 1,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 5,
+              "numerator": 2
+            },
+            "preferred": {
+              "denominator": 2,
+              "numerator": 1
+            },
+            "protected_spans": {
+              "denominator": 2,
+              "numerator": 2
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 5,
+          "distribution": {
+            "char_width_distribution": {
+              "10": 1,
+              "11": 2,
+              "12": 1,
+              "14": 1
+            },
+            "chunks_exceeding_density_target": 0,
+            "chunks_per_1000_words": 454.545,
+            "chunks_per_sentence": 5.0,
+            "long_chunk_rate": 0.0,
+            "mean_chars_per_chunk": 11.6,
+            "mean_words_per_chunk": 2.2,
+            "median_chars_per_chunk": 11,
+            "median_words_per_chunk": 2,
+            "single_word_chunk_rate": 0.0,
+            "total_chunks": 5
+          },
+          "fallback_reason": null,
+          "fallback_used": null,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "source_sha256": "f108a3fa6a661212f9ac422a50bb8e297c301bf3c14a58775d7263e478b2c55a"
+      },
+      {
+        "annotation_validation_failures": [],
+        "case_id": "blind-0006",
+        "corpus": "blind",
+        "normalized_identical": true,
+        "parser_assisted": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 1,
+            "complete_segmentation_match": true,
+            "forbidden": {
+              "denominator": 3,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 1,
+              "numerator": 1
+            },
+            "protected_spans": {
+              "denominator": 3,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 2,
+          "distribution": {
+            "char_width_distribution": {
+              "29": 1,
+              "31": 1
+            },
+            "chunks_exceeding_density_target": 2,
+            "chunks_per_1000_words": 200.0,
+            "chunks_per_sentence": 2.0,
+            "long_chunk_rate": 1.0,
+            "mean_chars_per_chunk": 30,
+            "mean_words_per_chunk": 5,
+            "median_chars_per_chunk": 30.0,
+            "median_words_per_chunk": 5.0,
+            "single_word_chunk_rate": 0.0,
+            "total_chunks": 2
+          },
+          "fallback_reason": null,
+          "fallback_used": false,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "rule_based": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 1,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 3,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 1,
+              "numerator": 1
+            },
+            "protected_spans": {
+              "denominator": 3,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 4,
+          "distribution": {
+            "char_width_distribution": {
+              "11": 1,
+              "14": 1,
+              "16": 1,
+              "17": 1
+            },
+            "chunks_exceeding_density_target": 0,
+            "chunks_per_1000_words": 400.0,
+            "chunks_per_sentence": 4.0,
+            "long_chunk_rate": 0.0,
+            "mean_chars_per_chunk": 14.5,
+            "mean_words_per_chunk": 2.5,
+            "median_chars_per_chunk": 15.0,
+            "median_words_per_chunk": 2.5,
+            "single_word_chunk_rate": 0.0,
+            "total_chunks": 4
+          },
+          "fallback_reason": null,
+          "fallback_used": null,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "source_sha256": "ee33986023249eea5d5aa4a74f81fbb90050b0a65952be7306aee419de65122c"
+      },
+      {
+        "annotation_validation_failures": [],
+        "case_id": "blind-0007",
+        "corpus": "blind",
+        "normalized_identical": true,
+        "parser_assisted": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 1,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 4,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 2,
+              "numerator": 0
+            },
+            "protected_spans": {
+              "denominator": 3,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 2,
+          "distribution": {
+            "char_width_distribution": {
+              "26": 1,
+              "32": 1
+            },
+            "chunks_exceeding_density_target": 0,
+            "chunks_per_1000_words": 222.222,
+            "chunks_per_sentence": 2.0,
+            "long_chunk_rate": 0.5,
+            "mean_chars_per_chunk": 29,
+            "mean_words_per_chunk": 4.5,
+            "median_chars_per_chunk": 29.0,
+            "median_words_per_chunk": 4.5,
+            "single_word_chunk_rate": 0.0,
+            "total_chunks": 2
+          },
+          "fallback_reason": null,
+          "fallback_used": false,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "rule_based": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 1,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 4,
+              "numerator": 1
+            },
+            "preferred": {
+              "denominator": 2,
+              "numerator": 1
+            },
+            "protected_spans": {
+              "denominator": 3,
+              "numerator": 1
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 4,
+          "distribution": {
+            "char_width_distribution": {
+              "12": 1,
+              "13": 1,
+              "14": 1,
+              "17": 1
+            },
+            "chunks_exceeding_density_target": 0,
+            "chunks_per_1000_words": 444.444,
+            "chunks_per_sentence": 4.0,
+            "long_chunk_rate": 0.0,
+            "mean_chars_per_chunk": 14,
+            "mean_words_per_chunk": 2.25,
+            "median_chars_per_chunk": 13.5,
+            "median_words_per_chunk": 2.0,
+            "single_word_chunk_rate": 0.0,
+            "total_chunks": 4
+          },
+          "fallback_reason": null,
+          "fallback_used": null,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "source_sha256": "83d3f5b3fd0f0e55595716441b500f81cb7b099d70f05b04519868b69a887a07"
+      },
+      {
+        "annotation_validation_failures": [],
+        "case_id": "blind-0008",
+        "corpus": "blind",
+        "normalized_identical": true,
+        "parser_assisted": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 1,
+            "complete_segmentation_match": true,
+            "forbidden": {
+              "denominator": 5,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 2,
+              "numerator": 2
+            },
+            "protected_spans": {
+              "denominator": 2,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 3,
+          "distribution": {
+            "char_width_distribution": {
+              "11": 1,
+              "22": 1,
+              "24": 1
+            },
+            "chunks_exceeding_density_target": 1,
+            "chunks_per_1000_words": 333.333,
+            "chunks_per_sentence": 3.0,
+            "long_chunk_rate": 0.0,
+            "mean_chars_per_chunk": 19,
+            "mean_words_per_chunk": 3,
+            "median_chars_per_chunk": 22,
+            "median_words_per_chunk": 3,
+            "single_word_chunk_rate": 0.0,
+            "total_chunks": 3
+          },
+          "fallback_reason": null,
+          "fallback_used": false,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "rule_based": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 1,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 5,
+              "numerator": 2
+            },
+            "preferred": {
+              "denominator": 2,
+              "numerator": 2
+            },
+            "protected_spans": {
+              "denominator": 2,
+              "numerator": 2
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 5,
+          "distribution": {
+            "char_width_distribution": {
+              "11": 1,
+              "13": 1,
+              "15": 1,
+              "8": 2
+            },
+            "chunks_exceeding_density_target": 0,
+            "chunks_per_1000_words": 555.556,
+            "chunks_per_sentence": 5.0,
+            "long_chunk_rate": 0.0,
+            "mean_chars_per_chunk": 11,
+            "mean_words_per_chunk": 1.8,
+            "median_chars_per_chunk": 11,
+            "median_words_per_chunk": 2,
+            "single_word_chunk_rate": 0.2,
+            "total_chunks": 5
+          },
+          "fallback_reason": null,
+          "fallback_used": null,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "source_sha256": "6f47ae16a404e90fa4332be38e27903c15b84beba8f3fc11e435ada6b0385ef7"
+      },
+      {
+        "annotation_validation_failures": [],
+        "case_id": "blind-0009",
+        "corpus": "blind",
+        "normalized_identical": true,
+        "parser_assisted": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 1,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 4,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 2,
+              "numerator": 1
+            },
+            "protected_spans": {
+              "denominator": 3,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 3,
+          "distribution": {
+            "char_width_distribution": {
+              "10": 1,
+              "28": 1,
+              "30": 1
+            },
+            "chunks_exceeding_density_target": 2,
+            "chunks_per_1000_words": 333.333,
+            "chunks_per_sentence": 3.0,
+            "long_chunk_rate": 0.666667,
+            "mean_chars_per_chunk": 22.667,
+            "mean_words_per_chunk": 3,
+            "median_chars_per_chunk": 28,
+            "median_words_per_chunk": 4,
+            "single_word_chunk_rate": 0.333333,
+            "total_chunks": 3
+          },
+          "fallback_reason": null,
+          "fallback_used": false,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "rule_based": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 1,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 4,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 2,
+              "numerator": 2
+            },
+            "protected_spans": {
+              "denominator": 3,
+              "numerator": 1
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 5,
+          "distribution": {
+            "char_width_distribution": {
+              "10": 2,
+              "15": 1,
+              "22": 1,
+              "8": 1
+            },
+            "chunks_exceeding_density_target": 0,
+            "chunks_per_1000_words": 555.556,
+            "chunks_per_sentence": 5.0,
+            "long_chunk_rate": 0.0,
+            "mean_chars_per_chunk": 13,
+            "mean_words_per_chunk": 1.8,
+            "median_chars_per_chunk": 10,
+            "median_words_per_chunk": 2,
+            "single_word_chunk_rate": 0.4,
+            "total_chunks": 5
+          },
+          "fallback_reason": null,
+          "fallback_used": null,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "source_sha256": "9b11f9fd20a2244cbba2fe543a8c848e1673f87bae2ee6f929c55778275fb793"
+      },
+      {
+        "annotation_validation_failures": [],
+        "case_id": "blind-0010",
+        "corpus": "blind",
+        "normalized_identical": true,
+        "parser_assisted": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 1,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 1,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 3,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 3,
+              "numerator": 0
+            },
+            "protected_spans": {
+              "denominator": 2,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 2,
+          "distribution": {
+            "char_width_distribution": {
+              "28": 1,
+              "31": 1
+            },
+            "chunks_exceeding_density_target": 2,
+            "chunks_per_1000_words": 181.818,
+            "chunks_per_sentence": 2.0,
+            "long_chunk_rate": 1.0,
+            "mean_chars_per_chunk": 29.5,
+            "mean_words_per_chunk": 5.5,
+            "median_chars_per_chunk": 29.5,
+            "median_words_per_chunk": 5.5,
+            "single_word_chunk_rate": 0.0,
+            "total_chunks": 2
+          },
+          "fallback_reason": null,
+          "fallback_used": false,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "rule_based": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 1,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 1,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 3,
+              "numerator": 1
+            },
+            "preferred": {
+              "denominator": 3,
+              "numerator": 3
+            },
+            "protected_spans": {
+              "denominator": 2,
+              "numerator": 1
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 5,
+          "distribution": {
+            "char_width_distribution": {
+              "12": 1,
+              "14": 2,
+              "7": 1,
+              "9": 1
+            },
+            "chunks_exceeding_density_target": 0,
+            "chunks_per_1000_words": 454.545,
+            "chunks_per_sentence": 5.0,
+            "long_chunk_rate": 0.0,
+            "mean_chars_per_chunk": 11.2,
+            "mean_words_per_chunk": 2.2,
+            "median_chars_per_chunk": 12,
+            "median_words_per_chunk": 2,
+            "single_word_chunk_rate": 0.0,
+            "total_chunks": 5
+          },
+          "fallback_reason": null,
+          "fallback_used": null,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "source_sha256": "9796598492cee17f570ca9df0f476fcf50c22a9a3475d802ca4870419042370b"
+      },
+      {
+        "annotation_validation_failures": [],
+        "case_id": "blind-0011",
+        "corpus": "blind",
+        "normalized_identical": true,
+        "parser_assisted": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 1,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 4,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 2,
+              "numerator": 0
+            },
+            "protected_spans": {
+              "denominator": 3,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 3,
+          "distribution": {
+            "char_width_distribution": {
+              "15": 1,
+              "20": 1,
+              "25": 1
+            },
+            "chunks_exceeding_density_target": 2,
+            "chunks_per_1000_words": 272.727,
+            "chunks_per_sentence": 3.0,
+            "long_chunk_rate": 0.0,
+            "mean_chars_per_chunk": 20,
+            "mean_words_per_chunk": 3.667,
+            "median_chars_per_chunk": 20,
+            "median_words_per_chunk": 4,
+            "single_word_chunk_rate": 0.0,
+            "total_chunks": 3
+          },
+          "fallback_reason": null,
+          "fallback_used": false,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "rule_based": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 1,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 4,
+              "numerator": 1
+            },
+            "preferred": {
+              "denominator": 2,
+              "numerator": 1
+            },
+            "protected_spans": {
+              "denominator": 3,
+              "numerator": 2
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 6,
+          "distribution": {
+            "char_width_distribution": {
+              "12": 1,
+              "14": 1,
+              "5": 2,
+              "8": 2
+            },
+            "chunks_exceeding_density_target": 0,
+            "chunks_per_1000_words": 545.455,
+            "chunks_per_sentence": 6.0,
+            "long_chunk_rate": 0.0,
+            "mean_chars_per_chunk": 8.667,
+            "mean_words_per_chunk": 1.833,
+            "median_chars_per_chunk": 8.0,
+            "median_words_per_chunk": 2.0,
+            "single_word_chunk_rate": 0.333333,
+            "total_chunks": 6
+          },
+          "fallback_reason": null,
+          "fallback_used": null,
+          "hard": {
+            "dropped_text": true,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": true,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "source_sha256": "9ded7fc9ee08c1c2b6138b60eeb69b6bbd5b521702973f89da8e9c897b395b2b"
+      },
+      {
+        "annotation_validation_failures": [],
+        "case_id": "blind-0012",
+        "corpus": "blind",
+        "normalized_identical": true,
+        "parser_assisted": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 1,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 4,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "protected_spans": {
+              "denominator": 4,
+              "numerator": 1
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 2,
+              "numerator": 2
+            }
+          },
+          "chunk_count": 4,
+          "distribution": {
+            "char_width_distribution": {
+              "12": 2,
+              "14": 1,
+              "15": 1
+            },
+            "chunks_exceeding_density_target": 1,
+            "chunks_per_1000_words": 363.636,
+            "chunks_per_sentence": 1.333,
+            "long_chunk_rate": 0.0,
+            "mean_chars_per_chunk": 13.25,
+            "mean_words_per_chunk": 2.75,
+            "median_chars_per_chunk": 13.0,
+            "median_words_per_chunk": 3.0,
+            "single_word_chunk_rate": 0.0,
+            "total_chunks": 4
+          },
+          "fallback_reason": null,
+          "fallback_used": false,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "rule_based": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 1,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 4,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "protected_spans": {
+              "denominator": 4,
+              "numerator": 1
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 2,
+              "numerator": 2
+            }
+          },
+          "chunk_count": 4,
+          "distribution": {
+            "char_width_distribution": {
+              "12": 2,
+              "14": 1,
+              "15": 1
+            },
+            "chunks_exceeding_density_target": 1,
+            "chunks_per_1000_words": 363.636,
+            "chunks_per_sentence": 1.333,
+            "long_chunk_rate": 0.0,
+            "mean_chars_per_chunk": 13.25,
+            "mean_words_per_chunk": 2.75,
+            "median_chars_per_chunk": 13.0,
+            "median_words_per_chunk": 3.0,
+            "single_word_chunk_rate": 0.0,
+            "total_chunks": 4
+          },
+          "fallback_reason": null,
+          "fallback_used": null,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "source_sha256": "11746c0c111b6e3df26f1a308201a6127e248e4c921c821be2973d504df0a1f2"
+      },
+      {
+        "annotation_validation_failures": [],
+        "case_id": "blind-0013",
+        "corpus": "blind",
+        "normalized_identical": true,
+        "parser_assisted": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 1,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 4,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 2,
+              "numerator": 1
+            },
+            "protected_spans": {
+              "denominator": 3,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 2,
+          "distribution": {
+            "char_width_distribution": {
+              "21": 1,
+              "28": 1
+            },
+            "chunks_exceeding_density_target": 2,
+            "chunks_per_1000_words": 222.222,
+            "chunks_per_sentence": 2.0,
+            "long_chunk_rate": 0.5,
+            "mean_chars_per_chunk": 24.5,
+            "mean_words_per_chunk": 4.5,
+            "median_chars_per_chunk": 24.5,
+            "median_words_per_chunk": 4.5,
+            "single_word_chunk_rate": 0.0,
+            "total_chunks": 2
+          },
+          "fallback_reason": null,
+          "fallback_used": false,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "rule_based": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 1,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 4,
+              "numerator": 2
+            },
+            "preferred": {
+              "denominator": 2,
+              "numerator": 0
+            },
+            "protected_spans": {
+              "denominator": 3,
+              "numerator": 2
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 4,
+          "distribution": {
+            "char_width_distribution": {
+              "16": 1,
+              "18": 1,
+              "5": 1,
+              "8": 1
+            },
+            "chunks_exceeding_density_target": 0,
+            "chunks_per_1000_words": 444.444,
+            "chunks_per_sentence": 4.0,
+            "long_chunk_rate": 0.0,
+            "mean_chars_per_chunk": 11.75,
+            "mean_words_per_chunk": 2.25,
+            "median_chars_per_chunk": 12.0,
+            "median_words_per_chunk": 2.5,
+            "single_word_chunk_rate": 0.25,
+            "total_chunks": 4
+          },
+          "fallback_reason": null,
+          "fallback_used": null,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "source_sha256": "ab374745e4365c3d6e4c02e24c64f540f936ceec22d08be07c7b9da045d8e1c6"
+      },
+      {
+        "annotation_validation_failures": [],
+        "case_id": "blind-0014",
+        "corpus": "blind",
+        "normalized_identical": true,
+        "parser_assisted": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 1,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 4,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 2,
+              "numerator": 0
+            },
+            "protected_spans": {
+              "denominator": 3,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 3,
+          "distribution": {
+            "char_width_distribution": {
+              "17": 1,
+              "27": 2
+            },
+            "chunks_exceeding_density_target": 1,
+            "chunks_per_1000_words": 272.727,
+            "chunks_per_sentence": 3.0,
+            "long_chunk_rate": 0.666667,
+            "mean_chars_per_chunk": 23.667,
+            "mean_words_per_chunk": 3.667,
+            "median_chars_per_chunk": 27,
+            "median_words_per_chunk": 4,
+            "single_word_chunk_rate": 0.0,
+            "total_chunks": 3
+          },
+          "fallback_reason": null,
+          "fallback_used": false,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "rule_based": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 1,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 4,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 2,
+              "numerator": 2
+            },
+            "protected_spans": {
+              "denominator": 3,
+              "numerator": 1
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 5,
+          "distribution": {
+            "char_width_distribution": {
+              "13": 2,
+              "18": 1,
+              "21": 1,
+              "3": 1
+            },
+            "chunks_exceeding_density_target": 0,
+            "chunks_per_1000_words": 454.545,
+            "chunks_per_sentence": 5.0,
+            "long_chunk_rate": 0.0,
+            "mean_chars_per_chunk": 13.6,
+            "mean_words_per_chunk": 2.2,
+            "median_chars_per_chunk": 13,
+            "median_words_per_chunk": 2,
+            "single_word_chunk_rate": 0.2,
+            "total_chunks": 5
+          },
+          "fallback_reason": null,
+          "fallback_used": null,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "source_sha256": "b433a0241566af5caf2fe6056848ee1059b82ef925423928b6f8d15273b7769b"
+      },
+      {
+        "annotation_validation_failures": [],
+        "case_id": "blind-0015",
+        "corpus": "blind",
+        "normalized_identical": true,
+        "parser_assisted": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 1,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 3,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 2,
+              "numerator": 1
+            },
+            "protected_spans": {
+              "denominator": 2,
+              "numerator": 1
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 3,
+          "distribution": {
+            "char_width_distribution": {
+              "1": 1,
+              "23": 1,
+              "30": 1
+            },
+            "chunks_exceeding_density_target": 2,
+            "chunks_per_1000_words": 375.0,
+            "chunks_per_sentence": 3.0,
+            "long_chunk_rate": 0.333333,
+            "mean_chars_per_chunk": 18,
+            "mean_words_per_chunk": 2.667,
+            "median_chars_per_chunk": 23,
+            "median_words_per_chunk": 3,
+            "single_word_chunk_rate": 0.333333,
+            "total_chunks": 3
+          },
+          "fallback_reason": null,
+          "fallback_used": false,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "rule_based": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 1,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 3,
+              "numerator": 1
+            },
+            "preferred": {
+              "denominator": 2,
+              "numerator": 2
+            },
+            "protected_spans": {
+              "denominator": 2,
+              "numerator": 2
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 5,
+          "distribution": {
+            "char_width_distribution": {
+              "11": 1,
+              "14": 1,
+              "15": 1,
+              "6": 1,
+              "7": 1
+            },
+            "chunks_exceeding_density_target": 0,
+            "chunks_per_1000_words": 625.0,
+            "chunks_per_sentence": 5.0,
+            "long_chunk_rate": 0.0,
+            "mean_chars_per_chunk": 10.6,
+            "mean_words_per_chunk": 1.6,
+            "median_chars_per_chunk": 11,
+            "median_words_per_chunk": 2,
+            "single_word_chunk_rate": 0.4,
+            "total_chunks": 5
+          },
+          "fallback_reason": null,
+          "fallback_used": null,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "source_sha256": "de8a2e6cbe01e624e38fcfd46c74bd7fdada8ad2f07f5967147b27e055f12b0b"
+      },
+      {
+        "annotation_validation_failures": [],
+        "case_id": "blind-0016",
+        "corpus": "blind",
+        "normalized_identical": true,
+        "parser_assisted": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 1,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 5,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 2,
+              "numerator": 1
+            },
+            "protected_spans": {
+              "denominator": 4,
+              "numerator": 1
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 3,
+          "distribution": {
+            "char_width_distribution": {
+              "19": 2,
+              "22": 1
+            },
+            "chunks_exceeding_density_target": 1,
+            "chunks_per_1000_words": 333.333,
+            "chunks_per_sentence": 3.0,
+            "long_chunk_rate": 0.0,
+            "mean_chars_per_chunk": 20,
+            "mean_words_per_chunk": 3,
+            "median_chars_per_chunk": 19,
+            "median_words_per_chunk": 3,
+            "single_word_chunk_rate": 0.0,
+            "total_chunks": 3
+          },
+          "fallback_reason": null,
+          "fallback_used": false,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "rule_based": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 1,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 5,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 2,
+              "numerator": 2
+            },
+            "protected_spans": {
+              "denominator": 4,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 4,
+          "distribution": {
+            "char_width_distribution": {
+              "12": 1,
+              "17": 1,
+              "20": 1,
+              "9": 1
+            },
+            "chunks_exceeding_density_target": 0,
+            "chunks_per_1000_words": 444.444,
+            "chunks_per_sentence": 4.0,
+            "long_chunk_rate": 0.0,
+            "mean_chars_per_chunk": 14.5,
+            "mean_words_per_chunk": 2.25,
+            "median_chars_per_chunk": 14.5,
+            "median_words_per_chunk": 2.0,
+            "single_word_chunk_rate": 0.0,
+            "total_chunks": 4
+          },
+          "fallback_reason": null,
+          "fallback_used": null,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "source_sha256": "98c5576056361af06a5b60e8dd2d4044e5935044bbec08aaf1e805bd9e08aaf8"
+      }
+    ],
+    "generalization": [
+      {
+        "annotation_validation_failures": [],
+        "case_id": "gen-public-0001",
+        "corpus": "generalization",
+        "normalized_identical": true,
+        "parser_assisted": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 0,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "protected_spans": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 2,
+          "distribution": {
+            "char_width_distribution": {
+              "24": 1,
+              "28": 1
+            },
+            "chunks_exceeding_density_target": 0,
+            "chunks_per_1000_words": 166.667,
+            "chunks_per_sentence": 2.0,
+            "long_chunk_rate": 0.5,
+            "mean_chars_per_chunk": 26,
+            "mean_words_per_chunk": 6,
+            "median_chars_per_chunk": 26.0,
+            "median_words_per_chunk": 6.0,
+            "single_word_chunk_rate": 0.0,
+            "total_chunks": 2
+          },
+          "fallback_reason": null,
+          "fallback_used": false,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "rule_based": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 0,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "protected_spans": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 6,
+          "distribution": {
+            "char_width_distribution": {
+              "6": 2,
+              "8": 1,
+              "9": 3
+            },
+            "chunks_exceeding_density_target": 0,
+            "chunks_per_1000_words": 500.0,
+            "chunks_per_sentence": 6.0,
+            "long_chunk_rate": 0.0,
+            "mean_chars_per_chunk": 7.833,
+            "mean_words_per_chunk": 2,
+            "median_chars_per_chunk": 8.5,
+            "median_words_per_chunk": 2.0,
+            "single_word_chunk_rate": 0.0,
+            "total_chunks": 6
+          },
+          "fallback_reason": null,
+          "fallback_used": null,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "source_sha256": "38d141b35057bbb691b9756c20a6c31a0ab0bbf2076538a7fb6d9ee8835096d7"
+      },
+      {
+        "annotation_validation_failures": [],
+        "case_id": "gen-public-0002",
+        "corpus": "generalization",
+        "normalized_identical": true,
+        "parser_assisted": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 0,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "protected_spans": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 5,
+          "distribution": {
+            "char_width_distribution": {
+              "12": 1,
+              "14": 1,
+              "16": 1,
+              "28": 1,
+              "29": 1
+            },
+            "chunks_exceeding_density_target": 4,
+            "chunks_per_1000_words": 263.158,
+            "chunks_per_sentence": 2.5,
+            "long_chunk_rate": 0.4,
+            "mean_chars_per_chunk": 19.8,
+            "mean_words_per_chunk": 3.8,
+            "median_chars_per_chunk": 16,
+            "median_words_per_chunk": 3,
+            "single_word_chunk_rate": 0.0,
+            "total_chunks": 5
+          },
+          "fallback_reason": null,
+          "fallback_used": false,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "rule_based": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 0,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "protected_spans": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 11,
+          "distribution": {
+            "char_width_distribution": {
+              "10": 3,
+              "12": 1,
+              "4": 1,
+              "5": 1,
+              "7": 1,
+              "8": 2,
+              "9": 2
+            },
+            "chunks_exceeding_density_target": 0,
+            "chunks_per_1000_words": 578.947,
+            "chunks_per_sentence": 5.5,
+            "long_chunk_rate": 0.0,
+            "mean_chars_per_chunk": 8.364,
+            "mean_words_per_chunk": 1.727,
+            "median_chars_per_chunk": 9,
+            "median_words_per_chunk": 2,
+            "single_word_chunk_rate": 0.363636,
+            "total_chunks": 11
+          },
+          "fallback_reason": null,
+          "fallback_used": null,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "source_sha256": "0bde839f67c2d0c9c6229112fb9b50dab5466098267c49d646b5d0484cd8efac"
+      },
+      {
+        "annotation_validation_failures": [],
+        "case_id": "gen-synthetic-0003",
+        "corpus": "generalization",
+        "normalized_identical": true,
+        "parser_assisted": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 0,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "protected_spans": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 4,
+          "distribution": {
+            "char_width_distribution": {
+              "17": 1,
+              "18": 1,
+              "21": 1,
+              "26": 1
+            },
+            "chunks_exceeding_density_target": 1,
+            "chunks_per_1000_words": 285.714,
+            "chunks_per_sentence": 4.0,
+            "long_chunk_rate": 0.0,
+            "mean_chars_per_chunk": 20.5,
+            "mean_words_per_chunk": 3.5,
+            "median_chars_per_chunk": 19.5,
+            "median_words_per_chunk": 3.5,
+            "single_word_chunk_rate": 0.0,
+            "total_chunks": 4
+          },
+          "fallback_reason": null,
+          "fallback_used": false,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "rule_based": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 0,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "protected_spans": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 7,
+          "distribution": {
+            "char_width_distribution": {
+              "10": 1,
+              "11": 1,
+              "17": 1,
+              "20": 1,
+              "5": 1,
+              "6": 1,
+              "9": 1
+            },
+            "chunks_exceeding_density_target": 0,
+            "chunks_per_1000_words": 500.0,
+            "chunks_per_sentence": 7.0,
+            "long_chunk_rate": 0.0,
+            "mean_chars_per_chunk": 11.143,
+            "mean_words_per_chunk": 2,
+            "median_chars_per_chunk": 10,
+            "median_words_per_chunk": 2,
+            "single_word_chunk_rate": 0.285714,
+            "total_chunks": 7
+          },
+          "fallback_reason": null,
+          "fallback_used": null,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "source_sha256": "c39698d02020558403212a1a4758167757b81f93d5052e64ea180e19b3f6baa1"
+      },
+      {
+        "annotation_validation_failures": [],
+        "case_id": "gen-synthetic-0004",
+        "corpus": "generalization",
+        "normalized_identical": true,
+        "parser_assisted": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 0,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "protected_spans": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 5,
+          "distribution": {
+            "char_width_distribution": {
+              "1": 1,
+              "12": 1,
+              "26": 1,
+              "32": 1,
+              "9": 1
+            },
+            "chunks_exceeding_density_target": 2,
+            "chunks_per_1000_words": 500.0,
+            "chunks_per_sentence": 5.0,
+            "long_chunk_rate": 0.2,
+            "mean_chars_per_chunk": 16,
+            "mean_words_per_chunk": 2,
+            "median_chars_per_chunk": 12,
+            "median_words_per_chunk": 2,
+            "single_word_chunk_rate": 0.2,
+            "total_chunks": 5
+          },
+          "fallback_reason": null,
+          "fallback_used": false,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "rule_based": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 0,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "protected_spans": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 5,
+          "distribution": {
+            "char_width_distribution": {
+              "12": 1,
+              "16": 1,
+              "19": 1,
+              "23": 1,
+              "9": 1
+            },
+            "chunks_exceeding_density_target": 0,
+            "chunks_per_1000_words": 500.0,
+            "chunks_per_sentence": 5.0,
+            "long_chunk_rate": 0.0,
+            "mean_chars_per_chunk": 15.8,
+            "mean_words_per_chunk": 2,
+            "median_chars_per_chunk": 16,
+            "median_words_per_chunk": 2,
+            "single_word_chunk_rate": 0.0,
+            "total_chunks": 5
+          },
+          "fallback_reason": null,
+          "fallback_used": null,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "source_sha256": "2de110d0dbe7fd1bb3d540586ae6dfe4a2b1fe6606c3eb883ade6c4ff85bf19c"
+      },
+      {
+        "annotation_validation_failures": [],
+        "case_id": "gen-synthetic-0005",
+        "corpus": "generalization",
+        "normalized_identical": true,
+        "parser_assisted": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 0,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "protected_spans": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 5,
+          "distribution": {
+            "char_width_distribution": {
+              "13": 1,
+              "15": 1,
+              "19": 1,
+              "22": 1,
+              "29": 1
+            },
+            "chunks_exceeding_density_target": 3,
+            "chunks_per_1000_words": 277.778,
+            "chunks_per_sentence": 1.667,
+            "long_chunk_rate": 0.2,
+            "mean_chars_per_chunk": 19.6,
+            "mean_words_per_chunk": 3.6,
+            "median_chars_per_chunk": 19,
+            "median_words_per_chunk": 3,
+            "single_word_chunk_rate": 0.0,
+            "total_chunks": 5
+          },
+          "fallback_reason": null,
+          "fallback_used": false,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "rule_based": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 0,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "protected_spans": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 7,
+          "distribution": {
+            "char_width_distribution": {
+              "13": 1,
+              "15": 1,
+              "17": 1,
+              "19": 2,
+              "4": 1,
+              "9": 1
+            },
+            "chunks_exceeding_density_target": 1,
+            "chunks_per_1000_words": 388.889,
+            "chunks_per_sentence": 2.333,
+            "long_chunk_rate": 0.0,
+            "mean_chars_per_chunk": 13.714,
+            "mean_words_per_chunk": 2.571,
+            "median_chars_per_chunk": 15,
+            "median_words_per_chunk": 3,
+            "single_word_chunk_rate": 0.142857,
+            "total_chunks": 7
+          },
+          "fallback_reason": null,
+          "fallback_used": null,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "source_sha256": "eb88bbb278237bc6626ba5a76645d3c37ad84cc4e8e8d02f3af9bc156174b807"
+      },
+      {
+        "annotation_validation_failures": [],
+        "case_id": "gen-synthetic-0006",
+        "corpus": "generalization",
+        "normalized_identical": true,
+        "parser_assisted": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 0,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "protected_spans": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 3,
+          "distribution": {
+            "char_width_distribution": {
+              "22": 1,
+              "28": 1,
+              "30": 1
+            },
+            "chunks_exceeding_density_target": 3,
+            "chunks_per_1000_words": 214.286,
+            "chunks_per_sentence": 3.0,
+            "long_chunk_rate": 0.666667,
+            "mean_chars_per_chunk": 26.667,
+            "mean_words_per_chunk": 4.667,
+            "median_chars_per_chunk": 28,
+            "median_words_per_chunk": 5,
+            "single_word_chunk_rate": 0.0,
+            "total_chunks": 3
+          },
+          "fallback_reason": null,
+          "fallback_used": false,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "rule_based": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 0,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "protected_spans": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 7,
+          "distribution": {
+            "char_width_distribution": {
+              "10": 1,
+              "12": 3,
+              "14": 1,
+              "8": 2
+            },
+            "chunks_exceeding_density_target": 0,
+            "chunks_per_1000_words": 500.0,
+            "chunks_per_sentence": 7.0,
+            "long_chunk_rate": 0.0,
+            "mean_chars_per_chunk": 10.857,
+            "mean_words_per_chunk": 2,
+            "median_chars_per_chunk": 12,
+            "median_words_per_chunk": 2,
+            "single_word_chunk_rate": 0.142857,
+            "total_chunks": 7
+          },
+          "fallback_reason": null,
+          "fallback_used": null,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "source_sha256": "bec6a4e5a7a73a758de741cb79cb10ca1c3a2cf02deb583c4ddc7b9931323c08"
+      }
+    ],
+    "regression": [
+      {
+        "annotation_validation_failures": [],
+        "case_id": "reg-basic-0001",
+        "corpus": "regression",
+        "normalized_identical": true,
+        "parser_assisted": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 0,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "protected_spans": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 2,
+          "distribution": {
+            "char_width_distribution": {
+              "10": 1,
+              "23": 1
+            },
+            "chunks_exceeding_density_target": 0,
+            "chunks_per_1000_words": 333.333,
+            "chunks_per_sentence": 2.0,
+            "long_chunk_rate": 0.0,
+            "mean_chars_per_chunk": 16.5,
+            "mean_words_per_chunk": 3,
+            "median_chars_per_chunk": 16.5,
+            "median_words_per_chunk": 3.0,
+            "single_word_chunk_rate": 0.0,
+            "total_chunks": 2
+          },
+          "fallback_reason": null,
+          "fallback_used": false,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "rule_based": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 0,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "protected_spans": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 3,
+          "distribution": {
+            "char_width_distribution": {
+              "10": 1,
+              "11": 2
+            },
+            "chunks_exceeding_density_target": 0,
+            "chunks_per_1000_words": 500.0,
+            "chunks_per_sentence": 3.0,
+            "long_chunk_rate": 0.0,
+            "mean_chars_per_chunk": 10.667,
+            "mean_words_per_chunk": 2,
+            "median_chars_per_chunk": 11,
+            "median_words_per_chunk": 2,
+            "single_word_chunk_rate": 0.0,
+            "total_chunks": 3
+          },
+          "fallback_reason": null,
+          "fallback_used": null,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "source_sha256": "2e338d13dd65a674aa553f3d45ce56047866c56c3e40a48008dd16cb4d444f19"
+      },
+      {
+        "annotation_validation_failures": [],
+        "case_id": "reg-dense-0002",
+        "corpus": "regression",
+        "normalized_identical": true,
+        "parser_assisted": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 0,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "protected_spans": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 3,
+          "distribution": {
+            "char_width_distribution": {
+              "17": 2,
+              "23": 1
+            },
+            "chunks_exceeding_density_target": 2,
+            "chunks_per_1000_words": 333.333,
+            "chunks_per_sentence": 3.0,
+            "long_chunk_rate": 0.0,
+            "mean_chars_per_chunk": 19,
+            "mean_words_per_chunk": 3,
+            "median_chars_per_chunk": 17,
+            "median_words_per_chunk": 3,
+            "single_word_chunk_rate": 0.0,
+            "total_chunks": 3
+          },
+          "fallback_reason": null,
+          "fallback_used": false,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "rule_based": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 0,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "protected_spans": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 4,
+          "distribution": {
+            "char_width_distribution": {
+              "13": 1,
+              "16": 1,
+              "18": 1,
+              "9": 1
+            },
+            "chunks_exceeding_density_target": 0,
+            "chunks_per_1000_words": 444.444,
+            "chunks_per_sentence": 4.0,
+            "long_chunk_rate": 0.0,
+            "mean_chars_per_chunk": 14,
+            "mean_words_per_chunk": 2.25,
+            "median_chars_per_chunk": 14.5,
+            "median_words_per_chunk": 2.0,
+            "single_word_chunk_rate": 0.0,
+            "total_chunks": 4
+          },
+          "fallback_reason": null,
+          "fallback_used": null,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "source_sha256": "3128d868257b85bc0938fed13642cfde14c92610c597f9602f1659c60154434b"
+      },
+      {
+        "annotation_validation_failures": [],
+        "case_id": "reg-air-force-0003",
+        "corpus": "regression",
+        "normalized_identical": true,
+        "parser_assisted": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 0,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "protected_spans": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 4,
+          "distribution": {
+            "char_width_distribution": {
+              "16": 1,
+              "17": 1,
+              "19": 1,
+              "30": 1
+            },
+            "chunks_exceeding_density_target": 1,
+            "chunks_per_1000_words": 250.0,
+            "chunks_per_sentence": 4.0,
+            "long_chunk_rate": 0.25,
+            "mean_chars_per_chunk": 20.5,
+            "mean_words_per_chunk": 4,
+            "median_chars_per_chunk": 18.0,
+            "median_words_per_chunk": 3.5,
+            "single_word_chunk_rate": 0.0,
+            "total_chunks": 4
+          },
+          "fallback_reason": null,
+          "fallback_used": false,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "rule_based": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 0,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "protected_spans": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 6,
+          "distribution": {
+            "char_width_distribution": {
+              "13": 2,
+              "14": 1,
+              "16": 1,
+              "19": 1,
+              "5": 1
+            },
+            "chunks_exceeding_density_target": 1,
+            "chunks_per_1000_words": 375.0,
+            "chunks_per_sentence": 6.0,
+            "long_chunk_rate": 0.0,
+            "mean_chars_per_chunk": 13.333,
+            "mean_words_per_chunk": 2.667,
+            "median_chars_per_chunk": 13.5,
+            "median_words_per_chunk": 2.5,
+            "single_word_chunk_rate": 0.0,
+            "total_chunks": 6
+          },
+          "fallback_reason": null,
+          "fallback_used": null,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "source_sha256": "a3f2f2ac5d6667b38128cd9d886dd0d15cded93014c7c986d3c96449fb5df500"
+      },
+      {
+        "annotation_validation_failures": [],
+        "case_id": "reg-khamenei-0004",
+        "corpus": "regression",
+        "normalized_identical": true,
+        "parser_assisted": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 0,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "protected_spans": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 3,
+          "distribution": {
+            "char_width_distribution": {
+              "22": 1,
+              "23": 1,
+              "26": 1
+            },
+            "chunks_exceeding_density_target": 2,
+            "chunks_per_1000_words": 250.0,
+            "chunks_per_sentence": 3.0,
+            "long_chunk_rate": 0.0,
+            "mean_chars_per_chunk": 23.667,
+            "mean_words_per_chunk": 4,
+            "median_chars_per_chunk": 23,
+            "median_words_per_chunk": 4,
+            "single_word_chunk_rate": 0.0,
+            "total_chunks": 3
+          },
+          "fallback_reason": null,
+          "fallback_used": false,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "rule_based": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 0,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "protected_spans": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 5,
+          "distribution": {
+            "char_width_distribution": {
+              "17": 1,
+              "19": 1,
+              "22": 1,
+              "3": 1,
+              "8": 1
+            },
+            "chunks_exceeding_density_target": 2,
+            "chunks_per_1000_words": 416.667,
+            "chunks_per_sentence": 5.0,
+            "long_chunk_rate": 0.0,
+            "mean_chars_per_chunk": 13.8,
+            "mean_words_per_chunk": 2.4,
+            "median_chars_per_chunk": 17,
+            "median_words_per_chunk": 3,
+            "single_word_chunk_rate": 0.2,
+            "total_chunks": 5
+          },
+          "fallback_reason": null,
+          "fallback_used": null,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "source_sha256": "007f2b24e85b0394bf9201865ba72ab26bdc0060d14791fdbcbafa2050b33a0c"
+      },
+      {
+        "annotation_validation_failures": [],
+        "case_id": "reg-phrasal-0005",
+        "corpus": "regression",
+        "normalized_identical": true,
+        "parser_assisted": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 0,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "protected_spans": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 3,
+          "distribution": {
+            "char_width_distribution": {
+              "14": 1,
+              "17": 1,
+              "28": 1
+            },
+            "chunks_exceeding_density_target": 1,
+            "chunks_per_1000_words": 250.0,
+            "chunks_per_sentence": 3.0,
+            "long_chunk_rate": 0.333333,
+            "mean_chars_per_chunk": 19.667,
+            "mean_words_per_chunk": 4,
+            "median_chars_per_chunk": 17,
+            "median_words_per_chunk": 3,
+            "single_word_chunk_rate": 0.0,
+            "total_chunks": 3
+          },
+          "fallback_reason": null,
+          "fallback_used": false,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "rule_based": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 0,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "protected_spans": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 5,
+          "distribution": {
+            "char_width_distribution": {
+              "15": 1,
+              "18": 1,
+              "6": 1,
+              "8": 1,
+              "9": 1
+            },
+            "chunks_exceeding_density_target": 0,
+            "chunks_per_1000_words": 416.667,
+            "chunks_per_sentence": 5.0,
+            "long_chunk_rate": 0.0,
+            "mean_chars_per_chunk": 11.2,
+            "mean_words_per_chunk": 2.4,
+            "median_chars_per_chunk": 9,
+            "median_words_per_chunk": 2,
+            "single_word_chunk_rate": 0.0,
+            "total_chunks": 5
+          },
+          "fallback_reason": null,
+          "fallback_used": null,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "source_sha256": "9f8d4828335d6cce7b6f46ee139b592678ae3fb050e035aacf9fb394f727a041"
+      },
+      {
+        "annotation_validation_failures": [],
+        "case_id": "reg-qualifier-0006",
+        "corpus": "regression",
+        "normalized_identical": true,
+        "parser_assisted": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 0,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "protected_spans": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 2,
+          "distribution": {
+            "char_width_distribution": {
+              "22": 1,
+              "26": 1
+            },
+            "chunks_exceeding_density_target": 1,
+            "chunks_per_1000_words": 285.714,
+            "chunks_per_sentence": 2.0,
+            "long_chunk_rate": 0.0,
+            "mean_chars_per_chunk": 24,
+            "mean_words_per_chunk": 3.5,
+            "median_chars_per_chunk": 24.0,
+            "median_words_per_chunk": 3.5,
+            "single_word_chunk_rate": 0.0,
+            "total_chunks": 2
+          },
+          "fallback_reason": null,
+          "fallback_used": false,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "rule_based": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 0,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "protected_spans": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 3,
+          "distribution": {
+            "char_width_distribution": {
+              "19": 1,
+              "22": 1,
+              "6": 1
+            },
+            "chunks_exceeding_density_target": 1,
+            "chunks_per_1000_words": 428.571,
+            "chunks_per_sentence": 3.0,
+            "long_chunk_rate": 0.0,
+            "mean_chars_per_chunk": 15.667,
+            "mean_words_per_chunk": 2.333,
+            "median_chars_per_chunk": 19,
+            "median_words_per_chunk": 2,
+            "single_word_chunk_rate": 0.0,
+            "total_chunks": 3
+          },
+          "fallback_reason": null,
+          "fallback_used": null,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "source_sha256": "d400600ea8972bf8824dcfb719e900d0b5ebb3639cb262276f383242ee07ee56"
+      },
+      {
+        "annotation_validation_failures": [],
+        "case_id": "reg-coordinated-0007",
+        "corpus": "regression",
+        "normalized_identical": true,
+        "parser_assisted": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 0,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "protected_spans": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 2,
+          "distribution": {
+            "char_width_distribution": {
+              "25": 1,
+              "28": 1
+            },
+            "chunks_exceeding_density_target": 2,
+            "chunks_per_1000_words": 222.222,
+            "chunks_per_sentence": 2.0,
+            "long_chunk_rate": 0.5,
+            "mean_chars_per_chunk": 26.5,
+            "mean_words_per_chunk": 4.5,
+            "median_chars_per_chunk": 26.5,
+            "median_words_per_chunk": 4.5,
+            "single_word_chunk_rate": 0.0,
+            "total_chunks": 2
+          },
+          "fallback_reason": null,
+          "fallback_used": false,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "rule_based": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 0,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "protected_spans": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 4,
+          "distribution": {
+            "char_width_distribution": {
+              "15": 1,
+              "21": 1,
+              "6": 1,
+              "9": 1
+            },
+            "chunks_exceeding_density_target": 1,
+            "chunks_per_1000_words": 444.444,
+            "chunks_per_sentence": 4.0,
+            "long_chunk_rate": 0.0,
+            "mean_chars_per_chunk": 12.75,
+            "mean_words_per_chunk": 2.25,
+            "median_chars_per_chunk": 12.0,
+            "median_words_per_chunk": 2.0,
+            "single_word_chunk_rate": 0.25,
+            "total_chunks": 4
+          },
+          "fallback_reason": null,
+          "fallback_used": null,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "source_sha256": "7ac7e8f934e694676f426735532c85f8a4521ca28ef42a2a80a6074fa7eaa35e"
+      },
+      {
+        "annotation_validation_failures": [],
+        "case_id": "reg-overlong-0008",
+        "corpus": "regression",
+        "normalized_identical": true,
+        "parser_assisted": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 0,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "protected_spans": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 2,
+          "distribution": {
+            "char_width_distribution": {
+              "11": 1,
+              "24": 1
+            },
+            "chunks_exceeding_density_target": 0,
+            "chunks_per_1000_words": 333.333,
+            "chunks_per_sentence": 2.0,
+            "long_chunk_rate": 0.0,
+            "mean_chars_per_chunk": 17.5,
+            "mean_words_per_chunk": 3,
+            "median_chars_per_chunk": 17.5,
+            "median_words_per_chunk": 3.0,
+            "single_word_chunk_rate": 0.0,
+            "total_chunks": 2
+          },
+          "fallback_reason": null,
+          "fallback_used": false,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "rule_based": {
+          "annotation": {
+            "acceptable": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "complete_segmentation_denominator": 0,
+            "complete_segmentation_match": false,
+            "forbidden": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "preferred": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "protected_spans": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required": {
+              "denominator": 0,
+              "numerator": 0
+            },
+            "required_structural": {
+              "denominator": 0,
+              "numerator": 0
+            }
+          },
+          "chunk_count": 3,
+          "distribution": {
+            "char_width_distribution": {
+              "10": 1,
+              "11": 1,
+              "13": 1
+            },
+            "chunks_exceeding_density_target": 0,
+            "chunks_per_1000_words": 500.0,
+            "chunks_per_sentence": 3.0,
+            "long_chunk_rate": 0.0,
+            "mean_chars_per_chunk": 11.333,
+            "mean_words_per_chunk": 2,
+            "median_chars_per_chunk": 11,
+            "median_words_per_chunk": 2,
+            "single_word_chunk_rate": 0.0,
+            "total_chunks": 3
+          },
+          "fallback_reason": null,
+          "fallback_used": null,
+          "hard": {
+            "dropped_text": false,
+            "duplicated_text": false,
+            "max_width_violations": 0,
+            "source_coverage_failure": false,
+            "source_ordering_failure": false,
+            "structural_boundary_violations": 0,
+            "unsafe_mapping_failure": false,
+            "unscorable_reason": null
+          }
+        },
+        "source_sha256": "c1db3a964c3c4c07916b1cab10fc15a89a118a9c11e112239dc10caf703ae919"
+      }
+    ]
+  },
+  "human_ab_packet": {
+    "case_count": 16,
+    "identity_key_committed": false,
+    "private_review_packet_created": true
+  },
+  "metadata": {
+    "baseline_commit": "8b50a3049bb5d92a304a03527385c519194ce8da",
+    "config_hash": "0e3266b6917b75da27896b382104ecf164457fee7f28d7e4d835ccb7251accab",
+    "config_version": "parser-assisted-spike-v1",
+    "experimental_entry_point": "semantic_rsvp.experiments.parser_assisted_chunking.chunker.ParserAssistedChunker",
+    "implementation_commit": "b01085193a36b664b6415686ff835426d0434c92",
+    "manifest_hashes": {
+      "development": "4bfa0409c3d7a15c14e1b7cd3abb9f9ac4a4b209af82cf1ab3439fda018c8b52",
+      "generalization": "2e61e30c210e6fe2bf3895e03017131bd7c8da80358456d725b489765901133e",
+      "regression": "e9c55c2e957c924d699b57e2622111f044997e821d43d472c7b203b28ba4fe68"
+    },
+    "model_name": "en_core_web_sm",
+    "model_version": "3.7.1",
+    "production_default": "semantic_rsvp.chunking.rules.RuleBasedChunker",
+    "slice": "S-024",
+    "spacy_version": "3.7.5",
+    "visibility_note": "Regression and generalization inputs were repository-visible before S-023; blind material was held out until after freeze."
+  },
+  "package": {
+    "canonical_sha256": "a6647ba26a9e32cfc154bfb904579f57ebdfbef9bdd2b64b7253cfefaa026502",
+    "internal_hash_entry_count": 6,
+    "package_metadata": {
+      "baseline_commit": "8b50a3049bb5d92a304a03527385c519194ce8da",
+      "language": "en",
+      "max_chars": 32,
+      "methodological_note": "Blind to Codex if withheld, but synthetic and model-authored rather than independently human-authored. Use it for held-out boundary scoring; retain later blinded human A/B preference as the final qualitative adoption evidence.",
+      "package_id": "rsvp-blind-challenge-v1",
+      "visibility": "Keep outside the active repository and outside Codex prompts until tuning is frozen."
+    },
+    "validator_result": "Validated 16 sealed blind cases.\nCanonical SHA-256: a6647ba26a9e32cfc154bfb904579f57ebdfbef9bdd2b64b7253cfefaa026502",
+    "zip_sha256": "a8926e9dc9cd68399f2c9f6a8b63ee44ac0cdd5b4f4361a20460410617b1f71b"
+  },
+  "summaries": {
+    "blind": {
+      "case_count": 16,
+      "corpus": "blind",
+      "paired": {
+        "acceptable": {
+          "baseline_wins": 0,
+          "parser_wins": 0,
+          "ties": 16
+        },
+        "chunk_count": {
+          "identical_chunk_count": 1,
+          "parser_fewer_chunks": 14,
+          "parser_more_chunks": 1
+        },
+        "forbidden": {
+          "baseline_wins": 0,
+          "parser_wins": 9,
+          "ties": 7
+        },
+        "preferred": {
+          "baseline_wins": 8,
+          "parser_wins": 2,
+          "ties": 6
+        },
+        "protected_spans": {
+          "baseline_wins": 1,
+          "parser_wins": 11,
+          "ties": 4
+        },
+        "required": {
+          "baseline_wins": 0,
+          "parser_wins": 0,
+          "ties": 16
+        },
+        "required_structural": {
+          "baseline_wins": 0,
+          "parser_wins": 0,
+          "ties": 16
+        }
+      },
+      "parser_assisted": {
+        "annotation_metrics": {
+          "acceptable": {
+            "denominator": 1,
+            "numerator": 0,
+            "rate": 0.0
+          },
+          "complete_segmentation_match": {
+            "denominator": 16,
+            "numerator": 3,
+            "rate": 0.1875
+          },
+          "forbidden": {
+            "denominator": 60,
+            "numerator": 0,
+            "rate": 0.0
+          },
+          "preferred": {
+            "denominator": 29,
+            "numerator": 10,
+            "rate": 0.344828
+          },
+          "protected_spans": {
+            "denominator": 42,
+            "numerator": 3,
+            "rate": 0.071429
+          },
+          "required": {
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "required_structural": {
+            "denominator": 2,
+            "numerator": 2,
+            "rate": 1.0
+          }
+        },
+        "distribution": {
+          "char_width_distribution": {
+            "1": 1,
+            "10": 2,
+            "11": 2,
+            "12": 2,
+            "14": 1,
+            "15": 2,
+            "17": 1,
+            "19": 2,
+            "20": 2,
+            "21": 2,
+            "22": 2,
+            "23": 2,
+            "24": 2,
+            "25": 1,
+            "26": 3,
+            "27": 2,
+            "28": 3,
+            "29": 2,
+            "30": 4,
+            "31": 3,
+            "32": 1
+          },
+          "chunks_exceeding_density_target": 25,
+          "chunks_per_1000_words": 273.333563,
+          "chunks_per_sentence": 2.458312,
+          "long_chunk_rate": 0.395833,
+          "mean_chars_per_chunk": 23.057313,
+          "mean_words_per_chunk": 3.849063,
+          "median_chars_per_chunk": 24.3125,
+          "median_words_per_chunk": 4.03125,
+          "single_word_chunk_rate": 0.041667,
+          "total_chunks": 42
+        },
+        "evaluated_cases": 16,
+        "fallback": {
+          "cases": 0,
+          "rate": 0.0
+        },
+        "hard_compliance": {
+          "dropped_text": 0,
+          "duplicated_text": 0,
+          "max_width_violations": 0,
+          "source_coverage_failure": 0,
+          "source_ordering_failure": 0,
+          "structural_boundary_violations": 0,
+          "unsafe_mapping_failure": 0
+        },
+        "unscorable_cases": 0
+      },
+      "rule_based": {
+        "annotation_metrics": {
+          "acceptable": {
+            "denominator": 1,
+            "numerator": 0,
+            "rate": 0.0
+          },
+          "complete_segmentation_match": {
+            "denominator": 15,
+            "numerator": 0,
+            "rate": 0.0
+          },
+          "forbidden": {
+            "denominator": 58,
+            "numerator": 14,
+            "rate": 0.241379
+          },
+          "preferred": {
+            "denominator": 26,
+            "numerator": 19,
+            "rate": 0.730769
+          },
+          "protected_spans": {
+            "denominator": 40,
+            "numerator": 19,
+            "rate": 0.475
+          },
+          "required": {
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "required_structural": {
+            "denominator": 2,
+            "numerator": 2,
+            "rate": 1.0
+          }
+        },
+        "distribution": {
+          "char_width_distribution": {
+            "10": 5,
+            "11": 7,
+            "12": 7,
+            "13": 4,
+            "14": 9,
+            "15": 5,
+            "16": 2,
+            "17": 3,
+            "18": 2,
+            "20": 2,
+            "21": 1,
+            "22": 2,
+            "3": 1,
+            "4": 2,
+            "5": 4,
+            "6": 2,
+            "7": 2,
+            "8": 7,
+            "9": 3
+          },
+          "chunks_exceeding_density_target": 1,
+          "chunks_per_1000_words": 459.940875,
+          "chunks_per_sentence": 4.208312,
+          "long_chunk_rate": 0.0,
+          "mean_chars_per_chunk": 11.239625,
+          "mean_words_per_chunk": 1.951,
+          "median_chars_per_chunk": 10.9375,
+          "median_words_per_chunk": 2.0,
+          "single_word_chunk_rate": 0.174444,
+          "total_chunks": 70
+        },
+        "evaluated_cases": 16,
+        "fallback": {
+          "cases": null,
+          "rate": null
+        },
+        "hard_compliance": {
+          "dropped_text": 2,
+          "duplicated_text": 0,
+          "max_width_violations": 0,
+          "source_coverage_failure": 2,
+          "source_ordering_failure": 1,
+          "structural_boundary_violations": 0,
+          "unsafe_mapping_failure": 1
+        },
+        "unscorable_cases": 1
+      }
+    },
+    "generalization": {
+      "case_count": 6,
+      "corpus": "generalization",
+      "paired": {
+        "acceptable": {
+          "baseline_wins": 0,
+          "parser_wins": 0,
+          "ties": 6
+        },
+        "chunk_count": {
+          "identical_chunk_count": 1,
+          "parser_fewer_chunks": 5,
+          "parser_more_chunks": 0
+        },
+        "forbidden": {
+          "baseline_wins": 0,
+          "parser_wins": 0,
+          "ties": 6
+        },
+        "preferred": {
+          "baseline_wins": 0,
+          "parser_wins": 0,
+          "ties": 6
+        },
+        "protected_spans": {
+          "baseline_wins": 0,
+          "parser_wins": 0,
+          "ties": 6
+        },
+        "required": {
+          "baseline_wins": 0,
+          "parser_wins": 0,
+          "ties": 6
+        },
+        "required_structural": {
+          "baseline_wins": 0,
+          "parser_wins": 0,
+          "ties": 6
+        }
+      },
+      "parser_assisted": {
+        "annotation_metrics": {
+          "acceptable": {
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "complete_segmentation_match": {
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "forbidden": {
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "preferred": {
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "protected_spans": {
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "required": {
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "required_structural": {
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          }
+        },
+        "distribution": {
+          "char_width_distribution": {
+            "1": 1,
+            "12": 2,
+            "13": 1,
+            "14": 1,
+            "15": 1,
+            "16": 1,
+            "17": 1,
+            "18": 1,
+            "19": 1,
+            "21": 1,
+            "22": 2,
+            "24": 1,
+            "26": 2,
+            "28": 3,
+            "29": 2,
+            "30": 1,
+            "32": 1,
+            "9": 1
+          },
+          "chunks_exceeding_density_target": 13,
+          "chunks_per_1000_words": 284.6005,
+          "chunks_per_sentence": 3.027833,
+          "long_chunk_rate": 0.327778,
+          "mean_chars_per_chunk": 21.427833,
+          "mean_words_per_chunk": 3.927833,
+          "median_chars_per_chunk": 20.083333,
+          "median_words_per_chunk": 3.75,
+          "single_word_chunk_rate": 0.033333,
+          "total_chunks": 24
+        },
+        "evaluated_cases": 6,
+        "fallback": {
+          "cases": 0,
+          "rate": 0.0
+        },
+        "hard_compliance": {
+          "dropped_text": 0,
+          "duplicated_text": 0,
+          "max_width_violations": 0,
+          "source_coverage_failure": 0,
+          "source_ordering_failure": 0,
+          "structural_boundary_violations": 0,
+          "unsafe_mapping_failure": 0
+        },
+        "unscorable_cases": 0
+      },
+      "rule_based": {
+        "annotation_metrics": {
+          "acceptable": {
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "complete_segmentation_match": {
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "forbidden": {
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "preferred": {
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "protected_spans": {
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "required": {
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "required_structural": {
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          }
+        },
+        "distribution": {
+          "char_width_distribution": {
+            "10": 5,
+            "11": 1,
+            "12": 5,
+            "13": 1,
+            "14": 1,
+            "15": 1,
+            "16": 1,
+            "17": 2,
+            "19": 3,
+            "20": 1,
+            "23": 1,
+            "4": 2,
+            "5": 2,
+            "6": 3,
+            "7": 1,
+            "8": 5,
+            "9": 8
+          },
+          "chunks_exceeding_density_target": 1,
+          "chunks_per_1000_words": 494.639333,
+          "chunks_per_sentence": 5.472167,
+          "long_chunk_rate": 0.0,
+          "mean_chars_per_chunk": 11.285167,
+          "mean_words_per_chunk": 2.049667,
+          "median_chars_per_chunk": 11.75,
+          "median_words_per_chunk": 2.166667,
+          "single_word_chunk_rate": 0.155844,
+          "total_chunks": 43
+        },
+        "evaluated_cases": 6,
+        "fallback": {
+          "cases": null,
+          "rate": null
+        },
+        "hard_compliance": {
+          "dropped_text": 0,
+          "duplicated_text": 0,
+          "max_width_violations": 0,
+          "source_coverage_failure": 0,
+          "source_ordering_failure": 0,
+          "structural_boundary_violations": 0,
+          "unsafe_mapping_failure": 0
+        },
+        "unscorable_cases": 0
+      }
+    },
+    "regression": {
+      "case_count": 8,
+      "corpus": "regression",
+      "paired": {
+        "acceptable": {
+          "baseline_wins": 0,
+          "parser_wins": 0,
+          "ties": 8
+        },
+        "chunk_count": {
+          "identical_chunk_count": 0,
+          "parser_fewer_chunks": 8,
+          "parser_more_chunks": 0
+        },
+        "forbidden": {
+          "baseline_wins": 0,
+          "parser_wins": 0,
+          "ties": 8
+        },
+        "preferred": {
+          "baseline_wins": 0,
+          "parser_wins": 0,
+          "ties": 8
+        },
+        "protected_spans": {
+          "baseline_wins": 0,
+          "parser_wins": 0,
+          "ties": 8
+        },
+        "required": {
+          "baseline_wins": 0,
+          "parser_wins": 0,
+          "ties": 8
+        },
+        "required_structural": {
+          "baseline_wins": 0,
+          "parser_wins": 0,
+          "ties": 8
+        }
+      },
+      "parser_assisted": {
+        "annotation_metrics": {
+          "acceptable": {
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "complete_segmentation_match": {
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "forbidden": {
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "preferred": {
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "protected_spans": {
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "required": {
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "required_structural": {
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          }
+        },
+        "distribution": {
+          "char_width_distribution": {
+            "10": 1,
+            "11": 1,
+            "14": 1,
+            "16": 1,
+            "17": 4,
+            "19": 1,
+            "22": 2,
+            "23": 3,
+            "24": 1,
+            "25": 1,
+            "26": 2,
+            "28": 2,
+            "30": 1
+          },
+          "chunks_exceeding_density_target": 9,
+          "chunks_per_1000_words": 282.241875,
+          "chunks_per_sentence": 2.625,
+          "long_chunk_rate": 0.135417,
+          "mean_chars_per_chunk": 20.91675,
+          "mean_words_per_chunk": 3.625,
+          "median_chars_per_chunk": 19.9375,
+          "median_words_per_chunk": 3.4375,
+          "single_word_chunk_rate": 0.0,
+          "total_chunks": 21
+        },
+        "evaluated_cases": 8,
+        "fallback": {
+          "cases": 0,
+          "rate": 0.0
+        },
+        "hard_compliance": {
+          "dropped_text": 0,
+          "duplicated_text": 0,
+          "max_width_violations": 0,
+          "source_coverage_failure": 0,
+          "source_ordering_failure": 0,
+          "structural_boundary_violations": 0,
+          "unsafe_mapping_failure": 0
+        },
+        "unscorable_cases": 0
+      },
+      "rule_based": {
+        "annotation_metrics": {
+          "acceptable": {
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "complete_segmentation_match": {
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "forbidden": {
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "preferred": {
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "protected_spans": {
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "required": {
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          },
+          "required_structural": {
+            "denominator": 0,
+            "numerator": 0,
+            "rate": null
+          }
+        },
+        "distribution": {
+          "char_width_distribution": {
+            "10": 2,
+            "11": 3,
+            "13": 4,
+            "14": 1,
+            "15": 2,
+            "16": 2,
+            "17": 1,
+            "18": 2,
+            "19": 3,
+            "21": 1,
+            "22": 2,
+            "3": 1,
+            "5": 1,
+            "6": 3,
+            "8": 2,
+            "9": 3
+          },
+          "chunks_exceeding_density_target": 5,
+          "chunks_per_1000_words": 440.724125,
+          "chunks_per_sentence": 4.125,
+          "long_chunk_rate": 0.0,
+          "mean_chars_per_chunk": 12.84375,
+          "mean_words_per_chunk": 2.2875,
+          "median_chars_per_chunk": 13.375,
+          "median_words_per_chunk": 2.1875,
+          "single_word_chunk_rate": 0.05625,
+          "total_chunks": 33
+        },
+        "evaluated_cases": 8,
+        "fallback": {
+          "cases": null,
+          "rate": null
+        },
+        "hard_compliance": {
+          "dropped_text": 0,
+          "duplicated_text": 0,
+          "max_width_violations": 0,
+          "source_coverage_failure": 0,
+          "source_ordering_failure": 0,
+          "structural_boundary_violations": 0,
+          "unsafe_mapping_failure": 0
+        },
+        "unscorable_cases": 0
+      }
+    }
+  }
+}

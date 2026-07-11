@@ -3,12 +3,12 @@
 ```yaml
 current_slice: S-024
 name: Baseline versus Experiment Comparison
-state: READY_FOR_HUMAN_HANDOFF
+state: AWAITING_HUMAN_AB_REVIEW
 owner: human
 agent_action: none
-blocked_on: sealed evaluation material and comparison authorization
+blocked_on: completed blinded A/B response packet
 started: 2026-07-10
-evidence: evaluation/parser_assisted_chunking/freeze/parser_assisted_implementation_freeze.json
+evidence: docs/experiments/parser_assisted_chunking/s024_objective_comparison.md
 previous_slice: S-023
 ```
 
@@ -16,9 +16,21 @@ previous_slice: S-023
 
 S-024 is the baseline-versus-experiment comparison slice. The parser-assisted implementation is frozen, but it has not been judged scientifically successful and has not been promoted.
 
-S-024 is blocked until the human supplies or authorizes access to held-out comparison material, including the sealed blind package and any held-out annotations needed for a valid comparison.
+The objective comparison has been run against the authorized sealed blind challenge package, and a private blinded A/B review packet has been generated for human preference review. S-024 remains active and pending; human A/B responses have not yet been scored.
 
 The rule-based chunker remains the production default, regression baseline, fallback implementation, and comparison target.
+
+## S-024 Objective Comparison Status
+
+The sealed material was revealed only after the S-023 implementation freeze.
+
+- ZIP SHA-256: `a8926e9dc9cd68399f2c9f6a8b63ee44ac0cdd5b4f4361a20460410617b1f71b`
+- Canonical sealed file SHA-256: `a6647ba26a9e32cfc154bfb904579f57ebdfbef9bdd2b64b7253cfefaa026502`
+- Redacted objective JSON: [s024_objective_comparison.json](../../evaluation/parser_assisted_chunking/results/s024_objective_comparison.json)
+- Redacted objective report: [s024_objective_comparison.md](../experiments/parser_assisted_chunking/s024_objective_comparison.md)
+- Objective run record: [s024_objective_run_record.json](../../evaluation/parser_assisted_chunking/freeze/s024_objective_run_record.json)
+
+Human preference results remain pending. Do not advance to S-025 or make a production-disposition decision until the blinded A/B response packet is completed and scored.
 
 ## S-023 Outcome
 
@@ -66,8 +78,8 @@ Detailed in-app defect reports from the S-021 validation session were accidental
 
 ## Next Actions
 
-- Human supplies or authorizes access to the sealed comparison material for S-024.
-- Compare frozen rule-based baseline and frozen parser-assisted experiment without further tuning.
+- Human completes the private blinded A/B response packet.
+- Score the returned A/B responses without revealing or committing the private identity key.
 - Keep production behavior unchanged until comparison and promotion gates are satisfied.
 - Leave production adoption decisions for the later disposition slice.
 

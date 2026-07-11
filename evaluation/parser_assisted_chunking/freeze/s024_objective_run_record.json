@@ -1,0 +1,16 @@
+{
+  "ab_identity_key_committed": false,
+  "ab_identity_key_created": true,
+  "ab_response_template": "C:\\Users\\Usuario\\.codex\\visualizations\\2026\\07\\09\\019f478f-a1b4-7911-8997-8f59abc4afaf\\s024-private\\blind_ab_response_template.json",
+  "ab_review_packet": "C:\\Users\\Usuario\\.codex\\visualizations\\2026\\07\\09\\019f478f-a1b4-7911-8997-8f59abc4afaf\\s024-private\\blind_ab_review.html",
+  "average_case_latency_ms": 191.542,
+  "latency_ms_per_1000_chars": 3013.253,
+  "model_footprint_mb": 14.54,
+  "normalized_character_count": 1907,
+  "parser_initialization_latency_ms": 817.185,
+  "platform": "Windows-11-10.0.26200-SP0",
+  "private_output_dir": "C:\\Users\\Usuario\\.codex\\visualizations\\2026\\07\\09\\019f478f-a1b4-7911-8997-8f59abc4afaf\\s024-private",
+  "python_version": "3.12.13",
+  "spacy_package_footprint_mb": 69.95,
+  "total_elapsed_ms": 5746.264
+}

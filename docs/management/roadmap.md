@@ -5,10 +5,10 @@ This roadmap is the priority-order view. [STATUS](STATUS.md) is the authority fo
 ## Now
 
 1. **S-024: Baseline versus experiment comparison**
-   - State: `READY_FOR_HUMAN_HANDOFF`
+   - State: `AWAITING_HUMAN_AB_REVIEW`
    - Owner: Human
-   - Goal: compare the frozen rule-based baseline against the frozen parser-assisted experiment using authorized held-out materials.
-   - Blocked on: sealed evaluation material and comparison authorization.
+   - Goal: complete and return the private blinded A/B response packet generated after the redacted objective comparison.
+   - Blocked on: completed blinded A/B response packet.
    - Constraint: do not retune S-023 code, weights, or configuration during comparison.
 
 ## Next

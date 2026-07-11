@@ -23,13 +23,18 @@ def sha256_file(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def sha256_text_file(path: Path) -> str:
+    text = path.read_text(encoding="utf-8").replace("\r\n", "\n")
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+
 def manifest_path(corpus: str) -> Path:
     return MANIFEST_DIR / f"{corpus}.jsonl"
 
 
 def manifest_hashes() -> dict[str, str]:
     return {
-        corpus: sha256_file(manifest_path(corpus))
+        corpus: sha256_text_file(manifest_path(corpus))
         for corpus in VISIBLE_CORPORA
     }
 
