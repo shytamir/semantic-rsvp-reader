@@ -8,98 +8,98 @@
   "cases": [
     {
       "case_id": "blind-0001",
-      "choice": B,
-      "confidence": high,
+      "choice": "B",
+      "confidence": "high",
       "note": "the larger segments make it easier to grasp at a glance"
     },
     {
       "case_id": "blind-0002",
-      "choice": B,
-      "confidence": high,
+      "choice": "B",
+      "confidence": "high",
       "note": ""
     },
     {
       "case_id": "blind-0003",
-      "choice": B,
-      "confidence": high,
+      "choice": "B",
+      "confidence": "high",
       "note": "not the ideal split but subtantially better than the alternative presented"
     },
     {
       "case_id": "blind-0004",
-      "choice": equivalent,
-      "confidence": medium,
+      "choice": "equivalent",
+      "confidence": "medium",
       "note": "output B was left blank"
     },
     {
       "case_id": "blind-0005",
-      "choice": B,
-      "confidence": high,
+      "choice": "B",
+      "confidence": "high",
       "note": ""
     },
     {
       "case_id": "blind-0006",
-      "choice": B,
-      "confidence": high,
+      "choice": "B",
+      "confidence": "high",
       "note": ""
     },
     {
       "case_id": "blind-0007",
-      "choice": B,
-      "confidence": high,
+      "choice": "B",
+      "confidence": "high",
       "note": ""
     },
     {
       "case_id": "blind-0008",
-      "choice": B,
-      "confidence": high,
+      "choice": "B",
+      "confidence": "high",
       "note": ""
     },
     {
       "case_id": "blind-0009",
-      "choice": B,
-      "confidence": high,
+      "choice": "B",
+      "confidence": "high",
       "note": ""
     },
     {
       "case_id": "blind-0010",
-      "choice": B,
-      "confidence": medium,
+      "choice": "B",
+      "confidence": "medium",
       "note": "not my ideal split but more servicable than the presented alternative"
     },
     {
       "case_id": "blind-0011",
-      "choice": both poor,
-      "confidence": high,
+      "choice": "both poor",
+      "confidence": "high",
       "note": "neither alternative is without major implied cognitive load"
     },
     {
       "case_id": "blind-0012",
-      "choice": equivalent,
-      "confidence": high,
+      "choice": "equivalent",
+      "confidence": "high",
       "note": "identical output"
     },
     {
       "case_id": "blind-0013",
-      "choice": B,
-      "confidence": high,
+      "choice": "B",
+      "confidence": "high",
       "note": "A literally changes the meaning from the first chunk"
     },
     {
       "case_id": "blind-0014",
-      "choice": B,
-      "confidence": medium,
+      "choice": "B",
+      "confidence": "medium",
       "note": "not my ideal split but greatly advantaged over A"
     },
     {
       "case_id": "blind-0015",
-      "choice": B,
-      "confidence": high,
+      "choice": "B",
+      "confidence": "high",
       "note": ""
     },
     {
       "case_id": "blind-0016",
-      "choice": equivalent,
-      "confidence": high,
+      "choice": "equivalent",
+      "confidence": "high",
       "note": "A chunked the parentheses better, but B handled the final chunk very elegantly"
     }
   ],
