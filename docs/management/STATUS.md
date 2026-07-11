@@ -127,7 +127,7 @@ Detailed in-app defect reports from the S-021 validation session were accidental
 
 ## Next Actions
 
-- Implement the preserved [S-032 scope](s032_navigation_interaction.md).
+- Run the fixed [S-032 phone-browser protocol](../validation/navigation_validation.md#s-032-navigation-and-interaction-validation) and record the human disposition.
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks

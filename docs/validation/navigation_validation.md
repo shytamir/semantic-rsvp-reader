@@ -68,8 +68,8 @@ Check that:
 - long-press speed overlay still works and does not set a breakpoint
 - breakpoints persist during play, pause, and reset for the same loaded stream
 - breakpoints clear when new text is loaded
-- swipe left/right jumps between saved breakpoints when breakpoints exist
-- swipe behavior remains old chunk-step behavior when no breakpoints exist
+- swipe left jumps to the previous saved breakpoint and swipe right jumps to the next saved breakpoint
+- with no breakpoints, swipe left moves to the previous chunk and swipe right moves to the next chunk
 - breakpoint traversal uses drift recovery and auto-resumes after the lead-in pause
 - progress anchor updates after a breakpoint jump
 - defect report after breakpoint navigation includes current chunk, previous displayed chunk, and breakpoint context
@@ -153,7 +153,9 @@ Check that:
 14. Submit a defect report under an H2 section.
 15. Confirm saved defect report includes structural context.
 
-## Manual Test: Breakpoints + Ghost Previous Chunk
+## Historical Manual Test: Breakpoints + Ghost Previous Chunk
+
+This older checklist is retained for context. The fixed S-032 protocol above is authoritative; directions below use the current left-previous and right-next semantics.
 
 1. Start Flask locally.
 2. Open the app on a phone browser.
@@ -168,9 +170,9 @@ Check that:
 11. Confirm a breakpoint is set without toggling play/pause unexpectedly.
 12. Move several chunks forward.
 13. Double-tap again to set another breakpoint.
-14. Swipe right.
+14. Swipe left.
 15. Confirm reader jumps to previous breakpoint and pauses.
-16. Swipe left.
+16. Swipe right.
 17. Confirm reader jumps to next breakpoint and pauses.
 18. Confirm progress bar updates after jump if passive anchor is implemented.
 19. Double-tap an existing breakpoint.
@@ -185,7 +187,9 @@ Check that:
 28. Run `python -m pytest`.
 29. Run `python scripts/check_js_syntax.py`.
 
-## Manual Test: Drift Recovery
+## Historical Manual Test: Drift Recovery
+
+This older checklist is retained for context. The fixed S-032 protocol above is authoritative.
 
 1. Start Flask locally.
 2. Open the app on a phone browser.
@@ -195,7 +199,7 @@ Check that:
 6. Double-tap to set a breakpoint.
 7. Advance to chunk 20 or later.
 8. Double-tap to set another breakpoint.
-9. Swipe right to jump to the previous breakpoint.
+9. Swipe left to jump to the previous breakpoint.
 10. Confirm the app lands three chunks before the breakpoint, or at 0 if near the beginning.
 11. Confirm the app waits about 500ms.
 12. Confirm playback resumes automatically.
