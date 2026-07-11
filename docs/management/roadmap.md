@@ -4,19 +4,16 @@ This roadmap is the priority-order view. [STATUS](STATUS.md) is the authority fo
 
 ## Now
 
-1. **S-027: Post-navigation usability validation**
-   - State: `AWAITING_HUMAN_VALIDATION`
-   - Owner: Human
-   - Goal: resume navigation usability validation now that the parser-assisted experiment sequence no longer risks masking chunking comparison results.
-   - Constraint: validate existing navigation behavior without broadening into parser retuning or unrelated feature work.
-
-## Next
-
 1. **S-028: Compact CI and Evidence Integrity**
-   - State: `SCHEDULED`
+   - State: `READY_FOR_IMPLEMENTATION`
    - Owner: Codex
    - Goal: protect core/fallback operation, parser-default operation, management consistency, and experimental evidence with a compact automation layer.
    - Scope: [S-028 planning document](s028_compact_ci_evidence_integrity.md).
+   - Included maintenance: open GitHub issue #3.
+
+## Next
+
+- No separately scheduled slice. Complete S-028 before selecting another slice.
 
 ## Later
 

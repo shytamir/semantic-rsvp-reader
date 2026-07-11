@@ -1,22 +1,30 @@
 # Project Status
 
 ```yaml
-current_slice: S-027
-name: Post-Navigation Usability Validation
-state: AWAITING_HUMAN_VALIDATION
-owner: human
-agent_action: none
-blocked_on: focused post-navigation usability validation
+current_slice: S-028
+name: Compact CI and Evidence Integrity
+state: READY_FOR_IMPLEMENTATION
+owner: Codex
+agent_action: implement the preserved S-028 scope
+blocked_on: none
 started: 2026-07-11
-evidence: docs/validation/navigation_validation.md
-previous_slice: S-026
+scope: docs/management/s028_compact_ci_evidence_integrity.md
+previous_slice: S-027
 ```
 
 ## Current Slice
 
-S-027 resumes post-navigation usability validation now that the parser-assisted experiment sequence no longer risks masking chunking comparison results.
+S-028 is the sole active slice. Its preserved scope adds compact CI for core/fallback and parser-default operation plus management and experimental-evidence integrity checks.
 
-The parser-assisted Flask prototype default and mandatory rule-based fallback remain stable while navigation usability is validated.
+GitHub issue #3 remains open and is included as an S-028 maintenance item. No S-028 implementation was performed while activating the slice.
+
+## S-027 Outcome
+
+S-027 completed as `passed` on 2026-07-11.
+
+The navigation features in scope had already been exercised against the same integrated build during the immediately preceding S-026 validation, with no acceptance-blocking regression observed in the progress anchor, seeking, breakpoints, ghost previous chunk, drift recovery, controls, or related navigation behavior. A redundant complete rerun was therefore not required.
+
+The previously unvalidated structural hierarchy anchor was tested separately with Markdown H1/H2 content. It displayed the active H1 or deepest active H2 correctly, updated while moving through sections, remained visually unobtrusive, and behaved as intended. No acceptance-blocking navigation or structural-anchor defect was observed. See [Navigation Validation](../validation/navigation_validation.md).
 
 ## S-026 Outcome
 
@@ -105,8 +113,8 @@ Detailed in-app defect reports from the S-021 validation session were accidental
 
 ## Next Actions
 
-- Perform focused post-navigation usability validation.
-- Record any acceptance-blocking navigation regressions.
+- Implement the preserved [S-028 scope](s028_compact_ci_evidence_integrity.md).
+- Resolve the integration-record maintenance item tracked by open GitHub issue #3 within S-028.
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks

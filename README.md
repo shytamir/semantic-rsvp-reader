@@ -6,8 +6,8 @@ Semantic RSVP Reader is a mobile-first Flask + HTML5 prototype for reading text 
 
 - Status: green prototype; parser integration human-validated with no acceptance-blocking regressions.
 - Current phase: validation-driven refinement.
-- Active slice: S-027 Post-Navigation Usability Validation.
-- Primary focus: post-navigation usability validation now that the parser-assisted experiment sequence is complete.
+- Active slice: S-028 Compact CI and Evidence Integrity (`READY_FOR_IMPLEMENTATION`).
+- Primary focus: compact automation for supported prototype modes and management/evidence integrity.
 - Timing, playback, navigation, and adaptation semantics are intentionally stable during this phase.
 - Canonical status and roadmap live in [docs/management/](docs/management/index.md).
 

@@ -10,10 +10,10 @@ These files are the project-management source of truth for the solo human/Codex 
 4. [DECISIONS](DECISIONS.md): durable ADR-lite project decisions.
 5. [TODO](TODO.md): parked and unscheduled inventory only.
 
-## Scheduled Slice
+## Active Slice
 
-- S-027 remains the sole active slice in [STATUS](STATUS.md).
-- [S-028: Compact CI and Evidence Integrity](s028_compact_ci_evidence_integrity.md) is scheduled immediately afterward to protect core/fallback operation, parser-default operation, management consistency, and experimental evidence.
+- S-028 is the sole active slice in [STATUS](STATUS.md), with state `READY_FOR_IMPLEMENTATION` and owner Codex.
+- The preserved [S-028: Compact CI and Evidence Integrity](s028_compact_ci_evidence_integrity.md) scope protects core/fallback operation, parser-default operation, management consistency, and experimental evidence. Open GitHub issue #3 remains included.
 
 Compatibility pointers:
 

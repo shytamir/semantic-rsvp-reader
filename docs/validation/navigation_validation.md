@@ -2,6 +2,14 @@
 
 Navigation features are being added conservatively so orientation aids do not distract from reading or mask chunking defects.
 
+## S-027 Human Validation Outcome
+
+S-027 completed as `passed` on 2026-07-11.
+
+The navigation features covered by S-027 had already been exercised against the same integrated build during the immediately preceding S-026 validation. The reported result showed no acceptance-blocking regression in the progress anchor, seeking, breakpoints, ghost previous chunk, drift recovery, controls, or related navigation behavior. S-027 therefore did not require a redundant complete rerun; this record does not infer completion of each checklist item below.
+
+The previously unvalidated structural hierarchy anchor was tested separately with Markdown H1/H2 content. The anchor displayed the active H1 or deepest active H2 correctly, updated correctly while moving through sections, was visually unobtrusive, and behaved as intended. No acceptance-blocking navigation or structural-anchor defect was observed.
+
 ## Passive Progress Anchor
 
 Use a medium or long validation sample on a phone browser.

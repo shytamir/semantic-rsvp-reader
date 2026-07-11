@@ -11,8 +11,9 @@
 Current focus:
 
 1. S-026 parser-assisted Flask prototype integration passed human validation with no acceptance-blocking regressions.
-2. S-027 post-navigation usability validation is the current focus.
-3. Parser-assisted chunking remains frozen unless a new authorized evaluation slice changes it.
+2. S-027 post-navigation usability validation completed as `passed`; the recorded evidence is in [Navigation Validation](navigation_validation.md).
+3. S-028 Compact CI and Evidence Integrity is the sole active slice and is ready for implementation.
+4. Parser-assisted chunking remains frozen unless a new authorized evaluation slice changes it.
 
 ## Defect Reporting Workflow
 
