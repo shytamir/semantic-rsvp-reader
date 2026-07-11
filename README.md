@@ -6,8 +6,8 @@ Semantic RSVP Reader is a mobile-first Flask + HTML5 prototype for reading text 
 
 - Status: green prototype; parser integration human-validated with no acceptance-blocking regressions.
 - Current phase: validation-driven refinement.
-- Active slice: S-029 Density-Aware Dwell-Time Recalibration (`AWAITING_HUMAN_VALIDATION`).
-- Primary focus: human validation of density-aware deterministic dwell timing at default `1.0x`.
+- Latest slice: S-029 Density-Aware Dwell-Time Recalibration (`PASSED`); no successor is active.
+- Primary focus: await human selection of the next stabilization pass.
 - Timing, playback, navigation, and adaptation semantics are intentionally stable during this phase.
 - Canonical status and roadmap live in [docs/management/](docs/management/index.md).
 

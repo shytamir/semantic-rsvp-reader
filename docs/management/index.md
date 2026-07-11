@@ -12,8 +12,8 @@ These files are the project-management source of truth for the solo human/Codex 
 
 ## Active Slice
 
-- S-029 is the sole active slice, owned by the human for validation.
-- [S-029](s029_density_aware_dwell_time_recalibration.md) measures density before recalibrating dwell time and ends at human validation handoff.
+- S-029 completed as `passed`; no successor slice is active.
+- [S-029](s029_density_aware_dwell_time_recalibration.md) measured density, recalibrated dwell timing, and passed human validation across six corpus samples.
 - The [Prototype Validation and Stabilization Program](prototype_validation_stabilization_program.md) inventories shipped surfaces and orders later passes without activating them.
 
 Compatibility pointers:

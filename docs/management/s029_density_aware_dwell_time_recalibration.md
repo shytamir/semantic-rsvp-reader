@@ -2,7 +2,7 @@
 
 ## Status
 
-Implemented and awaiting human validation. No successor slice is active.
+Completed as `passed` on 2026-07-11. Human validation passed all six corpus-sample validations and found default `1.0x` as manageable as the prior build at `0.85x`. No successor slice is active.
 
 ## Initiating Evidence
 

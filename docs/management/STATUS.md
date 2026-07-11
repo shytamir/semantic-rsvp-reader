@@ -3,9 +3,9 @@
 ```yaml
 current_slice: S-029
 name: Density-Aware Dwell-Time Recalibration
-state: AWAITING_HUMAN_VALIDATION
+state: PASSED
 owner: Human
-agent_action: run the S-029 human validation protocol
+agent_action: await human selection of a future slice
 blocked_on: none
 started: 2026-07-11
 scope: docs/management/s029_density_aware_dwell_time_recalibration.md
@@ -14,9 +14,9 @@ previous_slice: S-028
 
 ## Current Slice
 
-S-029 is the sole active slice and awaits human validation. Measurement found parser-assisted chunks contain 67.6% more words and content words per chunk, not nearly double. The bounded density dwell component increased aggregate parser timing by 16.8% while protecting light and punctuation chunks.
+S-029 completed as `passed` on 2026-07-11. No successor slice is active. Human validation passed all six corpus-sample validations and reported that default `1.0x` dwell times are now as manageable as the prior build at `0.85x`.
 
-Human initiating evidence reports that default `1.0x` feels too fast with denser parser-assisted chunks and that `0.85x` is approximately comfortable. Near-doubling of density remains a hypothesis pending measurement.
+Measurement found parser-assisted chunks contain 67.6% more words and content words per chunk, not nearly double. The bounded density dwell component increased aggregate parser timing by 16.8% while protecting light and punctuation chunks.
 
 ## S-028 Outcome
 
@@ -117,7 +117,7 @@ Detailed in-app defect reports from the S-021 validation session were accidental
 
 ## Next Actions
 
-- Run the [S-029 human validation protocol](../validation/s029_density_timing_report.md#human-validation-protocol) at `1.0x` with adaptation disabled.
+- Await human selection and authorization of a future stabilization slice.
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks

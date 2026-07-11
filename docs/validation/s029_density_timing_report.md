@@ -36,4 +36,4 @@ If useful, repeat one dense and one light passage at `0.85x` only after completi
 
 ## Calibration Risk
 
-The corpus supports the bounded adjustment but cannot establish human comfort. Parser output remains faster per word than rule-based output, and clamp behavior is covered synthetically rather than exercised by these 22 cases. Human validation is required before S-029 can pass.
+The automated corpus supported the bounded adjustment but could not establish human comfort. Subsequent human validation passed all six corpus-sample validations and reported that default `1.0x` is as manageable as the prior build at `0.85x`; no acceptance-blocking timing issue was reported. Parser output remains faster per word than rule-based output, and clamp behavior is covered synthetically rather than exercised by the 22-case measurement corpus.

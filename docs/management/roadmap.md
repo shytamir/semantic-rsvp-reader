@@ -5,11 +5,12 @@ This roadmap is the priority-order view. [STATUS](STATUS.md) is the authority fo
 ## Now
 
 1. **S-029: Density-Aware Dwell-Time Recalibration**
-   - State: `AWAITING_HUMAN_VALIDATION`
+   - State: `PASSED`
    - Owner: Human
-   - Goal: measure the parser density shift and make default `1.0x` timing comfortable through a bounded, inspectable adjustment.
+   - Outcome: human validation passed all six corpus samples; default `1.0x` is as manageable as the prior build at `0.85x`.
    - Scope: [S-029](s029_density_aware_dwell_time_recalibration.md).
-   - Evidence and handoff: [S-029 density and timing report](../validation/s029_density_timing_report.md).
+   - Evidence: [S-029 density and timing report](../validation/s029_density_timing_report.md).
+   - No successor slice is active.
 
 ## Next
 
