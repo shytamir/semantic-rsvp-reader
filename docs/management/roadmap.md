@@ -4,20 +4,18 @@ This roadmap is the priority-order view. [STATUS](STATUS.md) is the authority fo
 
 ## Now
 
-1. **S-026: Provisional parser-assisted prototype integration validation**
+1. **S-027: Post-navigation usability validation**
    - State: `AWAITING_HUMAN_VALIDATION`
    - Owner: Human
-   - Goal: smoke-test the integrated parser-assisted Flask prototype default on representative phone-browser reading flows.
-   - Constraint: validate the integrated frozen behavior without retuning S-023 optimizer behavior, changing timing/navigation semantics, or making a native/mobile provider decision.
+   - Goal: resume navigation usability validation now that the parser-assisted experiment sequence no longer risks masking chunking comparison results.
+   - Constraint: validate existing navigation behavior without broadening into parser retuning or unrelated feature work.
 
 ## Next
 
-1. **S-027: Post-navigation usability validation**
-   - Resume navigation usability validation after the parser-assisted experiment sequence no longer risks masking chunking comparison results.
+- Demo/beta readiness cleanup.
 
 ## Later
 
-- Demo/beta readiness cleanup.
 - Provider ablation or dependency reduction when a concrete platform need arises.
 - Native/mobile provider evaluation.
 - Application-service refinements only if validation exposes a need.

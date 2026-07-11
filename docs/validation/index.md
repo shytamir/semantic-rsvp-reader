@@ -10,9 +10,9 @@
 
 Current focus:
 
-1. S-026 parser-assisted Flask prototype integration is awaiting focused human validation.
-2. Parser-assisted chunking validation should use the frozen experiment docs, evaluation artifacts, and the provisional integration record.
-3. Keep other minor observations deferred until after S-026 validation unless they are safety fixes or clear regressions.
+1. S-026 parser-assisted Flask prototype integration passed human validation with no acceptance-blocking regressions.
+2. S-027 post-navigation usability validation is the current focus.
+3. Parser-assisted chunking remains frozen unless a new authorized evaluation slice changes it.
 
 ## Defect Reporting Workflow
 

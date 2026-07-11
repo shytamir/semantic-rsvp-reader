@@ -1,26 +1,28 @@
 # Project Status
 
 ```yaml
-current_slice: S-026
-name: Provisional Parser-Assisted Prototype Integration
+current_slice: S-027
+name: Post-Navigation Usability Validation
 state: AWAITING_HUMAN_VALIDATION
 owner: human
 agent_action: none
-blocked_on: focused parser-integration smoke validation
+blocked_on: focused post-navigation usability validation
 started: 2026-07-11
-evidence: docs/management/DECISIONS.md
-previous_slice: S-025
+evidence: docs/validation/navigation_validation.md
+previous_slice: S-026
 ```
 
 ## Current Slice
 
-S-026 is the provisional parser-assisted prototype integration slice.
+S-027 resumes post-navigation usability validation now that the parser-assisted experiment sequence no longer risks masking chunking comparison results.
 
-The frozen S-023 parser-assisted behavior is now integrated as the normal chunking path in the current Flask prototype while preserving `RuleBasedChunker` as the mandatory fallback. This slice did not retune optimizer weights, change feature interpretation, alter fallback rules, change timing/navigation/display-state behavior, or make a native/mobile provider decision.
+The parser-assisted Flask prototype default and mandatory rule-based fallback remain stable while navigation usability is validated.
 
-The rule-based chunker remains the explicit baseline and required fallback implementation.
+## S-026 Outcome
 
-Human validation is now required before S-026 can be closed. See [S-026 parser integration validation](../validation/s026_parser_integration_validation.md).
+S-026 completed as `passed` on 2026-07-11.
+
+Human validation reported that the protocol went smoothly, the implementation behaved as expected, and no acceptance-blocking regressions were observed. See [S-026 parser integration validation](../validation/s026_parser_integration_validation.md).
 
 ## S-025 Outcome
 
@@ -103,9 +105,8 @@ Detailed in-app defect reports from the S-021 validation session were accidental
 
 ## Next Actions
 
-- Perform focused human validation of the integrated parser-assisted default.
-- Confirm rule-based fallback remains available and observable.
-- Record any parser-integration smoke validation regressions before closing S-026.
+- Perform focused post-navigation usability validation.
+- Record any acceptance-blocking navigation regressions.
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks
