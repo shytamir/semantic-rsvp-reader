@@ -11,12 +11,8 @@ from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-MANAGEMENT_LIMIT = 8
-VALIDATION_LIMIT = 6
-TARGETS = {
-    Path("docs/management"): MANAGEMENT_LIMIT,
-    Path("docs/validation"): VALIDATION_LIMIT,
-}
+RETAIN_PREVIOUS_SLICE_ORDINALS = 2
+TARGETS = (Path("docs/management"), Path("docs/validation"))
 SLICE_RE = re.compile(r"^s(?P<ordinal>\d{3})_[a-z0-9][a-z0-9_-]*\.md$")
 LINK_RE = re.compile(r"(?P<prefix>!?\[[^\]]*\]\()(?P<target>[^)]+)(?P<suffix>\))")
 EXTERNAL_PREFIXES = ("http://", "https://", "mailto:", "tel:", "data:")
@@ -29,14 +25,17 @@ class ArchiveError(RuntimeError):
 @dataclass(frozen=True)
 class DirectoryPlan:
     directory: Path
-    limit: int
     root_files: tuple[Path, ...]
+    root_groups: tuple[int, ...]
+    protected_groups: tuple[int, ...]
     selected_groups: tuple[tuple[int, tuple[Path, ...]], ...]
 
 
 @dataclass(frozen=True)
 class ArchivePlan:
     root: Path
+    current_slice: int
+    archive_boundary: int
     directories: tuple[DirectoryPlan, ...]
     rewrites: tuple[tuple[Path, str], ...]
     index_updates: tuple[tuple[Path, str], ...]
@@ -73,15 +72,14 @@ def tracked_files(root: Path) -> list[Path]:
     return [root / item for item in output.rstrip("\0").split("\0") if item]
 
 
-def management_state(root: Path) -> tuple[int, int, set[int]]:
+def management_state(root: Path) -> tuple[int, set[int]]:
     status = (root / "docs/management/STATUS.md").read_text(encoding="utf-8")
     history = (root / "docs/management/HISTORY.md").read_text(encoding="utf-8")
     current_match = re.search(r"^current_slice:\s*S-(\d{3})\s*$", status, re.MULTILINE)
-    previous_match = re.search(r"^previous_slice:\s*S-(\d{3})\s*$", status, re.MULTILINE)
-    if not current_match or not previous_match:
-        raise ArchiveError("Invalid management state: STATUS.md needs current_slice and previous_slice as S-NNN")
+    if not current_match:
+        raise ArchiveError("Invalid management state: STATUS.md needs current_slice as S-NNN")
     completed = {int(value) for value in re.findall(r"\bS-(\d{3})\b", history)}
-    return int(current_match.group(1)), int(previous_match.group(1)), completed
+    return int(current_match.group(1)), completed
 
 
 def _root_slice_files(root: Path, directory: Path, tracked: list[Path]) -> list[Path]:
@@ -99,28 +97,18 @@ def _root_slice_files(root: Path, directory: Path, tracked: list[Path]) -> list[
 def _directory_plan(
     root: Path,
     directory: Path,
-    limit: int,
     tracked: list[Path],
     current: int,
-    previous: int,
     completed: set[int],
 ) -> DirectoryPlan:
-    if limit < 0:
-        raise ArchiveError(f"Malformed configuration: negative limit for {directory.as_posix()}")
     files = _root_slice_files(root, directory, tracked)
     groups: dict[int, list[Path]] = {}
     for path in files:
         ordinal = int(SLICE_RE.fullmatch(path.name).group("ordinal"))
         groups.setdefault(ordinal, []).append(path)
-    if len(files) <= limit:
-        return DirectoryPlan(directory, limit, tuple(files), ())
-
-    eligible = [
-        ordinal
-        for ordinal in groups
-        if ordinal < current and ordinal != previous and ordinal in completed
-    ]
-    projected = len(files)
+    archive_boundary = current - RETAIN_PREVIOUS_SLICE_ORDINALS - 1
+    eligible = [ordinal for ordinal in groups if ordinal <= archive_boundary and ordinal in completed]
+    protected = sorted(ordinal for ordinal in groups if ordinal not in eligible)
     selected = []
     for ordinal in sorted(eligible):
         group = tuple(sorted(groups[ordinal], key=lambda path: path.as_posix()))
@@ -129,15 +117,13 @@ def _directory_plan(
             if (root / destination).exists():
                 raise ArchiveError(f"Archive destination collision: {destination.as_posix()}")
         selected.append((ordinal, group))
-        projected -= len(group)
-        if projected <= limit:
-            break
-    if projected > limit:
-        raise ArchiveError(
-            f"Configuration overflow for {directory.as_posix()}: {projected} protected or "
-            f"otherwise ineligible root slice files exceed limit {limit}"
-        )
-    return DirectoryPlan(directory, limit, tuple(files), tuple(selected))
+    return DirectoryPlan(
+        directory,
+        tuple(files),
+        tuple(sorted(groups)),
+        tuple(protected),
+        tuple(selected),
+    )
 
 
 def _split_target(raw: str) -> tuple[str, str, bool]:
@@ -211,14 +197,14 @@ def render_archive_index(root: Path, directory: Path, incoming: dict[Path, Path]
     return "\n".join(lines)
 
 
-def build_plan(root: Path = REPO_ROOT, limits: dict[Path, int] | None = None) -> ArchivePlan:
+def build_plan(root: Path = REPO_ROOT, targets: tuple[Path, ...] = TARGETS) -> ArchivePlan:
     root = root.resolve()
-    configured = limits or TARGETS
     tracked = tracked_files(root)
-    current, previous, completed = management_state(root)
+    current, completed = management_state(root)
+    archive_boundary = current - RETAIN_PREVIOUS_SLICE_ORDINALS - 1
     directories = tuple(
-        _directory_plan(root, directory, limit, tracked, current, previous, completed)
-        for directory, limit in configured.items()
+        _directory_plan(root, directory, tracked, current, completed)
+        for directory in targets
     )
     move_map = {source: destination for plan in directories for _, group in plan.selected_groups for source in group for destination in [plan.directory / "archive" / source.name]}
     rewrites = []
@@ -232,18 +218,24 @@ def build_plan(root: Path = REPO_ROOT, limits: dict[Path, int] | None = None) ->
         if new_text != old_text:
             rewrites.append((original, new_text))
     index_updates = []
-    for directory in configured:
+    for directory in targets:
         index_path = directory / "archive" / "index.md"
         expected = render_archive_index(root, directory, move_map)
         current_text = (root / index_path).read_text(encoding="utf-8") if (root / index_path).is_file() else None
         if current_text != expected:
             index_updates.append((index_path, expected))
-    return ArchivePlan(root, directories, tuple(rewrites), tuple(index_updates))
+    return ArchivePlan(
+        root,
+        current,
+        archive_boundary,
+        directories,
+        tuple(rewrites),
+        tuple(index_updates),
+    )
 
 
 def apply_plan(plan: ArchivePlan) -> None:
     move_map = dict(plan.moves)
-    rewrite_map = dict(plan.rewrites)
     for source, destination in plan.moves:
         target = plan.root / destination
         target.parent.mkdir(parents=True, exist_ok=True)
@@ -259,10 +251,15 @@ def apply_plan(plan: ArchivePlan) -> None:
 
 def _print_plan(plan: ArchivePlan) -> None:
     print("Slice-document archive check")
+    print(f"  current slice: S-{plan.current_slice:03d}")
+    print(f"  archive boundary: S-{plan.archive_boundary:03d}")
     for item in plan.directories:
         print(f"\n{item.directory.as_posix()}:")
         print(f"  root slice files: {len(item.root_files)}")
-        print(f"  configured limit: {item.limit}")
+        discovered = ", ".join(f"S-{ordinal:03d}" for ordinal in item.root_groups) or "none"
+        protected = ", ".join(f"S-{ordinal:03d}" for ordinal in item.protected_groups) or "none"
+        print(f"  discovered root groups: {discovered}")
+        print(f"  protected recent, future, or incomplete groups: {protected}")
         if item.selected_groups:
             print("  archive required:")
             for ordinal, files in item.selected_groups:
@@ -273,11 +270,11 @@ def _print_plan(plan: ArchivePlan) -> None:
             print("  archive required: none")
 
 
-def run(mode: str, root: Path = REPO_ROOT, limits: dict[Path, int] | None = None) -> int:
+def run(mode: str, root: Path = REPO_ROOT, targets: tuple[Path, ...] = TARGETS) -> int:
     try:
         if mode == "apply" and _git(root.resolve(), "status", "--porcelain").strip():
             raise ArchiveError("Apply refused: Git worktree is not clean")
-        plan = build_plan(root, limits)
+        plan = build_plan(root, targets)
         _print_plan(plan)
         if mode == "check":
             if plan.pending:
