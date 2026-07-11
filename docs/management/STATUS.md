@@ -1,24 +1,34 @@
 # Project Status
 
 ```yaml
-current_slice: S-025
-name: Post-experiment Disposition
-state: READY_FOR_HUMAN_DECISION
+current_slice: S-026
+name: Provisional Parser-Assisted Prototype Integration
+state: READY_FOR_IMPLEMENTATION
 owner: human
-agent_action: none
-blocked_on: product disposition decision for parser-assisted chunking
+agent_action: integrate frozen parser-assisted behavior as Flask prototype default
+blocked_on: parser-assisted prototype integration
 started: 2026-07-11
-evidence: docs/validation/s024_human_ab_preference_summary.md
-previous_slice: S-024
+evidence: docs/management/DECISIONS.md
+previous_slice: S-025
 ```
 
 ## Current Slice
 
-S-025 is the post-experiment disposition slice. S-024 objective comparison and human A/B scoring are complete, but the parser-assisted implementation has not been promoted.
+S-026 is the provisional parser-assisted prototype integration slice.
 
-The next decision is whether to abandon, revise, continue evaluating, or consider promoting the parser-assisted approach. That product decision is intentionally separate from the evidence-gathering comparison.
+The goal is to make the frozen S-023 parser-assisted behavior the normal chunking path in the current Flask prototype while preserving `RuleBasedChunker` as the mandatory fallback. This slice must not retune optimizer weights, change feature interpretation, alter fallback rules, change timing/navigation/display-state behavior, or make a native/mobile provider decision.
 
-The rule-based chunker remains the production default, regression baseline, fallback implementation, and comparison target.
+The rule-based chunker remains the explicit baseline and required fallback implementation.
+
+## S-025 Outcome
+
+S-025 completed as `provisional_adoption_authorized`.
+
+Human disposition decision: `provisional_adoption_for_current_flask_prototype`.
+
+The experimental hypothesis was supported by S-024 evidence: parser-assisted output reduced annotated harmful boundaries and protected-span splits, won all 12 decisive blinded human preferences, and preserved blind hard-compliance requirements without fallback. The current Flask prototype will adopt the frozen parser-assisted behavior as its preferred/default chunking path. spaCy remains provisional and nonexclusive under D-008, and `RuleBasedChunker` remains mandatory fallback.
+
+Decision record: [D-009: Provisional Parser-Assisted Adoption for the Flask Prototype](DECISIONS.md).
 
 ## S-024 Outcome
 
@@ -91,9 +101,9 @@ Detailed in-app defect reports from the S-021 validation session were accidental
 
 ## Next Actions
 
-- Human reviews the completed S-024 evidence packet.
-- Decide whether the parser-assisted approach should be abandoned, revised, evaluated further, or considered for promotion planning.
-- Keep production behavior unchanged until comparison and promotion gates are satisfied.
+- Integrate parser-assisted chunking as the Flask prototype default without retuning S-023 behavior.
+- Preserve rule-based fallback and make chunking state observable.
+- Prepare focused human validation for the integrated default.
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks

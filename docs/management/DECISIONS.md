@@ -101,3 +101,32 @@ Consequences:
 * A later feature-ablation study should determine which linguistic signals account for any observed improvement before native or compact production replacements are designed.
 
 This decision does not promote the parser-assisted chunker, change the production default, modify the frozen experiment, or authorize immediate mobile implementation.
+
+## D-009: Provisional Parser-Assisted Adoption for the Flask Prototype
+
+Status: accepted.
+
+Disposition: `provisional_adoption_for_current_flask_prototype`.
+
+Context: S-024 showed that the parser-assisted system substantially reduced annotated harmful boundaries and protected-span splits. In the sealed blind challenge, parser-assisted output had `0` forbidden-boundary violations versus `14` for the rule-based baseline, and `3` protected-span splits versus `19` for the rule-based baseline. The human blinded review preferred parser-assisted output in all 12 decisive comparisons, with 10 high-confidence and 2 medium-confidence parser-assisted preferences. Parser-assisted output also satisfied blind hard-compliance requirements without fallback.
+
+The current project is a Python/Flask prototype delivered through a browser, not a native mobile package. The measured spaCy/model footprint and startup cost are acceptable for this prototype environment. Delaying integration for provider ablation or cross-platform optimization would reduce project velocity without addressing a current deployment blocker.
+
+Decision: the frozen S-023 parser-assisted behavior is provisionally adopted as the default chunking path for the current Flask prototype. spaCy `3.7.5` and `en-core-web-sm` `3.7.1` are accepted as the provisional linguistic-evidence provider for this environment. `RuleBasedChunker` remains the mandatory deterministic fallback and explicit baseline.
+
+The project will integrate the evaluated behavior without changing optimizer weights, feature interpretation, fallback rules, or model pins. D-008 continues to govern long-term architecture. This decision does not establish spaCy as the universal production provider, a native-mobile requirement, the only permissible implementation, or a permanent dependency for all future platforms. Future provider replacement, feature ablation, footprint reduction, or native integration may be considered when there is a concrete platform need. The current priority is validating the improved chunking behavior in normal prototype use.
+
+Consequences:
+
+* Production prototype requests prefer parser-assisted chunking.
+* Missing or failed parser capability must degrade automatically to `RuleBasedChunker`.
+* Flask route handlers must not depend on spaCy-native objects.
+* The browser must not receive parser-native data.
+* The application must not download models automatically at runtime.
+* Fallback must be observable without exposing source text.
+* The evaluated S-023 behavior remains frozen as the adoption reference.
+* Optimizer retuning requires a separate future slice and new evaluation discipline.
+* Broad hand-written semantic-rule expansion remains disallowed while the adopted path is being validated.
+* Public superiority claims remain prohibited.
+
+References: D-007, D-008, [S-024 objective comparison](../experiments/parser_assisted_chunking/s024_objective_comparison.md), and [S-024 human preference summary](../validation/s024_human_ab_preference_summary.md).
