@@ -1,0 +1,5 @@
+First paragraph establishes the ordinary traversal path and gives the reader enough chunks to move in both directions.
+
+Second paragraph provides a coarse progress milestone and several useful breakpoint targets for deterministic validation.
+
+Third paragraph closes the stream so reset, end boundaries, and cancellation can be checked without changing timing policy.

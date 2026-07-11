@@ -18,7 +18,10 @@ Automated preparation reproduced and stabilized one functional defect: left/righ
 
 ### Fixed Phone-Browser Protocol
 
-Use the pushed build on one phone browser. Record build, device, operating system, browser/version, viewport/orientation, and adaptation state. The exact source text for both streams is stored under `streams.<name>.source_text` in the committed JSON. Paste the `ordinary` source for steps 1–6 and the `structural` source for step 7.
+Use the pushed build on one phone browser. Record build, device, operating system, browser/version, viewport/orientation, and adaptation state.
+
+- For steps 1–6, open the [ordinary plain-text stream](../../evaluation/navigation_interaction/s032_ordinary_stream.txt), select all text, copy it, return to the prepare screen, and paste it into the text box.
+- For step 7, open the [structural plain-text stream](../../evaluation/navigation_interaction/s032_structural_stream.txt), select all text including the Markdown headings and blank lines, copy it, return to the prepare screen, and paste it into the text box.
 
 1. **Ordinary traversal:** With no breakpoints, tap to play/pause. Swipe left and confirm one previous-chunk move; swipe right and confirm one next-chunk move. Long-press without moving opens the speed overlay. Long-press then swipe left/right moves five chunks without also toggling playback or a breakpoint.
 2. **Breakpoints:** At three separated chunks, double-tap to add breakpoints; double-tap one again to remove and restore it. Confirm no play/pause side effect. From between markers, swipe left to the previous breakpoint and right to the next breakpoint, matching ordinary direction.

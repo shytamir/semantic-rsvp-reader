@@ -17,16 +17,8 @@ from semantic_rsvp.timing.schedule import schedule_text
 
 SOURCE_PATH = REPO_ROOT / "static" / "js" / "app.js"
 OUTPUT_PATH = REPO_ROOT / "evaluation" / "navigation_interaction" / "s032_characterization.json"
-ORDINARY_TEXT = (
-    "First paragraph establishes the ordinary traversal path and gives the reader enough chunks to move in both directions.\n\n"
-    "Second paragraph provides a coarse progress milestone and several useful breakpoint targets for deterministic validation.\n\n"
-    "Third paragraph closes the stream so reset, end boundaries, and cancellation can be checked without changing timing policy."
-)
-STRUCTURAL_TEXT = (
-    "# Main Route\n\nIntroductory navigation text.\n\n"
-    "## First Turn\n\nThe first section supplies several chunks for a breakpoint and a recovery lead-in.\n\n"
-    "## Second Turn\n\nThe second section confirms that structural orientation changes during traversal."
-)
+ORDINARY_FIXTURE_PATH = REPO_ROOT / "evaluation" / "navigation_interaction" / "s032_ordinary_stream.txt"
+STRUCTURAL_FIXTURE_PATH = REPO_ROOT / "evaluation" / "navigation_interaction" / "s032_structural_stream.txt"
 REQUIRED_INVARIANTS = {
     "gesture_direction_consistency": (
         'if (deltaX < 0) {\n      traverseBreakpointOrStep("previous");\n    } else {\n      traverseBreakpointOrStep("next");',
@@ -95,8 +87,14 @@ def _stream(text: str) -> list[dict]:
     ]
 
 
+def _read_stream_fixture(path: Path) -> str:
+    return path.read_text(encoding="utf-8").removesuffix("\n")
+
+
 def build_report(source_text: str | None = None) -> dict:
     source = SOURCE_PATH.read_text(encoding="utf-8") if source_text is None else source_text
+    ordinary_text = _read_stream_fixture(ORDINARY_FIXTURE_PATH)
+    structural_text = _read_stream_fixture(STRUCTURAL_FIXTURE_PATH)
     invariants = []
     hard_failures = []
     for invariant, fragments in REQUIRED_INVARIANTS.items():
@@ -107,8 +105,8 @@ def build_report(source_text: str | None = None) -> dict:
     cancellation_reasons = sorted(
         set(re.findall(r'cancelPendingDriftRecovery\("([a-z_]+)"\)', source))
     )
-    ordinary = _stream(ORDINARY_TEXT)
-    structural = _stream(STRUCTURAL_TEXT)
+    ordinary = _stream(ordinary_text)
+    structural = _stream(structural_text)
     if len(ordinary) < 8:
         hard_failures.append("ordinary_stream_too_short")
     if not any(item["is_progress_milestone"] for item in ordinary):
@@ -143,8 +141,8 @@ def build_report(source_text: str | None = None) -> dict:
             {"path": "ghost_and_structure", "actions": ["ordinary", "seek", "breakpoint", "reset"], "expected": "ghost is index minus one and active H1/H2 label follows schedule metadata"},
         ],
         "streams": {
-            "ordinary": {"source_text": ORDINARY_TEXT, "schedule": ordinary},
-            "structural": {"source_text": STRUCTURAL_TEXT, "schedule": structural},
+            "ordinary": {"source_text": ordinary_text, "schedule": ordinary},
+            "structural": {"source_text": structural_text, "schedule": structural},
         },
         "hard_failures": hard_failures,
         "stabilized_defects": [

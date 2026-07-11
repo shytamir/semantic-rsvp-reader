@@ -1,4 +1,11 @@
-from scripts.characterize_s032_navigation_interaction import build_report
+import json
+
+from scripts.characterize_s032_navigation_interaction import (
+    ORDINARY_FIXTURE_PATH,
+    OUTPUT_PATH,
+    STRUCTURAL_FIXTURE_PATH,
+    build_report,
+)
 
 
 def test_navigation_interaction_invariants_and_streams_are_reproducible():
@@ -26,6 +33,18 @@ def test_navigation_interaction_invariants_and_streams_are_reproducible():
         "cancellation",
         "ghost_and_structure",
     }
+    assert json.loads(OUTPUT_PATH.read_text(encoding="utf-8")) == report
+
+
+def test_plain_text_fixtures_are_the_committed_stream_sources():
+    report = build_report()
+
+    for name, path in (
+        ("ordinary", ORDINARY_FIXTURE_PATH),
+        ("structural", STRUCTURAL_FIXTURE_PATH),
+    ):
+        assert path.is_file()
+        assert path.read_text(encoding="utf-8").removesuffix("\n") == report["streams"][name]["source_text"]
 
 
 def test_missing_direction_consistency_fails_loudly():
