@@ -170,6 +170,18 @@ def test_static_js_route_returns_ok(client):
     assert response.status_code == 200
 
 
+def test_prepare_screen_groups_validation_sample_collections(client):
+    javascript = client.get("/static/js/app.js").data.decode("utf-8")
+    css = client.get("/static/css/app.css").data.decode("utf-8")
+
+    assert "sample.collection_label" in javascript
+    assert 'group.className = "sample-collection"' in javascript
+    assert 'controls.className = "sample-collection-controls"' in javascript
+    assert ".sample-collection-title" in css
+    assert ".sample-collection-controls" in css
+    assert "loadValidationSample(sample)" in javascript
+
+
 def test_static_js_collects_chunk_display_metadata(client):
     response = client.get("/static/js/app.js")
     javascript = response.data.decode("utf-8")

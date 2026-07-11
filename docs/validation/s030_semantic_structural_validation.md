@@ -31,7 +31,7 @@ Use the pushed parser-default build on the same phone/browser where practical. K
 
 ### Parser-default semantic cases
 
-Load these project-owned cases in order from the validation samples:
+In the prepare screen, use the **S-030 semantic and structural cases** collection. Its buttons are generated directly from the visible experiment manifests and appear in this protocol order:
 
 1. `dev-names-0001` — names and entities.
 2. `dev-date-0002` — date and source boundary.

@@ -222,14 +222,38 @@ function renderValidationSamples(samples) {
     return;
   }
 
+  const collections = new Map();
   for (const sample of samples) {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "sample-button";
-    button.textContent = `${sample.id} ${sample.category}`;
-    button.setAttribute("aria-label", `Load validation sample ${sample.id}`);
-    button.addEventListener("click", () => loadValidationSample(sample));
-    sampleList.appendChild(button);
+    const key = sample.collection || "validation_samples";
+    if (!collections.has(key)) {
+      collections.set(key, {
+        label: sample.collection_label || "Validation samples",
+        samples: [],
+      });
+    }
+    collections.get(key).samples.push(sample);
+  }
+
+  for (const collection of collections.values()) {
+    const group = document.createElement("section");
+    group.className = "sample-collection";
+    const heading = document.createElement("h3");
+    heading.className = "sample-collection-title";
+    heading.textContent = collection.label;
+    group.appendChild(heading);
+    const controls = document.createElement("div");
+    controls.className = "sample-collection-controls";
+    for (const sample of collection.samples) {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "sample-button";
+      button.textContent = `${sample.id} ${sample.category}`;
+      button.setAttribute("aria-label", `Load validation sample ${sample.id}`);
+      button.addEventListener("click", () => loadValidationSample(sample));
+      controls.appendChild(button);
+    }
+    group.appendChild(controls);
+    sampleList.appendChild(group);
   }
 
   sampleStatus.textContent = `${samples.length} samples ready.`;
