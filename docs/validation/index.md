@@ -4,7 +4,6 @@ Historical slice validation records are preserved in the [validation archive](ar
 
 ## Active Validation Focus
 
-- [S-021 Post-Stabilization Human Summary](s021_post_stabilization_human_summary.md)
 - [S-026 Parser Integration Validation](s026_parser_integration_validation.md)
 - [S-029 Density and Timing Report](s029_density_timing_report.md)
 - [S-030 Semantic and Structural Validation](s030_semantic_structural_validation.md)

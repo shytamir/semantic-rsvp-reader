@@ -119,7 +119,7 @@ Detailed in-app defect reports from the S-021 validation session were accidental
 - [Baseline Freeze](../experiments/parser_assisted_chunking/baseline_freeze.md)
 - [S-023 Implementation Freeze](../../evaluation/parser_assisted_chunking/freeze/parser_assisted_implementation_freeze.json)
 - [S-023 Blind Checksum Registry](../../evaluation/parser_assisted_chunking/freeze/blind_challenge_checksum_registry.json)
-- [S-021 Human Summary](../validation/s021_post_stabilization_human_summary.md)
+- [S-021 Human Summary](../validation/archive/s021_post_stabilization_human_summary.md)
 
 ## Next Actions
 
