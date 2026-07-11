@@ -1,20 +1,21 @@
 # Semantic RSVP Reader
 
-Semantic RSVP Reader is a mobile-first Flask + HTML5 prototype for reading text as deterministic semantic chunks. It explores whether inspectable chunking, rhythm control, and lightweight validation tooling can make RSVP-style reading easier to study without adding opaque ML dependencies.
+Semantic RSVP Reader is a mobile-first Flask + HTML5 prototype for reading text as deterministic semantic chunks. It explores whether inspectable chunking, rhythm control, and lightweight validation tooling can make RSVP-style reading easier to study while keeping chunking policy project-owned and fallback-safe.
 
 ## Project Status
 
-- Status: green prototype.
+- Status: green prototype awaiting focused parser-integration smoke validation.
 - Current phase: validation-driven refinement.
-- Active slice: Post-Stabilization Validation Pass.
-- Primary focus: human validation of mobile layout, source-boundary chunking, long-form dates, phrase cohesion, and quote/parenthetical display-state clarity.
+- Active slice: S-026 Provisional Parser-Assisted Prototype Integration.
+- Primary focus: human validation of the parser-assisted Flask prototype default, rule-based fallback, mobile playback ergonomics, and existing timing/navigation/display-state behavior.
 - Timing, playback, navigation, and adaptation semantics are intentionally stable during this phase.
 - Canonical status and roadmap live in [docs/management/](docs/management/index.md).
 
 ## Core Capabilities
 
 - Mobile-first Flask/HTML5 RSVP reader.
-- Pure-Python rule-based semantic chunker.
+- Parser-assisted semantic chunking is the provisional Flask prototype default.
+- Pure-Python rule-based semantic chunker remains the mandatory fallback and explicit baseline.
 - Deterministic timing engine.
 - Phone-browser playback with tap, swipe, hold-swipe, and long-press controls.
 - Session-only speed controls, debug summary, and conservative adaptation.
@@ -32,7 +33,17 @@ pip install -r requirements.txt
 flask --app semantic_rsvp.web:create_app run --host 0.0.0.0
 ```
 
+The standard prototype install pins spaCy `3.7.5` and `en-core-web-sm` `3.7.1` for server-side parser-assisted chunking. The browser client does not download or execute spaCy.
+
 Open `http://127.0.0.1:5000` on the host machine, or use the host machine's LAN IP address from another device on the same network.
+
+For dependency-light fallback development without spaCy, install the core requirements and force the rule-based chunker:
+
+```bash
+pip install -r requirements-core.txt
+set RSVP_CHUNKER_MODE=rule_based
+flask --app semantic_rsvp.web:create_app run --host 0.0.0.0
+```
 
 ## Test
 
@@ -84,7 +95,7 @@ See [docs/management/STATUS.md](docs/management/STATUS.md) for the active slice 
 ## Non-Goals
 
 - No public performance claims.
-- No ML/NLP dependency additions.
+- No permanent universal commitment to spaCy or any single parser provider.
 - No frontend framework, npm toolchain, or browser automation.
 - No accounts, analytics, service workers, database, or cloud sync.
 - No native app, EPUB/PDF import, or deployment infrastructure.

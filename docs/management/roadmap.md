@@ -4,11 +4,11 @@ This roadmap is the priority-order view. [STATUS](STATUS.md) is the authority fo
 
 ## Now
 
-1. **S-026: Provisional parser-assisted prototype integration**
-   - State: `READY_FOR_IMPLEMENTATION`
-   - Owner: Codex
-   - Goal: integrate the frozen parser-assisted behavior as the current Flask prototype default while preserving rule-based fallback.
-   - Constraint: do not retune S-023 optimizer behavior, change timing/navigation semantics, or make a native/mobile provider decision.
+1. **S-026: Provisional parser-assisted prototype integration validation**
+   - State: `AWAITING_HUMAN_VALIDATION`
+   - Owner: Human
+   - Goal: smoke-test the integrated parser-assisted Flask prototype default on representative phone-browser reading flows.
+   - Constraint: validate the integrated frozen behavior without retuning S-023 optimizer behavior, changing timing/navigation semantics, or making a native/mobile provider decision.
 
 ## Next
 

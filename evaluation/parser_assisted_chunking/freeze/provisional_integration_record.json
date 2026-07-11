@@ -1,0 +1,55 @@
+{
+  "slice": "S-026",
+  "name": "Provisional Parser-Assisted Prototype Integration",
+  "record_type": "provisional_flask_prototype_integration",
+  "recorded_at": "2026-07-11",
+  "scientific_experiment_freeze": {
+    "slice": "S-023",
+    "implementation_commit": "b01085193a36b664b6415686ff835426d0434c92",
+    "configuration_hash": "0e3266b6917b75da27896b382104ecf164457fee7f28d7e4d835ccb7251accab",
+    "freeze_record": "evaluation/parser_assisted_chunking/freeze/parser_assisted_implementation_freeze.json"
+  },
+  "adoption_evidence": {
+    "objective_comparison_commit": "6963abc9",
+    "human_scoring_commit": "caf051c",
+    "s025_disposition_commit": "0a4c174191f63f2ee21b1c5e99d23337ee277fa9",
+    "disposition": "provisional_adoption_for_current_flask_prototype"
+  },
+  "provisional_integration": {
+    "integration_commit": "pending_until_commit",
+    "default_mode": "parser_assisted",
+    "configuration_key": "RSVP_CHUNKER_MODE",
+    "explicit_baseline_mode": "rule_based",
+    "fallback_implementation": "semantic_rsvp.chunking.rules.RuleBasedChunker",
+    "parser_entry_point": "semantic_rsvp.experiments.parser_assisted_chunking.chunker.ParserAssistedChunker",
+    "integration_wrapper": "semantic_rsvp.chunking.selection.ObservedParserAssistedChunker",
+    "application_service": "semantic_rsvp.application.schedule_service.ScheduleService",
+    "optimizer_behavior_unchanged": true,
+    "parser_native_objects_exposed_to_flask_responses": false,
+    "runtime_model_downloads": false
+  },
+  "dependencies": {
+    "spacy_version": "3.7.5",
+    "model_package": "en-core-web-sm",
+    "model_version": "3.7.1",
+    "normal_install": "requirements.txt",
+    "dependency_light_fallback_install": "requirements-core.txt"
+  },
+  "file_hashes_sha256": {
+    "semantic_rsvp/chunking/selection.py": "0a4ce85a15c3d7571802d4d87e429744baff777e02d9fd20e1972942e5476dc5",
+    "semantic_rsvp/application/schedule_service.py": "9cfba29d69554feefa9ac7f43e1acbe0515fc48806d46032a4edbcee1d52b505",
+    "semantic_rsvp/web.py": "59873cdd6d22572b6f57d6555931f09c96a1ab9f84a2266f72a843dad8a2b2a6",
+    "semantic_rsvp/timing/schedule.py": "07bba5784a4608c4e12579802765685822520269b0b23bdfd28967df36733d8c",
+    "requirements.txt": "2338819018f03e7fad5cb1675c5add30f4754d34e2ddcc51f0a9730b291125aa",
+    "requirements-core.txt": "c66ad7be4b7fd2063034fa3b464150307c7475e09ada20453dac647adf0771d8",
+    "requirements-nlp-spike.txt": "56100e8c7f0e8c8453949a84c870ad3793867480ee716a9fae6d17eaefed0527"
+  },
+  "architecture_scope": {
+    "distinguishes_scientific_experiment_freeze": true,
+    "distinguishes_provisional_prototype_integration": true,
+    "distinguishes_permanent_production_architecture": true,
+    "permanent_spacy_commitment": false,
+    "native_mobile_provider_decision": false,
+    "d008_backend_neutral_architecture_remains_in_force": true
+  }
+}

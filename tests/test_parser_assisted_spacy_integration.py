@@ -1,6 +1,7 @@
 import pytest
 
 from semantic_rsvp.experiments.parser_assisted_chunking.chunker import ParserAssistedChunker
+from semantic_rsvp.chunking.selection import ObservedParserAssistedChunker
 from semantic_rsvp.experiments.parser_assisted_chunking.spacy_adapter import (
     availability,
     parse_text,
@@ -47,3 +48,14 @@ def test_parser_assisted_chunker_uses_experimental_path_deterministically():
     assert [chunk.text for chunk in first.chunks] == [chunk.text for chunk in second.chunks]
     assert all(trace.text for trace in first.optimization.traces)
     assert all(trace.char_length <= 32 for trace in first.optimization.traces)
+
+
+def test_integration_wrapper_preserves_frozen_parser_output():
+    require_spacy()
+    sentence = "The careful pilot did not back down."
+    frozen_chunker = ParserAssistedChunker()
+    wrapped_chunker = ObservedParserAssistedChunker(parser_chunker=ParserAssistedChunker())
+
+    assert [chunk.text for chunk in wrapped_chunker.chunk_sentence(sentence)] == [
+        chunk.text for chunk in frozen_chunker.chunk_sentence(sentence)
+    ]

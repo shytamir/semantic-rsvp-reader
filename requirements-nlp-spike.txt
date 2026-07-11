@@ -1,6 +1,5 @@
--r requirements.txt
+-r requirements-core.txt
 
-# Optional S-023 parser-assisted chunking spike dependencies.
-# Install explicitly; these are not production application requirements.
+# Pinned parser-assisted prototype dependencies.
 spacy==3.7.5
 en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl

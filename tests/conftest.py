@@ -5,9 +5,7 @@ from semantic_rsvp.web import create_app
 
 @pytest.fixture()
 def app():
-    app = create_app()
-    app.config.update(TESTING=True)
-    return app
+    return create_app({"TESTING": True, "RSVP_CHUNKER_MODE": "rule_based"})
 
 
 @pytest.fixture()

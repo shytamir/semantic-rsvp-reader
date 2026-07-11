@@ -3,10 +3,10 @@
 ```yaml
 current_slice: S-026
 name: Provisional Parser-Assisted Prototype Integration
-state: READY_FOR_IMPLEMENTATION
+state: AWAITING_HUMAN_VALIDATION
 owner: human
-agent_action: integrate frozen parser-assisted behavior as Flask prototype default
-blocked_on: parser-assisted prototype integration
+agent_action: none
+blocked_on: focused parser-integration smoke validation
 started: 2026-07-11
 evidence: docs/management/DECISIONS.md
 previous_slice: S-025
@@ -16,9 +16,11 @@ previous_slice: S-025
 
 S-026 is the provisional parser-assisted prototype integration slice.
 
-The goal is to make the frozen S-023 parser-assisted behavior the normal chunking path in the current Flask prototype while preserving `RuleBasedChunker` as the mandatory fallback. This slice must not retune optimizer weights, change feature interpretation, alter fallback rules, change timing/navigation/display-state behavior, or make a native/mobile provider decision.
+The frozen S-023 parser-assisted behavior is now integrated as the normal chunking path in the current Flask prototype while preserving `RuleBasedChunker` as the mandatory fallback. This slice did not retune optimizer weights, change feature interpretation, alter fallback rules, change timing/navigation/display-state behavior, or make a native/mobile provider decision.
 
 The rule-based chunker remains the explicit baseline and required fallback implementation.
+
+Human validation is now required before S-026 can be closed. See [S-026 parser integration validation](../validation/s026_parser_integration_validation.md).
 
 ## S-025 Outcome
 
@@ -53,7 +55,7 @@ The sealed material was revealed only after the S-023 implementation freeze.
 - Redacted objective report: [s024_objective_comparison.md](../experiments/parser_assisted_chunking/s024_objective_comparison.md)
 - Objective run record: [s024_objective_run_record.json](../../evaluation/parser_assisted_chunking/freeze/s024_objective_run_record.json)
 
-Human preference results are scored. Do not make a production-disposition decision without an explicit S-025 decision.
+Human preference results are scored, and S-025 recorded the provisional Flask-prototype adoption decision in D-009.
 
 ## S-023 Outcome
 
@@ -63,7 +65,7 @@ The repository now contains an isolated optional parser-assisted chunking spike 
 
 The implementation freeze target is commit `b010851`. The freeze manifest is [parser_assisted_implementation_freeze.json](../../evaluation/parser_assisted_chunking/freeze/parser_assisted_implementation_freeze.json), and the blind checksum registry is [blind_challenge_checksum_registry.json](../../evaluation/parser_assisted_chunking/freeze/blind_challenge_checksum_registry.json).
 
-No blind source text or annotations were accessed. No qualitative generalization-output tuning was performed. Production still uses `RuleBasedChunker`.
+No blind source text or annotations were accessed. No qualitative generalization-output tuning was performed. The frozen S-023 behavior is now the provisional Flask prototype default under D-009, with `RuleBasedChunker` still mandatory fallback.
 
 ## S-022 Outcome
 
@@ -81,11 +83,11 @@ Detailed in-app defect reports from the S-021 validation session were accidental
 
 ## Implementation Guardrails
 
-- Keep the parser-assisted path isolated from the production default.
+- Keep the parser-assisted path provisional for the current Flask prototype.
 - Do not replace the rule-based chunker.
-- Do not change S-023 code, weights, or configuration during S-024 unless the comparison slice is deliberately invalidated and restarted.
+- Do not change S-023 code, weights, or configuration without a new authorized evaluation slice.
 - Do not alter frozen evaluation manifests, hashes, baseline outputs, or annotation schemas unless a separate experiment-maintenance slice explicitly authorizes it.
-- Do not broaden hand-written semantic or grammatical production rule families while the parser-assisted experiment is pending.
+- Do not broaden hand-written semantic or grammatical production rule families while the integrated parser-assisted path is being validated.
 - Treat newly observed grammatical or semantic defects as evaluation cases first.
 - Preserve the existing timing and schedule contract unless a separate approved slice changes it.
 
@@ -101,9 +103,9 @@ Detailed in-app defect reports from the S-021 validation session were accidental
 
 ## Next Actions
 
-- Integrate parser-assisted chunking as the Flask prototype default without retuning S-023 behavior.
-- Preserve rule-based fallback and make chunking state observable.
-- Prepare focused human validation for the integrated default.
+- Perform focused human validation of the integrated parser-assisted default.
+- Confirm rule-based fallback remains available and observable.
+- Record any parser-integration smoke validation regressions before closing S-026.
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks
@@ -112,12 +114,12 @@ Detailed in-app defect reports from the S-021 validation session were accidental
 - Parser token alignment may fail or become unsafe; fallback to the baseline must remain available.
 - Visible development/regression/generalization material can encourage overfitting if not handled carefully.
 - Human-held blind material must remain outside Codex prompts until tuning is declared complete.
-- Broad semantic-rule expansion remains frozen while the experiment is pending.
+- Broad semantic-rule expansion remains frozen while the integrated parser-assisted path is being validated.
 
 ## Non-Goals
 
-- No production default replacement in S-023.
-- No production promotion decision in S-023.
+- No permanent production architecture commitment.
+- No native/mobile provider decision.
 - No timing, playback, navigation, breakpoint, drift-recovery, or adaptation redesign.
 - No broad handwritten semantic-rule expansion.
 - No public performance claims.

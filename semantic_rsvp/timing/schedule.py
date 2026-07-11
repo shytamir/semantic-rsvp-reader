@@ -57,11 +57,12 @@ def build_schedule(
 def schedule_text(
     raw_text: str,
     config: TimingConfig | None = None,
+    chunker: Chunker | None = None,
 ) -> list[ScheduledChunk]:
     normalized_text = normalize_text(raw_text)
     if not normalized_text:
         return []
-    schedule = build_schedule(split_sentences(normalized_text), config=config)
+    schedule = build_schedule(split_sentences(normalized_text), chunker=chunker, config=config)
     metadata = compute_navigation_metadata(
         normalized_text,
         [scheduled_chunk.chunk.text for scheduled_chunk in schedule],

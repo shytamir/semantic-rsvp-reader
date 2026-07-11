@@ -5,30 +5,51 @@ import os
 from flask import Flask, jsonify, render_template, request
 from werkzeug.exceptions import RequestEntityTooLarge
 
-from semantic_rsvp.chunking.rules import RuleBasedChunker
+from semantic_rsvp.application.schedule_service import ScheduleService
+from semantic_rsvp.chunking.selection import (
+    DEFAULT_CHUNKER_MODE,
+    create_chunker,
+    inspect_chunking_state,
+    normalize_chunker_mode,
+)
 from semantic_rsvp.defects.storage import (
     DEFAULT_REPORT_DIR,
     DefectReportValidationError,
     save_defect_report,
 )
 from semantic_rsvp.security.storage_encryption import check_storage_encryption
-from semantic_rsvp.text.normalize import normalize_text
-from semantic_rsvp.text.segment import split_sentences
 from semantic_rsvp.timing.models import TimingConfig
-from semantic_rsvp.timing.schedule import schedule_text
 from semantic_rsvp.validation_samples import load_validation_samples
 
 
-def create_app() -> Flask:
+def create_app(config: dict | None = None) -> Flask:
     app = Flask(
         __name__,
         template_folder="../templates",
         static_folder="../static",
     )
+    if config:
+        app.config.update(config)
     app.config.setdefault("DEFECT_REPORT_DIR", DEFAULT_REPORT_DIR)
     app.config.setdefault("CHECK_STORAGE_ENCRYPTION", True)
+    app.config.setdefault(
+        "RSVP_CHUNKER_MODE",
+        os.environ.get("RSVP_CHUNKER_MODE", DEFAULT_CHUNKER_MODE),
+    )
     if app.config.get("MAX_CONTENT_LENGTH") is None:
         app.config["MAX_CONTENT_LENGTH"] = 1_000_000
+    chunker_mode = normalize_chunker_mode(app.config["RSVP_CHUNKER_MODE"])
+    app.config["RSVP_CHUNKER_MODE"] = chunker_mode
+    chunking_state = inspect_chunking_state(chunker_mode)
+    schedule_service = ScheduleService(chunker=create_chunker(chunker_mode))
+    app.config["SCHEDULE_SERVICE"] = schedule_service
+    app.config["CHUNKING_STATE"] = chunking_state
+    logging.getLogger(__name__).info(
+        "Configured RSVP chunking mode: %s; provider_available=%s; provider_reason=%s",
+        chunking_state.configured_mode,
+        chunking_state.provider_available,
+        chunking_state.provider_reason,
+    )
     encryption_checked = False
 
     @app.before_request
@@ -56,7 +77,12 @@ def create_app() -> Flask:
 
     @app.get("/health")
     def health():
-        return jsonify({"status": "ok"})
+        return jsonify(
+            {
+                "status": "ok",
+                "chunking": app.config["CHUNKING_STATE"].to_dict(),
+            }
+        )
 
     @app.get("/api/validation-samples")
     def validation_samples():
@@ -88,26 +114,27 @@ def create_app() -> Flask:
         if not isinstance(raw_text, str):
             return jsonify({"error": "Text must be a string."}), 400
 
-        normalized_text = normalize_text(raw_text)
-        if not normalized_text:
+        result = app.config["SCHEDULE_SERVICE"].generate(raw_text)
+        if not result.normalized_text:
             return jsonify({"error": "Text must not be empty."}), 400
 
-        sentences = split_sentences(normalized_text)
-        chunker = RuleBasedChunker()
+        schedule_by_sentence = {index: [] for index in range(len(result.sentences))}
+        for scheduled_chunk in result.schedule:
+            schedule_by_sentence[scheduled_chunk.sentence_index].append(
+                scheduled_chunk.chunk
+            )
         chunked_sentences = [
             {
                 "sentence": sentence,
-                "chunks": [
-                    asdict(chunk) for chunk in chunker.chunk_sentence(sentence)
-                ],
+                "chunks": [asdict(chunk) for chunk in schedule_by_sentence[index]],
             }
-            for sentence in sentences
+            for index, sentence in enumerate(result.sentences)
         ]
         return jsonify(
             {
-                "normalized_text": normalized_text,
-                "sentences": sentences,
-                "sentence_count": len(sentences),
+                "normalized_text": result.normalized_text,
+                "sentences": list(result.sentences),
+                "sentence_count": len(result.sentences),
                 "chunked_sentences": chunked_sentences,
             }
         )
@@ -122,15 +149,14 @@ def create_app() -> Flask:
         if not isinstance(sentence, str):
             return jsonify({"error": "Sentence must be a string."}), 400
 
-        normalized_sentence = normalize_text(sentence)
-        if not normalized_sentence:
+        chunk_result = app.config["SCHEDULE_SERVICE"].chunk(sentence)
+        if not chunk_result.normalized_text:
             return jsonify({"error": "Sentence must not be empty."}), 400
 
-        chunks = RuleBasedChunker().chunk_sentence(normalized_sentence)
         return jsonify(
             {
-                "chunks": [asdict(chunk) for chunk in chunks],
-                "chunk_count": len(chunks),
+                "chunks": [asdict(chunk) for chunk in chunk_result.chunks],
+                "chunk_count": len(chunk_result.chunks),
             }
         )
 
@@ -144,27 +170,24 @@ def create_app() -> Flask:
         if not isinstance(raw_text, str):
             return jsonify({"error": "Text must be a string."}), 400
 
-        normalized_text = normalize_text(raw_text)
-        if not normalized_text:
-            return jsonify({"error": "Text must not be empty."}), 400
-
         try:
             config = _timing_config_from_payload(payload)
         except (TypeError, ValueError) as error:
             return jsonify({"error": str(error)}), 400
 
-        sentences = split_sentences(normalized_text)
-        scheduled_chunks = schedule_text(normalized_text, config=config)
-        sentence_count = len(sentences)
+        result = app.config["SCHEDULE_SERVICE"].generate(raw_text, timing_config=config)
+        if not result.normalized_text:
+            return jsonify({"error": "Text must not be empty."}), 400
+
         return jsonify(
             {
                 "schedule": [
                     _scheduled_chunk_to_dict(scheduled_chunk)
-                    for scheduled_chunk in scheduled_chunks
+                    for scheduled_chunk in result.schedule
                 ],
-                "chunk_count": len(scheduled_chunks),
-                "sentence_count": sentence_count,
-                "sentences": sentences,
+                "chunk_count": len(result.schedule),
+                "sentence_count": len(result.sentences),
+                "sentences": list(result.sentences),
             }
         )
 

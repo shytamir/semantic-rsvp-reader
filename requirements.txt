@@ -1,2 +1,1 @@
-Flask
-pytest
+-r requirements-nlp-spike.txt

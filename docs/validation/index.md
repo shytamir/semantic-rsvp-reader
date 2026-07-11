@@ -3,15 +3,16 @@
 ## Active Validation Focus
 
 - [S-021 Post-Stabilization Human Summary](s021_post_stabilization_human_summary.md)
+- [S-026 Parser Integration Validation](s026_parser_integration_validation.md)
 - [Post-Validation Stabilization Pass 1](post_validation_stabilization_pass_1.md)
 - [Navigation Validation](navigation_validation.md)
 - [Validation Corpus](corpus.md)
 
 Current focus:
 
-1. S-022 phone landscape ghost/current chunk validation is complete and passed.
-2. Parser-assisted chunking experiment work should use the frozen experiment docs and evaluation artifacts.
-3. Keep other minor observations deferred until after the parser-assisted experiment unless they are safety fixes or clear regressions.
+1. S-026 parser-assisted Flask prototype integration is awaiting focused human validation.
+2. Parser-assisted chunking validation should use the frozen experiment docs, evaluation artifacts, and the provisional integration record.
+3. Keep other minor observations deferred until after S-026 validation unless they are safety fixes or clear regressions.
 
 ## Defect Reporting Workflow
 
