@@ -50,9 +50,12 @@ flask --app semantic_rsvp.web:create_app run --host 0.0.0.0
 ```bash
 python -m pytest
 python scripts/check_js_syntax.py
+python scripts/validate_repository_integrity.py
 ```
 
 `scripts/check_js_syntax.py` uses `node --check` or `nodejs --check` when available. If Node is missing locally, it skips cleanly; CI installs Node and enforces the check.
+
+GitHub Actions runs compact `integrity`, dependency-light `core`, and pinned parser-default `parser` jobs. The integrity validator checks management/evidence structure, finalized integration identities, registered hashes, committed placeholders, and private blind-identity filenames; the existing Markdown, corpus, and frozen-baseline validators run alongside it.
 
 ## Security Checks
 
