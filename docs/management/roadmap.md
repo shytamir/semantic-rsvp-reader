@@ -12,7 +12,11 @@ This roadmap is the priority-order view. [STATUS](STATUS.md) is the authority fo
 
 ## Next
 
-- Demo/beta readiness cleanup.
+1. **S-028: Compact CI and Evidence Integrity**
+   - State: `SCHEDULED`
+   - Owner: Codex
+   - Goal: protect core/fallback operation, parser-default operation, management consistency, and experimental evidence with a compact automation layer.
+   - Scope: [S-028 planning document](s028_compact_ci_evidence_integrity.md).
 
 ## Later
 
@@ -21,7 +25,7 @@ This roadmap is the priority-order view. [STATUS](STATUS.md) is the authority fo
 - Application-service refinements only if validation exposes a need.
 - Investigation of the S-024 rule-based coverage/mapping anomalies.
 - Additional management-doc cleanup if the one-human/one-Codex workflow changes.
-- Optional CI or release hygiene only when the repo already has a clear need for it.
+- Demo/beta readiness cleanup.
 
 ## Parked
 

@@ -10,6 +10,11 @@ These files are the project-management source of truth for the solo human/Codex 
 4. [DECISIONS](DECISIONS.md): durable ADR-lite project decisions.
 5. [TODO](TODO.md): parked and unscheduled inventory only.
 
+## Scheduled Slice
+
+- S-027 remains the sole active slice in [STATUS](STATUS.md).
+- [S-028: Compact CI and Evidence Integrity](s028_compact_ci_evidence_integrity.md) is scheduled immediately afterward to protect core/fallback operation, parser-default operation, management consistency, and experimental evidence.
+
 Compatibility pointers:
 
 - [Root TODO](../../TODO.md): short pointer to this hierarchy.
