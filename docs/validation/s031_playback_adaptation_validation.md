@@ -38,3 +38,37 @@ Use the pushed build on one phone browser. Record device, operating system, brow
 Report `passed`, `partially_passed`, `failed`, or `inconclusive`. For any defect, include the exact step, expected and observed state, visible summary values, whether playback was active, and whether the page had just moved between background and foreground. Do not pass S-031 solely from the automated record.
 
 Record each scenario's final summary as: `events / rewinds / pauses / speed changes / completed / adaptations / current speed / adaptation on-or-off`. Add the build and device details above it, then give the disposition and any step-specific observations.
+
+## Human Validation Report
+
+### Scenario A
+
+Reporting passed on all tests. 0 defects reported. Debug window values:
+- Events: 23
+  Rewinds: 1
+  Pauses: 3
+  Speed changes: 4
+  Completed: Yes
+  Adaptations: 0
+  Current speed: 1.00x
+  Adaptation: off
+
+These were correctly reset on preparing a new sample as intended.
+
+### Scenario B
+
+Reporting passed on all tests. 0 defects reported. Debug window values:
+- Events: 47
+  Rewinds: 6
+  Pauses: 7
+  Speed changes: 4
+  Completed: Yes
+  Adaptations: 7
+  Current speed: 1.50x
+  Adaptation: On
+
+Android 16
+Firefox 152
+Portrait-Oriented
+
+No additional notes.
