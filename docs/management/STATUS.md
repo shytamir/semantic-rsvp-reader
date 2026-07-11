@@ -1,22 +1,26 @@
 # Project Status
 
 ```yaml
-current_slice: S-028
-name: Compact CI and Evidence Integrity
-state: PASSED
+current_slice: S-029
+name: Density-Aware Dwell-Time Recalibration
+state: IN_IMPLEMENTATION
 owner: Codex
-agent_action: await human selection of a future slice
+agent_action: measure, implement, validate, and hand off human validation
 blocked_on: none
 started: 2026-07-11
-scope: docs/management/s028_compact_ci_evidence_integrity.md
-previous_slice: S-027
+scope: docs/management/s029_density_aware_dwell_time_recalibration.md
+previous_slice: S-028
 ```
 
 ## Current Slice
 
-S-028 completed as `passed` on 2026-07-11. No successor slice is active.
+S-029 is the sole active slice. It measures rule-based versus parser-assisted density on identical project-owned corpus text, recalibrates dwell time only as justified by that evidence, and ends at human validation handoff.
 
-Compact GitHub Actions jobs now cover repository/evidence integrity, the dependency-light rule-based path, and the pinned parser-default path. GitHub issue #3 was resolved by finalizing the S-026 integration commit identity and registered file hashes. Required remote jobs passed on the pushed S-028 implementation.
+Human initiating evidence reports that default `1.0x` feels too fast with denser parser-assisted chunks and that `0.85x` is approximately comfortable. Near-doubling of density remains a hypothesis pending measurement.
+
+## S-028 Outcome
+
+S-028 completed as `passed` on 2026-07-11. Compact integrity, core, and parser CI passed remotely, and GitHub issue #3 was resolved.
 
 ## S-027 Outcome
 
@@ -113,7 +117,7 @@ Detailed in-app defect reports from the S-021 validation session were accidental
 
 ## Next Actions
 
-- Await human selection and authorization of a future slice.
+- Complete S-029 measurement, timing implementation, automated validation, and human handoff.
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks
@@ -128,6 +132,6 @@ Detailed in-app defect reports from the S-021 validation session were accidental
 
 - No permanent production architecture commitment.
 - No native/mobile provider decision.
-- No timing, playback, navigation, breakpoint, drift-recovery, or adaptation redesign.
+- No playback, navigation, breakpoint, drift-recovery, or adaptation redesign.
 - No broad handwritten semantic-rule expansion.
 - No public performance claims.

@@ -4,16 +4,15 @@ This roadmap is the priority-order view. [STATUS](STATUS.md) is the authority fo
 
 ## Now
 
-1. **S-028: Compact CI and Evidence Integrity**
-   - State: `PASSED`
+1. **S-029: Density-Aware Dwell-Time Recalibration**
+   - State: `IN_IMPLEMENTATION`
    - Owner: Codex
-   - Outcome: compact integrity, dependency-light core, and pinned parser-default CI passed remotely; GitHub issue #3 was resolved.
-   - Scope: [S-028 planning document](s028_compact_ci_evidence_integrity.md).
-   - No successor slice is active.
+   - Goal: measure the parser density shift and make default `1.0x` timing comfortable through a bounded, inspectable adjustment.
+   - Scope: [S-029](s029_density_aware_dwell_time_recalibration.md).
 
 ## Next
 
-- No separately scheduled slice. Await human selection and authorization.
+- Follow the ordered [Prototype Validation and Stabilization Program](prototype_validation_stabilization_program.md). Later passes are not active or authorized for implementation.
 
 ## Later
 

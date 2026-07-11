@@ -12,8 +12,9 @@ These files are the project-management source of truth for the solo human/Codex 
 
 ## Active Slice
 
-- S-028 completed as `passed`; no successor slice is active.
-- The implemented [S-028: Compact CI and Evidence Integrity](s028_compact_ci_evidence_integrity.md) scope protects core/fallback operation, parser-default operation, management consistency, and experimental evidence. GitHub issue #3 is resolved.
+- S-029 is the sole active slice, owned by Codex during implementation.
+- [S-029](s029_density_aware_dwell_time_recalibration.md) measures density before recalibrating dwell time and ends at human validation handoff.
+- The [Prototype Validation and Stabilization Program](prototype_validation_stabilization_program.md) inventories shipped surfaces and orders later passes without activating them.
 
 Compatibility pointers:
 
