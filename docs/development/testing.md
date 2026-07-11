@@ -36,6 +36,16 @@ GitHub Actions runs:
 
 Security checks are not a hard CI gate in this development pass because the validators are optional local tools.
 
+## Slice-document archive maintenance
+
+Check whether completed slice documents exceed the deterministic root retention limits:
+
+```bash
+python scripts/archive_slice_docs.py --check
+```
+
+When the check prints a pending plan, start from a clean worktree and apply it explicitly with `--apply`. Review and commit the resulting moves, link rewrites, and archive indexes. CI never applies or commits archival changes.
+
 ## Validation-Driven Testing
 
 Chunking, timing, navigation, and layout changes should be paired with focused regression tests derived from observed validation reports whenever practical.

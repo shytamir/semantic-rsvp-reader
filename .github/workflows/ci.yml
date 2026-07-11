@@ -26,6 +26,7 @@ jobs:
       - name: Validate repository evidence
         run: |
           python scripts/validate_repository_integrity.py
+          python scripts/archive_slice_docs.py --check
           python scripts/check_markdown_links.py
           python scripts/validate_chunking_corpus.py
           python scripts/freeze_chunking_baseline.py --check

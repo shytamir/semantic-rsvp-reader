@@ -1,5 +1,7 @@
 # Validation Docs
 
+Historical slice validation records are preserved in the [validation archive](archive/index.md).
+
 ## Active Validation Focus
 
 - [S-021 Post-Stabilization Human Summary](s021_post_stabilization_human_summary.md)

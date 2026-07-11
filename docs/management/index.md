@@ -10,6 +10,8 @@ These files are the project-management source of truth for the solo human/Codex 
 4. [DECISIONS](DECISIONS.md): durable ADR-lite project decisions.
 5. [TODO](TODO.md): parked and unscheduled inventory only.
 
+Historical slice scopes are preserved in the [management archive](archive/index.md).
+
 ## Active Slice
 
 - S-031 is the sole active slice, with state `AWAITING_HUMAN_VALIDATION` and owner Human.
