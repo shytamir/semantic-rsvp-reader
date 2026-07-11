@@ -1,0 +1,35 @@
+{
+  "case_count": 16,
+  "confidence_counts": {
+    "high": 13,
+    "medium": 3
+  },
+  "decisive_preference_counts": {
+    "denominator": 12,
+    "parser_assisted": 12,
+    "rule_based": 0
+  },
+  "identity_key_committed": false,
+  "invalid_responses": [],
+  "notes_count": 9,
+  "per_case_system_mapping_committed": false,
+  "raw_choice_counts": {
+    "B": 12,
+    "both poor": 1,
+    "equivalent": 3
+  },
+  "system_confidence_counts": {
+    "parser_assisted": {
+      "high": 10,
+      "medium": 2
+    },
+    "rule_based": {}
+  },
+  "system_preference_counts": {
+    "both_poor": 1,
+    "equivalent": 3,
+    "parser_assisted": 12,
+    "rule_based": 0
+  },
+  "valid_response_count": 16
+}

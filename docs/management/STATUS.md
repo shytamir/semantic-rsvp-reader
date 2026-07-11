@@ -1,24 +1,37 @@
 # Project Status
 
 ```yaml
-current_slice: S-024
-name: Baseline versus Experiment Comparison
-state: AWAITING_HUMAN_AB_REVIEW
+current_slice: S-025
+name: Post-experiment Disposition
+state: READY_FOR_HUMAN_DECISION
 owner: human
 agent_action: none
-blocked_on: completed blinded A/B response packet
-started: 2026-07-10
-evidence: docs/experiments/parser_assisted_chunking/s024_objective_comparison.md
-previous_slice: S-023
+blocked_on: product disposition decision for parser-assisted chunking
+started: 2026-07-11
+evidence: docs/validation/s024_human_ab_preference_summary.md
+previous_slice: S-024
 ```
 
 ## Current Slice
 
-S-024 is the baseline-versus-experiment comparison slice. The parser-assisted implementation is frozen, but it has not been judged scientifically successful and has not been promoted.
+S-025 is the post-experiment disposition slice. S-024 objective comparison and human A/B scoring are complete, but the parser-assisted implementation has not been promoted.
 
-The objective comparison has been run against the authorized sealed blind challenge package, and a private blinded A/B review packet has been generated for human preference review. S-024 remains active and pending; human A/B responses have not yet been scored.
+The next decision is whether to abandon, revise, continue evaluating, or consider promoting the parser-assisted approach. That product decision is intentionally separate from the evidence-gathering comparison.
 
 The rule-based chunker remains the production default, regression baseline, fallback implementation, and comparison target.
+
+## S-024 Outcome
+
+S-024 completed as `evidence_gathered_not_promoted`.
+
+The objective comparison was run against the authorized sealed blind challenge package, and the human blinded A/B response packet was scored without committing the private identity key or per-case system mappings.
+
+- Redacted objective report: [s024_objective_comparison.md](../experiments/parser_assisted_chunking/s024_objective_comparison.md)
+- Redacted objective JSON: [s024_objective_comparison.json](../../evaluation/parser_assisted_chunking/results/s024_objective_comparison.json)
+- Human A/B preference summary: [s024_human_ab_preference_summary.md](../validation/s024_human_ab_preference_summary.md)
+- Human A/B preference JSON: [s024_human_ab_preference.json](../../evaluation/parser_assisted_chunking/results/s024_human_ab_preference.json)
+
+Human A/B scoring result: parser-assisted preferred in 12 decisive cases, rule-based preferred in 0, with 3 equivalent and 1 both-poor responses.
 
 ## S-024 Objective Comparison Status
 
@@ -30,7 +43,7 @@ The sealed material was revealed only after the S-023 implementation freeze.
 - Redacted objective report: [s024_objective_comparison.md](../experiments/parser_assisted_chunking/s024_objective_comparison.md)
 - Objective run record: [s024_objective_run_record.json](../../evaluation/parser_assisted_chunking/freeze/s024_objective_run_record.json)
 
-Human preference results remain pending. Do not advance to S-025 or make a production-disposition decision until the blinded A/B response packet is completed and scored.
+Human preference results are scored. Do not make a production-disposition decision without an explicit S-025 decision.
 
 ## S-023 Outcome
 
@@ -78,10 +91,10 @@ Detailed in-app defect reports from the S-021 validation session were accidental
 
 ## Next Actions
 
-- Human completes the private blinded A/B response packet.
-- Score the returned A/B responses without revealing or committing the private identity key.
+- Human reviews the completed S-024 evidence packet.
+- Decide whether the parser-assisted approach should be abandoned, revised, evaluated further, or considered for promotion planning.
 - Keep production behavior unchanged until comparison and promotion gates are satisfied.
-- Leave production adoption decisions for the later disposition slice.
+- Keep the private A/B identity key out of Git.
 
 ## Active Risks
 

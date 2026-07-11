@@ -4,18 +4,16 @@ This roadmap is the priority-order view. [STATUS](STATUS.md) is the authority fo
 
 ## Now
 
-1. **S-024: Baseline versus experiment comparison**
-   - State: `AWAITING_HUMAN_AB_REVIEW`
+1. **S-025: Post-experiment disposition**
+   - State: `READY_FOR_HUMAN_DECISION`
    - Owner: Human
-   - Goal: complete and return the private blinded A/B response packet generated after the redacted objective comparison.
-   - Blocked on: completed blinded A/B response packet.
-   - Constraint: do not retune S-023 code, weights, or configuration during comparison.
+   - Goal: decide whether to abandon, revise, continue evaluating, or consider promotion planning for the parser-assisted chunking approach.
+   - Blocked on: product disposition decision for parser-assisted chunking.
+   - Constraint: do not change production chunking until a disposition slice explicitly authorizes implementation work.
 
 ## Next
 
-1. **S-025: Post-experiment disposition**
-   - Decide whether to abandon, revise, or consider promoting the parser-assisted approach after held-out evaluation.
-2. **S-026: Post-navigation usability validation**
+1. **S-026: Post-navigation usability validation**
    - Resume navigation usability validation after the parser-assisted experiment sequence no longer risks masking chunking comparison results.
 
 ## Later
