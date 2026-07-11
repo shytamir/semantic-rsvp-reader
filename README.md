@@ -101,7 +101,7 @@ See [docs/management/STATUS.md](docs/management/STATUS.md) for the active slice 
 - No permanent universal commitment to spaCy or any single parser provider.
 - No frontend framework, npm toolchain, or browser automation.
 - No accounts, analytics, service workers, database, or cloud sync.
-- No native app, EPUB/PDF import, or deployment infrastructure.
+- No native app, PDF ingestion, or production-grade deployment infrastructure in the current phase.
 
 ## License
 
