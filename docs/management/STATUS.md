@@ -2,19 +2,24 @@
 
 ```yaml
 current_slice: S-035
-name: Service Surfaces and Fallback
-state: AWAITING_HUMAN_VALIDATION
-owner: Human
-agent_action: run the fixed S-035 startup and API protocol
+active_scope: S-035A
+name: Development Environment Contract
+state: READY_FOR_IMPLEMENTATION
+owner: Codex
+agent_action: implement GitHub issue #21 through the preserved S-035A scope
 blocked_on: none
 started: 2026-07-11
-scope: docs/management/s035_service_surfaces_fallback.md
-previous_slice: S-034
+scope: docs/management/s035a_development_environment_contract.md
+previous_slice: S-035
 ```
 
 ## Current Slice
 
-S-035 is the sole active slice at `AWAITING_HUMAN_VALIDATION`, owned by the human. Deterministic service, dependency, fallback, state-reporting, serialization, and log-privacy characterization passes without a reproduced defect. Run the fixed [S-035 Service Surfaces and Fallback Validation](../validation/s035_service_surfaces_fallback_validation.md). S-035A, S-035B, and S-036 remain scheduled, inactive, and unauthorized in that order.
+S-035A is the sole active scope at `READY_FOR_IMPLEMENTATION`, owned by Codex. Implement only GitHub issue #21 through the concise [S-035A scope record](s035a_development_environment_contract.md). S-035B and S-036 remain scheduled, inactive, and unauthorized.
+
+## S-035 Outcome
+
+S-035 completed as `passed` on 2026-07-12 from human-owned evidence commit `8f8a7a6` plus the committed automated standard-profile API follow-up. Human startup, `/health`, and browser sample checks passed in both `standard` and `core`. Parser CI now covers valid ingest/chunk/schedule POST contracts, bounded invalid defect rejection, POST-only `405` responses, expected fields, and JSON-native serialization under the real pinned parser environment. No further human gate is required.
 
 ## Issue #11 Maintenance Outcome
 
@@ -143,7 +148,7 @@ Detailed in-app defect reports from the S-021 validation session were accidental
 
 ## Next Actions
 
-- The human runs the fixed [S-035 startup and API protocol](../validation/s035_service_surfaces_fallback_validation.md).
+- Implement GitHub issue #21 through the preserved [S-035A scope](s035a_development_environment_contract.md).
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks

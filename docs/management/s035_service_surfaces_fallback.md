@@ -2,7 +2,7 @@
 
 ## Status
 
-Active at `AWAITING_HUMAN_VALIDATION`, owned by the human. Automated service/fallback characterization and the pinned parser integration pass without a reproduced defect; the fixed startup/API protocol is ready. S-036 remains scheduled and inactive.
+Completed as `passed` from human-owned evidence commit `8f8a7a6` plus the automated standard-profile API follow-up. Both development profiles passed the required human startup, health, and browser checks; the remaining API contracts are covered in Parser CI. No further human gate is required.
 
 ## Objective
 

@@ -2,7 +2,7 @@
 
 ## Status
 
-`SCHEDULED`, inactive, and unauthorized. This scope follows S-035 and precedes S-035B.
+`READY_FOR_IMPLEMENTATION`, active, and owned by Codex. This scope follows completed S-035 and precedes S-035B.
 
 ## Authority
 

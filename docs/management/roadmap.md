@@ -4,16 +4,15 @@ This roadmap is the priority-order view. [STATUS](STATUS.md) is the authority fo
 
 ## Now
 
-1. **S-035: Service Surfaces and Fallback**
-   - State: `AWAITING_HUMAN_VALIDATION`
-   - Owner: Human
-   - Scope: [S-035](s035_service_surfaces_fallback.md).
+1. **S-035: S-035A Development Environment Contract**
+   - State: `READY_FOR_IMPLEMENTATION`
+   - Owner: Codex
+   - Scope: [S-035A](s035a_development_environment_contract.md); authority: GitHub issue #21.
 
 ## Next
 
-1. **S-035A: Development Environment Contract** — `SCHEDULED`; [scope](s035a_development_environment_contract.md); authority: GitHub issue #21.
-2. **S-035B: QA Authority and Verification Framework** — `SCHEDULED`; [scope](s035b_qa_authority_verification_framework.md); authority: GitHub issue #22.
-3. **S-036: End-to-End Prototype Readiness** — `SCHEDULED`; [scope](s036_end_to_end_prototype_readiness.md).
+1. **S-035B: QA Authority and Verification Framework** — `SCHEDULED`; [scope](s035b_qa_authority_verification_framework.md); authority: GitHub issue #22.
+2. **S-036: End-to-End Prototype Readiness** — `SCHEDULED`; [scope](s036_end_to_end_prototype_readiness.md).
 
 These slices are ordered but not authorized for implementation until separately activated.
 
