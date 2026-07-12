@@ -23,6 +23,11 @@ failed checkout-local `.venv`.
 4. Review the configuration table against actual startup behavior, especially that only `RSVP_CHUNKER_MODE` has the documented app-config/environment precedence and that the three Flask-config-only settings are not presented as environment variables.
 5. Record `passed`, `partially_passed`, `failed`, or `inconclusive`, plus any separate issue needed for a contradiction requiring application-level configuration redesign. POSIX execution is not part of this human gate.
 
+The corrected standard procedure clears an inherited `RSVP_CHUNKER_MODE`
+before running tests. The baseline check accepts any supported Python 3.12
+patch only for its historical `python_version` metadata field; all frozen cases,
+configuration, hashes, dependencies, and outputs remain exact comparisons.
+
 ## Human Disposition
 
 Validation failed in the first step of the protocol. Did not proceed to next steps. Returning to CODEX with the pytest failures report appended below.

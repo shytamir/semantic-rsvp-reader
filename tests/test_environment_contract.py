@@ -20,6 +20,7 @@ def test_environment_contract_and_requirements_record_accepted_profiles_and_vers
     assert contract.count("py -3.12 -m venv .venv") == 2
     assert contract.count("sys.version_info[:2] == (3, 12)") == 2
     assert "Remove-Item -Recurse -Force -LiteralPath .venv" in contract
+    assert "Remove-Item Env:RSVP_CHUNKER_MODE -ErrorAction SilentlyContinue" in contract
 
 
 def test_environment_contract_matches_actual_configuration_sources():

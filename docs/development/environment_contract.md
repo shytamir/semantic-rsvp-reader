@@ -54,6 +54,7 @@ Standard:
 py -3.12 -m venv .venv
 & .\.venv\Scripts\Activate.ps1
 python -c "import sys; assert sys.version_info[:2] == (3, 12), sys.version"
+Remove-Item Env:RSVP_CHUNKER_MODE -ErrorAction SilentlyContinue
 python -m pip install -r requirements.txt
 python -m pip check
 python -m pytest
@@ -103,6 +104,11 @@ RSVP_CHUNKER_MODE=rule_based python scripts/smoke_test_app.py
 
 Create separate environments when comparing profiles. To recreate one, deactivate it, remove only that checkout's `.venv`, and repeat the selected procedure. On Windows, never substitute a generic `python -m venv` invocation: it may silently select an unsupported installed Python version.
 
+The standard procedure clears any inherited `RSVP_CHUNKER_MODE` override before
+validation so the documented parser-assisted default is actually exercised.
+The core procedure sets the override only after its test suite, for the
+rule-based smoke check and subsequent core-profile identity capture.
+
 ## Configuration Contract
 
 | Setting | Accepted value/type and built-in default | Source and precedence | Exposure and sensitivity |
@@ -150,6 +156,11 @@ python -c "import importlib.metadata as m; print({n: m.version(n) for n in ('Cli
 ```
 
 Record the profile name explicitly. For `core`, set `RSVP_CHUNKER_MODE=rule_based` before capturing health state.
+
+The frozen rule-based baseline records the Python patch version used when it was
+created. Its reproducibility check requires Python 3.12 and exact scientific
+output and dependency identity, but does not require a different supported
+Python 3.12 patch to equal that historical capture field.
 
 Start locally:
 

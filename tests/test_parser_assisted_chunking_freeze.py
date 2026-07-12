@@ -8,7 +8,7 @@ from scripts.chunking_experiment_common import (
     load_json,
     manifest_hashes,
 )
-from scripts.freeze_chunking_baseline import build_baseline_payload
+from scripts.freeze_chunking_baseline import baseline_payload_is_reproducible, build_baseline_payload
 from scripts.validate_chunking_corpus import validate_baseline, validate_cases
 
 
@@ -36,7 +36,22 @@ def test_rule_based_baseline_is_reproducible():
     regenerated = build_baseline_payload()
     committed = load_json(BASELINE_OUTPUT_PATH)
 
-    assert regenerated == committed
+    assert baseline_payload_is_reproducible(regenerated, committed)
+
+
+def test_rule_based_baseline_accepts_only_python_312_patch_identity_variance():
+    committed = load_json(BASELINE_OUTPUT_PATH)
+    regenerated = build_baseline_payload()
+    regenerated["metadata"]["python_version"] = "3.12.10"
+
+    assert baseline_payload_is_reproducible(regenerated, committed)
+
+    regenerated["metadata"]["python_version"] = "3.13.0"
+    assert not baseline_payload_is_reproducible(regenerated, committed)
+
+    regenerated = build_baseline_payload()
+    regenerated["cases"][0]["chunks"][0]["text"] = "changed scientific output"
+    assert not baseline_payload_is_reproducible(regenerated, committed)
 
 
 def test_freeze_script_check_mode_passes():

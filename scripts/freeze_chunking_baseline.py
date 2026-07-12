@@ -169,6 +169,24 @@ def build_baseline_payload() -> dict[str, Any]:
     }
 
 
+def baseline_payload_is_reproducible(payload: dict[str, Any], expected: dict[str, Any]) -> bool:
+    actual_python = payload.get("metadata", {}).get("python_version", "")
+    expected_python = expected.get("metadata", {}).get("python_version", "")
+    if actual_python.split(".")[:2] != ["3", "12"]:
+        return False
+    if expected_python.split(".")[:2] != ["3", "12"]:
+        return False
+
+    comparable = {
+        **payload,
+        "metadata": {
+            **payload["metadata"],
+            "python_version": expected_python,
+        },
+    }
+    return comparable == expected
+
+
 def ensure_manifest_hashes(write_hashes: bool) -> None:
     actual = manifest_hashes()
     if write_hashes:
@@ -185,11 +203,13 @@ def check_reproducible(payload: dict[str, Any]) -> int:
     if not BASELINE_OUTPUT_PATH.exists():
         print(f"Missing baseline output: {BASELINE_OUTPUT_PATH.relative_to(REPO_ROOT)}")
         return 1
-    expected = json.dumps(load_json(BASELINE_OUTPUT_PATH), indent=2, sort_keys=True) + "\n"
-    actual = json.dumps(payload, indent=2, sort_keys=True) + "\n"
-    if expected == actual:
+    expected_payload = load_json(BASELINE_OUTPUT_PATH)
+    if baseline_payload_is_reproducible(payload, expected_payload):
         print("Rule-based baseline output is reproducible.")
         return 0
+
+    expected = json.dumps(expected_payload, indent=2, sort_keys=True) + "\n"
+    actual = json.dumps(payload, indent=2, sort_keys=True) + "\n"
     diff = difflib.unified_diff(
         expected.splitlines(),
         actual.splitlines(),
