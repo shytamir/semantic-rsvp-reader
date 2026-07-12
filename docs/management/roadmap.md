@@ -5,8 +5,8 @@ This roadmap is the priority-order view. [STATUS](STATUS.md) is the authority fo
 ## Now
 
 1. **S-037: Evaluation Anomaly Investigation and Parser Operating-Policy Decision**
-   - State: `READY_FOR_IMPLEMENTATION`
-   - Owner: Codex
+   - State: `AWAITING_HUMAN_VALIDATION`
+   - Owner: Human
    - Scope: [S-037](s037_evaluation_anomaly_parser_policy.md); detailed authority: GitHub issue #12.
 
 ## Next
@@ -17,7 +17,7 @@ S-038 through S-043 remain `PROVISIONAL`, inactive, and unauthorized in the stri
 
 Human decision D-010 authorizes program entry after the recorded S-036 `ready` disposition. Only S-037 is active:
 
-1. **S-037: Evaluation Anomaly Investigation and Parser Operating-Policy Decision** — `READY_FOR_IMPLEMENTATION`; [scope](s037_evaluation_anomaly_parser_policy.md); GitHub issue #12.
+1. **S-037: Evaluation Anomaly Investigation and Parser Operating-Policy Decision** — `AWAITING_HUMAN_VALIDATION`; [scope](s037_evaluation_anomaly_parser_policy.md); GitHub issue #12.
 2. **S-038: Minimal Browser Regression Baseline** — `PROVISIONAL`; [scope](s038_minimal_browser_regression_baseline.md).
 3. **S-039: Application-Service Boundary and Source-Document Contract** — `PROVISIONAL`; [scope](s039_application_service_source_document_contract.md). Includes tracked work item S-039A, GitHub issue #2.
 4. **S-040: Plain Text, Markdown, and Bounded Clean-HTML Ingestion** — `PROVISIONAL`; [scope](s040_document_ingestion.md).

@@ -125,6 +125,10 @@ def test_unscorable_mapping_failure_removes_annotation_denominators(monkeypatch)
 
     assert result["rule_based"]["annotation"]["forbidden"]["denominator"] == 0
     assert result["rule_based"]["annotation"]["protected_spans"]["denominator"] == 0
+    assert result["rule_based"]["hard"]["unsafe_mapping_failure"] is True
+    assert result["rule_based"]["hard"]["source_coverage_failure"] is False
+    assert result["rule_based"]["hard"]["dropped_text"] is False
+    assert result["rule_based"]["hard"]["source_ordering_failure"] is False
     assert result["parser_assisted"]["annotation"]["forbidden"]["denominator"] == 1
 
 

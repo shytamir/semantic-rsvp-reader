@@ -2,7 +2,7 @@
 
 ## Status
 
-`READY_FOR_IMPLEMENTATION`, active, and owned by Codex. GitHub issue #12 is the detailed implementation and acceptance authority. S-038 through S-043 remain provisional, inactive, and unauthorized.
+`AWAITING_HUMAN_VALIDATION`, active, and owned by the human. The repository-safe anomaly characterization and fixed [operating-policy decision packet](../validation/s037_evaluation_anomaly_parser_policy.md) are prepared. GitHub issue #12 remains open. S-038 through S-043 remain provisional, inactive, and unauthorized.
 
 ## Objective
 

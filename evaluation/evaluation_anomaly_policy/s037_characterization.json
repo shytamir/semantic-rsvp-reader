@@ -1,0 +1,251 @@
+{
+  "anomalies": [
+    {
+      "annotation_validation_failure_count": 0,
+      "case_count": 8,
+      "case_ids": [
+        "reg-basic-0001",
+        "reg-dense-0002",
+        "reg-air-force-0003",
+        "reg-khamenei-0004",
+        "reg-phrasal-0005",
+        "reg-qualifier-0006",
+        "reg-coordinated-0007",
+        "reg-overlong-0008"
+      ],
+      "classification": "annotation_or_denominator_coverage",
+      "corpus": "regression",
+      "denominators": {
+        "parser_assisted": {
+          "acceptable": 0,
+          "forbidden": 0,
+          "preferred": 0,
+          "protected_spans": 0,
+          "required": 0,
+          "required_structural": 0
+        },
+        "rule_based": {
+          "acceptable": 0,
+          "forbidden": 0,
+          "preferred": 0,
+          "protected_spans": 0,
+          "required": 0,
+          "required_structural": 0
+        }
+      },
+      "finding": "visible cases were evaluated for distribution and hard compliance without annotations; zero denominators are not zero observed violations"
+    },
+    {
+      "annotation_validation_failure_count": 0,
+      "case_count": 6,
+      "case_ids": [
+        "gen-public-0001",
+        "gen-public-0002",
+        "gen-synthetic-0003",
+        "gen-synthetic-0004",
+        "gen-synthetic-0005",
+        "gen-synthetic-0006"
+      ],
+      "classification": "annotation_or_denominator_coverage",
+      "corpus": "generalization",
+      "denominators": {
+        "parser_assisted": {
+          "acceptable": 0,
+          "forbidden": 0,
+          "preferred": 0,
+          "protected_spans": 0,
+          "required": 0,
+          "required_structural": 0
+        },
+        "rule_based": {
+          "acceptable": 0,
+          "forbidden": 0,
+          "preferred": 0,
+          "protected_spans": 0,
+          "required": 0,
+          "required_structural": 0
+        }
+      },
+      "finding": "visible cases were evaluated for distribution and hard compliance without annotations; zero denominators are not zero observed violations"
+    },
+    {
+      "case_id": "blind-0004",
+      "classification": "source_to_chunk_mapping_failure",
+      "finding": "rule-based output was unscorable because chunk-to-source mapping failed; source coverage, dropped text, and ordering cannot be inferred from that failure",
+      "historical_rule_based_hard": {
+        "dropped_text": true,
+        "duplicated_text": false,
+        "max_width_violations": 0,
+        "source_coverage_failure": true,
+        "source_ordering_failure": true,
+        "structural_boundary_violations": 0,
+        "unsafe_mapping_failure": true,
+        "unscorable_reason": "chunk_mapping_failed"
+      },
+      "parser_assisted_hard": {
+        "dropped_text": false,
+        "duplicated_text": false,
+        "max_width_violations": 0,
+        "source_coverage_failure": false,
+        "source_ordering_failure": false,
+        "structural_boundary_violations": 0,
+        "unsafe_mapping_failure": false,
+        "unscorable_reason": null
+      },
+      "scope": "historical_evaluation_runner_behavior",
+      "source_sha256": "4454f1af188676396490b3297db2a99b721c29432adff7255bc98df701e7e063"
+    },
+    {
+      "case_id": "blind-0011",
+      "classification": "product_behavior_observed_in_historical_run",
+      "finding": "mapping succeeded but non-whitespace source coverage differed; this is a distinct historical rule-based coverage failure, bounded without private source reconstruction",
+      "historical_rule_based_hard": {
+        "dropped_text": true,
+        "duplicated_text": false,
+        "max_width_violations": 0,
+        "source_coverage_failure": true,
+        "source_ordering_failure": false,
+        "structural_boundary_violations": 0,
+        "unsafe_mapping_failure": false,
+        "unscorable_reason": null
+      },
+      "parser_assisted_hard": {
+        "dropped_text": false,
+        "duplicated_text": false,
+        "max_width_violations": 0,
+        "source_coverage_failure": false,
+        "source_ordering_failure": false,
+        "structural_boundary_violations": 0,
+        "unsafe_mapping_failure": false,
+        "unscorable_reason": null
+      },
+      "scope": "historical_rule_based_output",
+      "source_sha256": "9ded7fc9ee08c1c2b6138b60eeb69b6bbd5b521702973f89da8e9c897b395b2b"
+    },
+    {
+      "classification": "reporting_only_anomaly",
+      "defensible_classification": {
+        "confirmed_dropped_text": 1,
+        "confirmed_source_coverage_failure": 1,
+        "confirmed_source_ordering_failure": 0,
+        "unsafe_mapping_failure": 1,
+        "unscorable_cases": 1
+      },
+      "finding": "the historical runner counted the blind-0004 mapping failure as three additional product failures; future runs no longer do so",
+      "historical_hard_compliance": {
+        "dropped_text": 2,
+        "duplicated_text": 0,
+        "max_width_violations": 0,
+        "source_coverage_failure": 2,
+        "source_ordering_failure": 1,
+        "structural_boundary_violations": 0,
+        "unsafe_mapping_failure": 1
+      },
+      "scope": "historical_blind_summary"
+    },
+    {
+      "blind_0004_parser_denominators": {
+        "acceptable": 0,
+        "complete_segmentation_match": 1,
+        "forbidden": 2,
+        "preferred": 3,
+        "protected_spans": 2,
+        "required": 0,
+        "required_structural": 0
+      },
+      "classification": "reporting_only_denominator_difference",
+      "finding": "system denominators differ only because blind-0004 rule-based annotations were correctly removed after mapping became unscorable",
+      "parser_minus_rule_denominator_deltas": {
+        "acceptable": 0,
+        "complete_segmentation_match": 1,
+        "forbidden": 2,
+        "preferred": 3,
+        "protected_spans": 2,
+        "required": 0,
+        "required_structural": 0
+      },
+      "scope": "historical_blind_summary"
+    },
+    {
+      "classification": "annotation_or_denominator_coverage",
+      "finding": "the blind annotations contain no generic required boundaries; required-structural boundaries are separately covered and must not be reported as required-boundary recall",
+      "required_denominator": {
+        "parser_assisted": 0,
+        "rule_based": 0
+      },
+      "required_structural_denominator": {
+        "parser_assisted": 2,
+        "rule_based": 2
+      },
+      "scope": "historical_blind_required_boundaries"
+    },
+    {
+      "case_id": "dev-quote-0007",
+      "classification": "product_behavior_public_analogue",
+      "current_rule_based_hard": {
+        "dropped_text": true,
+        "duplicated_text": false,
+        "max_width_violations": 0,
+        "source_coverage_failure": true,
+        "source_ordering_failure": false,
+        "structural_boundary_violations": 0,
+        "unsafe_mapping_failure": false,
+        "unscorable_reason": null
+      },
+      "finding": "a repository-owned curly-quote case reproduces rule-based source-character loss without a mapping failure; it bounds the historical blind-0011 class but does not identify private source",
+      "scope": "current_explicit_rule_based_operation",
+      "source_sha256": "1227d702ca119e3f8a12cbe910462f0b2fa0dfb5f5a46324eab0679098beaa84"
+    }
+  ],
+  "identity_and_provenance": {
+    "blind_annotation_validation_failure_count": 0,
+    "blind_case_count": 16,
+    "blind_case_ids": [
+      "blind-0001",
+      "blind-0002",
+      "blind-0003",
+      "blind-0004",
+      "blind-0005",
+      "blind-0006",
+      "blind-0007",
+      "blind-0008",
+      "blind-0009",
+      "blind-0010",
+      "blind-0011",
+      "blind-0012",
+      "blind-0013",
+      "blind-0014",
+      "blind-0015",
+      "blind-0016"
+    ],
+    "blind_case_ids_unique": true,
+    "blind_source_hashes_unique": true,
+    "config_hash_matches_freeze": true,
+    "implementation_commit_matches_freeze": true,
+    "visible_manifest_hashes_match_freeze": true,
+    "visible_manifest_hashes_match_result": true
+  },
+  "operating_policy_evidence": {
+    "current_default": "parser_assisted",
+    "explicit_baseline_mode": "rule_based",
+    "mandatory_fallback": "semantic_rsvp.chunking.rules.RuleBasedChunker",
+    "optimizer_behavior_unchanged": true,
+    "runtime_model_downloads": false
+  },
+  "plumbing_repair": {
+    "behavior": "mapping failures remain unsafe and unscorable but no longer assert dropped text, source-coverage failure, or source-ordering failure",
+    "file": "scripts/run_s024_comparison.py",
+    "historical_artifacts_modified": false
+  },
+  "schema_version": 1,
+  "slice": "S-037",
+  "source_evidence": {
+    "implementation_freeze": "evaluation/parser_assisted_chunking/freeze/parser_assisted_implementation_freeze.json",
+    "implementation_freeze_sha256": "76b3e1bd9cfab63a576a1cba7c199a7e7321dac088e496bac98dfe7c1720decc",
+    "integration_record": "evaluation/parser_assisted_chunking/freeze/provisional_integration_record.json",
+    "integration_record_sha256": "2b5cc59d431a8d5d74a128e917ae71a8fe694844012ded95f4acaa759b3b1cdc",
+    "private_ab_identity_required": false,
+    "s024_result": "evaluation/parser_assisted_chunking/results/s024_objective_comparison.json",
+    "s024_result_sha256": "fcf07b54c24e0fc783738e9ee64098995f9152e70b48d87174505a5f7d4c5688"
+  }
+}

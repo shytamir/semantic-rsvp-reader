@@ -244,10 +244,10 @@ def structural_boundaries(source: str) -> set[int]:
 def hard_compliance(source: str, output: SystemOutput) -> dict[str, Any]:
     if output.mapping_failure:
         return {
-            "source_coverage_failure": True,
-            "dropped_text": True,
+            "source_coverage_failure": False,
+            "dropped_text": False,
             "duplicated_text": False,
-            "source_ordering_failure": True,
+            "source_ordering_failure": False,
             "structural_boundary_violations": 0,
             "max_width_violations": 0,
             "unsafe_mapping_failure": True,

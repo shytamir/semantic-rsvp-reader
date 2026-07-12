@@ -13,6 +13,7 @@ Historical slice validation records are preserved in the [validation archive](ar
 - [S-035A Development Environment Contract Validation](s035a_environment_contract_validation.md)
 - [S-035B QA Authority Validation](s035b_qa_authority_validation.md)
 - [S-036 End-to-End Prototype Readiness Validation](s036_end_to_end_prototype_readiness.md)
+- [S-037 Evaluation Anomaly and Parser Operating-Policy Decision](s037_evaluation_anomaly_parser_policy.md)
 - [Validation Corpus](corpus.md)
 
 Current focus:
@@ -29,7 +30,7 @@ Current focus:
 10. S-035 Service Surfaces and Fallback completed as `passed`; human profile checks and automated standard-profile API coverage are complete.
 11. S-035A, S-035B, and S-036 completed as `passed`; S-036 recorded prototype disposition `ready`, completing the stabilization program.
 12. Parser-assisted chunking remains frozen unless a new authorized evaluation slice changes it.
-13. S-037 is active at `READY_FOR_IMPLEMENTATION`; S-038 through S-043 remain provisional and inactive.
+13. S-037 is active at `AWAITING_HUMAN_VALIDATION` with a repository-safe decision packet; S-038 through S-043 remain provisional and inactive.
 
 ## Defect Reporting Workflow
 

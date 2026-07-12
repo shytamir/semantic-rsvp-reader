@@ -4,9 +4,9 @@
 current_slice: S-037
 active_scope: S-037
 name: Evaluation Anomaly Investigation and Parser Operating-Policy Decision
-state: READY_FOR_IMPLEMENTATION
-owner: Codex
-agent_action: implement the preserved S-037 scope under GitHub issue #12
+state: AWAITING_HUMAN_VALIDATION
+owner: Human
+agent_action: review the fixed S-037 operating-policy decision packet
 blocked_on: none
 started: 2026-07-12
 scope: docs/management/s037_evaluation_anomaly_parser_policy.md
@@ -15,7 +15,7 @@ previous_slice: S-036
 
 ## Current Slice
 
-The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-037 is the sole active scope at `READY_FOR_IMPLEMENTATION`, owned by Codex, with GitHub issue #12 as detailed authority. S-038 through S-043 remain provisional, inactive, and unauthorized.
+The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-037 is the sole active scope at `AWAITING_HUMAN_VALIDATION`, owned by the human, with GitHub issue #12 open as detailed authority. Review the fixed [S-037 decision packet](../validation/s037_evaluation_anomaly_parser_policy.md). S-038 through S-043 remain provisional, inactive, and unauthorized.
 
 ## S-036 Outcome
 
@@ -63,7 +63,7 @@ S-034 completed as `passed` on 2026-07-12 from human-owned evidence commit `eafa
 
 ## Next Actions
 
-- Codex implements only the preserved [S-037 scope](s037_evaluation_anomaly_parser_policy.md) under GitHub issue #12.
+- The human reviews the fixed [S-037 policy packet](../validation/s037_evaluation_anomaly_parser_policy.md) and records one operating-policy disposition.
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks
