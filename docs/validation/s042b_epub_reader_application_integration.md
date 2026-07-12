@@ -31,6 +31,8 @@ results are recorded after the implementation push.
 
 ## Remote Evidence And Disposition
 
-Immediately available workflow results are recorded after the implementation
-commit is pushed. S-042B remains Codex-owned stabilization until applicable
-remote evidence supports `passed`.
+Immediately after implementation commit `41b7d9a` was pushed, the single
+non-polling GitHub Actions query returned no runs for that commit. S-042B remains
+Codex-owned stabilization and is not dispositioned `passed`. Issue #17 remains
+open as S-042 umbrella authority; S-042C and S-043 remain inactive and
+unauthorized.
