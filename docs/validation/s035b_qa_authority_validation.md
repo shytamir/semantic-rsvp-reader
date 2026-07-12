@@ -22,4 +22,39 @@
 
 ## Human Disposition
 
-Pending.
+```markdown
+# S-035B QA Authority Validation
+
+## Objective
+Validate QA Authority Docs Preserve the Required Behaviors
+
+## Target And Environment
+- Target commit: e9a8f6e
+- Environment/profile or authoritative environment-record link: dev
+- Configured chunker mode: parser
+- Active chunker mode/provider state: enabled
+- Device / operating system / browser / viewport, when applicable: not applicable
+- Validation sample or corpus identifier: not applicable
+
+## Fixed Procedure
+| Step | Action | Expected result | Outcome |
+| --- | --- | --- | --- |
+| 1 | | trace first change (parser-sensitive) through maps | `passed` |
+| 2 | | trace second change through maps (presentation/accessibility) | `passed` |
+
+## Observations And Issues
+- Observation, classification, blocking status, and issue/follow-up link: all six gates are conditional and the matrix and change map select only risk applicable gates.
+- the defect lifecycle permits a non-blocking observation to be deferred and separately tracked without authoritative implementation.
+- Experiment control preserves authorization boundaries without changing frozen artifacts.
+- Rendered browser behavior remains human controlled
+
+## Final Human Disposition
+- Execution outcome: No defects
+- Disposition: `accepted`
+- Acceptance-blocking defects: None
+- Authorized follow-up: Close S-035B as human validated and activate the next slice without implementing it yet.
+
+## Evidence Handling
+- Retained committed evidence: This human disposition section.
+- Private/generated evidence deleted or retained outside Git: None
+```
