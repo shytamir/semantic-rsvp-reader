@@ -4,9 +4,9 @@
 current_slice: S-039
 active_scope: S-039A
 name: Application-Service Boundary and Source-Document Contract
-state: READY_FOR_IMPLEMENTATION
-owner: Codex
-agent_action: implement the smallest missing source-document and injection contract delta
+state: AWAITING_HUMAN_VALIDATION
+owner: Human
+agent_action: review whether document identity and provenance are sufficient for S-040 and S-041
 blocked_on: none
 started: 2026-07-12
 scope: docs/management/s039_application_service_source_document_contract.md
@@ -15,7 +15,7 @@ previous_slice: S-038A
 
 ## Current Slice
 
-The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-039 is current at `READY_FOR_IMPLEMENTATION`, owned by Codex, with GitHub issue #2 active as bounded implementation work S-039A. S-040 through S-043 remain provisional, inactive, and unauthorized.
+The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-039 is current at `AWAITING_HUMAN_VALIDATION`, owned by Human. Its bounded S-039A implementation under GitHub issue #2 preserves the hash-registered service and web behavior while adding the minimal source-document contract. S-040 through S-043 remain provisional, inactive, and unauthorized.
 
 ## S-038A Outcome
 
@@ -75,7 +75,7 @@ S-034 completed as `passed` on 2026-07-12 from human-owned evidence commit `eafa
 
 ## Next Actions
 
-- Implement S-039's smallest missing application-service and source-document contract delta under issue #2.
+- Review only whether S-039 document identity and bounded provenance are sufficient groundwork for S-040 and S-041.
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks

@@ -163,3 +163,13 @@ Decision: protect the stabilized critical browser flows with one project-owned N
 Consequences: CI may install the exact browser-test package and Chromium transiently without adding a frontend framework, package manifest, lockfile, bundler, transpiler, broad browser matrix, screenshot baseline, or general npm workflow. The smoke suite detects catastrophic contract regressions; it does not establish visual quality, touch ergonomics, accessibility, pacing, comprehension, browser parity, or device-specific usability. Those claims remain human-owned under D-003.
 
 Reference: [S-038 validation](../validation/s038_minimal_browser_regression_baseline.md).
+
+## D-012: Minimal Source-Document Identity Contract
+
+Status: provisional pending S-039 human validation.
+
+Decision: represent a schedulable source with an immutable project-owned record containing a versioned deterministic identity, source type, source text, the already-supported H1/H2 heading structure, and bounded string provenance. Identity is derived from source type and normalized text, not acquisition metadata, so line-ending differences, renaming, or re-importing equivalent content do not fragment later continuity state. Provenance is sorted, limited to eight fields, and excluded from identity.
+
+Consequences: S-040 adapters can produce one backend-neutral record without coupling to Flask, and S-041 can reference stable document identity without storing or interpreting parser-native state. This decision adds no ingestion format, storage mechanism, public API field, parser policy, or continuity behavior. The parser-assisted default and mandatory automatic rule-based fallback remain governed by D-009 and the S-037 disposition.
+
+Reference: [S-039 scope](s039_application_service_source_document_contract.md).

@@ -10,6 +10,16 @@ Risk-based gate selection, evidence terminology, and traceability are governed b
 python -m pytest
 ```
 
+For the S-039 application-service and source-document contract:
+
+```bash
+python -m pytest tests/test_source_document.py tests/test_schedule_service.py tests/test_web_chunking_integration.py tests/test_standard_profile_api.py
+```
+
+These tests preserve the existing API shapes and scheduling semantics while
+covering deterministic document identity, bounded provenance, and explicit
+route-service injection.
+
 The repository includes `pyproject.toml` so pytest imports the local `semantic_rsvp` package directly from a fresh clone.
 
 ## JavaScript Syntax Check

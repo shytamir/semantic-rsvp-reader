@@ -1,6 +1,13 @@
 import pytest
 
+from semantic_rsvp.application.schedule_service import ScheduleService
+from semantic_rsvp.chunking.models import Chunk
 from semantic_rsvp.web import create_app
+
+
+class StubChunker:
+    def chunk_sentence(self, sentence):
+        return [Chunk(sentence, 1, len(sentence), "injected")]
 
 
 def test_app_creation_uses_parser_assisted_default():
@@ -56,6 +63,16 @@ def test_text_processing_endpoints_use_configured_service():
     assert ingest.get_json()["chunked_sentences"][0]["chunks"][0]["text"] == "The system"
     assert chunk.get_json()["chunks"][0]["text"] == "The system"
     assert schedule.get_json()["schedule"][0]["text"] == "The system"
+
+
+def test_routes_accept_substituted_schedule_service():
+    app = create_app({"TESTING": True, "RSVP_CHUNKER_MODE": "rule_based"})
+    app.config["SCHEDULE_SERVICE"] = ScheduleService(chunker=StubChunker())
+
+    response = app.test_client().post("/api/chunk", json={"sentence": "Injected."})
+
+    assert response.status_code == 200
+    assert response.get_json()["chunks"][0]["syntactic_hint"] == "injected"
 
 
 def test_default_parser_assisted_app_schedules_when_provider_is_unavailable(monkeypatch):
