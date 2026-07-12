@@ -59,16 +59,20 @@ behavior change inside S-037.
 ## Fixed Human Decision Handoff
 
 1. Confirm the classifications separate product behavior, historical runner behavior, annotation coverage, mapping failure, and reporting-only effects.
+Human confirmed.
 2. Confirm identities/provenance are sufficient without private A/B material and that the historical S-023/S-024 evidence remains unchanged.
+Human confirmed sufficiency and unchanged status of evidence.
 3. Confirm the plumbing repair no longer turns an unscorable mapping into unsupported product-failure claims while preserving unsafe-mapping and denominator handling.
+Human confirmed the repair doesn't violate product-failure support while preserving original handling.
 4. Review the three operating-policy options and record exactly one disposition:
 
    - `retain_parser_default_with_mandatory_automatic_fallback` — retain parser-default behavior, explicit rule mode, and automatic rule fallback under the existing safe triggers.
    - `prefer_explicit_rule_based_as_default` — choose dependency-light rule behavior as the future default while acknowledging the recorded coverage and qualitative limitations; implementation requires separate authorization.
    - `additional_evidence_required` — keep current behavior provisionally and specify the smallest missing evidence before deciding.
-
+Human recorded disposition below.
 5. Record rationale, accepted limitations, any required follow-up issue, and whether S-038 may be activated separately.
 
 ## Human Disposition
 
-Pending.
+`retain_parser_default_with_mandatory_automatic_fallback`
+We're seeing acceptable behavio from the new parser default, and the reapir won't hurt the fallback. The only violation is of arbitrary limit on number of acceptable expected S-023/S-024 failing tests. Human accepts the recorded limitations of unsafe mapping and unscorable output. No required follow-up issue. S-038 may be activated after this slice concludes, which it should considering the positive, non-blocking human dispostion recorded.
