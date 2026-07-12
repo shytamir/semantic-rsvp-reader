@@ -2,7 +2,7 @@
 
 ## Status
 
-`STABILIZATION_IN_PROGRESS`, active, and owned by Codex. Parser CI run `29207917112` and General CI run `29207917075` failed because S-037 source-evidence hashes depended on checkout line endings. GitHub issue #25 remains open as detailed active authority, and issue #23 remains open for the bounded repair evidence. S-039 through S-043 remain provisional, inactive, and unauthorized.
+`COMPLETED` as `passed` on 2026-07-12. Parser CI run `29208667633` and General CI run `29208667636` passed after repair commit `723f620` made only S-037 text source-evidence identity invariant across LF and CRLF checkouts. GitHub issues #23 and #25 are closed. S-039 through S-043 remain provisional, inactive, and unauthorized.
 
 ## Objective
 

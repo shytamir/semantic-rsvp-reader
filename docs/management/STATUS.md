@@ -2,20 +2,24 @@
 
 ```yaml
 current_slice: S-038
-active_scope: S-038A
+active_scope: none
 name: Parser CI Evaluation-Surface Coverage
-state: STABILIZATION_IN_PROGRESS
-owner: Codex
-agent_action: correct the cross-platform S-037 source-evidence identity and revalidate Parser CI
+state: COMPLETED
+owner: none
+agent_action: await separate human authorization for S-039
 blocked_on: none
 started: 2026-07-12
 scope: docs/management/s038_parser_ci_evaluation_surface.md
-previous_slice: S-038
+previous_slice: S-038A
 ```
 
 ## Current Slice
 
-The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. Under the lettered-slice convention, `current_slice` remains S-038 while S-038A is the sole active scope in Codex-owned stabilization. Parser CI run `29207917112` and General CI run `29207917075` are authoritative failed evidence: both exposed checkout-dependent S-037 source-evidence hashes. GitHub issue #25 remains open as detailed active authority. S-039 through S-043 remain provisional, inactive, and unauthorized.
+The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. Under the lettered-slice convention, `current_slice` remains S-038 and S-038A completed as `passed` after the localized cross-platform evidence-identity repair. No scope is active. S-039 through S-043 remain provisional, inactive, and unauthorized.
+
+## S-038A Outcome
+
+S-038A completed as `passed` on 2026-07-12. Parser CI run `29207917112` and General CI run `29207917075` first exposed checkout-dependent S-037 text evidence hashes. Repair commit `723f620` reused the repository's normalized text-file hashing convention without changing evidence meaning or payloads; Parser CI run `29208667633` and General CI run `29208667636` then passed. GitHub issues #23 and #25 are closed.
 
 ## S-038 Outcome
 
@@ -71,7 +75,7 @@ S-034 completed as `passed` on 2026-07-12 from human-owned evidence commit `eafa
 
 ## Next Actions
 
-- Correct the localized S-037 source-evidence identity, revalidate it remotely, and record the result in issue #25.
+- Await separate human authorization before activating S-039.
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks

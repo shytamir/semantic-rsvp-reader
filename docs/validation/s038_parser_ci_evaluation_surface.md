@@ -38,6 +38,10 @@ from checkout bytes and therefore differed between Windows CRLF and Ubuntu LF
 working trees. S-038A returned to Codex-owned stabilization for the localized
 identity correction and remote revalidation.
 
+Repair commit `723f620` passed Parser CI run `29208667633` and General CI run
+`29208667636`. CodeQL run `29208667359` was still in progress at the immediate
+post-validation snapshot and is not an S-038A acceptance gate.
+
 This maintenance evidence does not establish parser quality, reinterpret
 S-024/S-037 evidence, or authorize evaluation, parser, fallback, or product
 changes.
@@ -55,6 +59,7 @@ Record exactly one outcome in GitHub issue #25:
 - `failed`
 - `inconclusive`
 
-The human disposition was `inconclusive` pending remote evidence. S-038A remains
-open in Codex-owned stabilization until the correction is validated. Do not
-activate S-039 automatically.
+The human disposition was initially `inconclusive` pending remote evidence.
+After the localized correction, both required remote workflows passed. The
+final S-038A outcome is `passed`. S-039 remains provisional, inactive, and
+unauthorized.
