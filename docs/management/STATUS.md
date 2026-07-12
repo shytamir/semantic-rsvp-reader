@@ -9,7 +9,7 @@ owner: Codex
 agent_action: inspect the immediately available remote validation result
 blocked_on: none
 started: 2026-07-12
-scope: docs/management/s041_local_reading_continuity.md
+scope: docs/management/s042_epub_long_document_navigation.md
 previous_slice: S-041
 ```
 

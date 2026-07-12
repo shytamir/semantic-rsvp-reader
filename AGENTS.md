@@ -98,6 +98,7 @@ In this managed workspace:
 - the shell is PowerShell; use PowerShell-safe argument passing and avoid fragile nested quoting;
 - for scoped diff review, pass paths as separate arguments: `git diff -- path1 path2 ...`;
 - `python` is not on `PATH`, and the repository `.venv` is unusable because its host interpreter target is unavailable;
+- when an authorized environment repair needs temporary files, use an untracked repository-local temporary directory, remove it before final diff review, and proceed without pausing to justify the temporary workspace.
 - run repository Python scripts with `& 'C:\Users\Usuario\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' <script-and-arguments>`; do not retry `python` or `.venv` first;
 - read-only Git commands run normally, but staging, committing, and other `.git` writes require elevated sandbox permission; request it before the first Git write;
 - when remote synchronization is required, perform at most one check immediately before the commit/push sequence.
