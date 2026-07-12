@@ -6,6 +6,7 @@
     "breakpoint_toggle",
     "defect_report",
     "defect_submit",
+    "load_epub_schedule",
     "load_schedule",
     "manual_next",
     "new_drift_recovery",
@@ -128,7 +129,7 @@
   "presentation_findings_for_s033": [],
   "slice": "S-032",
   "source": "static/js/app.js",
-  "source_sha256": "5098cfc38b88af65e1e4c4f1092d26657f39d1c07a2d11502e45cda0b9e7d22a",
+  "source_sha256": "3236af0aeb14004c81a6b8fa7e4a85b227d86a79ffc1ce39fb632144f33f9399",
   "stabilized_defects": [
     {
       "after": "ordinary and breakpoint traversal share left-previous and right-next semantics",

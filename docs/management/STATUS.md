@@ -4,9 +4,9 @@
 current_slice: S-042
 active_scope: S-042B
 name: EPUB Reader Application Integration
-state: READY_FOR_IMPLEMENTATION
+state: STABILIZATION_IN_PROGRESS
 owner: Codex
-agent_action: implement the authorized EPUB reader application integration
+agent_action: validate the pushed EPUB reader integration and inspect immediate CI evidence
 blocked_on: none
 started: 2026-07-12
 scope: docs/management/s042_epub_long_document_navigation.md
@@ -15,7 +15,7 @@ previous_slice: S-041
 
 ## Current Slice
 
-The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-042B is the sole active scope at `READY_FOR_IMPLEMENTATION`, owned by Codex. GitHub issue #17 remains open as S-042 umbrella authority. S-042C and S-043 remain provisional, inactive, and unauthorized.
+The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-042B is the sole active scope in Codex-owned stabilization. GitHub issue #17 remains open as S-042 umbrella authority. S-042C and S-043 remain provisional, inactive, and unauthorized.
 
 ## S-042A Outcome
 

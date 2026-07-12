@@ -26,6 +26,8 @@ The preference record contains only speed level and adaptation enabled/disabled.
 
 Matching documents restore paused. Invalid positions and breakpoints clamp to the current schedule; corrupt, wrong-version, invalid, future-dated, and stale records are discarded deterministically. A missing source is never reconstructed from storage: the input screen remains paused and reports only the saved reference count until matching text is prepared or local data is removed.
 
+For EPUBs, S-042B uses only the canonical server-provided `SourceDocument` identity. Renaming or recompressing equivalent content can match an existing reference; changed extracted text cannot. The browser still stores neither source text nor EPUB bytes and cannot restore until the user reselects the local file.
+
 ## Human Handoff
 
 Run the fixed protocol in [S-041 validation](../validation/s041_local_reading_continuity.md) for reopen, paused resume, preferences, reset, per-document removal, full clearing, and missing-document behavior.

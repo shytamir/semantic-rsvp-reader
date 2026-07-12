@@ -19,6 +19,9 @@ const readerMode = document.querySelector("#reader-mode");
 const form = document.querySelector("#schedule-form");
 const input = document.querySelector("#text-input");
 const prepareButton = document.querySelector("#prepare-button");
+const epubForm = document.querySelector("#epub-form");
+const epubInput = document.querySelector("#epub-input");
+const prepareEpubButton = document.querySelector("#prepare-epub-button");
 const statusMessage = document.querySelector("#status-message");
 const sampleList = document.querySelector("#validation-sample-list");
 const sampleStatus = document.querySelector("#sample-status");
@@ -121,6 +124,15 @@ let currentDocumentDisplayName = null;
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
   await loadSchedule(input.value);
+});
+epubForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const file = epubInput.files && epubInput.files[0];
+  if (!file) {
+    showError("Select an EPUB file first.");
+    return;
+  }
+  await loadEpubSchedule(file);
 });
 document.addEventListener("visibilitychange", handleVisibilityChange);
 
@@ -225,6 +237,89 @@ async function loadSchedule(text) {
   } finally {
     setLoading(false);
   }
+}
+
+async function loadEpubSchedule(file) {
+  if (isLoading) {
+    return;
+  }
+  cancelPendingDriftRecovery("load_epub_schedule");
+  clearPendingSingleTapTimer();
+  pause({ record: false, render: false });
+  hideSpeedOverlay();
+  setLoading(true);
+  showStatus("Preparing EPUB...");
+  try {
+    const response = await fetch("/api/epub/schedule", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/epub+zip",
+        "X-EPUB-Filename": file.name,
+      },
+      body: file,
+    });
+    const payload = await response.json();
+    validateScheduleResponse(payload, response);
+    const document = payload.document;
+    if (
+      !document ||
+      !/^[0-9a-f]{64}$/.test(document.document_id || "") ||
+      document.source_type !== "epub"
+    ) {
+      throw new Error("EPUB response did not include a canonical document identity.");
+    }
+    applyLoadedSchedule(payload, {
+      documentId: document.document_id,
+      sourceType: document.source_type,
+      displayName: document.display_name || file.name,
+    });
+    recordSessionEvent("schedule_loaded", {
+      chunk_count: schedule.length,
+      sentence_count: payload.sentence_count,
+      source_type: "epub",
+    });
+    enterReaderMode();
+  } catch (error) {
+    clearLoadedScheduleAfterError();
+    showError(error.message);
+  } finally {
+    setLoading(false);
+  }
+}
+
+function applyLoadedSchedule(payload, { documentId, sourceType, displayName }) {
+  schedule = payload.schedule;
+  scheduledSentences = Array.isArray(payload.sentences) ? payload.sentences : [];
+  currentIndex = 0;
+  resetNavigationScaffold();
+  resetStructureAnchor();
+  defectReportCount = 0;
+  lastDefectReportId = null;
+  resetSpeed({ record: false });
+  resetSessionEvents();
+  resetAdaptationState();
+  restoreReaderPreferences();
+  currentDocumentId = documentId;
+  currentDocumentSourceType = sourceType;
+  currentDocumentDisplayName = displayName;
+  restoreCurrentDocumentContinuity();
+  renderDefectCount();
+}
+
+function clearLoadedScheduleAfterError() {
+  schedule = [];
+  scheduledSentences = [];
+  currentDocumentId = null;
+  currentDocumentSourceType = null;
+  currentDocumentDisplayName = null;
+  currentIndex = 0;
+  resetNavigationScaffold();
+  resetStructureAnchor();
+  stopPlayback({ render: false });
+  hideSpeedOverlay();
+  closeDefectPanel();
+  readerMode.classList.add("is-hidden");
+  inputMode.classList.remove("is-hidden");
 }
 
 function restoreReaderPreferences() {

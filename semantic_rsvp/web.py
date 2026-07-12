@@ -6,6 +6,8 @@ from flask import Flask, jsonify, render_template, request
 from werkzeug.exceptions import RequestEntityTooLarge
 
 from semantic_rsvp.application.schedule_service import ScheduleService
+from semantic_rsvp.application.document_ingestion import DocumentIngestionError
+from semantic_rsvp.application.epub_ingestion import MAX_EPUB_BYTES, ingest_epub_document
 from semantic_rsvp.chunking.selection import (
     DEFAULT_CHUNKER_MODE,
     create_chunker,
@@ -181,6 +183,38 @@ def create_app(config: dict | None = None) -> Flask:
 
         return jsonify(
             {
+                "schedule": [
+                    _scheduled_chunk_to_dict(scheduled_chunk)
+                    for scheduled_chunk in result.schedule
+                ],
+                "chunk_count": len(result.schedule),
+                "sentence_count": len(result.sentences),
+                "sentences": list(result.sentences),
+            }
+        )
+
+    @app.post("/api/epub/schedule")
+    def epub_schedule():
+        request.max_content_length = MAX_EPUB_BYTES
+        source_name = request.headers.get("X-EPUB-Filename", "")
+        if request.mimetype != "application/epub+zip":
+            return jsonify({"error": "Expected application/epub+zip bytes."}), 415
+        try:
+            document = ingest_epub_document(request.get_data(cache=False), source_name=source_name)
+        except DocumentIngestionError as error:
+            return jsonify({"error": str(error)}), 400
+        result = app.config["SCHEDULE_SERVICE"].generate(document.text)
+        if not result.normalized_text:
+            return jsonify({"error": "EPUB contains no schedulable text."}), 400
+        provenance = dict(document.provenance)
+        return jsonify(
+            {
+                "document": {
+                    "document_id": document.document_id,
+                    "source_type": document.source_type,
+                    "display_name": provenance.get("title") or source_name,
+                    "source_name": source_name,
+                },
                 "schedule": [
                     _scheduled_chunk_to_dict(scheduled_chunk)
                     for scheduled_chunk in result.schedule

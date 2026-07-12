@@ -39,7 +39,7 @@
   "file_hashes_sha256": {
     "semantic_rsvp/chunking/selection.py": "0a4ce85a15c3d7571802d4d87e429744baff777e02d9fd20e1972942e5476dc5",
     "semantic_rsvp/application/schedule_service.py": "9cfba29d69554feefa9ac7f43e1acbe0515fc48806d46032a4edbcee1d52b505",
-    "semantic_rsvp/web.py": "a8275bde11c001ec3b21ce12e7a0629beb5ada1380ef2c8f52a16d0390948f0a",
+    "semantic_rsvp/web.py": "88174ded8f004d37ee7bdc02e134ba9b41a722575ad78f5f647b6ece13e36f93",
     "semantic_rsvp/timing/schedule.py": "886187996909e615d370e2f99042f27e915ccbfe84d0be47db98ed0a35dc5648",
     "requirements.txt": "2338819018f03e7fad5cb1675c5add30f4754d34e2ddcc51f0a9730b291125aa",
     "requirements-core.txt": "3068291528ddcaff864571b73f1b764e9eb63692f25f019c4c57dfaedf377b84",

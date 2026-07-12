@@ -99,6 +99,51 @@ async function runSmoke(page) {
     layout.controlsVisible && layout.controlsLeft >= 0 && layout.controlsRight <= layout.viewportWidth,
     "Critical reader controls escape the narrow viewport.",
   );
+
+  const canonicalId = "a".repeat(64);
+  await page.route("**/api/epub/schedule", async (route) => {
+    const request = route.request();
+    assert(request.method() === "POST", "EPUB bridge did not use POST.");
+    assert(request.headers()["content-type"] === "application/epub+zip", "EPUB bridge changed its dedicated media type.");
+    assert(request.headers()["x-epub-filename"] === "smoke.epub", "EPUB filename metadata was not bounded to the dedicated request.");
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        document: { document_id: canonicalId, source_type: "epub", display_name: "Smoke EPUB", source_name: "smoke.epub" },
+        sentence_count: 1,
+        sentences: ["EPUB reader bridge smoke content."],
+        schedule: [{
+          index: 0,
+          sentence_index: 0,
+          text: "EPUB reader bridge smoke content.",
+          content_word_count: 5,
+          char_length: 33,
+          syntactic_hint: null,
+          duration_ms: 900,
+          in_quote: false,
+          quote_boundary: null,
+          in_parenthetical: false,
+          parenthetical_depth: 0,
+          navigation: { progress_percent: 100, source_start: 0, source_end: 33 },
+          structure: { active_h1: null, active_h2: null, active_path: [] },
+        }],
+      }),
+    });
+  });
+  await page.reload({ waitUntil: "networkidle" });
+  await page.locator("#epub-input").setInputFiles({
+    name: "smoke.epub",
+    mimeType: "application/epub+zip",
+    buffer: Buffer.from("browser smoke fixture"),
+  });
+  await page.locator("#prepare-epub-button").click();
+  await page.locator("#reader-mode").waitFor({ state: "visible" });
+  assert((await page.locator("#chunk-display").textContent()) === "EPUB reader bridge smoke content.", "EPUB response did not enter the existing reader.");
+  const saved = await page.evaluate(() => JSON.parse(localStorage.getItem("semantic-rsvp-reader.documents.v1")));
+  assert(saved.documents[0].document_id === canonicalId, "EPUB continuity did not use the canonical server identity.");
+  assert(saved.documents[0].source_type === "epub", "EPUB continuity did not preserve source type.");
+  assert(!JSON.stringify(saved).includes("browser smoke fixture"), "EPUB bytes leaked into continuity storage.");
 }
 
 const flask = spawn(
@@ -118,7 +163,7 @@ try {
   browser = await chromium.launch({ headless: true, channel: browserChannel });
   const page = await browser.newPage();
   await runSmoke(page);
-  console.log("S-038 browser smoke passed: load, play/pause, seek, breakpoint, reset, and narrow layout.");
+  console.log("Browser smoke passed: baseline reader flows, narrow layout, and canonical EPUB application identity.");
 } finally {
   await browser?.close();
   flask.kill();

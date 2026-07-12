@@ -44,7 +44,7 @@ S-042A added no upload route, file-selection control, reader integration, conten
 
 ### S-042B: EPUB Reader Application Integration
 
-`READY_FOR_IMPLEMENTATION`, active, and owned by Codex.
+`STABILIZATION_IN_PROGRESS`, active, and owned by Codex. Implementation evidence is recorded in [S-042B validation](../validation/s042b_epub_reader_application_integration.md).
 
 S-042B owns the smallest application bridge required to read an S-042A-supported EPUB through the existing RSVP reader:
 

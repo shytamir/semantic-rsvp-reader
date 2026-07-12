@@ -37,3 +37,18 @@ The synthetic files under `tests/fixtures/epub/` are project-owned and covered
 by the repository license. Tests package them deterministically and verify
 ordering, headings, metadata, safety failures, stable identity, scheduling, and
 the identity used by browser-local continuity.
+
+## Reader Application Boundary
+
+S-042B adds a dedicated `POST /api/epub/schedule` request accepting raw
+`application/epub+zip` bytes and a bounded `X-EPUB-Filename` display hint. It
+does not encode EPUB bytes into JSON and does not alter the existing one-megabyte
+limit for JSON, text, defect, or schedule requests. Only this route may accept
+the S-042A twenty-megabyte EPUB container limit.
+
+The response supplies the existing schedule representation plus a canonical
+server-produced document ID, source type `epub`, and bounded display metadata.
+The browser passes that identity directly into the existing reader and S-041
+continuity store. It never hashes the filename or EPUB bytes and never persists
+source text or archive bytes. Restoration therefore occurs only after the user
+reselects an EPUB whose extracted normalized text yields the same canonical ID.
