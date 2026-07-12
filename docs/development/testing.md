@@ -1,5 +1,7 @@
 # Testing
 
+Environment/profile setup and dependency verification are governed by the [Development Environment Contract](environment_contract.md). This file summarizes repository test surfaces rather than duplicating those setup procedures.
+
 ## Full Test Suite
 
 ```bash

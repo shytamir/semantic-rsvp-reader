@@ -5,8 +5,8 @@ This roadmap is the priority-order view. [STATUS](STATUS.md) is the authority fo
 ## Now
 
 1. **S-035: S-035A Development Environment Contract**
-   - State: `READY_FOR_IMPLEMENTATION`
-   - Owner: Codex
+   - State: `AWAITING_HUMAN_VALIDATION`
+   - Owner: Human
    - Scope: [S-035A](s035a_development_environment_contract.md); authority: GitHub issue #21.
 
 ## Next

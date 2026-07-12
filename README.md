@@ -6,8 +6,8 @@ Semantic RSVP Reader is a mobile-first Flask + HTML5 prototype for reading text 
 
 - Status: green prototype; parser integration human-validated with no acceptance-blocking regressions.
 - Current phase: validation-driven refinement.
-- Active scope: S-035A Development Environment Contract (`READY_FOR_IMPLEMENTATION`).
-- Primary focus: implement the issue #21 development-environment and source-checkout contract without activating S-035B.
+- Active scope: S-035A Development Environment Contract (`AWAITING_HUMAN_VALIDATION`).
+- Primary focus: validate the authoritative development-environment and source-checkout contract without activating S-035B.
 - Timing, playback, navigation, and adaptation semantics are intentionally stable during this phase.
 - Canonical status and roadmap live in [docs/management/](docs/management/index.md).
 
@@ -26,24 +26,7 @@ Semantic RSVP Reader is a mobile-first Flask + HTML5 prototype for reading text 
 
 ## Quick Start
 
-```bash
-python -m venv .venv
-.venv\Scripts\activate
-pip install -r requirements.txt
-flask --app semantic_rsvp.web:create_app run --host 0.0.0.0
-```
-
-The standard prototype install pins spaCy `3.7.5` and `en-core-web-sm` `3.7.1` for server-side parser-assisted chunking. The browser client does not download or execute spaCy.
-
-Open `http://127.0.0.1:5000` on the host machine, or use the host machine's LAN IP address from another device on the same network.
-
-For dependency-light fallback development without spaCy, install the core requirements and force the rule-based chunker:
-
-```bash
-pip install -r requirements-core.txt
-set RSVP_CHUNKER_MODE=rule_based
-flask --app semantic_rsvp.web:create_app run --host 0.0.0.0
-```
+Use the authoritative [Development Environment Contract](docs/development/environment_contract.md) to select the `standard` or `core` profile, create a Python 3.12 environment, verify exact dependencies, capture environment identity, and start the local development server. The `core` profile requires `RSVP_CHUNKER_MODE=rule_based`; the `standard` profile uses parser-assisted chunking by default.
 
 ## Test
 
@@ -76,6 +59,7 @@ The runner uses optional public tools such as Bandit, pip-audit, Semgrep, Gitlea
 More details:
 
 - [Setup](docs/development/setup.md)
+- [Development environment contract](docs/development/environment_contract.md)
 - [Testing](docs/development/testing.md)
 - [Architecture](docs/development/architecture.md)
 - [Manual validation](docs/development/manual_testing.md)

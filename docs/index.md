@@ -6,6 +6,7 @@
 - [License](../LICENSE): Apache License 2.0.
 - [Architecture](development/architecture.md): current code layout and request flow.
 - [Setup](development/setup.md): local environment and app startup.
+- [Development environment contract](development/environment_contract.md): supported runtime, profiles, setup, configuration, dependency versions, and environment identity.
 - [Testing](development/testing.md): pytest, JavaScript syntax checks, and CI notes.
 - [Security](security/index.md): quick development security checks and findings.
 - [Manual validation](development/manual_testing.md): phone-browser validation checklist.

@@ -42,7 +42,7 @@
     "semantic_rsvp/web.py": "a8275bde11c001ec3b21ce12e7a0629beb5ada1380ef2c8f52a16d0390948f0a",
     "semantic_rsvp/timing/schedule.py": "886187996909e615d370e2f99042f27e915ccbfe84d0be47db98ed0a35dc5648",
     "requirements.txt": "2338819018f03e7fad5cb1675c5add30f4754d34e2ddcc51f0a9730b291125aa",
-    "requirements-core.txt": "c66ad7be4b7fd2063034fa3b464150307c7475e09ada20453dac647adf0771d8",
+    "requirements-core.txt": "3068291528ddcaff864571b73f1b764e9eb63692f25f019c4c57dfaedf377b84",
     "requirements-nlp-spike.txt": "3d4b6c1cec97eb4ac7e348bb5e695bb017c7cfcbb255d3638d474f3c493dd6f7"
   },
   "architecture_scope": {

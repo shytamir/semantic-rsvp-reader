@@ -2,7 +2,7 @@
 
 ## Status
 
-`READY_FOR_IMPLEMENTATION`, active, and owned by Codex. This scope follows completed S-035 and precedes S-035B.
+`AWAITING_HUMAN_VALIDATION`, active, and owned by the human. The authoritative contract and automated evidence are prepared; S-035B remains scheduled and inactive.
 
 ## Authority
 

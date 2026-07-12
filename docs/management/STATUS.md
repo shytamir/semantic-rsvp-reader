@@ -4,9 +4,9 @@
 current_slice: S-035
 active_scope: S-035A
 name: Development Environment Contract
-state: READY_FOR_IMPLEMENTATION
-owner: Codex
-agent_action: implement GitHub issue #21 through the preserved S-035A scope
+state: AWAITING_HUMAN_VALIDATION
+owner: Human
+agent_action: run the fixed S-035A environment-contract protocol
 blocked_on: none
 started: 2026-07-11
 scope: docs/management/s035a_development_environment_contract.md
@@ -15,7 +15,7 @@ previous_slice: S-035
 
 ## Current Slice
 
-S-035A is the sole active scope at `READY_FOR_IMPLEMENTATION`, owned by Codex. Implement only GitHub issue #21 through the concise [S-035A scope record](s035a_development_environment_contract.md). S-035B and S-036 remain scheduled, inactive, and unauthorized.
+S-035A is the sole active scope at `AWAITING_HUMAN_VALIDATION`, owned by the human. The authoritative contract, exact observed pins, configuration precedence, CI assertions, and clean Windows `core` evidence are prepared. Run the fixed [S-035A Development Environment Contract Validation](../validation/s035a_environment_contract_validation.md). S-035B and S-036 remain scheduled, inactive, and unauthorized.
 
 ## S-035 Outcome
 
@@ -148,7 +148,7 @@ Detailed in-app defect reports from the S-021 validation session were accidental
 
 ## Next Actions
 
-- Implement GitHub issue #21 through the preserved [S-035A scope](s035a_development_environment_contract.md).
+- The human runs the fixed [S-035A environment-contract protocol](../validation/s035a_environment_contract_validation.md).
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks
