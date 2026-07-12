@@ -4,9 +4,9 @@
 current_slice: S-041
 active_scope: S-041
 name: Local Reading Continuity
-state: READY_FOR_IMPLEMENTATION
-owner: Codex
-agent_action: implement bounded versioned browser-local reading continuity
+state: AWAITING_HUMAN_VALIDATION
+owner: Human
+agent_action: run the fixed local continuity protocol and record a disposition
 blocked_on: none
 started: 2026-07-12
 scope: docs/management/s041_local_reading_continuity.md
@@ -15,7 +15,7 @@ previous_slice: S-040
 
 ## Current Slice
 
-The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-041 is current at `READY_FOR_IMPLEMENTATION`, owned by Codex, with GitHub issue #16 as detailed authority. S-042 and S-043 remain provisional, inactive, and unauthorized.
+The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-041 is current at `AWAITING_HUMAN_VALIDATION`, owned by Human, with GitHub issue #16 open as detailed authority. Review the fixed [S-041 continuity protocol](../validation/s041_local_reading_continuity.md). S-042 and S-043 remain provisional, inactive, and unauthorized.
 
 ## S-040 Outcome
 
@@ -83,7 +83,7 @@ S-034 completed as `passed` on 2026-07-12 from human-owned evidence commit `eafa
 
 ## Next Actions
 
-- Implement bounded local continuity under issue #16 without activating S-042.
+- Run the fixed S-041 continuity protocol and record one disposition in issue #16.
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks

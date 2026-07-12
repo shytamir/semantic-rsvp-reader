@@ -557,6 +557,25 @@ textarea:focus-visible,
   }
 }
 
+.continuity-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.continuity-controls button {
+  min-height: 40px;
+}
+
+.continuity-status {
+  flex-basis: 100%;
+  margin: 0;
+  color: var(--muted);
+  text-align: center;
+  font-size: 0.85rem;
+}
+
 @media (max-width: 380px) {
   .reader-area {
     --reader-left-offset: 14px;

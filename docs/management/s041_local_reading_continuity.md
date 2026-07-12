@@ -2,7 +2,7 @@
 
 ## Status
 
-`READY_FOR_IMPLEMENTATION`, active, and owned by Codex. GitHub issue #16 is detailed authority. S-042 and S-043 remain provisional, inactive, and unauthorized.
+`AWAITING_HUMAN_VALIDATION`, active, and owned by Human. GitHub issue #16 remains open as detailed authority. Automated and browser evidence plus the fixed protocol are recorded in [S-041 validation](../validation/s041_local_reading_continuity.md). S-042 and S-043 remain provisional, inactive, and unauthorized.
 
 ## Objective
 
@@ -20,11 +20,15 @@ Depends on S-040 delivering stable document records. Continuity must follow rath
 
 ## Codex Preparation
 
-Characterize transient state, define minimal versioned local records, and prepare deterministic restore/reset/migration tests without unnecessarily storing text.
+Characterization found schedule, position, breakpoints, speed, adaptation preference, session events, timers, drift recovery, and defect context were all transient. S-041 adds two separate version-1 browser-local stores: reader preferences, and per-document continuity keyed by the S-039 stable identity.
+
+The preference record contains only speed level and adaptation enabled/disabled. Each document record contains identity, source type, a bounded display reference, clamped position, at most 64 breakpoints, and update time. Retention is limited to the 12 most recent documents for 90 days. Source text, defect contents, session events/telemetry, timers, drift-recovery state, playback state, and parser data are never stored.
+
+Matching documents restore paused. Invalid positions and breakpoints clamp to the current schedule; corrupt, wrong-version, invalid, future-dated, and stale records are discarded deterministically. A missing source is never reconstructed from storage: the input screen remains paused and reports only the saved reference count until matching text is prepared or local data is removed.
 
 ## Human Handoff
 
-Validate reopen, resume, reset, missing-document, and preference continuity across local sessions.
+Run the fixed protocol in [S-041 validation](../validation/s041_local_reading_continuity.md) for reopen, paused resume, preferences, reset, per-document removal, full clearing, and missing-document behavior.
 
 ## Permissible Narrow Work
 

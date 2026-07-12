@@ -128,7 +128,7 @@
   "presentation_findings_for_s033": [],
   "slice": "S-032",
   "source": "static/js/app.js",
-  "source_sha256": "14c2459efc6f413675312e55cbbd218d3958829f097d69c4459106d2a2e011db",
+  "source_sha256": "5098cfc38b88af65e1e4c4f1092d26657f39d1c07a2d11502e45cda0b9e7d22a",
   "stabilized_defects": [
     {
       "after": "ordinary and breakpoint traversal share left-previous and right-next semantics",

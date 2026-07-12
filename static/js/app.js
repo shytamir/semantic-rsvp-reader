@@ -66,6 +66,18 @@ const progressAnchor = document.querySelector("#progress-anchor");
 const progressAnchorFill = document.querySelector("#progress-anchor-fill");
 const breakpointStatus = document.querySelector("#breakpoint-status");
 const previousChunkDisplay = document.querySelector("#previous-chunk");
+const removeContinuityButton = document.querySelector("#remove-continuity-button");
+const clearContinuityButton = document.querySelector("#clear-continuity-button");
+const continuityStatus = document.querySelector("#continuity-status");
+const continuityApi = window.SemanticRSVPContinuity;
+let continuityStore = null;
+try {
+  continuityStore = continuityApi
+    ? continuityApi.createStore(window.localStorage)
+    : null;
+} catch (_error) {
+  continuityStore = null;
+}
 
 let schedule = [];
 let currentIndex = 0;
@@ -102,6 +114,9 @@ let isLoading = false;
 let defectReportCount = 0;
 let lastDefectReportId = null;
 let isSubmittingDefect = false;
+let currentDocumentId = null;
+let currentDocumentSourceType = null;
+let currentDocumentDisplayName = null;
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -125,6 +140,8 @@ speedReset.addEventListener("click", resetSpeed);
 speedClose.addEventListener("click", hideSpeedOverlay);
 adaptationToggle.addEventListener("click", () => setAdaptationEnabled(!adaptationEnabled));
 adaptationReset.addEventListener("click", resetAdaptationWindowFromControl);
+removeContinuityButton.addEventListener("click", removeCurrentDocumentContinuity);
+clearContinuityButton.addEventListener("click", clearAllContinuity);
 speedOverlay.addEventListener("pointerdown", stopOverlayGesturePropagation);
 speedOverlay.addEventListener("pointermove", stopOverlayGesturePropagation);
 speedOverlay.addEventListener("pointerup", stopOverlayGesturePropagation);
@@ -136,11 +153,13 @@ defectPanel.addEventListener("click", stopOverlayGesturePropagation);
 progressAnchor.addEventListener("pointerdown", stopOverlayGesturePropagation);
 progressAnchor.addEventListener("click", handleProgressAnchorClick);
 attachReaderGestures();
+restoreReaderPreferences();
 renderSpeedControls();
 renderSessionDebug();
 renderAdaptationStatus();
 renderDefectCount();
 loadValidationSamples();
+renderInitialContinuityStatus();
 
 async function loadSchedule(text) {
   if (isLoading) {
@@ -155,6 +174,9 @@ async function loadSchedule(text) {
   showStatus("Preparing...");
 
   try {
+    const documentId = continuityApi
+      ? await continuityApi.computeDocumentId(text).catch(() => null)
+      : null;
     const response = await fetch("/api/schedule", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -174,6 +196,11 @@ async function loadSchedule(text) {
     resetSpeed({ record: false });
     resetSessionEvents();
     resetAdaptationState();
+    restoreReaderPreferences();
+    currentDocumentId = documentId;
+    currentDocumentSourceType = "inline_text";
+    currentDocumentDisplayName = "Pasted text";
+    restoreCurrentDocumentContinuity();
     renderDefectCount();
     recordSessionEvent("schedule_loaded", {
       chunk_count: schedule.length,
@@ -183,6 +210,9 @@ async function loadSchedule(text) {
   } catch (error) {
     schedule = [];
     scheduledSentences = [];
+    currentDocumentId = null;
+    currentDocumentSourceType = null;
+    currentDocumentDisplayName = null;
     currentIndex = 0;
     resetNavigationScaffold();
     resetStructureAnchor();
@@ -194,6 +224,122 @@ async function loadSchedule(text) {
     showError(error.message);
   } finally {
     setLoading(false);
+  }
+}
+
+function restoreReaderPreferences() {
+  if (!continuityStore) {
+    return;
+  }
+  const preferences = continuityStore.loadPreferences();
+  if (!preferences) {
+    return;
+  }
+  speedIndex = Math.min(
+    Math.max(preferences.speed_index, 0),
+    SPEED_LEVELS.length - 1,
+  );
+  playbackSpeed = SPEED_LEVELS[speedIndex];
+  adaptationEnabled = preferences.adaptation_enabled;
+  renderSpeedControls();
+  renderAdaptationStatus();
+}
+
+function persistReaderPreferences() {
+  if (!continuityStore) {
+    return false;
+  }
+  return continuityStore.savePreferences({
+    speed_index: speedIndex,
+    adaptation_enabled: adaptationEnabled,
+  });
+}
+
+function restoreCurrentDocumentContinuity() {
+  pause({ record: false, render: false });
+  if (!continuityStore || !currentDocumentId || schedule.length === 0) {
+    setContinuityStatus("Local continuity is unavailable for this document.");
+    return false;
+  }
+  const record = continuityStore.getDocument(currentDocumentId);
+  if (!record) {
+    currentIndex = 0;
+    breakpoints = [];
+    setContinuityStatus("New local document reference.");
+    return false;
+  }
+  const restored = continuityApi.resolveDocumentState(record, schedule.length);
+  currentIndex = restored.position;
+  breakpoints = restored.breakpoints;
+  setContinuityStatus(`Restored paused at chunk ${currentIndex + 1}.`);
+  return true;
+}
+
+function persistCurrentDocumentContinuity() {
+  if (!continuityStore || !currentDocumentId || schedule.length === 0) {
+    return false;
+  }
+  return continuityStore.saveDocument({
+    document_id: currentDocumentId,
+    source_type: currentDocumentSourceType || "inline_text",
+    display_name: currentDocumentDisplayName || "Document",
+    position: clampIndex(currentIndex),
+    breakpoints: normalizeBreakpoints(),
+    updated_at: Date.now(),
+  });
+}
+
+function removeCurrentDocumentContinuity() {
+  pause({ record: false });
+  if (!continuityStore || !currentDocumentId) {
+    setContinuityStatus("No current saved document to remove.");
+    return;
+  }
+  continuityStore.removeDocument(currentDocumentId);
+  currentDocumentId = null;
+  currentDocumentSourceType = null;
+  currentDocumentDisplayName = null;
+  breakpoints = [];
+  setBreakpointStatus("");
+  setContinuityStatus("Removed saved position and breakpoints for this document.");
+}
+
+function clearAllContinuity() {
+  pause({ record: false });
+  if (continuityStore) {
+    continuityStore.clearAll();
+  }
+  currentDocumentId = null;
+  currentDocumentSourceType = null;
+  currentDocumentDisplayName = null;
+  breakpoints = [];
+  speedIndex = DEFAULT_SPEED_INDEX;
+  playbackSpeed = SPEED_LEVELS[speedIndex];
+  adaptationEnabled = true;
+  renderSpeedControls();
+  renderAdaptationStatus();
+  setBreakpointStatus("");
+  setContinuityStatus("Cleared local document references and reader preferences.");
+}
+
+function renderInitialContinuityStatus() {
+  if (!continuityStore) {
+    setContinuityStatus("Local continuity is unavailable.");
+    return;
+  }
+  const count = continuityStore.loadDocuments().length;
+  if (count === 0) {
+    setContinuityStatus("No saved local document references.");
+    return;
+  }
+  setContinuityStatus(
+    `${count} saved document reference${count === 1 ? "" : "s"}; prepare matching text to restore.`,
+  );
+}
+
+function setContinuityStatus(message) {
+  if (continuityStatus) {
+    continuityStatus.textContent = message;
   }
 }
 
@@ -287,6 +433,7 @@ function renderCurrentChunk() {
   progressIndicator.textContent = `${currentIndex + 1} / ${schedule.length}`;
   playPauseButton.textContent = isPlaying ? "Pause" : "Play";
   updateProgressAnchor();
+  persistCurrentDocumentContinuity();
 }
 
 function renderPreviousChunk() {
@@ -740,6 +887,7 @@ function resetReader() {
   resetAdaptationWindow();
   pause();
   updateProgressAnchor({ force: true, percent: 0 });
+  setContinuityStatus("Reset saved position to chunk 1.");
 }
 
 function enterInputMode() {
@@ -766,7 +914,7 @@ function enterReaderMode() {
   closeDefectPanel();
   showProgressAnchor();
   renderCurrentChunk();
-  updateProgressAnchor({ force: true, percent: 0 });
+  updateProgressAnchor({ force: true });
   renderSessionDebug();
   renderDefectCount();
   readerArea.focus();
@@ -1033,6 +1181,9 @@ function setSpeedIndex(
 
   if (reschedule && isPlaying) {
     scheduleNextChunk();
+  }
+  if (record) {
+    persistReaderPreferences();
   }
 }
 
@@ -1339,6 +1490,7 @@ function toggleBreakpoint(index = currentIndex) {
     recordSessionEvent("breakpoint_added", metadata);
     setBreakpointStatus("Breakpoint set");
   }
+  persistCurrentDocumentContinuity();
   flashReaderSurface();
   return [...breakpoints];
 }
@@ -1660,6 +1812,7 @@ function setAdaptationEnabled(enabled) {
   }
 
   adaptationEnabled = enabled;
+  persistReaderPreferences();
   resetAdaptationWindow();
   recordSessionEvent(enabled ? "adaptation_enabled" : "adaptation_disabled");
   renderAdaptationStatus();

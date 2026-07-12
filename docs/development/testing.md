@@ -29,6 +29,16 @@ python -m pytest tests/test_document_ingestion.py tests/test_source_document.py 
 The fixtures and accepted limits are documented in [bounded local document
 ingestion](../features/document_ingestion.md).
 
+For S-041 browser-local continuity:
+
+```bash
+python -m pytest tests/test_continuity_contract.py tests/test_mobile_shell.py
+python scripts/check_js_syntax.py
+```
+
+The stored-state, privacy, retention, and restoration contract is documented in
+[browser-local reading continuity](../features/local_reading_continuity.md).
+
 The repository includes `pyproject.toml` so pytest imports the local `semantic_rsvp` package directly from a fresh clone.
 
 ## JavaScript Syntax Check

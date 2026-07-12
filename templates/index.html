@@ -165,7 +165,13 @@
           </details>
         </div>
       </section>
+      <section class="continuity-controls" aria-label="Local reading data controls">
+        <button id="remove-continuity-button" type="button">Remove current saved state</button>
+        <button id="clear-continuity-button" type="button">Clear all local reading data</button>
+        <p id="continuity-status" class="continuity-status" aria-live="polite"></p>
+      </section>
     </main>
+    <script src="{{ url_for('static', filename='js/continuity.js') }}"></script>
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
   </body>
 </html>
