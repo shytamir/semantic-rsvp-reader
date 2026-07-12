@@ -2,7 +2,7 @@
 
 ## Status And Authority
 
-The program is active under human authorization D-010, committed in `4baf3e8`, after S-036 completed with prototype disposition `ready`. S-037 completed as `passed` with disposition `retain_parser_default_with_mandatory_automatic_fallback`. Only the scope named by [STATUS](STATUS.md) is authorized; S-038 is active, S-038A is its provisional immediate successor, and S-039 through S-043 remain provisional until separately activated.
+The program is active under human authorization D-010, committed in `4baf3e8`, after S-036 completed with prototype disposition `ready`. S-037 and S-038 completed as `passed`. Only the scope named by [STATUS](STATUS.md) is authorized; S-038A is active and S-039 through S-043 remain provisional until separately activated.
 
 ## Entry Authorization And Architecture Clarification
 
@@ -17,8 +17,8 @@ Move the validated RSVP prototype toward a bounded local-first document reader w
 ## Ordered Program
 
 1. **[S-037: Evaluation Anomaly Investigation and Parser Operating-Policy Decision](s037_evaluation_anomaly_parser_policy.md)** — completed as `passed` at human-evidence commit `b95df256c0b26a8ff51e37e539f1a859bf31a56c` with disposition `retain_parser_default_with_mandatory_automatic_fallback`; GitHub issue #12.
-2. **[S-038: Minimal Browser Regression Baseline](s038_minimal_browser_regression_baseline.md)** — `AWAITING_HUMAN_VALIDATION`, owned by the human, and active under GitHub issue #13; the bounded automated baseline passes locally and awaits the fixed human confirmation protocol.
-3. **[S-038A: Parser CI Evaluation-Surface Coverage](s038_parser_ci_evaluation_surface.md)** — `PROVISIONAL`, inactive, and unauthorized under GitHub issue #25; GitHub issue #23 is its bounded implementation work.
+2. **[S-038: Minimal Browser Regression Baseline](s038_minimal_browser_regression_baseline.md)** — completed as `passed` at human-evidence commit `b97c189e55f259fbe80eccc7072d415af6dbb87f`; GitHub issue #13.
+3. **[S-038A: Parser CI Evaluation-Surface Coverage](s038_parser_ci_evaluation_surface.md)** — `READY_FOR_IMPLEMENTATION`, owned by Codex, and active under GitHub issue #25; GitHub issue #23 is its active bounded implementation work.
 4. **[S-039: Application-Service Boundary and Source-Document Contract](s039_application_service_source_document_contract.md)** — `PROVISIONAL`, inactive, and unauthorized; depends on S-038A and defines injectable schedule generation plus a project-owned document contract before ingestion expands.
 5. **[S-040: Plain Text, Markdown, and Bounded Clean-HTML Ingestion](s040_document_ingestion.md)** — `PROVISIONAL`, inactive, and unauthorized; add initial document formats through the S-039 contract.
 6. **[S-041: Local Reading Continuity](s041_local_reading_continuity.md)** — `PROVISIONAL`, inactive, and unauthorized; preserve local state after document identity is stable.
@@ -27,7 +27,7 @@ Move the validated RSVP prototype toward a bounded local-first document reader w
 
 ## Program Boundaries
 
-- Only one scope may be active through [STATUS](STATUS.md); S-038A and S-039 through S-043 remain provisional until separately activated. GitHub issue #24 is an authorized non-blocking follow-up and is not active.
+- Only one scope may be active through [STATUS](STATUS.md); S-039 through S-043 remain provisional until separately activated. GitHub issue #24 is an authorized non-blocking follow-up and is not active.
 - Later scopes may be revised or declined when S-034, S-035, or S-036 evidence changes their assumptions.
 - PDF extraction remains a separate later research and validation problem.
 - Accounts, cloud sync, analytics, native packaging, frontend-framework migration, broad browser automation, production infrastructure, public performance claims, broad handwritten grammar expansion, and unauthorized optimizer retuning remain outside this program.

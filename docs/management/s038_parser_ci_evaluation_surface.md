@@ -2,7 +2,7 @@
 
 ## Status
 
-`PROVISIONAL`, inactive, and unauthorized. S-038 must be separately dispositioned before S-038A may be activated. GitHub issue #25 is detailed authority; GitHub issue #23 is the bounded implementation work governed by this slice.
+`READY_FOR_IMPLEMENTATION`, active, and owned by Codex. GitHub issue #25 is detailed active authority; GitHub issue #23 is the active bounded implementation work governed by this slice. S-039 through S-043 remain provisional, inactive, and unauthorized.
 
 ## Objective
 

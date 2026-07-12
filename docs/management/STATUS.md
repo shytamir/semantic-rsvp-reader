@@ -2,20 +2,24 @@
 
 ```yaml
 current_slice: S-038
-active_scope: S-038
-name: Minimal Browser Regression Baseline
-state: AWAITING_HUMAN_VALIDATION
-owner: Human
-agent_action: run the fixed S-038 browser-baseline confirmation protocol
+active_scope: S-038A
+name: Parser CI Evaluation-Surface Coverage
+state: READY_FOR_IMPLEMENTATION
+owner: Codex
+agent_action: implement the bounded issue #23 scope under GitHub issue #25
 blocked_on: none
 started: 2026-07-12
-scope: docs/management/s038_minimal_browser_regression_baseline.md
-previous_slice: S-037
+scope: docs/management/s038_parser_ci_evaluation_surface.md
+previous_slice: S-038
 ```
 
 ## Current Slice
 
-The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-038 is the sole active scope at `AWAITING_HUMAN_VALIDATION`, owned by the human, with GitHub issue #13 open as detailed authority. Review the fixed [S-038 confirmation protocol](../validation/s038_minimal_browser_regression_baseline.md). S-038A is the provisional immediate successor under GitHub issue #25, with issue #23 as its bounded implementation work. S-038A and S-039 through S-043 remain inactive and unauthorized.
+The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. Under the lettered-slice convention, `current_slice` remains S-038 while S-038A is the sole active scope at `READY_FOR_IMPLEMENTATION`, owned by Codex. GitHub issue #25 is detailed active authority and issue #23 is the active bounded implementation work. S-039 through S-043 remain provisional, inactive, and unauthorized.
+
+## S-038 Outcome
+
+S-038 completed as `passed` on 2026-07-12, pinned to human-evidence commit `b97c189e55f259fbe80eccc7072d415af6dbb87f`. The human confirmed the bounded browser baseline supplements rather than replaces qualitative phone validation. The validation record remains verbatim in [S-038 validation](../validation/s038_minimal_browser_regression_baseline.md).
 
 ## S-037 Outcome
 
@@ -67,8 +71,7 @@ S-034 completed as `passed` on 2026-07-12 from human-owned evidence commit `eafa
 
 ## Next Actions
 
-- The human runs the fixed [S-038 confirmation protocol](../validation/s038_minimal_browser_regression_baseline.md) without treating browser automation as qualitative phone evidence.
-- Keep S-038A provisional and inactive until S-038 is separately dispositioned.
+- Codex implements only issue #23 within the active S-038A authority in issue #25.
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks
