@@ -14,7 +14,7 @@ Historical slice scopes are preserved in the [management archive](archive/index.
 
 ## Active Slice
 
-- S-035, S-035A, and S-035B completed as `passed`. S-036 is the sole active scope at `READY_FOR_IMPLEMENTATION`, owned by Codex.
+- S-035, S-035A, and S-035B completed as `passed`. S-036 is the sole active scope at `AWAITING_HUMAN_VALIDATION`, owned by Human.
 - The [Prototype Validation and Stabilization Program](prototype_validation_stabilization_program.md) schedules S-030 through S-036 in strict order.
 - Root scope documents: [S-033](archive/s033_mobile_presentation_accessibility.md), [S-034](s034_evidence_capture_reproducibility.md), [S-035](s035_service_surfaces_fallback.md), [S-035A](s035a_development_environment_contract.md), [S-035B](s035b_qa_authority_verification_framework.md), and [S-036](s036_end_to_end_prototype_readiness.md).
 - S-036 is the final stabilization slice. Post-stabilization scopes remain inactive and unauthorized.

@@ -2,7 +2,7 @@
 
 ## Status
 
-`READY_FOR_IMPLEMENTATION`, active, and owned by Codex. This is the final slice of the stabilization program; no successor is active or authorized.
+`AWAITING_HUMAN_VALIDATION`, active, and owned by the human. Automated readiness evidence and the fixed end-to-end session are prepared. This is the final slice of the stabilization program; no successor is active or authorized.
 
 ## Objective
 

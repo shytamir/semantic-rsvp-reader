@@ -4,9 +4,9 @@
 current_slice: S-036
 active_scope: S-036
 name: End-to-End Prototype Readiness
-state: READY_FOR_IMPLEMENTATION
-owner: Codex
-agent_action: implement the preserved S-036 scope
+state: AWAITING_HUMAN_VALIDATION
+owner: Human
+agent_action: run the fixed S-036 end-to-end readiness session
 blocked_on: none
 started: 2026-07-12
 scope: docs/management/s036_end_to_end_prototype_readiness.md
@@ -15,7 +15,7 @@ previous_slice: S-035B
 
 ## Current Slice
 
-S-036 is the sole active scope at `READY_FOR_IMPLEMENTATION`, owned by Codex. Implement only the preserved [S-036 End-to-End Prototype Readiness](s036_end_to_end_prototype_readiness.md) scope. S-036 remains the final slice of the stabilization program; no post-stabilization slice is active or authorized.
+S-036 is the sole active scope at `AWAITING_HUMAN_VALIDATION`, owned by the human. Automated repository, core, standard, and change-specific readiness gates are recorded in the fixed [S-036 End-to-End Prototype Readiness Validation](../validation/s036_end_to_end_prototype_readiness.md). Run the human session and record one authorized prototype disposition. No post-stabilization slice is active or authorized.
 
 ## S-035B Outcome
 
@@ -156,7 +156,7 @@ Detailed in-app defect reports from the S-021 validation session were accidental
 
 ## Next Actions
 
-- Codex implements the preserved [S-036 readiness scope](s036_end_to_end_prototype_readiness.md) without activating a post-stabilization slice.
+- The human runs the fixed [S-036 readiness session](../validation/s036_end_to_end_prototype_readiness.md) and records the prototype disposition.
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks

@@ -5,8 +5,8 @@ This roadmap is the priority-order view. [STATUS](STATUS.md) is the authority fo
 ## Now
 
 1. **S-036: End-to-End Prototype Readiness**
-   - State: `READY_FOR_IMPLEMENTATION`
-   - Owner: Codex
+   - State: `AWAITING_HUMAN_VALIDATION`
+   - Owner: Human
    - Scope: [S-036](s036_end_to_end_prototype_readiness.md).
 
 ## Next
