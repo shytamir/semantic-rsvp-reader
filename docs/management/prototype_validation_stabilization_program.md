@@ -13,8 +13,8 @@ This program orders validation of the shipped prototype without authorizing mult
 9. **[S-035B: QA Authority and Verification Framework](s035b_qa_authority_verification_framework.md)** — completed as `passed`; detailed authority is GitHub issue #22.
 10. **[S-036: End-to-End Prototype Readiness](s036_end_to_end_prototype_readiness.md)** — completed as `passed` with prototype disposition `ready`.
 
-The program is complete. S-036 recorded the final prototype disposition as `ready`; all eight human steps passed, no acceptance-blocking defect or new issue was found, and issue #19 remains an accepted non-blocking deferred limitation. There is no active scope. No post-stabilization slice is active or authorized.
+The program is complete. S-036 recorded the final prototype disposition as `ready`; all eight human steps passed, no acceptance-blocking defect or new issue was found, and issue #19 remains an accepted non-blocking deferred limitation. This program did not activate a successor automatically. Human decision D-010 later authorized entry into the Document Reader Productization Program and activation of S-037.
 
 ## Post-S-036 Handoff
 
-S-036 ended this stabilization program without activating a successor. Its recorded disposition, together with S-034 and S-035 outcomes, may inform a future explicit management decision about the provisional [Document Reader Productization Program](document_reader_productization_program.md). S-037 through S-043 remain inactive unless separately authorized through [STATUS](STATUS.md).
+S-036 ended this stabilization program without activating a successor. Human decision D-010 subsequently authorized entry into the [Document Reader Productization Program](document_reader_productization_program.md); [STATUS](STATUS.md) now activates only S-037. S-038 through S-043 remain provisional and inactive.

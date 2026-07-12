@@ -4,20 +4,20 @@ This roadmap is the priority-order view. [STATUS](STATUS.md) is the authority fo
 
 ## Now
 
-1. **S-036: Prototype Validation and Stabilization Program Complete**
-   - State: `PROGRAM_COMPLETE`
-   - Owner: Human
-   - Outcome: S-036 completed as `passed` with prototype disposition `ready`; [program record](prototype_validation_stabilization_program.md).
+1. **S-037: Evaluation Anomaly Investigation and Parser Operating-Policy Decision**
+   - State: `READY_FOR_IMPLEMENTATION`
+   - Owner: Codex
+   - Scope: [S-037](s037_evaluation_anomaly_parser_policy.md); detailed authority: GitHub issue #12.
 
 ## Next
 
-No successor is active or authorized. An explicit management decision is required before any provisional post-stabilization scope may advance.
+S-038 through S-043 remain `PROVISIONAL`, inactive, and unauthorized in the strict order defined by the [Document Reader Productization Program](document_reader_productization_program.md).
 
-## Provisional Document Reader Productization Program
+## Document Reader Productization Program
 
-After S-036, and subordinate to the recorded outcomes of S-034 through S-036:
+Human decision D-010 authorizes program entry after the recorded S-036 `ready` disposition. Only S-037 is active:
 
-1. **S-037: Evaluation Anomaly Investigation and Parser Operating-Policy Decision** — `PROVISIONAL`; [scope](s037_evaluation_anomaly_parser_policy.md).
+1. **S-037: Evaluation Anomaly Investigation and Parser Operating-Policy Decision** — `READY_FOR_IMPLEMENTATION`; [scope](s037_evaluation_anomaly_parser_policy.md); GitHub issue #12.
 2. **S-038: Minimal Browser Regression Baseline** — `PROVISIONAL`; [scope](s038_minimal_browser_regression_baseline.md).
 3. **S-039: Application-Service Boundary and Source-Document Contract** — `PROVISIONAL`; [scope](s039_application_service_source_document_contract.md). Includes tracked work item S-039A, GitHub issue #2.
 4. **S-040: Plain Text, Markdown, and Bounded Clean-HTML Ingestion** — `PROVISIONAL`; [scope](s040_document_ingestion.md).
@@ -25,7 +25,7 @@ After S-036, and subordinate to the recorded outcomes of S-034 through S-036:
 6. **S-042: EPUB Ingestion and Long-Document Navigation** — `PROVISIONAL`; [scope](s042_epub_long_document_navigation.md).
 7. **S-043: Limited Beta Distribution and External Trial** — `PROVISIONAL`; [scope](s043_limited_beta_external_trial.md).
 
-The [Document Reader Productization Program](document_reader_productization_program.md) defines dependency order and shared boundaries. None of these slices is active or authorized.
+The [Document Reader Productization Program](document_reader_productization_program.md) defines dependency order and shared boundaries. S-038 through S-043 are not active or authorized. S-043's external-trial gate is not interpreted or advanced by this transition.
 
 ## Later
 

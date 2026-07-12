@@ -2,7 +2,7 @@
 
 ## Status
 
-Provisional post-S-036 scope. Not active or authorized.
+`READY_FOR_IMPLEMENTATION`, active, and owned by Codex. GitHub issue #12 is the detailed implementation and acceptance authority. S-038 through S-043 remain provisional, inactive, and unauthorized.
 
 ## Objective
 
@@ -11,6 +11,8 @@ Resolve remaining S-024 coverage and evaluation-mapping anomalies sufficiently t
 ## Dependency And Initiating Reason
 
 Begins only after S-036 and uses completed stabilization evidence. The anomalies are scientific/evaluation debt, not automatic authority for parser retuning or promotion.
+
+D-010, committed in `4baf3e8`, authorizes entry into the Document Reader Productization Program. S-037 does not implement the S-039 application-service/source-document prerequisite. D-008 continues to govern backend-neutral linguistic evidence.
 
 ## In Scope
 

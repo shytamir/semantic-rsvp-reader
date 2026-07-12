@@ -29,6 +29,7 @@ Current focus:
 10. S-035 Service Surfaces and Fallback completed as `passed`; human profile checks and automated standard-profile API coverage are complete.
 11. S-035A, S-035B, and S-036 completed as `passed`; S-036 recorded prototype disposition `ready`, completing the stabilization program.
 12. Parser-assisted chunking remains frozen unless a new authorized evaluation slice changes it.
+13. S-037 is active at `READY_FOR_IMPLEMENTATION`; S-038 through S-043 remain provisional and inactive.
 
 ## Defect Reporting Workflow
 

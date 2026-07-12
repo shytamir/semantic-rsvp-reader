@@ -23,7 +23,7 @@ The authoritative order is in the [roadmap](roadmap.md). These are approved dest
 6. S-042: EPUB Ingestion and Long-Document Navigation with heading navigation and a lightweight contents view.
 7. S-043: Limited Beta Distribution and External Trial with explicit prototype/privacy limitations.
 
-These scopes are defined by the [Document Reader Productization Program](document_reader_productization_program.md), remain provisional, and depend on S-034 through S-036 outcomes. PDF is not bundled with EPUB; its extraction and reading-order quality remain a separate post-S-043 evaluation problem.
+These scopes are defined by the [Document Reader Productization Program](document_reader_productization_program.md). S-037 is active under D-010; S-038 through S-043 remain provisional and unauthorized. PDF is not bundled with EPUB; its extraction and reading-order quality remain a separate post-S-043 evaluation problem.
 
 ## Parked
 

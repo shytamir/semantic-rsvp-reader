@@ -1,21 +1,21 @@
 # Project Status
 
 ```yaml
-current_slice: S-036
-active_scope: none
-name: Prototype Validation and Stabilization Program
-state: PROGRAM_COMPLETE
-owner: Human
-agent_action: await an explicit management decision
+current_slice: S-037
+active_scope: S-037
+name: Evaluation Anomaly Investigation and Parser Operating-Policy Decision
+state: READY_FOR_IMPLEMENTATION
+owner: Codex
+agent_action: implement the preserved S-037 scope under GitHub issue #12
 blocked_on: none
 started: 2026-07-12
-scope: docs/management/prototype_validation_stabilization_program.md
+scope: docs/management/s037_evaluation_anomaly_parser_policy.md
 previous_slice: S-036
 ```
 
 ## Current Slice
 
-The Prototype Validation and Stabilization Program is complete. There is no active scope and no agent implementation is authorized pending an explicit management decision. `current_slice: S-036` is retained for archive tooling. No post-stabilization slice is active or authorized.
+The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-037 is the sole active scope at `READY_FOR_IMPLEMENTATION`, owned by Codex, with GitHub issue #12 as detailed authority. S-038 through S-043 remain provisional, inactive, and unauthorized.
 
 ## S-036 Outcome
 
@@ -63,7 +63,7 @@ S-034 completed as `passed` on 2026-07-12 from human-owned evidence commit `eafa
 
 ## Next Actions
 
-- Await an explicit management decision; do not activate a post-stabilization scope automatically.
+- Codex implements only the preserved [S-037 scope](s037_evaluation_anomaly_parser_policy.md) under GitHub issue #12.
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks
