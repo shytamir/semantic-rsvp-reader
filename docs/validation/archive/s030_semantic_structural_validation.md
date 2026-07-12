@@ -12,7 +12,7 @@ The repeatable characterization command is:
 python scripts/characterize_s030_semantic_integrity.py --check
 ```
 
-The committed [machine-readable record](../../evaluation/semantic_integrity/s030_characterization.json) covers all 22 visible project-owned cases under parser-assisted and rule-based chunking plus a fixed H1/H2 structural fixture.
+The committed [machine-readable record](../../../evaluation/semantic_integrity/s030_characterization.json) covers all 22 visible project-owned cases under parser-assisted and rule-based chunking plus a fixed H1/H2 structural fixture.
 
 Results:
 

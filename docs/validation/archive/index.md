@@ -2,6 +2,11 @@
 
 These documents are preserved as historical evidence. They are not the current project-management authority.
 
+## S-030
+
+- [Observed Defects Review](s030_observed_semantic_structural_defects.md)
+- [S-030 Semantic Output and Structural Integrity Validation](s030_semantic_structural_validation.md)
+
 ## S-029
 
 - [S-029 Density and Timing Report](s029_density_timing_report.md)

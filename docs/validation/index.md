@@ -4,7 +4,6 @@ Historical slice validation records are preserved in the [validation archive](ar
 
 ## Active Validation Focus
 
-- [S-030 Semantic and Structural Validation](s030_semantic_structural_validation.md)
 - [S-031 Playback and Adaptation Validation](s031_playback_adaptation_validation.md)
 - [Post-Validation Stabilization Pass 1](post_validation_stabilization_pass_1.md)
 - [Navigation Validation](navigation_validation.md)
