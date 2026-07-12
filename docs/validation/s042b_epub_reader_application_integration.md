@@ -61,3 +61,15 @@ characterizations, repository integrity, Markdown links, and diff whitespace
 passed. Local execution of the Playwright smoke remained unavailable because
 Node was not installed; the CI browser job is the authoritative execution of
 that unchanged harness.
+
+Final remote evidence for commit `09e459447d84abc5469a16793d42c9517df9d948`:
+
+- CI run `29214270604`: Core, integrity, and browser-smoke jobs all passed. The
+  repaired smoke retained and passed baseline reader, canonical EPUB identity,
+  dedicated request-boundary, continuity, and byte-non-persistence assertions.
+- CodeQL run `29214270305`: Actions, Python, and JavaScript/TypeScript analyses
+  all passed.
+
+S-042B is dispositioned `passed` on 2026-07-13. Issue #17 remains open as S-042
+umbrella authority. No scope is active; S-042C and S-043 remain provisional,
+inactive, and unauthorized.

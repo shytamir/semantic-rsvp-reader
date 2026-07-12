@@ -52,3 +52,7 @@ The browser passes that identity directly into the existing reader and S-041
 continuity store. It never hashes the filename or EPUB bytes and never persists
 source text or archive bytes. Restoration therefore occurs only after the user
 reselects an EPUB whose extracted normalized text yields the same canonical ID.
+
+This application boundary completed S-042B as `passed` after terminal Core,
+integrity, browser-smoke, and CodeQL evidence. Contents and heading navigation
+remain outside this boundary and require separate S-042C activation.
