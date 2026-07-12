@@ -2,7 +2,7 @@
 
 ## Automated Preparation
 
-The committed [S-034 characterization](../../evaluation/evidence_capture/s034_characterization.json) posts four bounded synthetic reports—chunking, timing, navigation, and layout—to a temporary report directory. It verifies generated filenames, readable gzip Markdown, HTML-sensitive-text escaping, required contextual sections, and review-tool ingestion, then deletes the temporary reports. No generated report or private blind material is committed.
+The committed [S-034 characterization](../../../evaluation/evidence_capture/s034_characterization.json) posts four bounded synthetic reports—chunking, timing, navigation, and layout—to a temporary report directory. It verifies generated filenames, readable gzip Markdown, HTML-sensitive-text escaping, required contextual sections, and review-tool ingestion, then deletes the temporary reports. No generated report or private blind material is committed.
 
 Reproduce the record with:
 

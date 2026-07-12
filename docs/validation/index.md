@@ -7,7 +7,7 @@ Historical slice validation records are preserved in the [validation archive](ar
 - [Post-Validation Stabilization Pass 1](post_validation_stabilization_pass_1.md)
 - [Navigation Validation](navigation_validation.md)
 - [S-033 Mobile Presentation and Accessibility Validation](archive/s033_mobile_presentation_accessibility_validation.md)
-- [S-034 Evidence Capture and Reproducibility Validation](s034_evidence_capture_reproducibility_validation.md)
+- [S-034 Evidence Capture and Reproducibility Validation](archive/s034_evidence_capture_reproducibility_validation.md)
 - [Issue #11 Coarse-Seek Accessibility Validation](issue_11_coarse_seek_accessibility_validation.md)
 - [S-035 Service Surfaces and Fallback Validation](s035_service_surfaces_fallback_validation.md)
 - [S-035A Development Environment Contract Validation](s035a_environment_contract_validation.md)

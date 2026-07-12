@@ -2,6 +2,10 @@
 
 These documents are preserved as historical evidence. They are not the current project-management authority.
 
+## S-034
+
+- [S-034 Evidence Capture and Reproducibility Validation](s034_evidence_capture_reproducibility_validation.md)
+
 ## S-033
 
 - [S-033 Mobile Presentation and Accessibility Validation](s033_mobile_presentation_accessibility_validation.md)
