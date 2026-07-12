@@ -5,9 +5,9 @@ This document is the authority for supported development runtime, profiles, setu
 ## Support And Evidence Boundaries
 
 - Supported development runtime: Python `3.12.x`.
-- CI-tested environment: Ubuntu with Python 3.12; the core job also uses Node.js 22 for JavaScript syntax validation.
+- CI-tested environment: Ubuntu with Python 3.12; the core job uses Node.js 22 for JavaScript syntax validation, and the bounded browser-smoke job uses Node.js 22, pinned Playwright `1.61.1`, and Chromium.
 - Documented setup shells: Windows PowerShell and POSIX-compatible shells. Documentation is not evidence that every shell/platform procedure was executed.
-- Node.js is optional for ordinary local startup and required to reproduce `scripts/check_js_syntax.py`; a missing local Node runtime is a reported skip, never a pass.
+- Node.js is optional for ordinary local startup and required to reproduce `scripts/check_js_syntax.py` or `scripts/run_browser_smoke.mjs`; a missing local Node/browser harness is a reported skip, never a pass.
 - The current known-successful managed Windows environment used Python `3.12.13`, Flask `3.1.3`, pytest `9.1.1`, Click `8.1.8`, spaCy `3.7.5`, and `en-core-web-sm` `3.7.1`. S-035 human evidence exercised both profiles; it did not record a broad platform support matrix.
 
 ## Canonical Profiles And Accepted Versions

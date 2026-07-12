@@ -4,9 +4,9 @@
 current_slice: S-038
 active_scope: S-038
 name: Minimal Browser Regression Baseline
-state: READY_FOR_IMPLEMENTATION
-owner: Codex
-agent_action: implement the bounded S-038 scope from GitHub issue #13
+state: AWAITING_HUMAN_VALIDATION
+owner: Human
+agent_action: run the fixed S-038 browser-baseline confirmation protocol
 blocked_on: none
 started: 2026-07-12
 scope: docs/management/s038_minimal_browser_regression_baseline.md
@@ -15,7 +15,7 @@ previous_slice: S-037
 
 ## Current Slice
 
-The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-038 is the sole active scope at `READY_FOR_IMPLEMENTATION`, owned by Codex, with GitHub issue #13 open as detailed authority. S-039 through S-043 remain provisional, inactive, and unauthorized.
+The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-038 is the sole active scope at `AWAITING_HUMAN_VALIDATION`, owned by the human, with GitHub issue #13 open as detailed authority. Review the fixed [S-038 confirmation protocol](../validation/s038_minimal_browser_regression_baseline.md). S-039 through S-043 remain provisional, inactive, and unauthorized.
 
 ## S-037 Outcome
 
@@ -67,7 +67,7 @@ S-034 completed as `passed` on 2026-07-12 from human-owned evidence commit `eafa
 
 ## Next Actions
 
-- Codex implements only the bounded S-038 scope authorized by GitHub issue #13.
+- The human runs the fixed [S-038 confirmation protocol](../validation/s038_minimal_browser_regression_baseline.md) without treating browser automation as qualitative phone evidence.
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks

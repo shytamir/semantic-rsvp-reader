@@ -58,7 +58,7 @@ reopen the frozen S-023/S-024 scientific work.
 - The accepted rule-based fallback may split `Dr. Mira Patel` and `back down`; S-030 classified these as readable, non-blocking fallback limitations.
 - Long-word, quote-closure, and parenthetical-closure observations remain recorded semantic evaluation evidence, not authorization for parser retuning or new rules.
 - Open issue #19 tracks a low-priority phone-landscape obstruction where the defect count can overlap the coarse-seek hit lane near 50%; accepted seek semantics are unchanged.
-- Rendered browser behavior remains human-controlled. Minimal browser regression automation is planned for inactive S-038 and is not part of S-036 preparation.
+- Rendered browser behavior remains human-controlled. S-038 adds a bounded regression smoke for critical flows and catastrophic narrow-layout failure; it does not replace the S-036 human evidence or qualitative device judgment.
 - Accounts, persistence/cloud sync, analytics, broad document ingestion, native packaging, production infrastructure, and public performance claims remain outside the stabilized prototype.
 
 ## Fixed Human Readiness Session

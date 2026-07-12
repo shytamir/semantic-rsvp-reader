@@ -32,6 +32,8 @@ Gates are conditional; the [verification matrix](verification_matrix.md) and
 5. **Human gate** — rendered behavior, device interaction, accessibility, comprehension, pacing, qualitative chunking, or other judgment automation cannot establish.
 6. **Disposition gate** — recorded evidence is accepted, rejected, deferred, inconclusive, or returned for stabilization by the authorized owner.
 
+S-038 adds one bounded Playwright/Chromium-family smoke runner to the change-specific gate. It protects named critical flows and one catastrophic narrow-layout invariant; it supplements rather than replaces the human gate for rendered quality, touch behavior, accessibility, pacing, comprehension, and device/browser judgment.
+
 ## Entry, Exit, And Evidence States
 
 Generic entry requires an authorized active scope, initiating evidence, known

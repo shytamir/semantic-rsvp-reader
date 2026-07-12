@@ -17,7 +17,7 @@ Move the validated RSVP prototype toward a bounded local-first document reader w
 ## Ordered Program
 
 1. **[S-037: Evaluation Anomaly Investigation and Parser Operating-Policy Decision](s037_evaluation_anomaly_parser_policy.md)** — completed as `passed` at human-evidence commit `b95df256c0b26a8ff51e37e539f1a859bf31a56c` with disposition `retain_parser_default_with_mandatory_automatic_fallback`; GitHub issue #12.
-2. **[S-038: Minimal Browser Regression Baseline](s038_minimal_browser_regression_baseline.md)** — `READY_FOR_IMPLEMENTATION`, owned by Codex, and active under GitHub issue #13; protect stabilized critical flows with deliberately small browser smoke coverage.
+2. **[S-038: Minimal Browser Regression Baseline](s038_minimal_browser_regression_baseline.md)** — `AWAITING_HUMAN_VALIDATION`, owned by the human, and active under GitHub issue #13; the bounded automated baseline passes locally and awaits the fixed human confirmation protocol.
 3. **[S-039: Application-Service Boundary and Source-Document Contract](s039_application_service_source_document_contract.md)** — `PROVISIONAL`, inactive, and unauthorized; define injectable schedule generation and a project-owned document contract before ingestion expands.
 4. **[S-040: Plain Text, Markdown, and Bounded Clean-HTML Ingestion](s040_document_ingestion.md)** — `PROVISIONAL`, inactive, and unauthorized; add initial document formats through the S-039 contract.
 5. **[S-041: Local Reading Continuity](s041_local_reading_continuity.md)** — `PROVISIONAL`, inactive, and unauthorized; preserve local state after document identity is stable.

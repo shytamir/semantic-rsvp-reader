@@ -20,7 +20,19 @@ python scripts/check_js_syntax.py
 
 The script checks `static/js/app.js` with `node --check` or `nodejs --check` when either runtime is available. If Node is missing locally, the script prints a warning and skips without failing. GitHub Actions installs Node and enforces the syntax check in CI.
 
-No npm packages, frontend framework, bundler, transpiler, Jest, Playwright, or Selenium are used.
+S-038 adds one bounded Playwright runner without a package manifest, lockfile,
+frontend framework, bundler, transpiler, Jest, Selenium, or general npm
+workflow. To reproduce the CI browser smoke in an environment with Node.js 22:
+
+```bash
+npm install --no-save --package-lock=false playwright@1.61.1
+npx playwright install chromium
+node scripts/run_browser_smoke.mjs
+```
+
+The runner starts the Flask app in explicit `rule_based` mode, uses a
+deterministic fixture, and protects text loading, play/pause, progress seeking,
+breakpoint creation, reset, and one catastrophic narrow-layout invariant.
 
 ## Security Checks
 
@@ -37,6 +49,7 @@ GitHub Actions runs:
 - Python dependency installation.
 - `python -m pytest`.
 - JavaScript syntax checking with Node installed by CI.
+- The bounded S-038 Playwright/Chromium browser smoke in its own CI job.
 
 Security checks are not a hard CI gate in this development pass because the validators are optional local tools.
 

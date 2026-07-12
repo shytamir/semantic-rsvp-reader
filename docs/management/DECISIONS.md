@@ -153,3 +153,13 @@ This brief aims to answer:
 In light of the above the project will progress to the beta program outlined in S-037 through S-043 as outlined, being careful not to overstep scope and improve human protocol authorship where possible.
 
 The human records here that PM GPT advised 1-2 exploratory demos with other users at this stage, but this was deferred for after the next program by the human to have a stronger  prototype for the first exploratory demos.
+
+## D-011: Bounded Browser Regression Harness
+
+Status: accepted for S-038 validation.
+
+Decision: protect the stabilized critical browser flows with one project-owned Node runner using pinned Playwright `1.61.1` and one Chromium-family browser. The runner starts the dependency-light Flask profile, uses a deterministic in-repository fixture, and checks text loading, play/pause, progress seeking, breakpoint creation, reset, and catastrophic horizontal failure at one narrow viewport.
+
+Consequences: CI may install the exact browser-test package and Chromium transiently without adding a frontend framework, package manifest, lockfile, bundler, transpiler, broad browser matrix, screenshot baseline, or general npm workflow. The smoke suite detects catastrophic contract regressions; it does not establish visual quality, touch ergonomics, accessibility, pacing, comprehension, browser parity, or device-specific usability. Those claims remain human-owned under D-003.
+
+Reference: [S-038 validation](../validation/s038_minimal_browser_regression_baseline.md).

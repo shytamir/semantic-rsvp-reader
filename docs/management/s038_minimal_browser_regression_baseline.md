@@ -2,7 +2,7 @@
 
 ## Status
 
-`READY_FOR_IMPLEMENTATION`, active, and owned by Codex. GitHub issue #13 is the detailed active authority. S-039 through S-043 remain provisional, inactive, and unauthorized.
+`AWAITING_HUMAN_VALIDATION`, active, and owned by the human. The bounded automated baseline passes locally; GitHub issue #13 remains open as detailed authority. Use the fixed [S-038 confirmation protocol](../validation/s038_minimal_browser_regression_baseline.md). S-039 through S-043 remain provisional, inactive, and unauthorized.
 
 ## Objective
 
@@ -20,7 +20,7 @@ Depends on S-037 preserving or explicitly updating parser operating policy. Late
 
 ## Codex Preparation
 
-Characterize stable DOM and interaction contracts, select the smallest maintainable harness, and document protected flows and omissions.
+Maintain one Playwright/Chromium-family smoke runner with a deterministic local fixture and explicit assertions for the protected flows. Keep browser automation supplementary to qualitative phone validation.
 
 ## Human Handoff
 
