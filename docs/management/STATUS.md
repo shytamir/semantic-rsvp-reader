@@ -4,9 +4,9 @@
 current_slice: S-038
 active_scope: S-038A
 name: Parser CI Evaluation-Surface Coverage
-state: READY_FOR_IMPLEMENTATION
-owner: Codex
-agent_action: implement the bounded issue #23 scope under GitHub issue #25
+state: AWAITING_HUMAN_VALIDATION
+owner: Human
+agent_action: review the fixed S-038A implementation evidence and record a disposition
 blocked_on: none
 started: 2026-07-12
 scope: docs/management/s038_parser_ci_evaluation_surface.md
@@ -15,7 +15,7 @@ previous_slice: S-038
 
 ## Current Slice
 
-The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. Under the lettered-slice convention, `current_slice` remains S-038 while S-038A is the sole active scope at `READY_FOR_IMPLEMENTATION`, owned by Codex. GitHub issue #25 is detailed active authority and issue #23 is the active bounded implementation work. S-039 through S-043 remain provisional, inactive, and unauthorized.
+The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. Under the lettered-slice convention, `current_slice` remains S-038 while S-038A is the sole active scope at `AWAITING_HUMAN_VALIDATION`, owned by the human. GitHub issue #25 remains open as detailed active authority. Review the fixed [S-038A implementation evidence](../validation/s038_parser_ci_evaluation_surface.md). S-039 through S-043 remain provisional, inactive, and unauthorized.
 
 ## S-038 Outcome
 
@@ -71,7 +71,7 @@ S-034 completed as `passed` on 2026-07-12 from human-owned evidence commit `eafa
 
 ## Next Actions
 
-- Codex implements only issue #23 within the active S-038A authority in issue #25.
+- The human reviews the fixed [S-038A implementation evidence](../validation/s038_parser_ci_evaluation_surface.md) and records a disposition in issue #25.
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks

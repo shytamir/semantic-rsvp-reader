@@ -13,7 +13,7 @@ before broader applicable checks as required by [AGENTS.md](../../AGENTS.md).
 | Frontend/presentation | Rendered collision, overflow, lifecycle | Change-specific browser smoke, Human | Applicable | Normally mandatory | [S-038 browser baseline](../validation/s038_minimal_browser_regression_baseline.md), [manual testing](../development/manual_testing.md) |
 | Accessibility/interaction | Target, focus, gesture, orientation | Change-specific, Human | Applicable | Mandatory for device-dependent claims | Existing accessibility/navigation protocols |
 | Dependencies/profiles | Install inconsistency or provider identity | Repository, affected Core/Standard, Change-specific | Changed profiles | Remaining platform/setup usability only | [Environment contract](../development/environment_contract.md) |
-| CI/workflows | Missing or misleading remote gate | Repository, affected gate, Change-specific | Workflow profile | Normally no; inspect actual remote evidence | Workflows and [testing](../development/testing.md) |
+| CI/workflows | Missing or misleading remote gate | Repository, affected gate, Change-specific | Workflow profile | Normally no; inspect actual remote evidence | Workflows, [testing](../development/testing.md), and [S-038A validation](../validation/s038_parser_ci_evaluation_surface.md) |
 | Manifests/baselines/hashes/freeze records | Contamination or concealed scientific drift | Repository, applicable Core/Standard, Change-specific, Disposition | Registered environment | As experiment authority requires | Experiment controls and freeze records |
 
 Gate applicability does not authorize correction, experiment modification, or

@@ -1,10 +1,15 @@
 name: Parser CI
 
 on:
+  workflow_dispatch:
   push:
     paths:
       - ".github/workflows/parser.yml"
+      - "scripts/run_s024_comparison.py"
+      - "scripts/characterize_s037_evaluation_anomalies.py"
       - "semantic_rsvp/**"
+      - "tests/test_s024_comparison.py"
+      - "tests/test_s037_evaluation_anomaly_characterization.py"
       - "tests/test_parser_assisted_spacy_integration.py"
       - "tests/test_parser_integration_freeze.py"
       - "tests/test_chunker_selection.py"
@@ -12,11 +17,16 @@ on:
       - "tests/test_standard_profile_api.py"
       - "scripts/smoke_test_app.py"
       - "requirements*.txt"
+      - "evaluation/evaluation_anomaly_policy/**"
       - "evaluation/parser_assisted_chunking/**"
   pull_request:
     paths:
       - ".github/workflows/parser.yml"
+      - "scripts/run_s024_comparison.py"
+      - "scripts/characterize_s037_evaluation_anomalies.py"
       - "semantic_rsvp/**"
+      - "tests/test_s024_comparison.py"
+      - "tests/test_s037_evaluation_anomaly_characterization.py"
       - "tests/test_parser_assisted_spacy_integration.py"
       - "tests/test_parser_integration_freeze.py"
       - "tests/test_chunker_selection.py"
@@ -24,6 +34,7 @@ on:
       - "tests/test_standard_profile_api.py"
       - "scripts/smoke_test_app.py"
       - "requirements*.txt"
+      - "evaluation/evaluation_anomaly_policy/**"
       - "evaluation/parser_assisted_chunking/**"
 
 permissions:
@@ -53,8 +64,9 @@ jobs:
         run: python -c "import importlib.metadata as m; assert m.version('Flask') == '3.1.3'; assert m.version('pytest') == '9.1.1'; assert m.version('spacy') == '3.7.5'; assert m.version('en-core-web-sm') == '3.7.1'; assert m.version('Click') == '8.1.8'"
       - name: Validate parser integration and frozen parity
         run: |
-          python -m pytest tests/test_parser_assisted_spacy_integration.py tests/test_parser_integration_freeze.py tests/test_chunker_selection.py tests/test_web_chunking_integration.py tests/test_standard_profile_api.py
+          python -m pytest tests/test_parser_assisted_spacy_integration.py tests/test_parser_integration_freeze.py tests/test_chunker_selection.py tests/test_web_chunking_integration.py tests/test_standard_profile_api.py tests/test_s024_comparison.py tests/test_s037_evaluation_anomaly_characterization.py
           python scripts/characterize_s030_semantic_integrity.py --check
+          python scripts/characterize_s037_evaluation_anomalies.py --check
       - name: Smoke-test parser-default Flask mode
         run: python scripts/smoke_test_app.py
       - if: always()

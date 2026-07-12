@@ -2,7 +2,7 @@
 
 ## Status
 
-`READY_FOR_IMPLEMENTATION`, active, and owned by Codex. GitHub issue #25 is detailed active authority; GitHub issue #23 is the active bounded implementation work governed by this slice. S-039 through S-043 remain provisional, inactive, and unauthorized.
+`AWAITING_HUMAN_VALIDATION`, active, and owned by the human. GitHub issue #25 remains open as detailed active authority. The bounded issue #23 implementation evidence is recorded in [S-038A validation](../validation/s038_parser_ci_evaluation_surface.md). S-039 through S-043 remain provisional, inactive, and unauthorized.
 
 ## Objective
 

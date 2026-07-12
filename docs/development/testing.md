@@ -50,6 +50,14 @@ GitHub Actions runs:
 - `python -m pytest`.
 - JavaScript syntax checking with Node installed by CI.
 - The bounded S-038 Playwright/Chromium browser smoke in its own CI job.
+- Parser CI coverage for the S-024/S-037 evaluation surface: path triggers, manual dispatch, the two focused evaluation test files, and the committed S-037 characterization check under the pinned standard profile.
+
+Reproduce the S-038A focused evidence in the standard profile with:
+
+```bash
+python -m pytest tests/test_s024_comparison.py tests/test_s037_evaluation_anomaly_characterization.py
+python scripts/characterize_s037_evaluation_anomalies.py --check
+```
 
 Security checks are not a hard CI gate in this development pass because the validators are optional local tools.
 

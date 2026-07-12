@@ -34,6 +34,8 @@ Gates are conditional; the [verification matrix](verification_matrix.md) and
 
 S-038 adds one bounded Playwright/Chromium-family smoke runner to the change-specific gate. It protects named critical flows and one catastrophic narrow-layout invariant; it supplements rather than replaces the human gate for rendered quality, touch behavior, accessibility, pacing, comprehension, and device/browser judgment.
 
+S-038A makes the pinned standard-profile Parser CI gate authoritative for the S-024/S-037 evaluation surface. Changes to that surface must schedule Parser CI, execute its focused tests, and reproduce the committed S-037 characterization without changing evaluation policy or frozen evidence.
+
 ## Entry, Exit, And Evidence States
 
 Generic entry requires an authorized active scope, initiating evidence, known

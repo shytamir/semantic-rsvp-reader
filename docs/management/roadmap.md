@@ -5,9 +5,9 @@ This roadmap is the priority-order view. [STATUS](STATUS.md) is the authority fo
 ## Now
 
 1. **S-038: active lettered scope S-038A — Parser CI Evaluation-Surface Coverage**
-   - State: `READY_FOR_IMPLEMENTATION`
-   - Owner: Codex
-   - Scope: [S-038A](s038_parser_ci_evaluation_surface.md); detailed authority: GitHub issue #25; bounded work: issue #23.
+   - State: `AWAITING_HUMAN_VALIDATION`
+   - Owner: Human
+   - Scope: [S-038A](s038_parser_ci_evaluation_surface.md); detailed authority: GitHub issue #25.
 
 ## Next
 
@@ -19,7 +19,7 @@ Human decision D-010 authorizes program entry after the recorded S-036 `ready` d
 
 1. **S-037: Evaluation Anomaly Investigation and Parser Operating-Policy Decision** — completed as `passed`; disposition `retain_parser_default_with_mandatory_automatic_fallback`; [scope](s037_evaluation_anomaly_parser_policy.md); GitHub issue #12.
 2. **S-038: Minimal Browser Regression Baseline** — completed as `passed`; human-evidence commit `b97c189e55f259fbe80eccc7072d415af6dbb87f`; [scope](s038_minimal_browser_regression_baseline.md); GitHub issue #13.
-3. **S-038A: Parser CI Evaluation-Surface Coverage** — `READY_FOR_IMPLEMENTATION`, owned by Codex; [scope](s038_parser_ci_evaluation_surface.md); GitHub issue #25, with issue #23 as active bounded implementation work.
+3. **S-038A: Parser CI Evaluation-Surface Coverage** — `AWAITING_HUMAN_VALIDATION`, owned by Human; [scope](s038_parser_ci_evaluation_surface.md); GitHub issue #25.
 4. **S-039: Application-Service Boundary and Source-Document Contract** — `PROVISIONAL`; [scope](s039_application_service_source_document_contract.md). Depends on S-038A and includes tracked work item S-039A, GitHub issue #2.
 5. **S-040: Plain Text, Markdown, and Bounded Clean-HTML Ingestion** — `PROVISIONAL`; [scope](s040_document_ingestion.md).
 6. **S-041: Local Reading Continuity** — `PROVISIONAL`; [scope](s041_local_reading_continuity.md).

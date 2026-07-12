@@ -9,6 +9,7 @@ This document is the authority for supported development runtime, profiles, setu
 - Documented setup shells: Windows PowerShell and POSIX-compatible shells. Documentation is not evidence that every shell/platform procedure was executed.
 - Node.js is optional for ordinary local startup and required to reproduce `scripts/check_js_syntax.py` or `scripts/run_browser_smoke.mjs`; a missing local Node/browser harness is a reported skip, never a pass.
 - The current known-successful managed Windows environment used Python `3.12.13`, Flask `3.1.3`, pytest `9.1.1`, Click `8.1.8`, spaCy `3.7.5`, and `en-core-web-sm` `3.7.1`. S-035 human evidence exercised both profiles; it did not record a broad platform support matrix.
+- Parser CI is the authoritative standard-profile remote gate for the S-024/S-037 evaluation surface. It runs the two focused evaluation test files and the committed S-037 characterization check under the existing pinned Python 3.12 environment.
 
 ## Canonical Profiles And Accepted Versions
 
