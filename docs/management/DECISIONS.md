@@ -130,3 +130,24 @@ Consequences:
 * Public superiority claims remain prohibited.
 
 References: D-007, D-008, [S-024 objective comparison](../experiments/parser_assisted_chunking/s024_objective_comparison.md), and [S-024 human preference summary](../validation/archive/s024_human_ab_preference_summary.md).
+
+## D-010: Productization-entry Decision Brief
+
+This brief aims to answer:
+
+- Who is the first intended user?
+  The first intended user is the human involved in the development of the product. He knows the product intimately and the product solves a real problem for him.
+- What real reading problem should the next program solve?
+  Ingest EPUB and local continuity features and retain featureset upon reading, but not before the product is ready for the feature. Human acknowledges D-008 correctly requires application service source document contract before ingest, continuity, and long navigation features can be implemented.
+- Is the immediate objective a stronger local demo, a usable personal reader, or an external trial?
+  It's twofold - A usable personal reader, and a strong local demo. The former takes precedence over the latter.
+- What evidence would justify continuing through S-043?
+  The question is vague, but if you mean requirements - then a workable demo with a rollback point, which we have now. If you mean readiness, the PM agent should advise we are ready. If you mean something else I missed your meaning.
+- What would cause the program to pause, reorder, or stop?
+  scope creep, overdevelopment, excessive human validation workloads, insufficiently clear human protocols, obvious conflicts that may arise during implementation or testing that point to a real need.
+- What is the maximum scope you are willing to fund before external evidence?
+  D-008 correctly dictates the implementation of the application service source contract before adding the EPUB ingest feature. A usable personal reader, with no observable feature regressions, and the EPUB ingest and local continuity features. It should be servicable as a stronger local demo.
+  
+In light of the above the project will progress to the beta program outlined in S-037 through S-043 as outlined, being careful not to overstep scope and improve human protocol authorship where possible.
+
+The human records here that PM GPT advised 1-2 exploratory demos with other users at this stage, but this was deferred for after the next program by the human to have a stronger  prototype for the first exploratory demos.

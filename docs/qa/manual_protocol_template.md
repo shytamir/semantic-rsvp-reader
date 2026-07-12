@@ -29,6 +29,7 @@ protocols are not rewritten to match this template.
 ## Final Human Disposition
 - Execution outcome:
 - Disposition: `accepted` / `deferred` / `rejected` / `returned_for_stabilization`
+- Task-specific decision:
 - Acceptance-blocking defects:
 - Authorized follow-up:
 
