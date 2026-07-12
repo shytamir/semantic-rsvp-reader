@@ -4,6 +4,11 @@ The [Development Environment Contract](environment_contract.md) is the authority
 
 Use `standard` for ordinary parser-default development and `core` with `RSVP_CHUNKER_MODE=rule_based` for dependency-light fallback work. Always install with `python -m pip` and run `python -m pip check` as specified by the contract.
 
+On Windows, follow the contract's PowerShell procedure exactly: create the
+environment with `py -3.12 -m venv .venv` and run its Python 3.12 assertion
+before installing dependencies. Do not replace that command with a generic
+interpreter selector.
+
 ## Run The App
 
 ```bash

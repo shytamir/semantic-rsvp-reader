@@ -6,7 +6,7 @@ active_scope: S-035A
 name: Development Environment Contract
 state: AWAITING_HUMAN_VALIDATION
 owner: Human
-agent_action: run the fixed S-035A environment-contract protocol
+agent_action: rerun the corrected Windows-only S-035A environment-contract protocol
 blocked_on: none
 started: 2026-07-11
 scope: docs/management/s035a_development_environment_contract.md
@@ -15,7 +15,7 @@ previous_slice: S-035
 
 ## Current Slice
 
-S-035A is the sole active scope at `AWAITING_HUMAN_VALIDATION`, owned by the human. The authoritative contract, exact observed pins, configuration precedence, CI assertions, and clean Windows `core` evidence are prepared. Run the fixed [S-035A Development Environment Contract Validation](../validation/s035a_environment_contract_validation.md). S-035B and S-036 remain scheduled, inactive, and unauthorized.
+S-035A is the sole active scope at `AWAITING_HUMAN_VALIDATION`, owned by the human. The failed setup used unsupported Python 3.14; the corrected PowerShell procedure explicitly selects and asserts Python 3.12 before installation. Rerun only the clean Windows `standard` and `core` procedures in the corrected [S-035A Development Environment Contract Validation](../validation/s035a_environment_contract_validation.md). S-035B and S-036 remain scheduled, inactive, and unauthorized.
 
 ## S-035 Outcome
 

@@ -12,11 +12,16 @@
 
 Use the committed [Development Environment Contract](../development/environment_contract.md) and record the target commit, shell, operating system, profile, and every command outcome.
 
-1. In Windows PowerShell, follow the clean `standard` procedure from a new virtual environment. Confirm installation, `python -m pip check`, the accepted dependency versions, the parser-default smoke test, and `/health` identity. Record any unclear or incorrect step.
-2. Confirm the environment-identity commands capture commit SHA, profile, Python, key dependency versions, and configured/active chunker state without manual reconstruction.
-3. If a POSIX-compatible Python 3.12 environment is actually available, execute one documented profile procedure and record its result. If unavailable, record this step as `skipped`; do not mark it passed.
+The prior attempt created a Python 3.14 environment, as shown by the `cp314`
+wheel tags in the preserved failure below. Python 3.14 is outside the S-035A
+contract. Before retrying, follow the contract's removal instructions for the
+failed checkout-local `.venv`.
+
+1. In Windows PowerShell, run the clean `standard` procedure exactly, beginning with `py -3.12 -m venv .venv`. Confirm that the mandatory version assertion passes before dependency installation, then confirm `python -m pip check`, accepted dependency versions, parser-default smoke behavior, and `/health` identity.
+2. Remove that checkout-local `.venv` using the contract's safe retry instructions. In Windows PowerShell, run the clean `core` procedure exactly, again beginning with `py -3.12 -m venv .venv` and completing the version assertion before installation. Confirm dependency consistency, rule-based smoke behavior, and `/health` identity.
+3. Confirm the environment-identity commands capture commit SHA, profile, Python, key dependency versions, and configured/active chunker state without manual reconstruction.
 4. Review the configuration table against actual startup behavior, especially that only `RSVP_CHUNKER_MODE` has the documented app-config/environment precedence and that the three Flask-config-only settings are not presented as environment variables.
-5. Record `passed`, `partially_passed`, `failed`, or `inconclusive`, plus any separate issue needed for a contradiction requiring application-level configuration redesign.
+5. Record `passed`, `partially_passed`, `failed`, or `inconclusive`, plus any separate issue needed for a contradiction requiring application-level configuration redesign. POSIX execution is not part of this human gate.
 
 ## Human Disposition
 

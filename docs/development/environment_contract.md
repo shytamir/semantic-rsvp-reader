@@ -35,11 +35,25 @@ Start from a source checkout at the commit that will be tested.
 
 ### Windows PowerShell
 
+The Windows procedures require the Python launcher to select Python 3.12
+explicitly. Before retrying a failed setup, deactivate the environment if it is
+active and remove only this checkout's failed environment:
+
+```powershell
+deactivate
+Remove-Item -Recurse -Force -LiteralPath .venv
+```
+
+If `deactivate` is unavailable because the environment is not active, omit that
+command. Confirm that `.venv` is the intended checkout-local path before
+removing it.
+
 Standard:
 
 ```powershell
-python -m venv .venv
+py -3.12 -m venv .venv
 & .\.venv\Scripts\Activate.ps1
+python -c "import sys; assert sys.version_info[:2] == (3, 12), sys.version"
 python -m pip install -r requirements.txt
 python -m pip check
 python -m pytest
@@ -50,8 +64,9 @@ python scripts/smoke_test_app.py
 Core:
 
 ```powershell
-python -m venv .venv
+py -3.12 -m venv .venv
 & .\.venv\Scripts\Activate.ps1
+python -c "import sys; assert sys.version_info[:2] == (3, 12), sys.version"
 python -m pip install -r requirements-core.txt
 python -m pip check
 python -m pytest --ignore=tests/test_parser_assisted_spacy_integration.py --ignore=tests/test_standard_profile_api.py
@@ -86,7 +101,7 @@ python scripts/check_js_syntax.py
 RSVP_CHUNKER_MODE=rule_based python scripts/smoke_test_app.py
 ```
 
-Create separate environments when comparing profiles. To recreate one, deactivate it, remove only that checkout's `.venv`, and repeat the selected procedure.
+Create separate environments when comparing profiles. To recreate one, deactivate it, remove only that checkout's `.venv`, and repeat the selected procedure. On Windows, never substitute a generic `python -m venv` invocation: it may silently select an unsupported installed Python version.
 
 ## Configuration Contract
 
