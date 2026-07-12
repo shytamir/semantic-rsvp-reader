@@ -8,10 +8,10 @@ This program orders validation of the shipped prototype without authorizing mult
 4. **[S-032: Navigation and Interaction](archive/s032_navigation_interaction.md)** — completed as `passed`.
 5. **[S-033: Mobile Presentation and Accessibility](s033_mobile_presentation_accessibility.md)** — completed as `passed`.
 6. **[S-034: Evidence Capture and Reproducibility](s034_evidence_capture_reproducibility.md)** — completed as `passed`.
-7. **[S-035: Service Surfaces and Fallback](s035_service_surfaces_fallback.md)** — active at `READY_FOR_IMPLEMENTATION`.
+7. **[S-035: Service Surfaces and Fallback](s035_service_surfaces_fallback.md)** — active at `AWAITING_HUMAN_VALIDATION`.
 8. **[S-036: End-to-End Prototype Readiness](s036_end_to_end_prototype_readiness.md)** — scheduled.
 
-Only S-035 is active and authorized for implementation. S-036 remains scheduled and must be activated separately.
+Only S-035 is active, and it awaits human validation. S-036 remains scheduled and must be activated separately.
 
 ## Post-S-036 Handoff
 

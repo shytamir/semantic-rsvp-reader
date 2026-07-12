@@ -2,7 +2,7 @@
 
 ## Status
 
-Active and authorized for implementation at `READY_FOR_IMPLEMENTATION`, owned by Codex. S-036 remains scheduled and inactive.
+Active at `AWAITING_HUMAN_VALIDATION`, owned by the human. Automated service/fallback characterization and the pinned parser integration pass without a reproduced defect; the fixed startup/API protocol is ready. S-036 remains scheduled and inactive.
 
 ## Objective
 

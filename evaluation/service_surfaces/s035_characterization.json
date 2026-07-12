@@ -1,0 +1,62 @@
+{
+  "automatic_fallback": {
+    "configured_mode": "parser_assisted",
+    "fallback": "rule_based",
+    "health_status": "ok",
+    "provider_available": false,
+    "provider_reason": "spacy_unavailable",
+    "reason_category_logged": true,
+    "schedule_has_chunks": true,
+    "schedule_status_code": 200,
+    "source_text_absent_from_log": true
+  },
+  "default_state": {
+    "configured_mode": "parser_assisted",
+    "fallback": "rule_based",
+    "provider": "spacy:3.7.5/en_core_web_sm:3.7.1"
+  },
+  "dependency_contract": {
+    "adapter_has_no_download_call": true,
+    "core_excludes_spacy": true,
+    "parser_pins_click_8_1_8": true,
+    "parser_pins_model_3_7_1": true,
+    "parser_pins_spacy_3_7_5": true
+  },
+  "hard_failures": [],
+  "human_validation_required": true,
+  "method": "deterministic_service_fallback_and_dependency_characterization",
+  "rule_based_endpoint_matrix": [
+    {
+      "json_object": true,
+      "status_code": 200,
+      "surface": "health"
+    },
+    {
+      "json_object": true,
+      "status_code": 200,
+      "surface": "validation_samples"
+    },
+    {
+      "json_object": true,
+      "status_code": 200,
+      "surface": "ingest"
+    },
+    {
+      "json_object": true,
+      "status_code": 200,
+      "surface": "chunk"
+    },
+    {
+      "json_object": true,
+      "status_code": 200,
+      "surface": "schedule"
+    },
+    {
+      "json_object": true,
+      "status_code": 400,
+      "surface": "bounded_defect_rejection"
+    }
+  ],
+  "slice": "S-035",
+  "stabilized_defects": []
+}

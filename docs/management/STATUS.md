@@ -3,9 +3,9 @@
 ```yaml
 current_slice: S-035
 name: Service Surfaces and Fallback
-state: READY_FOR_IMPLEMENTATION
-owner: Codex
-agent_action: implement the preserved S-035 scope
+state: AWAITING_HUMAN_VALIDATION
+owner: Human
+agent_action: run the fixed S-035 startup and API protocol
 blocked_on: none
 started: 2026-07-11
 scope: docs/management/s035_service_surfaces_fallback.md
@@ -14,7 +14,7 @@ previous_slice: S-034
 
 ## Current Slice
 
-S-035 is the sole active slice at `READY_FOR_IMPLEMENTATION`, owned by Codex. Implement only the preserved [S-035 Service Surfaces and Fallback scope](s035_service_surfaces_fallback.md). S-036 remains scheduled and inactive.
+S-035 is the sole active slice at `AWAITING_HUMAN_VALIDATION`, owned by the human. Deterministic service, dependency, fallback, state-reporting, serialization, and log-privacy characterization passes without a reproduced defect. Run the fixed [S-035 Service Surfaces and Fallback Validation](../validation/s035_service_surfaces_fallback_validation.md). S-036 remains scheduled and inactive.
 
 ## Issue #11 Maintenance Outcome
 
@@ -143,7 +143,7 @@ Detailed in-app defect reports from the S-021 validation session were accidental
 
 ## Next Actions
 
-- Implement the preserved [S-035 scope](s035_service_surfaces_fallback.md).
+- The human runs the fixed [S-035 startup and API protocol](../validation/s035_service_surfaces_fallback_validation.md).
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks
