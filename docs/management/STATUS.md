@@ -14,7 +14,7 @@ previous_slice: S-034
 
 ## Current Slice
 
-S-035 is the sole active slice at `AWAITING_HUMAN_VALIDATION`, owned by the human. Deterministic service, dependency, fallback, state-reporting, serialization, and log-privacy characterization passes without a reproduced defect. Run the fixed [S-035 Service Surfaces and Fallback Validation](../validation/s035_service_surfaces_fallback_validation.md). S-036 remains scheduled and inactive.
+S-035 is the sole active slice at `AWAITING_HUMAN_VALIDATION`, owned by the human. Deterministic service, dependency, fallback, state-reporting, serialization, and log-privacy characterization passes without a reproduced defect. Run the fixed [S-035 Service Surfaces and Fallback Validation](../validation/s035_service_surfaces_fallback_validation.md). S-035A, S-035B, and S-036 remain scheduled, inactive, and unauthorized in that order.
 
 ## Issue #11 Maintenance Outcome
 

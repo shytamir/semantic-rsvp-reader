@@ -16,8 +16,8 @@ Historical slice scopes are preserved in the [management archive](archive/index.
 
 - S-035 is the sole active slice at `AWAITING_HUMAN_VALIDATION`, owned by Human. Issue #11 is completed; its low-priority landscape follow-up is tracked in issue #19.
 - The [Prototype Validation and Stabilization Program](prototype_validation_stabilization_program.md) schedules S-030 through S-036 in strict order.
-- Root scope documents: [S-033](s033_mobile_presentation_accessibility.md), [S-034](s034_evidence_capture_reproducibility.md), [S-035](s035_service_surfaces_fallback.md), [S-036](s036_end_to_end_prototype_readiness.md).
-- S-036 is scheduled only and is not authorized for implementation.
+- Root scope documents: [S-033](s033_mobile_presentation_accessibility.md), [S-034](s034_evidence_capture_reproducibility.md), [S-035](s035_service_surfaces_fallback.md), [S-035A](s035a_development_environment_contract.md), [S-035B](s035b_qa_authority_verification_framework.md), and [S-036](s036_end_to_end_prototype_readiness.md).
+- S-035A, S-035B, and S-036 are scheduled in that order, inactive, and unauthorized. Issues #21 and #22 remain the detailed authorities for S-035A and S-035B.
 
 ## Provisional Post-Stabilization Program
 
