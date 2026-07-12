@@ -2,19 +2,25 @@
 
 ```yaml
 current_slice: S-034
-name: Evidence Capture and Reproducibility
+name: Inter-Slice Issue #11 Coarse-Seek Accessibility Maintenance
 state: AWAITING_HUMAN_VALIDATION
 owner: Human
-agent_action: run the fixed S-034 evidence capture and reproducibility protocol
+agent_action: run the fixed issue #11 coarse-seek accessibility protocol
 blocked_on: none
 started: 2026-07-11
-scope: docs/management/s034_evidence_capture_reproducibility.md
+scope: GitHub issue #11
 previous_slice: S-033
+maintenance_gate: issue #11
+completed_slice: S-034
 ```
 
 ## Current Slice
 
-S-034 is the sole active slice at `AWAITING_HUMAN_VALIDATION`, owned by the human. Four bounded synthetic report types passed temporary capture, gzip, context, sanitization, and review-tool characterization without committing generated reports. Run the fixed protocol in [S-034 Evidence Capture and Reproducibility Validation](../validation/s034_evidence_capture_reproducibility_validation.md). S-035 remains scheduled and inactive.
+S-034 is complete as `passed`. The operational gate is explicitly authorized inter-slice issue #11 maintenance at `AWAITING_HUMAN_VALIDATION`, owned by the human. Run the fixed [coarse-seek accessibility protocol](../validation/issue_11_coarse_seek_accessibility_validation.md). S-035 remains scheduled and inactive.
+
+## S-034 Outcome
+
+S-034 completed as `passed` on 2026-07-12 from human-owned evidence commit `eafadbd`. All seven human steps passed, the four synthetic local reports were deleted, and no missing context or impractical protocol step was found. GitHub issue #8 is closed consistently.
 
 ## S-033 Outcome
 
@@ -135,7 +141,7 @@ Detailed in-app defect reports from the S-021 validation session were accidental
 
 ## Next Actions
 
-- The human runs the fixed [S-034 evidence capture and reproducibility protocol](../validation/s034_evidence_capture_reproducibility_validation.md).
+- The human runs the fixed [issue #11 coarse-seek accessibility protocol](../validation/issue_11_coarse_seek_accessibility_validation.md).
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks

@@ -30,7 +30,7 @@
   "method": "static_shell_characterization_with_fixed_human_viewport_matrix",
   "slice": "S-033",
   "sources": {
-    "static/css/app.css": "c336b5dfafa7f0b5051506748d307fa88e0addcb07e0fbf95321039cee03b67f",
+    "static/css/app.css": "59e922d62164e6957098bc9c14544b82e4a7b6f7a514a62d681d970f378468e4",
     "templates/index.html": "c2b3ff2e9388762ef587c721e5c7d96496f8f730b1b353c508975e419ba77331"
   },
   "stabilized_defects": [],

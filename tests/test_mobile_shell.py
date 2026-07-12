@@ -153,6 +153,21 @@ def test_navigation_scaffold_is_hidden_and_inert(client):
     assert ".progress-anchor-fill" in css
 
 
+def test_progress_anchor_has_finger_aimable_hit_area_and_subordinate_visual(client):
+    css = client.get("/static/css/app.css").data.decode("utf-8")
+
+    progress_anchor = css.split(".progress-anchor {", 1)[1].split("}", 1)[0]
+    progress_fill = css.split(".progress-anchor-fill {", 1)[1].split("}", 1)[0]
+    reader_footer = css.split(".reader-footer {", 1)[1].split("}", 1)[0]
+
+    assert "height: 44px" in progress_anchor
+    assert "background: transparent" in progress_anchor
+    assert "pointer-events: auto" in progress_anchor
+    assert "height: 2px" in progress_fill
+    assert "opacity: 0.35" in progress_fill
+    assert "padding-bottom: max(44px, env(safe-area-inset-bottom))" in reader_footer
+
+
 def test_structure_anchor_is_static_and_inert(client):
     response = client.get("/static/css/app.css")
     css = response.data.decode("utf-8")

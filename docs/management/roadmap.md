@@ -4,10 +4,10 @@ This roadmap is the priority-order view. [STATUS](STATUS.md) is the authority fo
 
 ## Now
 
-1. **S-034: Evidence Capture and Reproducibility**
+1. **S-034: Inter-Slice Issue #11 Coarse-Seek Accessibility Maintenance**
    - State: `AWAITING_HUMAN_VALIDATION`
    - Owner: Human
-   - Scope: [S-034](s034_evidence_capture_reproducibility.md).
+   - Scope: GitHub issue #11; [fixed human protocol](../validation/issue_11_coarse_seek_accessibility_validation.md).
 
 ## Next
 

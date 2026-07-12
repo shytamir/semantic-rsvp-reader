@@ -2,7 +2,7 @@
 
 ## Status
 
-Active at `AWAITING_HUMAN_VALIDATION`, owned by the human. Automated synthetic capture and reproducibility checks pass without a reproduced defect. S-035 remains scheduled and inactive.
+Completed as `passed` from human-owned evidence commit `eafadbd`. All seven human steps passed, the four synthetic local reports were deleted, and no missing context or impractical protocol step was found.
 
 ## Objective
 
