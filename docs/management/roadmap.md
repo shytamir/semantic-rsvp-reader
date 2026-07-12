@@ -4,14 +4,14 @@ This roadmap is the priority-order view. [STATUS](STATUS.md) is the authority fo
 
 ## Now
 
-1. **S-036: End-to-End Prototype Readiness**
-   - State: `AWAITING_HUMAN_VALIDATION`
+1. **S-036: Prototype Validation and Stabilization Program Complete**
+   - State: `PROGRAM_COMPLETE`
    - Owner: Human
-   - Scope: [S-036](s036_end_to_end_prototype_readiness.md).
+   - Outcome: S-036 completed as `passed` with prototype disposition `ready`; [program record](prototype_validation_stabilization_program.md).
 
 ## Next
 
-No stabilization successor is scheduled. S-036 completes the program; the provisional post-stabilization sequence remains inactive.
+No successor is active or authorized. An explicit management decision is required before any provisional post-stabilization scope may advance.
 
 ## Provisional Document Reader Productization Program
 

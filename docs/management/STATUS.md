@@ -2,20 +2,24 @@
 
 ```yaml
 current_slice: S-036
-active_scope: S-036
-name: End-to-End Prototype Readiness
-state: AWAITING_HUMAN_VALIDATION
+active_scope: none
+name: Prototype Validation and Stabilization Program
+state: PROGRAM_COMPLETE
 owner: Human
-agent_action: run the fixed S-036 end-to-end readiness session
+agent_action: await an explicit management decision
 blocked_on: none
 started: 2026-07-12
-scope: docs/management/s036_end_to_end_prototype_readiness.md
-previous_slice: S-035B
+scope: docs/management/prototype_validation_stabilization_program.md
+previous_slice: S-036
 ```
 
 ## Current Slice
 
-S-036 is the sole active scope at `AWAITING_HUMAN_VALIDATION`, owned by the human. Automated repository, core, standard, and change-specific readiness gates are recorded in the fixed [S-036 End-to-End Prototype Readiness Validation](../validation/s036_end_to_end_prototype_readiness.md). Run the human session and record one authorized prototype disposition. No post-stabilization slice is active or authorized.
+The Prototype Validation and Stabilization Program is complete. There is no active scope and no agent implementation is authorized pending an explicit management decision. `current_slice: S-036` is retained for archive tooling. No post-stabilization slice is active or authorized.
+
+## S-036 Outcome
+
+S-036 completed as `passed` on 2026-07-12 with prototype disposition `ready`, from human-owned evidence commit `d6e945d`. All eight fixed human steps passed on the documented Samsung Galaxy S23 Ultra / Android 16 / Firefox 152 setup. No acceptance-blocking defect or new issue was found. GitHub issue #19 remains an accepted, non-blocking deferred limitation. The generated local synthetic-report file was deleted; its intentionally synthetic transcript remains committed verbatim in [S-036 validation](../validation/s036_end_to_end_prototype_readiness.md).
 
 ## S-035B Outcome
 
@@ -156,7 +160,7 @@ Detailed in-app defect reports from the S-021 validation session were accidental
 
 ## Next Actions
 
-- The human runs the fixed [S-036 readiness session](../validation/s036_end_to_end_prototype_readiness.md) and records the prototype disposition.
+- Await an explicit management decision; do not activate a post-stabilization scope automatically.
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks

@@ -27,7 +27,7 @@ Current focus:
 8. S-034 Evidence Capture and Reproducibility completed as `passed`; all seven human steps passed with complete and practical report context.
 9. Issue #11 coarse-seek accessibility maintenance completed; its low-priority landscape obstruction is tracked separately in issue #19.
 10. S-035 Service Surfaces and Fallback completed as `passed`; human profile checks and automated standard-profile API coverage are complete.
-11. S-035A and S-035B completed as `passed`; S-036 is active at `AWAITING_HUMAN_VALIDATION` with automated readiness evidence and a fixed human session.
+11. S-035A, S-035B, and S-036 completed as `passed`; S-036 recorded prototype disposition `ready`, completing the stabilization program.
 12. Parser-assisted chunking remains frozen unless a new authorized evaluation slice changes it.
 
 ## Defect Reporting Workflow
