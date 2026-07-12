@@ -1,5 +1,9 @@
 # S-035 Service Surfaces and Fallback
 
+## Status
+
+Active and authorized for implementation at `READY_FOR_IMPLEMENTATION`, owned by Codex. S-036 remains scheduled and inactive.
+
 ## Objective
 
 Validate Flask service contracts and both supported chunking modes under normal, unavailable-provider, and safe-fallback conditions.

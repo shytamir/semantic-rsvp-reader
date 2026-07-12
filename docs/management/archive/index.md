@@ -2,6 +2,10 @@
 
 These documents are preserved as historical evidence. They are not the current project-management authority.
 
+## S-032
+
+- [S-032 Navigation and Interaction](s032_navigation_interaction.md)
+
 ## S-031
 
 - [S-031 Playback and Adaptation](s031_playback_adaptation.md)

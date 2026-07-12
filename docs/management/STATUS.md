@@ -1,22 +1,24 @@
 # Project Status
 
 ```yaml
-current_slice: S-034
-name: Inter-Slice Issue #11 Coarse-Seek Accessibility Maintenance
-state: AWAITING_HUMAN_VALIDATION
-owner: Human
-agent_action: run the fixed issue #11 coarse-seek accessibility protocol
+current_slice: S-035
+name: Service Surfaces and Fallback
+state: READY_FOR_IMPLEMENTATION
+owner: Codex
+agent_action: implement the preserved S-035 scope
 blocked_on: none
 started: 2026-07-11
-scope: GitHub issue #11
-previous_slice: S-033
-maintenance_gate: issue #11
-completed_slice: S-034
+scope: docs/management/s035_service_surfaces_fallback.md
+previous_slice: S-034
 ```
 
 ## Current Slice
 
-S-034 is complete as `passed`. The operational gate is explicitly authorized inter-slice issue #11 maintenance at `AWAITING_HUMAN_VALIDATION`, owned by the human. Run the fixed [coarse-seek accessibility protocol](../validation/issue_11_coarse_seek_accessibility_validation.md). S-035 remains scheduled and inactive.
+S-035 is the sole active slice at `READY_FOR_IMPLEMENTATION`, owned by Codex. Implement only the preserved [S-035 Service Surfaces and Fallback scope](s035_service_surfaces_fallback.md). S-036 remains scheduled and inactive.
+
+## Issue #11 Maintenance Outcome
+
+Issue #11 completed from human-owned evidence commit `a52e79f`. The enlarged coarse-seek touch target was accepted and issue #11 is closed. The low-priority, non-blocking phone-landscape obstruction by the `Defects Reported: #` display is tracked separately in GitHub issue #19; no follow-up correction was implemented during this transition.
 
 ## S-034 Outcome
 
@@ -141,7 +143,7 @@ Detailed in-app defect reports from the S-021 validation session were accidental
 
 ## Next Actions
 
-- The human runs the fixed [issue #11 coarse-seek accessibility protocol](../validation/issue_11_coarse_seek_accessibility_validation.md).
+- Implement the preserved [S-035 scope](s035_service_surfaces_fallback.md).
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks

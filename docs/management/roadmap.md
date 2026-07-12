@@ -4,15 +4,14 @@ This roadmap is the priority-order view. [STATUS](STATUS.md) is the authority fo
 
 ## Now
 
-1. **S-034: Inter-Slice Issue #11 Coarse-Seek Accessibility Maintenance**
-   - State: `AWAITING_HUMAN_VALIDATION`
-   - Owner: Human
-   - Scope: GitHub issue #11; [fixed human protocol](../validation/issue_11_coarse_seek_accessibility_validation.md).
+1. **S-035: Service Surfaces and Fallback**
+   - State: `READY_FOR_IMPLEMENTATION`
+   - Owner: Codex
+   - Scope: [S-035](s035_service_surfaces_fallback.md).
 
 ## Next
 
-1. **S-035: Service Surfaces and Fallback** — `SCHEDULED`; [scope](s035_service_surfaces_fallback.md).
-2. **S-036: End-to-End Prototype Readiness** — `SCHEDULED`; [scope](s036_end_to_end_prototype_readiness.md).
+1. **S-036: End-to-End Prototype Readiness** — `SCHEDULED`; [scope](s036_end_to_end_prototype_readiness.md).
 
 These slices are ordered but not authorized for implementation until separately activated.
 

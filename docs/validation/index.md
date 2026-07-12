@@ -21,8 +21,9 @@ Current focus:
 6. S-032 Navigation and Interaction completed as `passed`; all seven fixed human protocol steps reported no defects.
 7. S-033 Mobile Presentation and Accessibility completed as `passed`; all eight human checks passed with no acceptance-blocking defect.
 8. S-034 Evidence Capture and Reproducibility completed as `passed`; all seven human steps passed with complete and practical report context.
-9. Issue #11 coarse-seek accessibility maintenance is the operational gate at `AWAITING_HUMAN_VALIDATION`; S-035 remains inactive.
-10. Parser-assisted chunking remains frozen unless a new authorized evaluation slice changes it.
+9. Issue #11 coarse-seek accessibility maintenance completed; its low-priority landscape obstruction is tracked separately in issue #19.
+10. S-035 Service Surfaces and Fallback is active at `READY_FOR_IMPLEMENTATION`; S-036 remains inactive.
+11. Parser-assisted chunking remains frozen unless a new authorized evaluation slice changes it.
 
 ## Defect Reporting Workflow
 
