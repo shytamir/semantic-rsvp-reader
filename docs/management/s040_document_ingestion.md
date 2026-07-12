@@ -2,7 +2,7 @@
 
 ## Status
 
-Provisional post-S-039 scope. Not active or authorized.
+`READY_FOR_IMPLEMENTATION`, active, and owned by Codex. GitHub issue #15 is detailed implementation authority. S-041 through S-043 remain provisional, inactive, and unauthorized.
 
 ## Objective
 

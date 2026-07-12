@@ -1,21 +1,25 @@
 # Project Status
 
 ```yaml
-current_slice: S-039
-active_scope: S-039A
-name: Application-Service Boundary and Source-Document Contract
-state: AWAITING_HUMAN_VALIDATION
-owner: Human
-agent_action: review whether document identity and provenance are sufficient for S-040 and S-041
+current_slice: S-040
+active_scope: S-040
+name: Plain Text, Markdown, and Bounded Clean-HTML Ingestion
+state: READY_FOR_IMPLEMENTATION
+owner: Codex
+agent_action: implement bounded local ingestion through the S-039 SourceDocument contract
 blocked_on: none
 started: 2026-07-12
-scope: docs/management/s039_application_service_source_document_contract.md
-previous_slice: S-038A
+scope: docs/management/s040_document_ingestion.md
+previous_slice: S-039
 ```
 
 ## Current Slice
 
-The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-039 is current at `AWAITING_HUMAN_VALIDATION`, owned by Human. Its bounded S-039A implementation under GitHub issue #2 preserves the hash-registered service and web behavior while adding the minimal source-document contract. S-040 through S-043 remain provisional, inactive, and unauthorized.
+The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-040 is current at `READY_FOR_IMPLEMENTATION`, owned by Codex, with GitHub issue #15 as detailed authority. S-041 through S-043 remain provisional, inactive, and unauthorized.
+
+## S-039 Outcome
+
+S-039 completed as `passed` on 2026-07-12, pinned to human-evidence commit `806dbaea92d9638cc7cea439fe33ce9168f97c58`. The two fixed questions received affirmative human confirmations: identity is sufficient groundwork for S-041, and supported headings plus bounded provenance are sufficient groundwork for S-040. GitHub issues #2 and #14 are closed.
 
 ## S-038A Outcome
 
@@ -75,7 +79,7 @@ S-034 completed as `passed` on 2026-07-12 from human-owned evidence commit `eafa
 
 ## Next Actions
 
-- Review only whether S-039 document identity and bounded provenance are sufficient groundwork for S-040 and S-041.
+- Implement S-040 bounded local ingestion through the accepted S-039 contract.
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks
