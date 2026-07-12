@@ -2,6 +2,8 @@
 
 Environment/profile setup and dependency verification are governed by the [Development Environment Contract](environment_contract.md). This file summarizes repository test surfaces rather than duplicating those setup procedures.
 
+Risk-based gate selection, evidence terminology, and traceability are governed by the [QA Authority](../qa/index.md).
+
 ## Full Test Suite
 
 ```bash

@@ -2,7 +2,7 @@
 
 ## Status
 
-`AWAITING_HUMAN_VALIDATION`, active, and owned by the human. The authoritative contract and automated evidence are prepared; S-035B remains scheduled and inactive.
+Completed as `passed` from human-owned evidence commit `d572760`. Clean Windows `standard` and `core` setup passed, including the expected health identities and configuration contract.
 
 ## Authority
 
@@ -10,4 +10,4 @@ GitHub issue #21, **S-035A — Standardize the Development Environment Contract 
 
 ## Completion Boundary
 
-Complete issue #21 under separate activation, record its disposition, and do not activate S-035B automatically.
+The accepted environment contract is the development authority consumed by S-035B and later work. GitHub issue #21 is closed.

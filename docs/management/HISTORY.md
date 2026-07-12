@@ -6,6 +6,7 @@ This file records completed work. It does not define current priorities.
 
 | Slice | Outcome | Evidence |
 | --- | --- | --- |
+| S-035A: Development Environment Contract | Completed as `passed`. Clean Windows `standard` and `core` environments fulfilled the Python 3.12 setup, dependency, health-identity, and configuration contract. | Human evidence commit `d572760`; [S-035A validation](../validation/s035a_environment_contract_validation.md); GitHub issue #21 |
 | S-035: Service Surfaces and Fallback | Completed as `passed`. Human startup, health, and browser sample checks passed in both profiles; Parser CI covers the remaining standard-profile POST, 405, field, and JSON-serialization contracts. | Human evidence commit `8f8a7a6`; [S-035 validation](../validation/s035_service_surfaces_fallback_validation.md); GitHub issue #9 |
 | Issue #11: Coarse-Seek Accessibility Maintenance | Completed. Human accepted the enlarged touch target and authorized closure. A low-priority phone-landscape obstruction remains separately tracked without changing seek semantics. | Human evidence commit `a52e79f`; [validation](../validation/issue_11_coarse_seek_accessibility_validation.md); GitHub issues #11 and #19 |
 | S-034: Evidence Capture and Reproducibility | Completed as `passed`. All seven human steps passed; four synthetic local reports were deleted; no missing context or impractical protocol step was found. | Human evidence commit `eafadbd`; [S-034 validation](../validation/s034_evidence_capture_reproducibility_validation.md); GitHub issue #8 |

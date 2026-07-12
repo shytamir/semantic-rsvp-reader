@@ -9,11 +9,11 @@ This program orders validation of the shipped prototype without authorizing mult
 5. **[S-033: Mobile Presentation and Accessibility](s033_mobile_presentation_accessibility.md)** — completed as `passed`.
 6. **[S-034: Evidence Capture and Reproducibility](s034_evidence_capture_reproducibility.md)** — completed as `passed`.
 7. **[S-035: Service Surfaces and Fallback](s035_service_surfaces_fallback.md)** — completed as `passed`.
-8. **[S-035A: Development Environment Contract](s035a_development_environment_contract.md)** — active at `AWAITING_HUMAN_VALIDATION`; detailed authority is GitHub issue #21.
-9. **[S-035B: QA Authority and Verification Framework](s035b_qa_authority_verification_framework.md)** — scheduled; detailed authority is GitHub issue #22.
+8. **[S-035A: Development Environment Contract](s035a_development_environment_contract.md)** — completed as `passed`; detailed authority is GitHub issue #21.
+9. **[S-035B: QA Authority and Verification Framework](s035b_qa_authority_verification_framework.md)** — active at `AWAITING_HUMAN_VALIDATION`; detailed authority is GitHub issue #22.
 10. **[S-036: End-to-End Prototype Readiness](s036_end_to_end_prototype_readiness.md)** — scheduled.
 
-Only S-035A is active, and it awaits human validation. S-035B and S-036 remain scheduled, inactive, and must each be activated separately.
+Only S-035B is active, and it awaits human validation. S-036 remains scheduled, inactive, and must be activated separately.
 
 ## Post-S-036 Handoff
 

@@ -11,6 +11,7 @@ Historical slice validation records are preserved in the [validation archive](ar
 - [Issue #11 Coarse-Seek Accessibility Validation](issue_11_coarse_seek_accessibility_validation.md)
 - [S-035 Service Surfaces and Fallback Validation](s035_service_surfaces_fallback_validation.md)
 - [S-035A Development Environment Contract Validation](s035a_environment_contract_validation.md)
+- [S-035B QA Authority Validation](s035b_qa_authority_validation.md)
 - [Validation Corpus](corpus.md)
 
 Current focus:
@@ -25,7 +26,7 @@ Current focus:
 8. S-034 Evidence Capture and Reproducibility completed as `passed`; all seven human steps passed with complete and practical report context.
 9. Issue #11 coarse-seek accessibility maintenance completed; its low-priority landscape obstruction is tracked separately in issue #19.
 10. S-035 Service Surfaces and Fallback completed as `passed`; human profile checks and automated standard-profile API coverage are complete.
-11. S-035A is active at `AWAITING_HUMAN_VALIDATION`; S-035B and S-036 remain inactive.
+11. S-035A completed as `passed`; S-035B is active at `AWAITING_HUMAN_VALIDATION`; S-036 remains inactive.
 12. Parser-assisted chunking remains frozen unless a new authorized evaluation slice changes it.
 
 ## Defect Reporting Workflow

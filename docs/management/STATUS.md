@@ -2,20 +2,24 @@
 
 ```yaml
 current_slice: S-035
-active_scope: S-035A
-name: Development Environment Contract
+active_scope: S-035B
+name: QA Authority and Verification Framework
 state: AWAITING_HUMAN_VALIDATION
 owner: Human
-agent_action: rerun the corrected Windows-only S-035A environment-contract protocol
+agent_action: run the fixed S-035B QA authority protocol
 blocked_on: none
-started: 2026-07-11
-scope: docs/management/s035a_development_environment_contract.md
-previous_slice: S-035
+started: 2026-07-12
+scope: docs/management/s035b_qa_authority_verification_framework.md
+previous_slice: S-035A
 ```
 
 ## Current Slice
 
-S-035A is the sole active scope at `AWAITING_HUMAN_VALIDATION`, owned by the human. The failed setup used unsupported Python 3.14; the corrected PowerShell procedure explicitly selects and asserts Python 3.12 before installation. Rerun only the clean Windows `standard` and `core` procedures in the corrected [S-035A Development Environment Contract Validation](../validation/s035a_environment_contract_validation.md). S-035B and S-036 remain scheduled, inactive, and unauthorized.
+S-035B is the sole active scope at `AWAITING_HUMAN_VALIDATION`, owned by the human. The compact [QA authority layer](../qa/index.md) and fixed [S-035B protocol](../validation/s035b_qa_authority_validation.md) are prepared. GitHub issue #22 remains open. S-036 remains scheduled, inactive, and unauthorized.
+
+## S-035A Outcome
+
+S-035A completed as `passed` on 2026-07-12 from human-owned evidence commit `d572760`. Clean Windows `standard` and `core` environments passed the corrected Python 3.12 contract, reported the expected parser-assisted and rule-based health identities, and fulfilled the configuration contract. The disposition remains verbatim in [S-035A validation](../validation/s035a_environment_contract_validation.md). GitHub issue #21 is closed.
 
 ## S-035 Outcome
 
@@ -148,7 +152,7 @@ Detailed in-app defect reports from the S-021 validation session were accidental
 
 ## Next Actions
 
-- The human runs the fixed [S-035A environment-contract protocol](../validation/s035a_environment_contract_validation.md).
+- The human runs the fixed [S-035B QA authority protocol](../validation/s035b_qa_authority_validation.md).
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks
