@@ -29,7 +29,10 @@ symlink. Re-running once with a repository-local `--basetemp` produced the clean
 325-pass result; the temporary directory was removed and no project state was
 changed by that environment repair.
 
-Remote evidence is recorded after the implementation commit is pushed.
+Immediately after implementation commit `d4bd68b` was pushed, one non-polling
+GitHub Actions query returned no runs for that commit. S-042A therefore remains
+in Codex-owned stabilization; it is not dispositioned `passed`. Issue #17 stays
+open as umbrella authority, and no successor is active.
 
 The project-owned synthetic fixture covers required EPUB 3 metadata, two UTF-8
 XHTML spine items in deterministic order, `h1`/`h2` structure, stable identity,
