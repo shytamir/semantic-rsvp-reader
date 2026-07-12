@@ -2,7 +2,7 @@
 
 ## Status And Authority
 
-The program is active under human authorization D-010, committed in `4baf3e8`, after S-036 completed with prototype disposition `ready`. S-037 through S-041 completed as `passed`. No scope is active; S-042 through S-043 remain provisional until separately activated.
+The program is active under human authorization D-010, committed in `4baf3e8`, after S-036 completed with prototype disposition `ready`. S-037 through S-041 completed as `passed`. S-042A is the sole active scope; S-042B, S-042C, and S-043 remain provisional until separately activated.
 
 ## Entry Authorization And Architecture Clarification
 
@@ -22,12 +22,12 @@ Move the validated RSVP prototype toward a bounded local-first document reader w
 4. **[S-039: Application-Service Boundary and Source-Document Contract](s039_application_service_source_document_contract.md)** — completed as `passed` at human-evidence commit `806dbaea92d9638cc7cea439fe33ce9168f97c58`; GitHub issues #2 and #14 are closed.
 5. **[S-040: Plain Text, Markdown, and Bounded Clean-HTML Ingestion](s040_document_ingestion.md)** — completed as `passed` at human-evidence commit `fb618d269f70f5497154f1309db84e69bf8f5451`; GitHub issue #15 is closed.
 6. **[S-041: Local Reading Continuity](s041_local_reading_continuity.md)** — completed as `passed` at human-evidence commit `a865f563b50b9fa62bc65cb8e618ddcac04b0c6f`; GitHub issue #16 is closed.
-7. **[S-042: EPUB Ingestion and Long-Document Navigation](s042_epub_long_document_navigation.md)** — `PROVISIONAL`, inactive, and unauthorized; extend ingestion with lightweight long-document orientation.
+7. **[S-042: EPUB Ingestion and Long-Document Navigation](s042_epub_long_document_navigation.md)** — split under umbrella issue #17: S-042A EPUB ingestion foundation is `READY_FOR_IMPLEMENTATION`, owned by Codex; S-042B contents/heading navigation and S-042C long-document reading/resume validation remain `PROVISIONAL`, inactive, and unauthorized.
 8. **[S-043: Limited Beta Distribution and External Trial](s043_limited_beta_external_trial.md)** — `PROVISIONAL`, inactive, and unauthorized; its external-trial gate is not interpreted or advanced by S-037 activation.
 
 ## Program Boundaries
 
-- Only one scope may be active through [STATUS](STATUS.md); S-042 and S-043 remain provisional until separately activated. GitHub issue #24 is an authorized non-blocking follow-up and is not active.
+- Only one scope may be active through [STATUS](STATUS.md); S-042A is active, while S-042B, S-042C, and S-043 remain provisional until separately activated. GitHub issue #24 is an authorized non-blocking follow-up and is not active.
 - Later scopes may be revised or declined when S-034, S-035, or S-036 evidence changes their assumptions.
 - PDF extraction remains a separate later research and validation problem.
 - Accounts, cloud sync, analytics, native packaging, frontend-framework migration, broad browser automation, production infrastructure, public performance claims, broad handwritten grammar expansion, and unauthorized optimizer retuning remain outside this program.

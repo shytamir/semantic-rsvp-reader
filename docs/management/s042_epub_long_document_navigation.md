@@ -2,7 +2,7 @@
 
 ## Status
 
-Provisional post-S-041 scope. Not active or authorized.
+S-042 is split into bounded lettered scopes under open umbrella issue #17. Only S-042A is active at `READY_FOR_IMPLEMENTATION`, owned by Codex. S-042B and S-042C are provisional, inactive, and unauthorized.
 
 ## Objective
 
@@ -18,13 +18,27 @@ Depends on S-040 ingestion contracts and S-041 continuity. EPUB introduces order
 - Heading navigation and a lightweight contents view.
 - Resume behavior and deterministic handling of unsupported or malformed features.
 
+## Lettered Scope Sequence
+
+### S-042A: EPUB Ingestion Foundation
+
+`READY_FOR_IMPLEMENTATION`, active, and owned by Codex. Define a deliberately limited EPUB subset; safely validate the ZIP container and required EPUB metadata; extract readable spine content deterministically; preserve supported headings and bounded provenance; produce stable `SourceDocument` identity; and prove scheduling and continuity compatibility. This objectively verifiable foundation has no human gate.
+
+### S-042B: Contents And Heading Navigation
+
+`PROVISIONAL`, inactive, and unauthorized. Own a lightweight contents view and heading navigation using S-042A structure. It does not activate automatically.
+
+### S-042C: Long-Document Reading And Resume Validation
+
+`PROVISIONAL`, inactive, and unauthorized. Own rendered long-document behavior, qualitative orientation, and resume validation after navigation exists. It does not activate automatically.
+
 ## Codex Preparation
 
-Define the supported EPUB subset, prepare licensed/project-owned fixtures, characterize spine/heading mapping, and test identity/continuity integration.
+For S-042A only, define the supported subset, prepare licensed/project-owned fixtures, characterize spine/heading mapping, and test identity, scheduling, and continuity integration.
 
 ## Human Handoff
 
-Read and navigate representative EPUBs and validate contents orientation, resume behavior, and limitations.
+No human gate applies to S-042A. Human reading and navigation review belongs to a separately activated successor.
 
 ## Permissible Narrow Work
 
@@ -32,7 +46,7 @@ Fix reproduced ordering, extraction, metadata, navigation, continuity, or bounde
 
 ## Non-Goals
 
-No PDF, DRM bypass, full ebook renderer, full CSS fidelity, full Markdown rendering, annotation platform, library service, or native packaging.
+S-042A adds no contents UI, heading navigation, new resume controls, rendered ebook behavior, DRM handling, full CSS fidelity, PDF support, application surface, annotation platform, library service, or native packaging.
 
 ## Completion Boundary
 
