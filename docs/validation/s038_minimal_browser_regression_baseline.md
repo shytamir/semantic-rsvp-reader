@@ -45,25 +45,35 @@ the implementation commit without treating a pending run as passed.
 ## Fixed Human Confirmation Protocol
 
 Use the intended phone/browser and the standard parser-default development
-profile. Record the implementation commit, device, operating system, browser,
-viewport/orientation, and each step as `passed`, `partially_passed`, `failed`,
+profile. Record the implementation commit - 3ff8cb2, device - samsung s23 ultra, android 16, firefox 152,
+portrait, and each step as `passed`, `partially_passed`, `failed`,
 `skipped`, or `inconclusive`.
 
 1. Load one project validation sample and enter reader mode. Confirm the sample
    loads, the first chunk and progress are legible, and controls are available.
+   `passed`
 2. Start playback, pause, and resume. Confirm the visible state and timing feel
    stable enough for the existing prototype; automation proves only the state
    transition.
+   `passed`
 3. Perform one coarse progress seek and create one breakpoint with the existing
    double-tap gesture. Confirm both interactions are understandable and do not
    interfere with ordinary reader use.
+   `passed`
 4. Press Reset. Confirm the first chunk returns, playback is paused, and the
    state is understandable.
+   `passed`
 5. At a narrow portrait viewport, inspect the active chunk, progress, and
    critical controls. Confirm there is no catastrophic clipping or horizontal
    escape and record any non-blocking visual or touch-quality observation.
+   `passed`
 6. Review the deliberate omissions above and confirm the automated paths are a
    useful regression baseline without replacing qualitative phone validation.
+   `passed` Human confirmed above automated paths are indeed a useful regression baseline. Not replacing qualitative phone validation is approved.
+
+## Huamn Disposition
+`passed`
+all protocol steps passed. the regression baseline seems useful to me. we may proceed.
 
 The human records the S-038 gate outcome and any blocking defect. Do not close
 issue #13 or activate S-039 from automated evidence alone.
