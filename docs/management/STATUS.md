@@ -2,11 +2,11 @@
 
 ```yaml
 current_slice: S-041
-active_scope: S-041
+active_scope: none
 name: Local Reading Continuity
-state: AWAITING_HUMAN_VALIDATION
-owner: Human
-agent_action: run the fixed local continuity protocol and record a disposition
+state: COMPLETED
+owner: none
+agent_action: await separate successor activation
 blocked_on: none
 started: 2026-07-12
 scope: docs/management/s041_local_reading_continuity.md
@@ -15,7 +15,11 @@ previous_slice: S-040
 
 ## Current Slice
 
-The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-041 is current at `AWAITING_HUMAN_VALIDATION`, owned by Human, with GitHub issue #16 open as detailed authority. Review the fixed [S-041 continuity protocol](../validation/s041_local_reading_continuity.md). S-042 and S-043 remain provisional, inactive, and unauthorized.
+The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-041 completed as `passed`; there is no active scope. S-042 and S-043 remain provisional, inactive, and unauthorized until separately activated.
+
+## S-041 Outcome
+
+S-041 completed as `passed` on 2026-07-13, pinned to human-evidence commit `a865f563b50b9fa62bc65cb8e618ddcac04b0c6f`. The verbatim record includes the observation that source text persisted in the browser paste box after reload while the reader screen was not reconstructed. This does not change the disposition: application-owned continuity stores no source text, and browser-managed form restoration is not authority for unrelated changes. GitHub issue #16 is closed.
 
 ## S-040 Outcome
 
@@ -83,7 +87,7 @@ S-034 completed as `passed` on 2026-07-12 from human-owned evidence commit `eafa
 
 ## Next Actions
 
-- Run the fixed S-041 continuity protocol and record one disposition in issue #16.
+- Await separate authorization for a successor scope.
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks

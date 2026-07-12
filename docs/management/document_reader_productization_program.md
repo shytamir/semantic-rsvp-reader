@@ -2,7 +2,7 @@
 
 ## Status And Authority
 
-The program is active under human authorization D-010, committed in `4baf3e8`, after S-036 completed with prototype disposition `ready`. S-037 through S-040 completed as `passed`. Only the scope named by [STATUS](STATUS.md) is authorized; S-041 is active and S-042 through S-043 remain provisional until separately activated.
+The program is active under human authorization D-010, committed in `4baf3e8`, after S-036 completed with prototype disposition `ready`. S-037 through S-041 completed as `passed`. No scope is active; S-042 through S-043 remain provisional until separately activated.
 
 ## Entry Authorization And Architecture Clarification
 
@@ -21,7 +21,7 @@ Move the validated RSVP prototype toward a bounded local-first document reader w
 3. **[S-038A: Parser CI Evaluation-Surface Coverage](archive/s038_parser_ci_evaluation_surface.md)** — completed as `passed`; GitHub issues #23 and #25 are closed.
 4. **[S-039: Application-Service Boundary and Source-Document Contract](s039_application_service_source_document_contract.md)** — completed as `passed` at human-evidence commit `806dbaea92d9638cc7cea439fe33ce9168f97c58`; GitHub issues #2 and #14 are closed.
 5. **[S-040: Plain Text, Markdown, and Bounded Clean-HTML Ingestion](s040_document_ingestion.md)** — completed as `passed` at human-evidence commit `fb618d269f70f5497154f1309db84e69bf8f5451`; GitHub issue #15 is closed.
-6. **[S-041: Local Reading Continuity](s041_local_reading_continuity.md)** — `AWAITING_HUMAN_VALIDATION`, owned by Human, and active under open GitHub issue #16.
+6. **[S-041: Local Reading Continuity](s041_local_reading_continuity.md)** — completed as `passed` at human-evidence commit `a865f563b50b9fa62bc65cb8e618ddcac04b0c6f`; GitHub issue #16 is closed.
 7. **[S-042: EPUB Ingestion and Long-Document Navigation](s042_epub_long_document_navigation.md)** — `PROVISIONAL`, inactive, and unauthorized; extend ingestion with lightweight long-document orientation.
 8. **[S-043: Limited Beta Distribution and External Trial](s043_limited_beta_external_trial.md)** — `PROVISIONAL`, inactive, and unauthorized; its external-trial gate is not interpreted or advanced by S-037 activation.
 

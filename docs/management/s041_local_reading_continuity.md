@@ -2,7 +2,7 @@
 
 ## Status
 
-`AWAITING_HUMAN_VALIDATION`, active, and owned by Human. GitHub issue #16 remains open as detailed authority. Automated and browser evidence plus the fixed protocol are recorded in [S-041 validation](../validation/s041_local_reading_continuity.md). S-042 and S-043 remain provisional, inactive, and unauthorized.
+`COMPLETED` as `passed` on 2026-07-13, pinned to human-evidence commit `a865f563b50b9fa62bc65cb8e618ddcac04b0c6f`. The human evidence remains verbatim in [S-041 validation](../validation/s041_local_reading_continuity.md), including the paste-box restoration observation. Application-owned continuity stores no source text; browser-managed form restoration does not authorize unrelated changes. GitHub issue #16 is closed. S-042 and S-043 remain provisional, inactive, and unauthorized.
 
 ## Objective
 
