@@ -2,7 +2,7 @@
 
 ## Automated Preparation
 
-The committed [S-035 characterization](../../evaluation/service_surfaces/s035_characterization.json) covers `/health`, validation samples, ingest, chunk, schedule, and bounded defect submission in explicit rule-based mode. It also simulates unavailable parser dependencies and verifies successful automatic rule-based fallback, health-state reporting, reason-category-only logging, source-text exclusion from logs, pinned parser dependencies, dependency-light core requirements, and absence of a runtime model-download call.
+The committed [S-035 characterization](../../../evaluation/service_surfaces/s035_characterization.json) covers `/health`, validation samples, ingest, chunk, schedule, and bounded defect submission in explicit rule-based mode. It also simulates unavailable parser dependencies and verifies successful automatic rule-based fallback, health-state reporting, reason-category-only logging, source-text exclusion from logs, pinned parser dependencies, dependency-light core requirements, and absence of a runtime model-download call.
 
 Reproduce it with:
 

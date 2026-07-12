@@ -2,6 +2,10 @@
 
 These documents are preserved as historical evidence. They are not the current project-management authority.
 
+## S-035
+
+- [S-035 Service Surfaces and Fallback Validation](s035_service_surfaces_fallback_validation.md)
+
 ## S-034
 
 - [S-034 Evidence Capture and Reproducibility Validation](s034_evidence_capture_reproducibility_validation.md)

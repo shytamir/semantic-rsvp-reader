@@ -9,7 +9,7 @@ Historical slice validation records are preserved in the [validation archive](ar
 - [S-033 Mobile Presentation and Accessibility Validation](archive/s033_mobile_presentation_accessibility_validation.md)
 - [S-034 Evidence Capture and Reproducibility Validation](archive/s034_evidence_capture_reproducibility_validation.md)
 - [Issue #11 Coarse-Seek Accessibility Validation](issue_11_coarse_seek_accessibility_validation.md)
-- [S-035 Service Surfaces and Fallback Validation](s035_service_surfaces_fallback_validation.md)
+- [S-035 Service Surfaces and Fallback Validation](archive/s035_service_surfaces_fallback_validation.md)
 - [S-035A Development Environment Contract Validation](s035a_environment_contract_validation.md)
 - [S-035B QA Authority Validation](s035b_qa_authority_validation.md)
 - [S-036 End-to-End Prototype Readiness Validation](s036_end_to_end_prototype_readiness.md)
