@@ -2,7 +2,7 @@
 
 ## Status
 
-`AWAITING_HUMAN_VALIDATION`, active, and owned by the human. GitHub issue #25 remains open as detailed active authority. The bounded issue #23 implementation evidence is recorded in [S-038A validation](../validation/s038_parser_ci_evaluation_surface.md). S-039 through S-043 remain provisional, inactive, and unauthorized.
+`STABILIZATION_IN_PROGRESS`, active, and owned by Codex. Parser CI run `29207917112` and General CI run `29207917075` failed because S-037 source-evidence hashes depended on checkout line endings. GitHub issue #25 remains open as detailed active authority, and issue #23 remains open for the bounded repair evidence. S-039 through S-043 remain provisional, inactive, and unauthorized.
 
 ## Objective
 
@@ -40,7 +40,7 @@ Modify only the existing Parser CI workflow and directly required documentation 
 
 ## Non-Goals
 
-No new workflow job or dependency; no parser, optimizer, fallback, application, or browser behavior change; no evaluation-logic, substantive assertion, characterization-result, frozen-evidence, manifest, hash, annotation, or private A/B change; no broad CI redesign; no issue #24 implementation; and no S-039 or later activation or implementation.
+No new workflow job or dependency; no parser, optimizer, fallback, application, or browser behavior change; no evaluation-logic, substantive assertion, frozen-evidence, manifest, annotation, or private A/B change; no hash change beyond the localized S-037 source-evidence identity correction; no broad CI redesign; no issue #24 implementation; and no S-039 or later activation or implementation.
 
 ## Completion Boundary
 

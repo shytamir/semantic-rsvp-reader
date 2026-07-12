@@ -1,10 +1,20 @@
 import json
 
+from scripts.chunking_experiment_common import sha256_text_file
 from scripts.characterize_s037_evaluation_anomalies import OUTPUT, build_report
 
 
 def test_s037_committed_characterization_is_reproducible():
     assert json.loads(OUTPUT.read_text(encoding="utf-8")) == build_report()
+
+
+def test_s037_source_evidence_identity_is_line_ending_invariant(tmp_path):
+    lf_path = tmp_path / "lf.json"
+    crlf_path = tmp_path / "crlf.json"
+    lf_path.write_bytes(b'{\n  "evidence": true\n}\n')
+    crlf_path.write_bytes(b'{\r\n  "evidence": true\r\n}\r\n')
+
+    assert sha256_text_file(lf_path) == sha256_text_file(crlf_path)
 
 
 def test_s037_characterization_preserves_identity_and_classifies_anomalies():

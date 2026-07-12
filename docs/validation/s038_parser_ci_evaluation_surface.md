@@ -10,26 +10,33 @@ smoke remain in place. The same parser validation step now also runs the S-024
 comparison tests, S-037 anomaly-characterization tests, and the committed S-037
 characterization through its existing `--check` command.
 
-No job, dependency, parser behavior, evaluation logic, assertion,
-characterization output, frozen evidence, manifest, hash, annotation, or
-private A/B material changed.
+No job, dependency, parser behavior, evaluation logic, assertion, frozen
+evidence, manifest, annotation, or private A/B material changed. The subsequent
+stabilization is limited to normalizing S-037 text-file source-evidence identity
+across LF and CRLF checkouts.
 
 ## Executed Evidence
 
+- The focused S-037 characterization tests passed: 5 tests, including
+  equivalent LF/CRLF source-evidence identity.
 - The complete updated Parser CI validation command passed locally under the
-  managed standard profile.
+  managed standard profile: dependency integrity and exact pins passed; all 38
+  selected tests passed.
 - The S-030 characterization check passed.
-- The S-037 characterization reproduced successfully with `--check`.
+- The normalized S-037 characterization reproduced successfully with
+  `--check`.
 - The parser-default Flask smoke passed.
-- Repository integrity, Markdown links, and diff whitespace checks passed.
+- The full repository suite passed: 297 tests.
+- Markdown links and diff whitespace checks passed.
 
 ## Limitations And Remote Status
 
-Local execution uses the accepted managed Windows Python 3.12 environment; the
-remote authority remains the Ubuntu Parser CI job. At record creation the
-implementation commit had not yet been pushed, so no remote result existed.
-The final implementation report records one immediately available post-push
-snapshot without waiting or polling; a pending or absent result is not a pass.
+Parser CI run `29207917112` and General CI run `29207917075` are authoritative
+failed evidence. Both failed the committed S-037 characterization
+reproducibility test because its text-file source-evidence hashes were derived
+from checkout bytes and therefore differed between Windows CRLF and Ubuntu LF
+working trees. S-038A returned to Codex-owned stabilization for the localized
+identity correction and remote revalidation.
 
 This maintenance evidence does not establish parser quality, reinterpret
 S-024/S-037 evidence, or authorize evaluation, parser, fallback, or product
@@ -48,5 +55,6 @@ Record exactly one outcome in GitHub issue #25:
 - `failed`
 - `inconclusive`
 
-S-038A remains open at `AWAITING_HUMAN_VALIDATION` until the human records the
-disposition. Do not activate S-039 automatically.
+The human disposition was `inconclusive` pending remote evidence. S-038A remains
+open in Codex-owned stabilization until the correction is validated. Do not
+activate S-039 automatically.

@@ -10,7 +10,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from scripts.chunking_experiment_common import load_cases, manifest_hashes
+from scripts.chunking_experiment_common import load_cases, manifest_hashes, sha256_text_file
 from scripts.run_s024_comparison import hard_compliance, run_rule_based
 
 
@@ -31,10 +31,6 @@ METRICS = (
 
 def _load(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
-
-
-def _sha256(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 def _case_by_id(payload: dict[str, Any], corpus: str, case_id: str) -> dict[str, Any]:
@@ -96,11 +92,11 @@ def build_report() -> dict[str, Any]:
         "slice": "S-037",
         "source_evidence": {
             "s024_result": str(S024_RESULT.relative_to(ROOT)).replace("\\", "/"),
-            "s024_result_sha256": _sha256(S024_RESULT),
+            "s024_result_sha256": sha256_text_file(S024_RESULT),
             "implementation_freeze": str(IMPLEMENTATION_FREEZE.relative_to(ROOT)).replace("\\", "/"),
-            "implementation_freeze_sha256": _sha256(IMPLEMENTATION_FREEZE),
+            "implementation_freeze_sha256": sha256_text_file(IMPLEMENTATION_FREEZE),
             "integration_record": str(INTEGRATION_RECORD.relative_to(ROOT)).replace("\\", "/"),
-            "integration_record_sha256": _sha256(INTEGRATION_RECORD),
+            "integration_record_sha256": sha256_text_file(INTEGRATION_RECORD),
             "private_ab_identity_required": False,
         },
         "identity_and_provenance": {

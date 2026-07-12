@@ -241,11 +241,11 @@
   "slice": "S-037",
   "source_evidence": {
     "implementation_freeze": "evaluation/parser_assisted_chunking/freeze/parser_assisted_implementation_freeze.json",
-    "implementation_freeze_sha256": "76b3e1bd9cfab63a576a1cba7c199a7e7321dac088e496bac98dfe7c1720decc",
+    "implementation_freeze_sha256": "afc48ae6b72b427bbee44d6368229be2e9aabe01e0fe69c6ebc28bc37caf1ae1",
     "integration_record": "evaluation/parser_assisted_chunking/freeze/provisional_integration_record.json",
-    "integration_record_sha256": "2b5cc59d431a8d5d74a128e917ae71a8fe694844012ded95f4acaa759b3b1cdc",
+    "integration_record_sha256": "a590cf3fc3a9e5df37cffafe00325cf5847ad73f3da678176636b1905ab22de5",
     "private_ab_identity_required": false,
     "s024_result": "evaluation/parser_assisted_chunking/results/s024_objective_comparison.json",
-    "s024_result_sha256": "fcf07b54c24e0fc783738e9ee64098995f9152e70b48d87174505a5f7d4c5688"
+    "s024_result_sha256": "a683dd41da6050c5485482a6a12417c1f13e3590ccc6da23177f2a060c04f07c"
   }
 }
