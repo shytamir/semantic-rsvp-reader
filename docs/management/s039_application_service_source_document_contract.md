@@ -2,7 +2,7 @@
 
 ## Status
 
-`AWAITING_HUMAN_VALIDATION`, active, and owned by Human. The bounded S-039A implementation evidence is recorded in [S-039 validation](../validation/s039_application_service_source_document_contract.md). GitHub issue #2 closes after pushed implementation evidence. S-040 through S-043 remain provisional, inactive, and unauthorized.
+`AWAITING_HUMAN_VALIDATION`, active, and owned by Human. The bounded S-039A implementation evidence is recorded in [S-039 validation](../validation/s039_application_service_source_document_contract.md). GitHub issue #2 is closed with pushed implementation evidence. S-040 through S-043 remain provisional, inactive, and unauthorized.
 
 ## Objective
 
