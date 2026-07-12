@@ -2,7 +2,7 @@
 
 ## Status
 
-Active at `AWAITING_HUMAN_VALIDATION`, owned by the human. Automated characterization and narrow stabilization are complete; S-033 remains scheduled and inactive.
+Completed as `passed` from human-owned evidence commit `3293d8f`. All seven fixed phone-browser protocol steps passed with no reported defects; S-033 was activated separately without implementing its scope.
 
 ## Objective
 

@@ -1,5 +1,9 @@
 # S-033 Mobile Presentation and Accessibility
 
+## Status
+
+Active and authorized for implementation at `READY_FOR_IMPLEMENTATION`, owned by Codex. S-034 remains scheduled and inactive.
+
 ## Objective
 
 Validate that the shipped mobile-first presentation remains readable, stable, accessible, and visually subordinate to the active RSVP chunk.

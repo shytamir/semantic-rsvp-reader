@@ -17,7 +17,8 @@
     "tie_breaker": "lowest_cost_then_fewest_chunks_then_leftmost_longest"
   },
   "dependencies": {
-    "requirements_nlp_spike_sha256": "a07e42352f4f34144321c97a9602ba5dff142f7560d3d1025c49c9e3446f8404",
+    "requirements_nlp_spike_sha256": "3d4b6c1cec97eb4ac7e348bb5e695bb017c7cfcbb255d3638d474f3c493dd6f7",
+    "click_version": "8.1.8",
     "spacy_version": "3.7.5",
     "model_package": "en-core-web-sm",
     "model_version": "3.7.1",

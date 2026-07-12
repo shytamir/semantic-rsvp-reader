@@ -4,18 +4,16 @@ This roadmap is the priority-order view. [STATUS](STATUS.md) is the authority fo
 
 ## Now
 
-1. **S-032: Navigation and Interaction**
-   - State: `AWAITING_HUMAN_VALIDATION`
-   - Owner: Human
-   - Scope: [S-032](s032_navigation_interaction.md).
-   - Handoff: [fixed navigation and interaction protocol](../validation/navigation_validation.md#s-032-navigation-and-interaction-validation).
+1. **S-033: Mobile Presentation and Accessibility**
+   - State: `READY_FOR_IMPLEMENTATION`
+   - Owner: Codex
+   - Scope: [S-033](s033_mobile_presentation_accessibility.md).
 
 ## Next
 
-1. **S-033: Mobile Presentation and Accessibility** — `SCHEDULED`; [scope](s033_mobile_presentation_accessibility.md).
-2. **S-034: Evidence Capture and Reproducibility** — `SCHEDULED`; [scope](s034_evidence_capture_reproducibility.md).
-3. **S-035: Service Surfaces and Fallback** — `SCHEDULED`; [scope](s035_service_surfaces_fallback.md).
-4. **S-036: End-to-End Prototype Readiness** — `SCHEDULED`; [scope](s036_end_to_end_prototype_readiness.md).
+1. **S-034: Evidence Capture and Reproducibility** — `SCHEDULED`; [scope](s034_evidence_capture_reproducibility.md).
+2. **S-035: Service Surfaces and Fallback** — `SCHEDULED`; [scope](s035_service_surfaces_fallback.md).
+3. **S-036: End-to-End Prototype Readiness** — `SCHEDULED`; [scope](s036_end_to_end_prototype_readiness.md).
 
 These slices are ordered but not authorized for implementation until separately activated.
 

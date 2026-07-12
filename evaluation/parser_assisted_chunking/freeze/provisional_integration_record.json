@@ -29,6 +29,7 @@
     "runtime_model_downloads": false
   },
   "dependencies": {
+    "click_version": "8.1.8",
     "spacy_version": "3.7.5",
     "model_package": "en-core-web-sm",
     "model_version": "3.7.1",
@@ -42,7 +43,7 @@
     "semantic_rsvp/timing/schedule.py": "886187996909e615d370e2f99042f27e915ccbfe84d0be47db98ed0a35dc5648",
     "requirements.txt": "2338819018f03e7fad5cb1675c5add30f4754d34e2ddcc51f0a9730b291125aa",
     "requirements-core.txt": "c66ad7be4b7fd2063034fa3b464150307c7475e09ada20453dac647adf0771d8",
-    "requirements-nlp-spike.txt": "56100e8c7f0e8c8453949a84c870ad3793867480ee716a9fae6d17eaefed0527"
+    "requirements-nlp-spike.txt": "3d4b6c1cec97eb4ac7e348bb5e695bb017c7cfcbb255d3638d474f3c493dd6f7"
   },
   "architecture_scope": {
     "distinguishes_scientific_experiment_freeze": true,
