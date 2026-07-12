@@ -2,7 +2,7 @@
 
 ## Status
 
-Provisional post-S-038 scope. Not active or authorized.
+Provisional post-S-038A scope. Not active or authorized.
 
 ## Objective
 
@@ -10,7 +10,7 @@ Establish a project-owned application-service boundary for schedule generation a
 
 ## Dependency And Initiating Reason
 
-Depends on S-038. Current Flask handling needs a narrow injectable seam before additional document sources are introduced.
+Depends on S-038A. Current Flask handling needs a narrow injectable seam before additional document sources are introduced.
 
 ## In Scope
 

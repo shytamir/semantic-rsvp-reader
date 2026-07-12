@@ -2,7 +2,7 @@
 
 ## Status
 
-`AWAITING_HUMAN_VALIDATION`, active, and owned by the human. The bounded automated baseline passes locally; GitHub issue #13 remains open as detailed authority. Use the fixed [S-038 confirmation protocol](../validation/s038_minimal_browser_regression_baseline.md). S-039 through S-043 remain provisional, inactive, and unauthorized.
+`AWAITING_HUMAN_VALIDATION`, active, and owned by the human. The bounded automated baseline passes locally; GitHub issue #13 remains open as detailed authority. Use the fixed [S-038 confirmation protocol](../validation/s038_minimal_browser_regression_baseline.md). [S-038A](s038_parser_ci_evaluation_surface.md) is the provisional immediate successor; S-038A and S-039 through S-043 remain inactive and unauthorized.
 
 ## Objective
 

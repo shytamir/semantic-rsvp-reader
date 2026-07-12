@@ -15,7 +15,7 @@ previous_slice: S-037
 
 ## Current Slice
 
-The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-038 is the sole active scope at `AWAITING_HUMAN_VALIDATION`, owned by the human, with GitHub issue #13 open as detailed authority. Review the fixed [S-038 confirmation protocol](../validation/s038_minimal_browser_regression_baseline.md). S-039 through S-043 remain provisional, inactive, and unauthorized.
+The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-038 is the sole active scope at `AWAITING_HUMAN_VALIDATION`, owned by the human, with GitHub issue #13 open as detailed authority. Review the fixed [S-038 confirmation protocol](../validation/s038_minimal_browser_regression_baseline.md). S-038A is the provisional immediate successor under GitHub issue #25, with issue #23 as its bounded implementation work. S-038A and S-039 through S-043 remain inactive and unauthorized.
 
 ## S-037 Outcome
 
@@ -68,6 +68,7 @@ S-034 completed as `passed` on 2026-07-12 from human-owned evidence commit `eafa
 ## Next Actions
 
 - The human runs the fixed [S-038 confirmation protocol](../validation/s038_minimal_browser_regression_baseline.md) without treating browser automation as qualitative phone evidence.
+- Keep S-038A provisional and inactive until S-038 is separately dispositioned.
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks

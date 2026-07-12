@@ -5,27 +5,28 @@ This roadmap is the priority-order view. [STATUS](STATUS.md) is the authority fo
 ## Now
 
 1. **S-038: Minimal Browser Regression Baseline**
-   - State: `READY_FOR_IMPLEMENTATION`
-   - Owner: Codex
+   - State: `AWAITING_HUMAN_VALIDATION`
+   - Owner: Human
    - Scope: [S-038](s038_minimal_browser_regression_baseline.md); detailed authority: GitHub issue #13.
 
 ## Next
 
-S-039 through S-043 remain `PROVISIONAL`, inactive, and unauthorized in the strict order defined by the [Document Reader Productization Program](document_reader_productization_program.md).
+S-038A is the provisional immediate successor to S-038 and predecessor to S-039. S-038A and S-039 through S-043 remain inactive and unauthorized in the strict order defined by the [Document Reader Productization Program](document_reader_productization_program.md).
 
 ## Document Reader Productization Program
 
 Human decision D-010 authorizes program entry after the recorded S-036 `ready` disposition. S-037 completed as `passed` with disposition `retain_parser_default_with_mandatory_automatic_fallback`; only S-038 is active:
 
 1. **S-037: Evaluation Anomaly Investigation and Parser Operating-Policy Decision** — completed as `passed`; disposition `retain_parser_default_with_mandatory_automatic_fallback`; [scope](s037_evaluation_anomaly_parser_policy.md); GitHub issue #12.
-2. **S-038: Minimal Browser Regression Baseline** — `READY_FOR_IMPLEMENTATION`, owned by Codex; [scope](s038_minimal_browser_regression_baseline.md); GitHub issue #13.
-3. **S-039: Application-Service Boundary and Source-Document Contract** — `PROVISIONAL`; [scope](s039_application_service_source_document_contract.md). Includes tracked work item S-039A, GitHub issue #2.
-4. **S-040: Plain Text, Markdown, and Bounded Clean-HTML Ingestion** — `PROVISIONAL`; [scope](s040_document_ingestion.md).
-5. **S-041: Local Reading Continuity** — `PROVISIONAL`; [scope](s041_local_reading_continuity.md).
-6. **S-042: EPUB Ingestion and Long-Document Navigation** — `PROVISIONAL`; [scope](s042_epub_long_document_navigation.md).
-7. **S-043: Limited Beta Distribution and External Trial** — `PROVISIONAL`; [scope](s043_limited_beta_external_trial.md).
+2. **S-038: Minimal Browser Regression Baseline** — `AWAITING_HUMAN_VALIDATION`, owned by Human; [scope](s038_minimal_browser_regression_baseline.md); GitHub issue #13.
+3. **S-038A: Parser CI Evaluation-Surface Coverage** — `PROVISIONAL`, inactive, and unauthorized; [scope](s038_parser_ci_evaluation_surface.md); GitHub issue #25, with issue #23 as bounded implementation work.
+4. **S-039: Application-Service Boundary and Source-Document Contract** — `PROVISIONAL`; [scope](s039_application_service_source_document_contract.md). Depends on S-038A and includes tracked work item S-039A, GitHub issue #2.
+5. **S-040: Plain Text, Markdown, and Bounded Clean-HTML Ingestion** — `PROVISIONAL`; [scope](s040_document_ingestion.md).
+6. **S-041: Local Reading Continuity** — `PROVISIONAL`; [scope](s041_local_reading_continuity.md).
+7. **S-042: EPUB Ingestion and Long-Document Navigation** — `PROVISIONAL`; [scope](s042_epub_long_document_navigation.md).
+8. **S-043: Limited Beta Distribution and External Trial** — `PROVISIONAL`; [scope](s043_limited_beta_external_trial.md).
 
-The [Document Reader Productization Program](document_reader_productization_program.md) defines dependency order and shared boundaries. S-039 through S-043 are not active or authorized. GitHub issue #24 is an authorized non-blocking follow-up and is not active. S-043's external-trial gate is not interpreted or advanced by this transition.
+The [Document Reader Productization Program](document_reader_productization_program.md) defines dependency order and shared boundaries. S-038A and S-039 through S-043 are not active or authorized. GitHub issue #24 is an authorized non-blocking follow-up and is not active. S-043's external-trial gate is not interpreted or advanced by this transition.
 
 ## Later
 
