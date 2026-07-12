@@ -75,4 +75,8 @@ Human recorded disposition below.
 ## Human Disposition
 
 `retain_parser_default_with_mandatory_automatic_fallback`
-We're seeing acceptable behavio from the new parser default, and the reapir won't hurt the fallback. The only violation is of arbitrary limit on number of acceptable expected S-023/S-024 failing tests. Human accepts the recorded limitations of unsafe mapping and unscorable output. No required follow-up issue. S-038 may be activated after this slice concludes, which it should considering the positive, non-blocking human dispostion recorded.
+We're seeing acceptable behavio from the new parser default, and the reapir won't hurt the fallback. The corrected evaluator invalidates historical count assertions that treated one unscorable mapping as multiple confirmed product failures. 
+This is an evidence-classification correction, not a parser regression or reduction in fallback safety. Human accepts the recorded limitations of unsafe mapping and unscorable output. 
+Recommended non-blocking follow-up issue: Ensure the rule-based fallback preserves normalized source characters, particularly curly quotation marks, and add source-reconstruction postconditions around fallback output. 
+S-038 may be activated after this slice concludes, which it should considering the positive, non-blocking human dispostion recorded.
+D-009 should be updated in DECISIONS.md to reflect post-S-037 confirmation.
