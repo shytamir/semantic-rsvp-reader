@@ -131,7 +131,7 @@ Detailed in-app defect reports from the S-021 validation session were accidental
 
 ## Next Actions
 
-- Implement the preserved [S-033 scope](s033_mobile_presentation_accessibility.md).
+- The human runs the fixed [S-033 phone-browser validation protocol](../validation/s033_mobile_presentation_accessibility_validation.md).
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks

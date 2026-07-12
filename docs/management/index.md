@@ -19,6 +19,12 @@ Historical slice scopes are preserved in the [management archive](archive/index.
 - Root scope documents: [S-031](s031_playback_adaptation.md), [S-032](s032_navigation_interaction.md), [S-033](s033_mobile_presentation_accessibility.md), [S-034](s034_evidence_capture_reproducibility.md), [S-035](s035_service_surfaces_fallback.md), [S-036](s036_end_to_end_prototype_readiness.md).
 - S-034 through S-036 are scheduled only and are not authorized for implementation.
 
+## Provisional Post-Stabilization Program
+
+- The [Document Reader Productization Program](document_reader_productization_program.md) provisionally orders S-037 through S-043 after S-036 and remains subordinate to S-034 through S-036 outcomes.
+- Provisional scopes: [S-037](s037_evaluation_anomaly_parser_policy.md), [S-038](s038_minimal_browser_regression_baseline.md), [S-039](s039_application_service_source_document_contract.md), [S-040](s040_document_ingestion.md), [S-041](s041_local_reading_continuity.md), [S-042](s042_epub_long_document_navigation.md), and [S-043](s043_limited_beta_external_trial.md).
+- S-039 includes tracked work item S-039A, GitHub issue #2. None of these scopes is active or authorized.
+
 Compatibility pointers:
 
 - [Root TODO](../../TODO.md): short pointer to this hierarchy.

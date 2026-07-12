@@ -15,14 +15,15 @@ This file is non-authoritative. It preserves ideas that should not compete with 
 
 The authoritative order is in the [roadmap](roadmap.md). These are approved destinations, not active implementation authorizations:
 
-1. S-037: S-024 Coverage and Mapping Anomaly Investigation.
-2. S-038: Document Ingestion Foundation for plain text, Markdown, and suitable clean HTML/article input.
-3. S-039: Local Reading Continuity without accounts or cloud services.
-4. S-040: Minimal Browser Regression Coverage for critical stabilized flows.
-5. S-041: EPUB and Long-Document Navigation with heading navigation and a lightweight contents view.
-6. S-042: Beta Distribution and External Trial with explicit prototype/privacy limitations.
+1. S-037: Evaluation Anomaly Investigation and Parser Operating-Policy Decision.
+2. S-038: Minimal Browser Regression Baseline for stabilized critical flows.
+3. S-039: Application-Service Boundary and Source-Document Contract, including S-039A tracked by GitHub issue #2.
+4. S-040: Plain Text, Markdown, and Bounded Clean-HTML Ingestion.
+5. S-041: Local Reading Continuity without accounts or cloud services.
+6. S-042: EPUB Ingestion and Long-Document Navigation with heading navigation and a lightweight contents view.
+7. S-043: Limited Beta Distribution and External Trial with explicit prototype/privacy limitations.
 
-PDF is not bundled with EPUB. Its extraction and reading-order quality remain a separate post-S-042 evaluation problem.
+These scopes are defined by the [Document Reader Productization Program](document_reader_productization_program.md), remain provisional, and depend on S-034 through S-036 outcomes. PDF is not bundled with EPUB; its extraction and reading-order quality remain a separate post-S-043 evaluation problem.
 
 ## Parked
 
@@ -35,9 +36,9 @@ PDF is not bundled with EPUB. Its extraction and reading-order quality remain a 
 - Production-grade deployment infrastructure.
 - Frontend framework migration.
 - General npm toolchain migration.
-- Browser-automation expansion beyond the minimal S-040 smoke suite.
+- Browser-automation expansion beyond the minimal S-038 baseline.
 - Full Markdown rendering.
-- Rich-document rendering beyond the scoped S-038/S-041 foundations.
+- Rich-document rendering beyond the scoped S-040/S-042 foundations.
 - Native packaging.
 - Public performance claims.
 - Broad hand-written semantic or grammatical exception-family expansion while the parser-assisted chunking experiment is pending.
@@ -45,5 +46,5 @@ PDF is not bundled with EPUB. Its extraction and reading-order quality remain a 
 
 ## Unscheduled Hygiene
 
-- Additional CI, packaging, or release automation beyond the planned S-040/S-042 boundaries should wait for a concrete need and separate authorization.
+- Additional CI, packaging, or release automation beyond the provisional S-038/S-043 boundaries should wait for a concrete need and separate authorization.
 - Further documentation consolidation should be done only if new docs begin competing with STATUS or the roadmap again.
