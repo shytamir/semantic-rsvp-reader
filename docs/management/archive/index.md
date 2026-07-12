@@ -2,6 +2,10 @@
 
 These documents are preserved as historical evidence. They are not the current project-management authority.
 
+## S-033
+
+- [S-033 Mobile Presentation and Accessibility](s033_mobile_presentation_accessibility.md)
+
 ## S-032
 
 - [S-032 Navigation and Interaction](s032_navigation_interaction.md)

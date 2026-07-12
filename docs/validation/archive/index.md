@@ -2,6 +2,10 @@
 
 These documents are preserved as historical evidence. They are not the current project-management authority.
 
+## S-033
+
+- [S-033 Mobile Presentation and Accessibility Validation](s033_mobile_presentation_accessibility_validation.md)
+
 ## S-031
 
 - [S-031 Playback and Adaptation Validation](s031_playback_adaptation_validation.md)

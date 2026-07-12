@@ -2,7 +2,7 @@
 
 ## Automated Preparation
 
-The committed [characterization record](../../evaluation/mobile_presentation_accessibility/s033_characterization.json) inventories the shipped responsive shell and the fixed viewport/content matrix. Reproduce it with:
+The committed [characterization record](../../../evaluation/mobile_presentation_accessibility/s033_characterization.json) inventories the shipped responsive shell and the fixed viewport/content matrix. Reproduce it with:
 
 ```bash
 python scripts/characterize_s033_mobile_presentation_accessibility.py --check
@@ -15,7 +15,7 @@ The source checks cover visible keyboard focus, dynamic viewport and safe-area h
 Record the phone/browser and orientation used, then run these checks against the pushed commit. Use the existing prepare-screen sample collections; the linked structural stream is directly copyable.
 
 1. Load any General long-form validation corpus sample. In phone portrait, enter reader mode and check the active chunk, ghost, progress, and all controls at the beginning, middle, and end. Confirm no clipping, horizontal scrolling, overlap, or unexpected size shift.
-2. Copy the raw [S-032 structural stream](../../evaluation/navigation_interaction/s032_structural_stream.txt), paste it into the prepare screen, and enter reader mode in phone landscape. Step through both headings and confirm the structure label, ghost, active chunk, footer, and safe-area edges stay in separate readable lanes.
+2. Copy the raw [S-032 structural stream](../../../evaluation/navigation_interaction/s032_structural_stream.txt), paste it into the prepare screen, and enter reader mode in phone landscape. Step through both headings and confirm the structure label, ghost, active chunk, footer, and safe-area edges stay in separate readable lanes.
 3. Load `dev-width-0006` from **S-030 semantic and structural cases**. Check it in the narrowest practical portrait and landscape viewports. Confirm long chunks and the extra-long token remain legible without page-level horizontal overflow or hidden controls.
 4. Repeat an ordinary long-form sample in a wide browser viewport. Confirm the reader remains centered, the active chunk dominates, and ghost/structure/progress/breakpoint cues remain visually subordinate.
 5. Open the speed overlay in portrait and landscape. Confirm all speed controls and Close remain visible, reachable, and do not cover essential reader controls.

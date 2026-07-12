@@ -6,7 +6,7 @@ This program orders validation of the shipped prototype without authorizing mult
 2. **[S-030: Semantic Output and Structural Integrity](archive/s030_semantic_output_structural_integrity.md)** — completed as `passed`.
 3. **[S-031: Playback and Adaptation](archive/s031_playback_adaptation.md)** — completed as `passed`.
 4. **[S-032: Navigation and Interaction](archive/s032_navigation_interaction.md)** — completed as `passed`.
-5. **[S-033: Mobile Presentation and Accessibility](s033_mobile_presentation_accessibility.md)** — completed as `passed`.
+5. **[S-033: Mobile Presentation and Accessibility](archive/s033_mobile_presentation_accessibility.md)** — completed as `passed`.
 6. **[S-034: Evidence Capture and Reproducibility](s034_evidence_capture_reproducibility.md)** — completed as `passed`.
 7. **[S-035: Service Surfaces and Fallback](s035_service_surfaces_fallback.md)** — completed as `passed`.
 8. **[S-035A: Development Environment Contract](s035a_development_environment_contract.md)** — completed as `passed`; detailed authority is GitHub issue #21.
