@@ -1,21 +1,21 @@
 # Project Status
 
 ```yaml
-current_slice: S-040
-active_scope: none
-name: Plain Text, Markdown, and Bounded Clean-HTML Ingestion
-state: COMPLETED
-owner: none
-agent_action: await the separate S-041 activation stage
+current_slice: S-041
+active_scope: S-041
+name: Local Reading Continuity
+state: READY_FOR_IMPLEMENTATION
+owner: Codex
+agent_action: implement bounded versioned browser-local reading continuity
 blocked_on: none
 started: 2026-07-12
-scope: docs/management/s040_document_ingestion.md
-previous_slice: S-039
+scope: docs/management/s041_local_reading_continuity.md
+previous_slice: S-040
 ```
 
 ## Current Slice
 
-The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-040 completed as `passed` from human-evidence commit `fb618d269f70f5497154f1309db84e69bf8f5451`. No scope is active. S-041 through S-043 remain provisional, inactive, and unauthorized.
+The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-041 is current at `READY_FOR_IMPLEMENTATION`, owned by Codex, with GitHub issue #16 as detailed authority. S-042 and S-043 remain provisional, inactive, and unauthorized.
 
 ## S-040 Outcome
 
@@ -83,7 +83,7 @@ S-034 completed as `passed` on 2026-07-12 from human-owned evidence commit `eafa
 
 ## Next Actions
 
-- Await the separate management stage that activates S-041.
+- Implement bounded local continuity under issue #16 without activating S-042.
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks

@@ -2,7 +2,7 @@
 
 ## Status
 
-Provisional post-S-040 scope. Not active or authorized.
+`READY_FOR_IMPLEMENTATION`, active, and owned by Codex. GitHub issue #16 is detailed authority. S-042 and S-043 remain provisional, inactive, and unauthorized.
 
 ## Objective
 
