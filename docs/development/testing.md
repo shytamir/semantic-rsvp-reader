@@ -29,6 +29,16 @@ python -m pytest tests/test_document_ingestion.py tests/test_source_document.py 
 The fixtures and accepted limits are documented in [bounded local document
 ingestion](../features/document_ingestion.md).
 
+For the framework-independent S-042A EPUB foundation:
+
+```bash
+python -m pytest tests/test_epub_ingestion.py
+```
+
+The supported subset, safety limits, project-owned fixture, identity, and
+compatibility contract are documented in [bounded EPUB
+ingestion](../features/epub_ingestion.md).
+
 For S-041 browser-local continuity:
 
 ```bash

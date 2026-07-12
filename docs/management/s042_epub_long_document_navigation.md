@@ -22,7 +22,9 @@ Depends on S-040 ingestion contracts and S-041 continuity. EPUB introduces order
 
 ### S-042A: EPUB Ingestion Foundation
 
-`READY_FOR_IMPLEMENTATION`, active, and owned by Codex. Define a deliberately limited EPUB subset; safely validate the ZIP container and required EPUB metadata; extract readable spine content deterministically; preserve supported headings and bounded provenance; produce stable `SourceDocument` identity; and prove scheduling and continuity compatibility. This objectively verifiable foundation has no human gate.
+`STABILIZATION_IN_PROGRESS`, active, and owned by Codex. The deliberately limited EPUB subset safely validates the ZIP container and required EPUB metadata, extracts readable spine content deterministically, preserves supported headings and bounded provenance, produces stable `SourceDocument` identity, and proves scheduling and continuity compatibility. This objectively verifiable foundation has no human gate and completes only after applicable remote checks pass.
+
+Implementation and executed evidence are recorded in [S-042A validation](../validation/s042a_epub_ingestion_foundation.md); the supported subset and limits are in [bounded EPUB ingestion](../features/epub_ingestion.md).
 
 ### S-042B: Contents And Heading Navigation
 

@@ -4,9 +4,9 @@
 current_slice: S-042
 active_scope: S-042A
 name: EPUB Ingestion Foundation
-state: READY_FOR_IMPLEMENTATION
+state: STABILIZATION_IN_PROGRESS
 owner: Codex
-agent_action: implement the bounded EPUB ingestion foundation
+agent_action: inspect the immediately available remote validation result
 blocked_on: none
 started: 2026-07-12
 scope: docs/management/s041_local_reading_continuity.md
@@ -15,7 +15,7 @@ previous_slice: S-041
 
 ## Current Slice
 
-The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-042A is the sole active scope at `READY_FOR_IMPLEMENTATION`, owned by Codex, with GitHub issue #17 as umbrella authority. S-042B, S-042C, and S-043 remain provisional, inactive, and unauthorized.
+The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-042A is the sole active scope in Codex-owned stabilization, with GitHub issue #17 as umbrella authority. S-042B, S-042C, and S-043 remain provisional, inactive, and unauthorized.
 
 ## S-041 Outcome
 
@@ -87,7 +87,7 @@ S-034 completed as `passed` on 2026-07-12 from human-owned evidence commit `eafa
 
 ## Next Actions
 
-- Implement only S-042A's framework-independent EPUB ingestion foundation.
+- Inspect the immediately available CI result for the pushed S-042A implementation; complete only if applicable checks pass.
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks
