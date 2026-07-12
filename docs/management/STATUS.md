@@ -4,9 +4,9 @@
 current_slice: S-040
 active_scope: S-040
 name: Plain Text, Markdown, and Bounded Clean-HTML Ingestion
-state: READY_FOR_IMPLEMENTATION
-owner: Codex
-agent_action: implement bounded local ingestion through the S-039 SourceDocument contract
+state: AWAITING_HUMAN_VALIDATION
+owner: Human
+agent_action: run the fixed representative-file ingestion protocol and record a disposition
 blocked_on: none
 started: 2026-07-12
 scope: docs/management/s040_document_ingestion.md
@@ -15,7 +15,7 @@ previous_slice: S-039
 
 ## Current Slice
 
-The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-040 is current at `READY_FOR_IMPLEMENTATION`, owned by Codex, with GitHub issue #15 as detailed authority. S-041 through S-043 remain provisional, inactive, and unauthorized.
+The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-040 is current at `AWAITING_HUMAN_VALIDATION`, owned by Human, with GitHub issue #15 open as detailed authority. Review the fixed [S-040 representative-file protocol](../validation/s040_document_ingestion.md). S-041 through S-043 remain provisional, inactive, and unauthorized.
 
 ## S-039 Outcome
 
@@ -79,7 +79,7 @@ S-034 completed as `passed` on 2026-07-12 from human-owned evidence commit `eafa
 
 ## Next Actions
 
-- Implement S-040 bounded local ingestion through the accepted S-039 contract.
+- Run the fixed S-040 representative-file protocol and record one disposition in issue #15.
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks

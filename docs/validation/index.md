@@ -15,6 +15,7 @@ Historical slice validation records are preserved in the [validation archive](ar
 - [S-036 End-to-End Prototype Readiness Validation](archive/s036_end_to_end_prototype_readiness.md)
 - [S-037 Evaluation Anomaly and Parser Operating-Policy Decision](archive/s037_evaluation_anomaly_parser_policy.md)
 - [S-039 Application-Service and Source-Document Contract](s039_application_service_source_document_contract.md)
+- [S-040 Bounded Document Ingestion](s040_document_ingestion.md)
 - [Validation Corpus](corpus.md)
 
 Current focus:

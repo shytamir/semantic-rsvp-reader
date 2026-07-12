@@ -2,7 +2,7 @@
 
 ## Status
 
-`READY_FOR_IMPLEMENTATION`, active, and owned by Codex. GitHub issue #15 is detailed implementation authority. S-041 through S-043 remain provisional, inactive, and unauthorized.
+`AWAITING_HUMAN_VALIDATION`, active, and owned by Human. GitHub issue #15 remains open as detailed authority. Automated evidence and the fixed representative-file protocol are recorded in [S-040 validation](../validation/s040_document_ingestion.md). S-041 through S-043 remain provisional, inactive, and unauthorized.
 
 ## Objective
 
@@ -20,11 +20,13 @@ Depends on S-039 so format adapters do not couple directly to Flask or schedule 
 
 ## Codex Preparation
 
-Define accepted encodings and limits, characterize normalization, prepare fixtures, and verify records feed the existing reader path.
+The bounded contract accepts `.txt`, `.md`, `.markdown`, `.html`, and `.htm` local byte payloads encoded as UTF-8 or UTF-8 with a BOM. Each source is limited to 1,000,000 bytes and 20,000 lines. Clean HTML is additionally limited to 10,000 elements and 32 nesting levels, rejects active/embedded content, event-handler attributes, mismatched markup, and elements outside the documented article subset, and extracts text plus H1/H2 headings without rendering HTML.
+
+All adapters return the accepted immutable `SourceDocument` with source type, source text, deterministic normalized-text identity, supported H1/H2 structure, and four bounded provenance fields: adapter version, encoding, media type, and source name. They do not fetch URLs or import Flask, persistence, parser, or schedule policy.
 
 ## Human Handoff
 
-Open representative files and judge whether text, headings, provenance, and failure messages support the intended workflow.
+Follow the fixed protocol in [S-040 validation](../validation/s040_document_ingestion.md). Judge only extracted text, supported headings, bounded provenance, reader-path readability, and the named failure messages.
 
 ## Permissible Narrow Work
 

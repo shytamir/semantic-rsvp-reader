@@ -20,6 +20,15 @@ These tests preserve the existing API shapes and scheduling semantics while
 covering deterministic document identity, bounded provenance, and explicit
 route-service injection.
 
+For S-040's bounded local ingestion adapters:
+
+```bash
+python -m pytest tests/test_document_ingestion.py tests/test_source_document.py tests/test_schedule_service.py
+```
+
+The fixtures and accepted limits are documented in [bounded local document
+ingestion](../features/document_ingestion.md).
+
 The repository includes `pyproject.toml` so pytest imports the local `semantic_rsvp` package directly from a fresh clone.
 
 ## JavaScript Syntax Check

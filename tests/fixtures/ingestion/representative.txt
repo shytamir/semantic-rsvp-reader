@@ -1,0 +1,3 @@
+The local reader keeps source text deterministic.
+
+This second paragraph remains readable.
