@@ -2,7 +2,7 @@
 
 ## Gate Selection
 
-S-036 applies all six conditional gates from the [QA strategy](../qa/strategy.md):
+S-036 applies all six conditional gates from the [QA strategy](../../qa/strategy.md):
 repository, core, standard, change-specific, human, and disposition. Automated
 preparation establishes the first four. The human and disposition gates remain
 pending and cannot be passed by this record's preparation.

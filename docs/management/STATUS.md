@@ -31,7 +31,7 @@ S-037 completed as `passed` on 2026-07-12 with disposition `retain_parser_defaul
 
 ## S-036 Outcome
 
-S-036 completed as `passed` on 2026-07-12 with prototype disposition `ready`, from human-owned evidence commit `d6e945d`. All eight fixed human steps passed on the documented Samsung Galaxy S23 Ultra / Android 16 / Firefox 152 setup. No acceptance-blocking defect or new issue was found. GitHub issue #19 remains an accepted, non-blocking deferred limitation. The generated local synthetic-report file was deleted; its intentionally synthetic transcript remains committed verbatim in [S-036 validation](../validation/s036_end_to_end_prototype_readiness.md).
+S-036 completed as `passed` on 2026-07-12 with prototype disposition `ready`, from human-owned evidence commit `d6e945d`. All eight fixed human steps passed on the documented Samsung Galaxy S23 Ultra / Android 16 / Firefox 152 setup. No acceptance-blocking defect or new issue was found. GitHub issue #19 remains an accepted, non-blocking deferred limitation. The generated local synthetic-report file was deleted; its intentionally synthetic transcript remains committed verbatim in [S-036 validation](../validation/archive/s036_end_to_end_prototype_readiness.md).
 
 ## S-035B Outcome
 

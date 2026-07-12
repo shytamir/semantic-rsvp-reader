@@ -2,6 +2,10 @@
 
 These documents are preserved as historical evidence. They are not the current project-management authority.
 
+## S-036
+
+- [S-036 End-to-End Prototype Readiness](s036_end_to_end_prototype_readiness.md)
+
 ## S-035
 
 - [S-035 Service Surfaces and Fallback](s035_service_surfaces_fallback.md)

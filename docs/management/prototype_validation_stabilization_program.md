@@ -11,7 +11,7 @@ This program orders validation of the shipped prototype without authorizing mult
 7. **[S-035: Service Surfaces and Fallback](archive/s035_service_surfaces_fallback.md)** — completed as `passed`.
 8. **[S-035A: Development Environment Contract](s035a_development_environment_contract.md)** — completed as `passed`; detailed authority is GitHub issue #21.
 9. **[S-035B: QA Authority and Verification Framework](s035b_qa_authority_verification_framework.md)** — completed as `passed`; detailed authority is GitHub issue #22.
-10. **[S-036: End-to-End Prototype Readiness](s036_end_to_end_prototype_readiness.md)** — completed as `passed` with prototype disposition `ready`.
+10. **[S-036: End-to-End Prototype Readiness](archive/s036_end_to_end_prototype_readiness.md)** — completed as `passed` with prototype disposition `ready`.
 
 The program is complete. S-036 recorded the final prototype disposition as `ready`; all eight human steps passed, no acceptance-blocking defect or new issue was found, and issue #19 remains an accepted non-blocking deferred limitation. This program did not activate a successor automatically. Human decision D-010 later authorized entry into the Document Reader Productization Program and activation of S-037.
 
