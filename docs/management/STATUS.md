@@ -31,7 +31,7 @@ S-038A completed as `passed` on 2026-07-12. Parser CI run `29207917112` and Gene
 
 ## S-038 Outcome
 
-S-038 completed as `passed` on 2026-07-12, pinned to human-evidence commit `b97c189e55f259fbe80eccc7072d415af6dbb87f`. The human confirmed the bounded browser baseline supplements rather than replaces qualitative phone validation. The validation record remains verbatim in [S-038 validation](../validation/s038_minimal_browser_regression_baseline.md).
+S-038 completed as `passed` on 2026-07-12, pinned to human-evidence commit `b97c189e55f259fbe80eccc7072d415af6dbb87f`. The human confirmed the bounded browser baseline supplements rather than replaces qualitative phone validation. The validation record remains verbatim in [S-038 validation](../validation/archive/s038_minimal_browser_regression_baseline.md).
 
 ## S-037 Outcome
 

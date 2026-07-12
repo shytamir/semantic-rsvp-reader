@@ -2,6 +2,11 @@
 
 These documents are preserved as historical evidence. They are not the current project-management authority.
 
+## S-038
+
+- [S-038 Minimal Browser Regression Baseline Validation](s038_minimal_browser_regression_baseline.md)
+- [S-038A Parser CI Evaluation-Surface Coverage Validation](s038_parser_ci_evaluation_surface.md)
+
 ## S-037
 
 - [S-037 Evaluation Anomaly and Parser Operating-Policy Decision](s037_evaluation_anomaly_parser_policy.md)

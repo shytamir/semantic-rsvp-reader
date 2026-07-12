@@ -162,7 +162,7 @@ Decision: protect the stabilized critical browser flows with one project-owned N
 
 Consequences: CI may install the exact browser-test package and Chromium transiently without adding a frontend framework, package manifest, lockfile, bundler, transpiler, broad browser matrix, screenshot baseline, or general npm workflow. The smoke suite detects catastrophic contract regressions; it does not establish visual quality, touch ergonomics, accessibility, pacing, comprehension, browser parity, or device-specific usability. Those claims remain human-owned under D-003.
 
-Reference: [S-038 validation](../validation/s038_minimal_browser_regression_baseline.md).
+Reference: [S-038 validation](../validation/archive/s038_minimal_browser_regression_baseline.md).
 
 ## D-012: Minimal Source-Document Identity Contract
 
