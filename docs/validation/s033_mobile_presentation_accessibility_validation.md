@@ -26,5 +26,6 @@ Record the phone/browser and orientation used, then run these checks against the
 For every step, record `pass` or `fail` and a concise observation. A failure must name the viewport/orientation, sample, state, and affected element. Do not disposition S-033 from static checks alone.
 
 ## Human Disposition
+I used the same Samsung Galaxy S23 Ultra Android 16 Mozilla Firefox 152 device. I changed orientations according to the instructions starting with portrait and ending on a desktop device with a narrow viewport.
 
-Pending. S-033 remains `AWAITING_HUMAN_VALIDATION`, owned by the human.
+All tests have passed with no defects detected. Create a non-blocking high priotiy issue to make the coarse seek bar more than 2px, that's not something a human finger can reliably aim at. Slice is complete and can be closed.
