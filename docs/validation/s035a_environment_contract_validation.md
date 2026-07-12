@@ -25,141 +25,101 @@ failed checkout-local `.venv`.
 
 ## Human Disposition
 
-Validation failed in the first step of the protocol. no POSIX-compatible environment is actually available or necessary for this work. the rest of the protocol is blocked. Output of the error appended below:
+Validation failed in the first step of the protocol. Did not proceed to next steps. Returning to CODEX with the pytest failures report appended below.
 
 ```
-python -m pip install -r requirements.txt
-Collecting en-core-web-sm@ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl (from -r D:\Shy\semantic-rsvp-reader\requirements-nlp-spike.txt (line 7))
-  Using cached https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl (12.8 MB)
-Collecting Flask==3.1.3 (from -r D:\Shy\semantic-rsvp-reader\requirements-core.txt (line 1))
-  Using cached flask-3.1.3-py3-none-any.whl.metadata (3.2 kB)
-Collecting pytest==9.1.1 (from -r D:\Shy\semantic-rsvp-reader\requirements-core.txt (line 2))
-  Using cached pytest-9.1.1-py3-none-any.whl.metadata (7.6 kB)
-Collecting click==8.1.8 (from -r D:\Shy\semantic-rsvp-reader\requirements-nlp-spike.txt (line 5))
-  Using cached click-8.1.8-py3-none-any.whl.metadata (2.3 kB)
-Collecting spacy==3.7.5 (from -r D:\Shy\semantic-rsvp-reader\requirements-nlp-spike.txt (line 6))
-  Using cached spacy-3.7.5.tar.gz (1.3 MB)
-  Installing build dependencies ... error
-  error: subprocess-exited-with-error
+====================================================== FAILURES =======================================================
+______________________________________ test_rule_based_baseline_is_reproducible _______________________________________
 
-  × installing build dependencies for spacy did not run successfully.
-  │ exit code: 1
-  ╰─> [559 lines of output]
-      Ignoring numpy: markers 'python_version < "3.9"' don't match your environment
-      Collecting setuptools
-        Using cached setuptools-83.0.0-py3-none-any.whl.metadata (6.6 kB)
-      Collecting cython<3.0,>=0.25
-        Using cached Cython-0.29.37-py2.py3-none-any.whl.metadata (3.1 kB)
-      Collecting cymem<2.1.0,>=2.0.2
-        Using cached cymem-2.0.13-cp314-cp314-win_amd64.whl.metadata (9.9 kB)
-      Collecting preshed<3.1.0,>=3.0.2
-        Using cached preshed-3.0.13-cp314-cp314-win_amd64.whl.metadata (5.4 kB)
-      Collecting murmurhash<1.1.0,>=0.28.0
-        Using cached murmurhash-1.0.15-cp314-cp314-win_amd64.whl.metadata (2.3 kB)
-      Collecting thinc<8.3.0,>=8.2.2
-        Using cached thinc-8.2.5.tar.gz (193 kB)
-        Installing build dependencies: started
-        Installing build dependencies: finished with status 'error'
-        error: subprocess-exited-with-error
+    def test_rule_based_baseline_is_reproducible():
+        regenerated = build_baseline_payload()
+        committed = load_json(BASELINE_OUTPUT_PATH)
 
-        installing build dependencies for thinc did not run successfully.
-        exit code: 1
+>       assert regenerated == committed
+E       AssertionError: assert {'metadata': ...', ...}, ...]} == {'cases': [{'...9.1.1'}, ...}}
+E
+E         Omitting 1 identical items, use -vv to show
+E         Differing items:
+E         {'metadata': {'baseline_commit': '8b50a3049bb5d92a304a03527385c519194ce8da', 'python_version': '3.12.10', 'dependency_...': {'Flask': '3.1.3...
+E
+E         ...Full output truncated (2 lines hidden), use '-vv' to show
 
-        [534 lines of output]
-        Ignoring numpy: markers 'python_version < "3.9"' don't match your environment
-        Collecting setuptools
-          Using cached setuptools-83.0.0-py3-none-any.whl.metadata (6.6 kB)
-        Collecting cython<3.0,>=0.25
-          Using cached Cython-0.29.37-py2.py3-none-any.whl.metadata (3.1 kB)
-        Collecting murmurhash<1.1.0,>=1.0.2
-          Using cached murmurhash-1.0.15-cp314-cp314-win_amd64.whl.metadata (2.3 kB)
-        Collecting cymem<2.1.0,>=2.0.2
-          Using cached cymem-2.0.13-cp314-cp314-win_amd64.whl.metadata (9.9 kB)
-        Collecting preshed<3.1.0,>=3.0.2
-          Using cached preshed-3.0.13-cp314-cp314-win_amd64.whl.metadata (5.4 kB)
-        Collecting blis<0.8.0,>=0.7.8
-          Using cached blis-0.7.11.tar.gz (2.9 MB)
-          Installing build dependencies: started
-          Installing build dependencies: finished with status 'done'
-          Getting requirements to build wheel: started
-          Getting requirements to build wheel: finished with status 'error'
-          error: subprocess-exited-with-error
+tests\test_parser_assisted_chunking_freeze.py:39: AssertionError
+________________________________________ test_freeze_script_check_mode_passes _________________________________________
 
-          Getting requirements to build wheel did not run successfully.
-          exit code: 1
+    def test_freeze_script_check_mode_passes():
+        result = subprocess.run(
+            [sys.executable, "scripts/freeze_chunking_baseline.py", "--check"],
+            text=True,
+            capture_output=True,
+            check=False,
+        )
 
-          [507 lines of output]
+>       assert result.returncode == 0, result.stdout + result.stderr
+E       AssertionError: Rule-based baseline output changed:
+E         --- evaluation\parser_assisted_chunking\baseline\rule_based_baseline.json
+E         +++ regenerated-baseline
+E         @@ -4754,7 +4754,7 @@
+E                "regression": "e9c55c2e957c924d699b57e2622111f044997e821d43d472c7b203b28ba4fe68"
+E              },
+E              "normalization_entry_point": "semantic_rsvp.text.normalize.normalize_text",
+E         -    "python_version": "3.12.13",
+E         +    "python_version": "3.12.10",
+E              "schedule_entry_point": "semantic_rsvp.timing.schedule.schedule_text",
+E              "segmentation_entry_point": "semantic_rsvp.text.segment.split_sentences",
+E              "timing_config": {
+E
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['D:\\Shy\\semantic-rsvp-reader\\.venv\\Scripts\\python.exe', 'scripts/freeze_chunking_baseline....n     "segmentation_entry_point": "semantic_rsvp.text.segment.split_sentences",\n     "timing_config": {\n', stderr='').returncode
 
-          Error compiling Cython file:
-          ------------------------------------------------------------
-          ...
-          #
-          # See __init__.cython-30.pxd for the real Cython header
-          #
+tests\test_parser_assisted_chunking_freeze.py:50: AssertionError
+___________________________ test_s035_service_characterization_is_complete_and_reproducible ___________________________
 
-          # intentionally created compiler error that only triggers on Cython < 3.0.0
-          DEF err = int('Build aborted: the NumPy Cython headers require Cython 3.0.0 or newer.')
-                      ^
-          ------------------------------------------------------------
+    def test_s035_service_characterization_is_complete_and_reproducible():
+        report = build_report()
 
-          C:\Users\Usuario\AppData\Local\Temp\pip-build-env-t4fff4m2\overlay\Lib\site-packages\numpy\__init__.pxd:12:13: Error in compile-time expression: ValueError: invalid literal for int() with base 10: 'Build aborted: the NumPy Cython headers require Cython 3.0.0 or newer.'
-		...
-		  Error compiling Cython file:
-          ------------------------------------------------------------
-          ...
-                          A.shape[0], A.shape[1],
-                          alpha,
-                          &A[0,0], A.shape[1], 1,
-                          &B[0], 1,
-                          beta,
-                          <double*>out.data, 1)
-                                     ^
-          ------------------------------------------------------------
+        assert report["hard_failures"] == []
+>       assert report["default_state"]["configured_mode"] == "parser_assisted"
+E       AssertionError: assert 'rule_based' == 'parser_assisted'
+E
+E         - parser_assisted
+E         + rule_based
 
-          blis\py.pyx:142:28: Accessing Python attribute not allowed without gil
-          BLIS_COMPILER? None
-          Compiling blis\cy.pyx because it changed.
-          Compiling blis\py.pyx because it changed.
-          [1/2] Cythonizing blis\cy.pyx
-          [2/2] Cythonizing blis\py.pyx
-          Traceback (most recent call last):
-            File "D:\Shy\semantic-rsvp-reader\.venv\Lib\site-packages\pip\_vendor\pyproject_hooks\_in_process\_in_process.py", line 389, in <module>
-              main()
-              ~~~~^^
-            File "D:\Shy\semantic-rsvp-reader\.venv\Lib\site-packages\pip\_vendor\pyproject_hooks\_in_process\_in_process.py", line 373, in main
-              json_out["return_val"] = hook(**hook_input["kwargs"])
-                                       ~~~~^^^^^^^^^^^^^^^^^^^^^^^^
-            File "D:\Shy\semantic-rsvp-reader\.venv\Lib\site-packages\pip\_vendor\pyproject_hooks\_in_process\_in_process.py", line 143, in get_requires_for_build_wheel
-              return hook(config_settings)
-            File "C:\Users\Usuario\AppData\Local\Temp\pip-build-env-t4fff4m2\overlay\Lib\site-packages\setuptools\build_meta.py", line 333, in get_requires_for_build_wheel
-              return self._get_build_requires(config_settings, requirements=[])
-                     ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            File "C:\Users\Usuario\AppData\Local\Temp\pip-build-env-t4fff4m2\overlay\Lib\site-packages\setuptools\build_meta.py", line 301, in _get_build_requires
-              self.run_setup()
-              ~~~~~~~~~~~~~~^^
-            File "C:\Users\Usuario\AppData\Local\Temp\pip-build-env-t4fff4m2\overlay\Lib\site-packages\setuptools\build_meta.py", line 317, in run_setup
-              exec(code, locals())
-              ~~~~^^^^^^^^^^^^^^^^
-            File "<string>", line 305, in <module>
-            File "C:\Users\Usuario\AppData\Local\Temp\pip-build-env-t4fff4m2\overlay\Lib\site-packages\Cython\Build\Dependencies.py", line 1115, in cythonize
-              cythonize_one(*args)
-              ~~~~~~~~~~~~~^^^^^^^
-            File "C:\Users\Usuario\AppData\Local\Temp\pip-build-env-t4fff4m2\overlay\Lib\site-packages\Cython\Build\Dependencies.py", line 1238, in cythonize_one
-              raise CompileError(None, pyx_file)
-          Cython.Compiler.Errors.CompileError: blis\py.pyx
-          [end of output]
+tests\test_s035_service_surfaces_characterization.py:10: AssertionError
+-------------------------------------------------- Captured log call --------------------------------------------------
+WARNING  semantic_rsvp.chunking.selection:selection.py:71 Parser-assisted chunker fell back to rule_based; reason_category=parser_unavailable
+_____________________ test_standard_profile_api_contracts_use_real_pinned_parser_and_json_records _____________________
 
-          note: This error originates from a subprocess, and is likely not a problem with pip.
-        ERROR: Failed to build 'blis' when getting requirements to build wheel
-        [end of output]
+    def test_standard_profile_api_contracts_use_real_pinned_parser_and_json_records():
+        app = create_app({"TESTING": True})
+        client = app.test_client()
 
-        note: This error originates from a subprocess, and is likely not a problem with pip.
-      ERROR: Failed to build 'thinc' when installing build dependencies for thinc
-      [end of output]
+        health = client.get("/health")
+        assert health.status_code == 200
+>       assert health.get_json()["chunking"]["configured_mode"] == "parser_assisted"
+E       AssertionError: assert 'rule_based' == 'parser_assisted'
+E
+E         - parser_assisted
+E         + rule_based
 
-  note: This error originates from a subprocess, and is likely not a problem with pip.
+tests\test_standard_profile_api.py:23: AssertionError
+___________________________________ test_app_creation_uses_parser_assisted_default ____________________________________
 
-[notice] A new release of pip is available: 25.3 -> 26.1.2
-[notice] To update, run: python.exe -m pip install --upgrade pip
-ERROR: Failed to build 'spacy' when installing build dependencies for spacy
+    def test_app_creation_uses_parser_assisted_default():
+        app = create_app({"TESTING": True})
+
+>       assert app.config["RSVP_CHUNKER_MODE"] == "parser_assisted"
+E       AssertionError: assert 'rule_based' == 'parser_assisted'
+E
+E         - parser_assisted
+E         + rule_based
+
+tests\test_web_chunking_integration.py:9: AssertionError
+=============================================== short test summary info ===============================================
+FAILED tests/test_parser_assisted_chunking_freeze.py::test_rule_based_baseline_is_reproducible - AssertionError: assert {'metadata': ...', ...}, ...]} == {'cases': [{'...9.1.1'}, ...}}
+FAILED tests/test_parser_assisted_chunking_freeze.py::test_freeze_script_check_mode_passes - AssertionError: Rule-based baseline output changed:
+FAILED tests/test_s035_service_surfaces_characterization.py::test_s035_service_characterization_is_complete_and_reproducible - AssertionError: assert 'rule_based' == 'parser_assisted'
+FAILED tests/test_standard_profile_api.py::test_standard_profile_api_contracts_use_real_pinned_parser_and_json_records - AssertionError: assert 'rule_based' == 'parser_assisted'
+FAILED tests/test_web_chunking_integration.py::test_app_creation_uses_parser_assisted_default - AssertionError: assert 'rule_based' == 'parser_assisted'
+=========================================== 5 failed, 286 passed in 18.09s ============================================
 ```
