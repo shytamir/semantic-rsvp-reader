@@ -36,24 +36,34 @@ Use one browser profile and this exact text:
 
 1. Select `Clear all local reading data`. Confirm the status reports clearing
    document references and preferences.
+   Human confirmed.
 2. Prepare the fixed text, advance at least two chunks, set a breakpoint, change
    speed through the long-press speed controls, and disable adaptation. Note the
    current chunk, then select `Edit`.
+   Human confirmed. Executed breakpoint creation and Edit button press at chunk 4.
 3. Reload the page. Confirm no source text or reader screen is reconstructed,
    playback is not active, and the status reports one saved document reference.
+   Human reports source text persists in paste box after reload. reader screen is not reconstructed however.
 4. Paste and prepare the same fixed text. Confirm the noted chunk and breakpoint
    restore, the reader remains paused with a `Play` control, and the speed and
    adaptation preferences remain selected. Press `Play` once and confirm reading
    resumes from the restored chunk, then pause.
+   Human confirmed.
 5. Select `Reset`, reload, and prepare the same text again. Confirm restoration
    is paused at the first chunk.
+   Human confirmed.
 6. Select `Remove current saved state`, reload, and prepare the same text again.
    Confirm it opens as a new document at the first chunk with no breakpoint.
+   Human confirmed. Message displayed at the bottom verbatim: `New local document reference.`
 7. Advance once, select `Edit`, reload without pasting the text, and confirm the
    saved reference cannot reconstruct the missing document. Select `Clear all
    local reading data` and confirm the saved-reference count returns to zero.
+   Human confirmed. Message displayed at bottom verbatim: `1 saved document reference; 
+   prepare matching text to restore.` before `Clear all local reading data`.
+   After clear and load of same text the message reads: `New local document reference`.
 
 Record exactly one outcome: `passed`, `partially_passed`, `failed`, or
 `inconclusive`. Report incorrect restoration, automatic playback, retained
 source text, preference mixing, unclamped navigation, ineffective reset/removal,
 or missing-document reconstruction. Do not assess S-042 or any EPUB behavior.
+Human records `passed` outcome. No observable defects detected. Human validation gate has `passed`. Authorized to proceed.
