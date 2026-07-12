@@ -2,7 +2,7 @@
 
 ## Status
 
-Provisional post-S-038A scope. Not active or authorized.
+`READY_FOR_IMPLEMENTATION`, active, and owned by Codex. GitHub issue #2 is active as bounded implementation work S-039A. S-040 through S-043 remain provisional, inactive, and unauthorized.
 
 ## Objective
 
@@ -33,7 +33,7 @@ Refactor only the schedule-generation seam and directly required source-document
 
 ## Non-Goals
 
-No new ingestion format, accounts, database, cloud service, parser redesign, public API redesign, or issue #2 implementation before S-039 activation.
+No new ingestion format, accounts, database, cloud service, parser redesign, public API redesign, issue #24 implementation, or S-040 activation.
 
 ## Completion Boundary
 

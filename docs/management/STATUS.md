@@ -1,21 +1,21 @@
 # Project Status
 
 ```yaml
-current_slice: S-038
-active_scope: none
-name: Parser CI Evaluation-Surface Coverage
-state: COMPLETED
-owner: none
-agent_action: await separate human authorization for S-039
+current_slice: S-039
+active_scope: S-039A
+name: Application-Service Boundary and Source-Document Contract
+state: READY_FOR_IMPLEMENTATION
+owner: Codex
+agent_action: implement the smallest missing source-document and injection contract delta
 blocked_on: none
 started: 2026-07-12
-scope: docs/management/s038_parser_ci_evaluation_surface.md
+scope: docs/management/s039_application_service_source_document_contract.md
 previous_slice: S-038A
 ```
 
 ## Current Slice
 
-The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. Under the lettered-slice convention, `current_slice` remains S-038 and S-038A completed as `passed` after the localized cross-platform evidence-identity repair. No scope is active. S-039 through S-043 remain provisional, inactive, and unauthorized.
+The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-039 is current at `READY_FOR_IMPLEMENTATION`, owned by Codex, with GitHub issue #2 active as bounded implementation work S-039A. S-040 through S-043 remain provisional, inactive, and unauthorized.
 
 ## S-038A Outcome
 
@@ -75,7 +75,7 @@ S-034 completed as `passed` on 2026-07-12 from human-owned evidence commit `eafa
 
 ## Next Actions
 
-- Await separate human authorization before activating S-039.
+- Implement S-039's smallest missing application-service and source-document contract delta under issue #2.
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks
