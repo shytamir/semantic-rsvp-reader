@@ -2,7 +2,7 @@
 
 ## Status
 
-S-042 is split into bounded lettered scopes under open umbrella issue #17. Only S-042A is active at `READY_FOR_IMPLEMENTATION`, owned by Codex. S-042B and S-042C are provisional, inactive, and unauthorized.
+S-042 is split into bounded lettered scopes under open umbrella issue #17. S-042A completed as `passed` on 2026-07-13. No scope is active. S-042B and S-042C are provisional, inactive, and unauthorized.
 
 ## Objective
 
@@ -22,7 +22,7 @@ Depends on S-040 ingestion contracts and S-041 continuity. EPUB introduces order
 
 ### S-042A: EPUB Ingestion Foundation
 
-`STABILIZATION_IN_PROGRESS`, active, and owned by Codex. The deliberately limited EPUB subset safely validates the ZIP container and required EPUB metadata, extracts readable spine content deterministically, preserves supported headings and bounded provenance, produces stable `SourceDocument` identity, and proves scheduling and continuity compatibility. This objectively verifiable foundation has no human gate and completes only after applicable remote checks pass.
+`COMPLETED` as `passed` on 2026-07-13. The deliberately limited EPUB subset safely validates the ZIP container and required EPUB metadata, extracts readable spine content deterministically, preserves supported headings and bounded provenance, produces stable `SourceDocument` identity, and proves scheduling and continuity compatibility. The human accepted the unrelated pre-existing S-031 characterization failure in CI Core as non-blocking for this objectively verified foundation.
 
 Implementation and executed evidence are recorded in [S-042A validation](../validation/s042a_epub_ingestion_foundation.md); the supported subset and limits are in [bounded EPUB ingestion](../features/epub_ingestion.md).
 
