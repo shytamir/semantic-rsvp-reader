@@ -2,7 +2,7 @@
 
 ## Status
 
-S-042 is split into bounded lettered scopes under open umbrella issue #17. S-042A completed as `passed` on 2026-07-13. No scope is active. S-042B and S-042C are provisional, inactive, and unauthorized.
+S-042 is split into bounded lettered scopes under open umbrella issue #17. S-042A completed as `passed` on 2026-07-13. S-042B is the sole active scope at `READY_FOR_IMPLEMENTATION`, owned by Codex. S-042C remains provisional, inactive, and unauthorized.
 
 ## Objective
 
@@ -44,7 +44,7 @@ S-042A added no upload route, file-selection control, reader integration, conten
 
 ### S-042B: EPUB Reader Application Integration
 
-`PROVISIONAL`, inactive, and unauthorized. It does not activate automatically.
+`READY_FOR_IMPLEMENTATION`, active, and owned by Codex.
 
 S-042B owns the smallest application bridge required to read an S-042A-supported EPUB through the existing RSVP reader:
 
