@@ -48,9 +48,12 @@ Review only these two plain-language questions:
 
 1. Is identity based on source type plus normalized text stable enough for
    S-041 to recognize the same document without using a filename or provenance?
+   Human responds in the affirmative.
 2. Are supported H1/H2 headings and at most eight short provenance fields enough
    groundwork for S-040 adapters without storing arbitrary metadata?
+   Human responds in the affirmative.
 
 Record `passed`, `partially_passed`, `failed`, or `inconclusive`. This gate does
 not ask for browser, phone, parser-quality, ingestion-format, or persistence
 validation.
+Human recorded `passed`.
