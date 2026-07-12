@@ -88,3 +88,10 @@ def test_browser_uses_server_epub_identity_without_persisting_source(client):
     assert "computeDocumentId(file" not in javascript
     assert "source_text" not in continuity
     assert "epub_bytes" not in continuity
+
+
+def test_browser_smoke_epub_fixture_matches_required_schedule_schema():
+    smoke = (Path(__file__).parents[1] / "scripts" / "run_browser_smoke.mjs").read_text()
+
+    assert "paragraph_index: 0" in smoke
+    assert "is_header_chunk: false" in smoke

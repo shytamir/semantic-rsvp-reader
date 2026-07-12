@@ -40,6 +40,14 @@ evidence. The smoke fixture now supplies the required field without weakening
 its baseline reader, canonical identity, dedicated boundary, continuity, or
 byte-non-persistence assertions.
 
+Stabilization run `29214192397` confirmed the first missing navigation field was
+not the only malformed mock field: browser smoke again stopped before reader
+initialization because the fixture also omitted required
+`structure.is_header_chunk`. Core and integrity passed in that run, and CodeQL
+run `29214192271` passed all three analyses. The second bounded repair adds that
+required boolean to the fixture; it changes no application behavior or smoke
+assertion.
+
 That run's integrity job passed. Its Core job ran 325 tests successfully and
 then encountered the separately known S-031 characterization mismatch; CodeQL
 run `29214041836` passed. Final disposition follows the stabilization commit's
