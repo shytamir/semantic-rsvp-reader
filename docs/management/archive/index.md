@@ -2,6 +2,10 @@
 
 These documents are preserved as historical evidence. They are not the current project-management authority.
 
+## S-037
+
+- [S-037 Evaluation Anomaly Investigation and Parser Operating-Policy Decision](s037_evaluation_anomaly_parser_policy.md)
+
 ## S-036
 
 - [S-036 End-to-End Prototype Readiness](s036_end_to_end_prototype_readiness.md)

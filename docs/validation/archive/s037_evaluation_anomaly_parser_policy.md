@@ -7,7 +7,7 @@ evidence. It does not require, reconstruct, expose, or infer the private A/B
 identity key, blind source text, annotations, raw chunks, or per-case system
 mappings. Historical artifacts and reports remain unchanged.
 
-Machine-readable evidence: [S-037 characterization](../../evaluation/evaluation_anomaly_policy/s037_characterization.json).
+Machine-readable evidence: [S-037 characterization](../../../evaluation/evaluation_anomaly_policy/s037_characterization.json).
 
 ## Reproduced Classifications
 

@@ -22,7 +22,7 @@ Historical slice scopes are preserved in the [management archive](archive/index.
 ## Document Reader Productization Program
 
 - The [Document Reader Productization Program](document_reader_productization_program.md) orders S-037, S-038, S-038A, and S-039 through S-043 after S-036 under D-010.
-- Program scopes: [S-037](s037_evaluation_anomaly_parser_policy.md), [S-038](s038_minimal_browser_regression_baseline.md), [S-038A](s038_parser_ci_evaluation_surface.md), [S-039](s039_application_service_source_document_contract.md), [S-040](s040_document_ingestion.md), [S-041](s041_local_reading_continuity.md), [S-042](s042_epub_long_document_navigation.md), and [S-043](s043_limited_beta_external_trial.md).
+- Program scopes: [S-037](archive/s037_evaluation_anomaly_parser_policy.md), [S-038](s038_minimal_browser_regression_baseline.md), [S-038A](s038_parser_ci_evaluation_surface.md), [S-039](s039_application_service_source_document_contract.md), [S-040](s040_document_ingestion.md), [S-041](s041_local_reading_continuity.md), [S-042](s042_epub_long_document_navigation.md), and [S-043](s043_limited_beta_external_trial.md).
 - S-039 completed the application-service/source-document prerequisite. S-040 owns bounded local ingestion through that contract under GitHub issue #15. Only S-040 is active; S-041 through S-043 remain provisional and unauthorized. GitHub issue #24 is an authorized non-blocking follow-up and is not active.
 
 Compatibility pointers:

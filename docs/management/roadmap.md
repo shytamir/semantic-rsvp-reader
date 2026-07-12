@@ -17,7 +17,7 @@ S-041 through S-043 remain `PROVISIONAL`, inactive, and unauthorized in the stri
 
 Human decision D-010 authorizes program entry after the recorded S-036 `ready` disposition. S-037 through S-039 completed as `passed`; only S-040 is active:
 
-1. **S-037: Evaluation Anomaly Investigation and Parser Operating-Policy Decision** — completed as `passed`; disposition `retain_parser_default_with_mandatory_automatic_fallback`; [scope](s037_evaluation_anomaly_parser_policy.md); GitHub issue #12.
+1. **S-037: Evaluation Anomaly Investigation and Parser Operating-Policy Decision** — completed as `passed`; disposition `retain_parser_default_with_mandatory_automatic_fallback`; [scope](archive/s037_evaluation_anomaly_parser_policy.md); GitHub issue #12.
 2. **S-038: Minimal Browser Regression Baseline** — completed as `passed`; human-evidence commit `b97c189e55f259fbe80eccc7072d415af6dbb87f`; [scope](s038_minimal_browser_regression_baseline.md); GitHub issue #13.
 3. **S-038A: Parser CI Evaluation-Surface Coverage** — completed as `passed`; [scope](s038_parser_ci_evaluation_surface.md).
 4. **S-039: Application-Service Boundary and Source-Document Contract** — completed as `passed`; [scope](s039_application_service_source_document_contract.md); human-evidence commit `806dbaea92d9638cc7cea439fe33ce9168f97c58`.

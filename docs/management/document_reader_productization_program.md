@@ -16,7 +16,7 @@ Move the validated RSVP prototype toward a bounded local-first document reader w
 
 ## Ordered Program
 
-1. **[S-037: Evaluation Anomaly Investigation and Parser Operating-Policy Decision](s037_evaluation_anomaly_parser_policy.md)** — completed as `passed` at human-evidence commit `b95df256c0b26a8ff51e37e539f1a859bf31a56c` with disposition `retain_parser_default_with_mandatory_automatic_fallback`; GitHub issue #12.
+1. **[S-037: Evaluation Anomaly Investigation and Parser Operating-Policy Decision](archive/s037_evaluation_anomaly_parser_policy.md)** — completed as `passed` at human-evidence commit `b95df256c0b26a8ff51e37e539f1a859bf31a56c` with disposition `retain_parser_default_with_mandatory_automatic_fallback`; GitHub issue #12.
 2. **[S-038: Minimal Browser Regression Baseline](s038_minimal_browser_regression_baseline.md)** — completed as `passed` at human-evidence commit `b97c189e55f259fbe80eccc7072d415af6dbb87f`; GitHub issue #13.
 3. **[S-038A: Parser CI Evaluation-Surface Coverage](s038_parser_ci_evaluation_surface.md)** — completed as `passed`; GitHub issues #23 and #25 are closed.
 4. **[S-039: Application-Service Boundary and Source-Document Contract](s039_application_service_source_document_contract.md)** — completed as `passed` at human-evidence commit `806dbaea92d9638cc7cea439fe33ce9168f97c58`; GitHub issues #2 and #14 are closed.
