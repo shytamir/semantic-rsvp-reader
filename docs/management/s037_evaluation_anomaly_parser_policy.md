@@ -2,7 +2,7 @@
 
 ## Status
 
-`AWAITING_HUMAN_VALIDATION`, active, and owned by the human. The repository-safe anomaly characterization and fixed [operating-policy decision packet](../validation/s037_evaluation_anomaly_parser_policy.md) are prepared. GitHub issue #12 remains open. S-038 through S-043 remain provisional, inactive, and unauthorized.
+Completed as `passed` on 2026-07-12 with disposition `retain_parser_default_with_mandatory_automatic_fallback`, pinned to human-evidence commit `b95df256c0b26a8ff51e37e539f1a859bf31a56c`. The correction concerns evidence classification, not a parser regression or reduced fallback safety; unsafe mapping and unscorable output remain accepted limitations. GitHub issue #24 is an authorized non-blocking follow-up and is not active. S-038 is active separately at `READY_FOR_IMPLEMENTATION`; S-039 through S-043 remain provisional, inactive, and unauthorized.
 
 ## Objective
 

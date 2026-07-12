@@ -2,7 +2,7 @@
 
 ## Status
 
-Provisional post-S-037 scope. Not active or authorized.
+`READY_FOR_IMPLEMENTATION`, active, and owned by Codex. GitHub issue #13 is the detailed active authority. S-039 through S-043 remain provisional, inactive, and unauthorized.
 
 ## Objective
 

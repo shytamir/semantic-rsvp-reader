@@ -131,6 +131,8 @@ Consequences:
 
 References: D-007, D-008, [S-024 objective comparison](../experiments/parser_assisted_chunking/s024_objective_comparison.md), and [S-024 human preference summary](../validation/archive/s024_human_ab_preference_summary.md).
 
+Post-S-037 confirmation (2026-07-12): S-037 completed as `passed` at human-evidence commit `b95df256c0b26a8ff51e37e539f1a859bf31a56c` with disposition `retain_parser_default_with_mandatory_automatic_fallback`. The evaluator correction changes evidence classification; it does not establish a parser regression or reduced fallback safety. Unsafe mapping and unscorable output remain accepted limitations. GitHub issue #24 records an authorized non-blocking, inactive follow-up for normalized source-character preservation in rule-based fallback, particularly curly quotation marks, and source-reconstruction postconditions.
+
 ## D-010: Productization-entry Decision Brief
 
 This brief aims to answer:

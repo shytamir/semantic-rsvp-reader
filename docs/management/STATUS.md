@@ -1,21 +1,25 @@
 # Project Status
 
 ```yaml
-current_slice: S-037
-active_scope: S-037
-name: Evaluation Anomaly Investigation and Parser Operating-Policy Decision
-state: AWAITING_HUMAN_VALIDATION
-owner: Human
-agent_action: review the fixed S-037 operating-policy decision packet
+current_slice: S-038
+active_scope: S-038
+name: Minimal Browser Regression Baseline
+state: READY_FOR_IMPLEMENTATION
+owner: Codex
+agent_action: implement the bounded S-038 scope from GitHub issue #13
 blocked_on: none
 started: 2026-07-12
-scope: docs/management/s037_evaluation_anomaly_parser_policy.md
-previous_slice: S-036
+scope: docs/management/s038_minimal_browser_regression_baseline.md
+previous_slice: S-037
 ```
 
 ## Current Slice
 
-The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-037 is the sole active scope at `AWAITING_HUMAN_VALIDATION`, owned by the human, with GitHub issue #12 open as detailed authority. Review the fixed [S-037 decision packet](../validation/s037_evaluation_anomaly_parser_policy.md). S-038 through S-043 remain provisional, inactive, and unauthorized.
+The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-038 is the sole active scope at `READY_FOR_IMPLEMENTATION`, owned by Codex, with GitHub issue #13 open as detailed authority. S-039 through S-043 remain provisional, inactive, and unauthorized.
+
+## S-037 Outcome
+
+S-037 completed as `passed` on 2026-07-12 with disposition `retain_parser_default_with_mandatory_automatic_fallback`, pinned to human-evidence commit `b95df256c0b26a8ff51e37e539f1a859bf31a56c`. The correction concerns evidence classification, not a parser regression or reduced fallback safety; unsafe mapping and unscorable output remain accepted limitations. GitHub issue #24 is an authorized non-blocking follow-up for rule-based fallback preservation of normalized source characters, particularly curly quotation marks, and source-reconstruction postconditions; it is not active.
 
 ## S-036 Outcome
 
@@ -63,7 +67,7 @@ S-034 completed as `passed` on 2026-07-12 from human-owned evidence commit `eafa
 
 ## Next Actions
 
-- The human reviews the fixed [S-037 policy packet](../validation/s037_evaluation_anomaly_parser_policy.md) and records one operating-policy disposition.
+- Codex implements only the bounded S-038 scope authorized by GitHub issue #13.
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks

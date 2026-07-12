@@ -193,7 +193,7 @@ Allow at most two repair cycles for the same failure unless explicitly authorize
 If unresolved, stop and report the blocker with evidence.
 
 ## 10. Tests and docs
-Add or update tests when behavior changes.
+Identify applicable conditional gates using docs/qa/strategy.md and docs/qa/change_validation_map.md; do not apply gates unrelated to the scoped risk.Add or update tests when behavior changes.
 Tests should be focused, deterministic, proportionate, and avoid real external services.
 Do not add broad test infrastructure for a small change.
 Do not weaken assertions merely to obtain a pass.

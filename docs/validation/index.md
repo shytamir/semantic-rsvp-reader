@@ -30,7 +30,8 @@ Current focus:
 10. S-035 Service Surfaces and Fallback completed as `passed`; human profile checks and automated standard-profile API coverage are complete.
 11. S-035A, S-035B, and S-036 completed as `passed`; S-036 recorded prototype disposition `ready`, completing the stabilization program.
 12. Parser-assisted chunking remains frozen unless a new authorized evaluation slice changes it.
-13. S-037 is active at `AWAITING_HUMAN_VALIDATION` with a repository-safe decision packet; S-038 through S-043 remain provisional and inactive.
+13. S-037 completed as `passed` at human-evidence commit `b95df256c0b26a8ff51e37e539f1a859bf31a56c` with disposition `retain_parser_default_with_mandatory_automatic_fallback`. The correction concerns evidence classification, not a parser regression or reduced fallback safety; unsafe mapping and unscorable output remain accepted limitations.
+14. S-038 is active at `READY_FOR_IMPLEMENTATION`, owned by Codex, with GitHub issue #13 as detailed authority. S-039 through S-043 remain provisional, inactive, and unauthorized.
 
 ## Defect Reporting Workflow
 
