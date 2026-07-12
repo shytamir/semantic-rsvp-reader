@@ -2,6 +2,10 @@
 
 These documents are preserved as historical evidence. They are not the current project-management authority.
 
+## S-039
+
+- [S-039 Application-Service Boundary and Source-Document Contract](s039_application_service_source_document_contract.md)
+
 ## S-038
 
 - [S-038 Minimal Browser Regression Baseline](s038_minimal_browser_regression_baseline.md)

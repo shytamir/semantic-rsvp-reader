@@ -172,4 +172,4 @@ Decision: represent a schedulable source with an immutable project-owned record 
 
 Consequences: S-040 adapters can produce one backend-neutral record without coupling to Flask, and S-041 can reference stable document identity without storing or interpreting parser-native state. This decision adds no ingestion format, storage mechanism, public API field, parser policy, or continuity behavior. The parser-assisted default and mandatory automatic rule-based fallback remain governed by D-009 and the S-037 disposition.
 
-Reference: [S-039 scope](s039_application_service_source_document_contract.md).
+Reference: [S-039 scope](archive/s039_application_service_source_document_contract.md).
