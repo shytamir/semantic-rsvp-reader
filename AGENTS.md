@@ -170,11 +170,11 @@ Do not:
 - claim checks that were not run;
 - add Ruff, Black, mypy, Pyright, or similar tools merely to validate unrelated work.
 
-### No Waiting for Git Actions Verification of Pushed Code
-The agent has access to the CI reports and can track their results only when explicity authorized.
-Do not:
-- wait for CI reports after a git push
-- delay your report for CI related reasons
+### GitHub Actions verification
+
+Check CI only when the prompt requires GitHub Actions results in the final report. That requirement counts as authorization.
+When CI results are required, wait at least 60 seconds after pushing before the first lookup. Do not poll immediately or repeat the initial wait.
+Otherwise, do not wait for CI or delay the final report for CI-related reasons.
 
 ## 9. Validation discipline
 Use this sequence:
