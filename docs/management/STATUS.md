@@ -1,21 +1,25 @@
 # Project Status
 
 ```yaml
-current_slice: S-035
-active_scope: S-035B
-name: QA Authority and Verification Framework
-state: AWAITING_HUMAN_VALIDATION
-owner: Human
-agent_action: run the fixed S-035B QA authority protocol
+current_slice: S-036
+active_scope: S-036
+name: End-to-End Prototype Readiness
+state: READY_FOR_IMPLEMENTATION
+owner: Codex
+agent_action: implement the preserved S-036 scope
 blocked_on: none
 started: 2026-07-12
-scope: docs/management/s035b_qa_authority_verification_framework.md
-previous_slice: S-035A
+scope: docs/management/s036_end_to_end_prototype_readiness.md
+previous_slice: S-035B
 ```
 
 ## Current Slice
 
-S-035B is the sole active scope at `AWAITING_HUMAN_VALIDATION`, owned by the human. The compact [QA authority layer](../qa/index.md) and fixed [S-035B protocol](../validation/s035b_qa_authority_validation.md) are prepared. GitHub issue #22 remains open. S-036 remains scheduled, inactive, and unauthorized.
+S-036 is the sole active scope at `READY_FOR_IMPLEMENTATION`, owned by Codex. Implement only the preserved [S-036 End-to-End Prototype Readiness](s036_end_to_end_prototype_readiness.md) scope. S-036 remains the final slice of the stabilization program; no post-stabilization slice is active or authorized.
+
+## S-035B Outcome
+
+S-035B completed as `passed` on 2026-07-12 from human-owned evidence commit `8b38905`. The human accepted the parser-sensitive and presentation/accessibility trace exercises, conditional-gate behavior, non-blocking defect deferral model, experiment authorization boundaries, and retained human control over rendered browser behavior. The disposition remains verbatim in [S-035B validation](../validation/s035b_qa_authority_validation.md). GitHub issue #22 is closed.
 
 ## S-035A Outcome
 
@@ -152,7 +156,7 @@ Detailed in-app defect reports from the S-021 validation session were accidental
 
 ## Next Actions
 
-- The human runs the fixed [S-035B QA authority protocol](../validation/s035b_qa_authority_validation.md).
+- Codex implements the preserved [S-036 readiness scope](s036_end_to_end_prototype_readiness.md) without activating a post-stabilization slice.
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks

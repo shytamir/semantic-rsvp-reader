@@ -1,5 +1,9 @@
 # S-036 End-to-End Prototype Readiness
 
+## Status
+
+`READY_FOR_IMPLEMENTATION`, active, and owned by Codex. This is the final slice of the stabilization program; no successor is active or authorized.
+
 ## Objective
 
 Perform a clean, integrated readiness pass and record an evidence-based demo/beta disposition for the shipped prototype.

@@ -2,7 +2,7 @@
 
 ## Status
 
-`AWAITING_HUMAN_VALIDATION`, active, and owned by the human. The compact QA authority layer and fixed protocol are prepared; S-036 remains scheduled and inactive.
+Completed as `passed` from human-owned evidence commit `8b38905`. The human accepted the QA trace exercises, conditional gates, defect deferral model, experiment boundaries, and human control over rendered browser behavior.
 
 ## Authority
 
@@ -10,4 +10,4 @@ GitHub issue #22, **S-035B — Establish the QA Authority and Verification Frame
 
 ## Completion Boundary
 
-Run the fixed [S-035B QA Authority Validation](../validation/s035b_qa_authority_validation.md), record the human disposition, and do not activate S-036 automatically. GitHub issue #22 remains open through the human gate.
+The accepted [QA authority](../qa/index.md) is the verification framework consumed by S-036. GitHub issue #22 is closed.

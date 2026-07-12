@@ -4,16 +4,14 @@ This roadmap is the priority-order view. [STATUS](STATUS.md) is the authority fo
 
 ## Now
 
-1. **S-035: S-035B QA Authority and Verification Framework**
-   - State: `AWAITING_HUMAN_VALIDATION`
-   - Owner: Human
-   - Scope: [S-035B](s035b_qa_authority_verification_framework.md); authority: GitHub issue #22.
+1. **S-036: End-to-End Prototype Readiness**
+   - State: `READY_FOR_IMPLEMENTATION`
+   - Owner: Codex
+   - Scope: [S-036](s036_end_to_end_prototype_readiness.md).
 
 ## Next
 
-1. **S-036: End-to-End Prototype Readiness** — `SCHEDULED`; [scope](s036_end_to_end_prototype_readiness.md).
-
-These slices are ordered but not authorized for implementation until separately activated.
+No stabilization successor is scheduled. S-036 completes the program; the provisional post-stabilization sequence remains inactive.
 
 ## Provisional Document Reader Productization Program
 
