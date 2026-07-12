@@ -3,9 +3,9 @@
 ```yaml
 current_slice: S-033
 name: Mobile Presentation and Accessibility
-state: READY_FOR_IMPLEMENTATION
-owner: Codex
-agent_action: implement the preserved S-033 scope
+state: AWAITING_HUMAN_VALIDATION
+owner: Human
+agent_action: run the fixed S-033 phone-browser presentation and accessibility protocol
 blocked_on: none
 started: 2026-07-11
 scope: docs/management/s033_mobile_presentation_accessibility.md
@@ -14,7 +14,7 @@ previous_slice: S-032
 
 ## Current Slice
 
-S-033 is the sole active slice at `READY_FOR_IMPLEMENTATION`, owned by Codex. Its preserved scope validates mobile presentation and accessibility without implementing a successor beyond S-033. S-034 remains scheduled and inactive.
+S-033 is the sole active slice at `AWAITING_HUMAN_VALIDATION`, owned by the human. Automated characterization found the shipped presentation invariants intact and reproduced no defect requiring stabilization. Run the fixed protocol in [S-033 Mobile Presentation and Accessibility Validation](../validation/s033_mobile_presentation_accessibility_validation.md). S-034 remains scheduled and inactive.
 
 ## S-032 Outcome
 

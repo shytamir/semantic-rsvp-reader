@@ -5,8 +5,8 @@ This roadmap is the priority-order view. [STATUS](STATUS.md) is the authority fo
 ## Now
 
 1. **S-033: Mobile Presentation and Accessibility**
-   - State: `READY_FOR_IMPLEMENTATION`
-   - Owner: Codex
+   - State: `AWAITING_HUMAN_VALIDATION`
+   - Owner: Human
    - Scope: [S-033](s033_mobile_presentation_accessibility.md).
 
 ## Next

@@ -2,7 +2,7 @@
 
 ## Status
 
-Active and authorized for implementation at `READY_FOR_IMPLEMENTATION`, owned by Codex. S-034 remains scheduled and inactive.
+Active at `AWAITING_HUMAN_VALIDATION`, owned by the human. The committed characterization passes without a reproduced presentation defect; the fixed phone-browser protocol is ready. S-034 remains scheduled and inactive.
 
 ## Objective
 

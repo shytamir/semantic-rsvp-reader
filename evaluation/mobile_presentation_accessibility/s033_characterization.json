@@ -1,0 +1,79 @@
+{
+  "hard_failures": [],
+  "human_validation_required": true,
+  "invariants": [
+    {
+      "id": "visible_keyboard_focus",
+      "passed": true
+    },
+    {
+      "id": "safe_area_and_dynamic_viewport",
+      "passed": true
+    },
+    {
+      "id": "stable_long_content_states",
+      "passed": true
+    },
+    {
+      "id": "ghost_and_structure_are_subordinate",
+      "passed": true
+    },
+    {
+      "id": "semantic_state_cues",
+      "passed": true
+    },
+    {
+      "id": "reachable_controls_and_bounded_overlays",
+      "passed": true
+    }
+  ],
+  "method": "static_shell_characterization_with_fixed_human_viewport_matrix",
+  "slice": "S-033",
+  "sources": {
+    "static/css/app.css": "c336b5dfafa7f0b5051506748d307fa88e0addcb07e0fbf95321039cee03b67f",
+    "templates/index.html": "c2b3ff2e9388762ef587c721e5c7d96496f8f730b1b353c508975e419ba77331"
+  },
+  "stabilized_defects": [],
+  "viewport_content_matrix": [
+    {
+      "content": "general_long_form",
+      "id": "phone_portrait_ordinary",
+      "state": "reader_and_controls"
+    },
+    {
+      "content": "s032_structural_stream",
+      "id": "phone_landscape_structural",
+      "state": "ghost_structure_and_controls"
+    },
+    {
+      "content": "dev-width-0006",
+      "id": "narrow_long_token",
+      "state": "long_content_classes"
+    },
+    {
+      "content": "general_long_form",
+      "id": "wide_ordinary",
+      "state": "reader_hierarchy"
+    },
+    {
+      "content": "general_long_form",
+      "id": "speed_overlay",
+      "state": "speed_controls"
+    },
+    {
+      "content": "general_long_form",
+      "id": "report_overlay",
+      "state": "defect_form_and_context"
+    },
+    {
+      "content": "dev-quote-0007_and_dev-parenthetical-0008",
+      "id": "semantic_cues",
+      "state": "quote_and_parenthetical"
+    },
+    {
+      "content": "general_long_form",
+      "id": "keyboard_focus",
+      "state": "focus_order_and_visibility"
+    }
+  ]
+}

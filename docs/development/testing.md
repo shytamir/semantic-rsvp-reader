@@ -36,6 +36,8 @@ GitHub Actions runs:
 
 Security checks are not a hard CI gate in this development pass because the validators are optional local tools.
 
+Commits `58576ba` and `3177188` updated only the GitHub Actions environment setup versions used by the existing workflows to eliminate Node 20 deprecation alerts. The human validated the resulting workflows successfully. This is completed DevOps runtime maintenance, not S-033 validation evidence or an S-033 outcome.
+
 ## Slice-document archive maintenance
 
 Check whether completed slice documents fall outside the active slice and two-previous-ordinal working-memory window:

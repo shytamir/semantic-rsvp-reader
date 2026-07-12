@@ -7,6 +7,7 @@ Historical slice validation records are preserved in the [validation archive](ar
 - [S-031 Playback and Adaptation Validation](s031_playback_adaptation_validation.md)
 - [Post-Validation Stabilization Pass 1](post_validation_stabilization_pass_1.md)
 - [Navigation Validation](navigation_validation.md)
+- [S-033 Mobile Presentation and Accessibility Validation](s033_mobile_presentation_accessibility_validation.md)
 - [Validation Corpus](corpus.md)
 
 Current focus:
@@ -17,7 +18,7 @@ Current focus:
 4. S-030 Semantic Output and Structural Integrity completed as `passed`; non-blocking semantic observations remain evaluation evidence.
 5. S-031 Playback and Adaptation completed as `passed`; both fixed human scenarios reported zero defects.
 6. S-032 Navigation and Interaction completed as `passed`; all seven fixed human protocol steps reported no defects.
-7. S-033 Mobile Presentation and Accessibility is the sole active slice at `READY_FOR_IMPLEMENTATION`.
+7. S-033 Mobile Presentation and Accessibility is the sole active slice at `AWAITING_HUMAN_VALIDATION`; the fixed phone-browser protocol is ready.
 8. Parser-assisted chunking remains frozen unless a new authorized evaluation slice changes it.
 
 ## Defect Reporting Workflow
