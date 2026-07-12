@@ -67,14 +67,173 @@ Use the clean `standard` profile and an intended demo phone/browser. Record the
 target commit, Python/dependency identity, device, operating system, browser,
 viewport, configured/active chunker state, and each step outcome.
 
+Pulled latest commit: b38e2d5. Performed clean venv install per standard profile instructions in envirionment contract successfully with all tests green and no errors or warnings.
+Python v3.12.10:0cc8128
+pip list json result:
+```json
+[{"name": "annotated-doc", "version": "0.0.4"}, {"name": "annotated-types", "version": "0.7.0"}, {"name": "blinker", "version": "1.9.0"}, {"name": "blis", "version": "0.7.11"}, {"name": "catalogue", "version": "2.0.10"}, {"name": "certifi", "version": "2026.6.17"}, {"name": "charset-normalizer", "version": "3.4.9"}, {"name": "click", "version": "8.1.8"}, {"name": "cloudpathlib", "version": "0.24.0"}, {"name": "colorama", "version": "0.4.6"}, {"name": "confection", "version": "0.1.5"}, {"name": "cymem", "version": "2.0.13"}, {"name": "en-core-web-sm", "version": "3.7.1"}, {"name": "Flask", "version": "3.1.3"}, {"name": "idna", "version": "3.18"}, {"name": "iniconfig", "version": "2.3.0"}, {"name": "itsdangerous", "version": "2.2.0"}, {"name": "Jinja2", "version": "3.1.6"}, {"name": "langcodes", "version": "3.5.1"}, {"name": "markdown-it-py", "version": "4.2.0"}, {"name": "MarkupSafe", "version": "3.0.3"}, {"name": "mdurl", "version": "0.1.2"}, {"name": "murmurhash", "version": "1.0.15"}, {"name": "numpy", "version": "1.26.4"}, {"name": "packaging", "version": "26.2"}, {"name": "pip", "version": "25.0.1"}, {"name": "pluggy", "version": "1.6.0"}, {"name": "preshed", "version": "3.0.13"}, {"name": "pydantic", "version": "2.13.4"}, {"name": "pydantic_core", "version": "2.46.4"}, {"name": "Pygments", "version": "2.20.0"}, {"name": "pytest", "version": "9.1.1"}, {"name": "requests", "version": "2.34.2"}, {"name": "rich", "version": "15.0.0"}, {"name": "setuptools", "version": "83.0.0"}, {"name": "shellingham", "version": "1.5.4"}, {"name": "smart_open", "version": "7.7.1"}, {"name": "spacy", "version": "3.7.5"}, {"name": "spacy-legacy", "version": "3.0.12"}, {"name": "spacy-loggers", "version": "1.0.5"}, {"name": "srsly", "version": "2.5.3"}, {"name": "thinc", "version": "8.2.5"}, {"name": "tqdm", "version": "4.68.4"}, {"name": "typer", "version": "0.26.8"}, {"name": "typer-slim", "version": "0.24.0"}, {"name": "typing_extensions", "version": "4.16.0"}, {"name": "typing-inspection", "version": "0.4.2"}, {"name": "urllib3", "version": "2.7.0"}, {"name": "wasabi", "version": "1.1.3"}, {"name": "weasel", "version": "0.4.3"}, {"name": "Werkzeug", "version": "3.1.8"}, {"name": "wrapt", "version": "2.2.2"}]
+```
+Samsung S23 Ultra
+Android 16
+Firefox 152
+portrait
+default chunker state (parser assisted fallback, no configured state)
+
 1. Start the app in parser-default mode. Confirm `/health` reports configured and active `parser_assisted`, the pinned spaCy/model identity, and `rule_based` fallback.
+human records `passed`
+result: {"chunking":{"active_mode":"parser_assisted","configured_mode":"parser_assisted","fallback":"rule_based","provider":"spacy:3.7.5/en_core_web_sm:3.7.1","provider_available":true,"provider_reason":"available"},"status":"ok"}
+
 2. Load one general long-form validation sample and one S-030 semantic/structural case. Read at default `1.0x`; confirm representative chunks, headings/structure, protected spans, and the passed S-029 pacing remain practical.
+human records `passed`
+Confirmed listed features remain practical.
+
 3. Exercise play, pause/resume, speed change, background/foreground return, completion/reset, and a fresh session. Confirm lifecycle and conservative adaptation remain understandable and stable.
+human records `passed`
+Confirmed listed features remain understandable and stable.
+
 4. Exercise previous/next gestures, coarse progress seeking, breakpoint creation/traversal, drift recovery/cancellation, ghost context, and structural orientation.
+human records `passed`
+Confirmed listed features displayed no observable regressions.
+
 5. Check portrait and landscape presentation, a narrow viewport, long chunks/tokens, quote/parenthetical cues, focus visibility, overlays, and safe-area behavior. Specifically observe whether issue #19 prevents the readiness session; do not fix it in this gate.
+human records `passed`
+Confirmed listed features displayed no observable regressions. Issue #19 doesn't prevent the readiness session. Fix can remain in its current deferred state.
+
 6. Submit one synthetic defect report. Confirm useful context and session state are captured without private text, review it locally, then delete the generated report and record deletion.
+human records `passed`
+Following synthetic report was recorded and deleted. It was confirmed to preserve displayed ID from the UI and the local review was observed as retaining useful context and session state successfully.
+```markdown
+# Semantic RSVP Defect Report
+
+Report ID: defect_20260712_160324_52173a
+Created at: 2026-07-12T16:03:24.445491Z
+
+## Classification
+
+Category: layout_or_visibility_issue
+Severity: 2
+Notes:
+Synthetic
+
+Preferred behavior:
+Synthetic
+
+## Reader State
+
+Current index: 13
+Sentence index: 2
+Playback speed: 1x
+Adaptation enabled: false
+
+Current chunk:
+without changing timing policy.
+
+## Timing Context
+
+Base duration ms: 1020
+Effective duration ms: 1020
+Playback speed: 1x
+Duration source: schedule
+Current syntactic hint: dense
+Current content word count: 4
+Character length: 31
+In quote: false
+Quote boundary: none
+In parenthetical: false
+Parenthetical depth: 0
+Navigation progress percent: 100
+Navigation paragraph index: 2
+
+## Structural Context
+
+- Active H1: 
+- Active H2: 
+- Active label: 
+- Active path: none
+- Is header chunk: false
+- Header level: unknown
+
+## Navigability Context
+
+Previous displayed chunk:
+- Index: 12
+- Text: cancellation can be checked
+- Duration ms: 870
+- Progress percent: 91
+- Paragraph index: 2
+
+Breakpoints:
+- Count: 1
+- Current is breakpoint: false
+- Previous breakpoint: 5
+- Next breakpoint: unknown
+- Indices: 5
+
+## Drift Recovery Context
+
+- Active: false
+- Pending: false
+- Target breakpoint: unknown
+- Lead-in index: unknown
+- Delay ms: 500
+- Direction: 
+
+Original sentence:
+Third paragraph closes the stream so reset, end boundaries, and cancellation can be checked without changing timing policy.
+
+Previous chunks:
+- [10] "closes the stream" - 670ms base / 670ms effective - dense - 2 content word(s) - 17 chars - quote=false/none - parenthetical=false/0 - navigation=75%/p2
+- [11] "so reset, end boundaries, and" - 900ms base / 900ms effective - dense - 4 content word(s) - 29 chars - quote=false/none - parenthetical=false/0 - navigation=83%/p2
+- [12] "cancellation can be checked" - 870ms base / 870ms effective - dense - 2 content word(s) - 27 chars - quote=false/none - parenthetical=false/0 - navigation=91%/p2
+
+Next chunks:
+- none
+
+## Session Summary
+
+Event count: 35
+Rewind count: 0
+Pause count: 3
+Speed change count: 3
+Adaptation count: 1
+Completed: true
+Elapsed session ms: 333181
+Estimated remaining chunks: 0
+Average effective duration ms: 834
+Last adaptation reason: smooth_run
+Last adaptation direction: faster
+
+## Client
+
+User agent:
+Mozilla/5.0 (Android 16; Mobile; rv:152.0) Gecko/152.0 Firefox/152.0
+
+Viewport:
+384x742
+
+Display:
+Reader width px: 368
+Chunk scroll width px: 340
+Chunk client width px: 340
+Chunk may overflow: false
+Layout context:
+- Previous chunk visible: true
+- Previous chunk text length: 27
+- Active chunk text length: 31
+- Viewport: 384x742
+```
+
 7. Stop the standard app. Start the clean `core` profile with explicit `RSVP_CHUNKER_MODE=rule_based`; confirm `/health` and smoke behavior demonstrate dependency-light fallback, then read a representative sample.
+human records `passed`
+New health state confirms fallback behavior after starting the clean core profile:
+```json
+{"chunking":{"active_mode":"rule_based","configured_mode":"rule_based","fallback":"rule_based","provider":null,"provider_available":false,"provider_reason":"not_configured"},"status":"ok"}
+```
+I was able to read a representative sample (first structural stream from S-030) without trouble.
+
 8. Review the known limitations above and confirm setup, indexes, QA links, and demo instructions are sufficient for the intended bounded prototype demonstration.
+human records `passed`
+Known limitations reviewed. setup, indexes, QA links and demo instructions are sufficient for the intended bounded prototype demonstration.
 
 For each step record `passed`, `partially_passed`, `failed`, `skipped`, or
 `inconclusive`, plus any observation, blocking status, and issue reference.
@@ -84,11 +243,4 @@ For each step record `passed`, `partially_passed`, `failed`, `skipped`, or
 Choose exactly one:
 
 - `ready`
-- `ready_with_limitations`
-- `not_ready`
-- `inconclusive`
-
-Record the rationale, acceptance-blocking defects, accepted limitations, issue
-links, and confirmation that generated/private defect evidence was deleted or
-retained outside Git. This is a prototype demo/beta disposition, not a
-production-readiness or public-performance claim.
+recorded `passed` on all human protocols, limitations accepted, no blocking defects, no new issues, synthetic defect record deletion confirmed, although it is preserved in this document for reference and automated validation purposes. I'm disposed to close the slice as successful for the purpose of advancing the prototype demo.
