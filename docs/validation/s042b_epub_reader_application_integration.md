@@ -31,8 +31,25 @@ results are recorded after the implementation push.
 
 ## Remote Evidence And Disposition
 
-Immediately after implementation commit `41b7d9a` was pushed, the single
-non-polling GitHub Actions query returned no runs for that commit. S-042B remains
-Codex-owned stabilization and is not dispositioned `passed`. Issue #17 remains
-open as S-042 umbrella authority; S-042C and S-043 remain inactive and
-unauthorized.
+CI run `29214042029` for head `9381c5f` recorded a real S-042B regression. The
+browser-smoke job timed out waiting for `#reader-mode` to become visible. Its
+mocked EPUB schedule supplied progress and source offsets but omitted required
+`navigation.paragraph_index`; the unchanged browser response validator rejected
+that malformed mock before reader initialization. This was not pending or flaky
+evidence. The smoke fixture now supplies the required field without weakening
+its baseline reader, canonical identity, dedicated boundary, continuity, or
+byte-non-persistence assertions.
+
+That run's integrity job passed. Its Core job ran 325 tests successfully and
+then encountered the separately known S-031 characterization mismatch; CodeQL
+run `29214041836` passed. Final disposition follows the stabilization commit's
+terminal local and remote results.
+
+After the smoke-fixture correction, focused EPUB, continuity, shell,
+characterization, and repository checks passed 39 tests with one documented
+Node-dependent skip. The full managed suite passed 330 tests with the same one
+skip. The 22-case corpus, frozen rule-based baseline, S-031 and S-037
+characterizations, repository integrity, Markdown links, and diff whitespace
+passed. Local execution of the Playwright smoke remained unavailable because
+Node was not installed; the CI browser job is the authoritative execution of
+that unchanged harness.

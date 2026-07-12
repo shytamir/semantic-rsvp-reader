@@ -125,7 +125,7 @@ async function runSmoke(page) {
           quote_boundary: null,
           in_parenthetical: false,
           parenthetical_depth: 0,
-          navigation: { progress_percent: 100, source_start: 0, source_end: 33 },
+          navigation: { progress_percent: 100, paragraph_index: 0, source_start: 0, source_end: 33 },
           structure: { active_h1: null, active_h2: null, active_path: [] },
         }],
       }),
