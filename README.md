@@ -6,8 +6,8 @@ Semantic RSVP Reader is a mobile-first Flask + HTML5 prototype for reading text 
 
 - Status: stabilized prototype; S-036 disposition `ready` with no acceptance-blocking defect.
 - Current phase: Document Reader Productization Program.
-- Active scope: S-040 Plain Text, Markdown, and Bounded Clean-HTML Ingestion (`AWAITING_HUMAN_VALIDATION`), owned by Human.
-- Primary focus: run the fixed representative-file ingestion protocol. S-041 through S-043 remain inactive and unauthorized.
+- Active scope: none; S-040 completed as `passed`.
+- Primary focus: await the separate S-041 activation stage. S-041 through S-043 remain inactive and unauthorized.
 - Timing, playback, navigation, and adaptation semantics are intentionally stable during this phase.
 - Canonical status and roadmap live in [docs/management/](docs/management/index.md).
 

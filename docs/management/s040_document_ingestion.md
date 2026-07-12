@@ -2,7 +2,7 @@
 
 ## Status
 
-`AWAITING_HUMAN_VALIDATION`, active, and owned by Human. GitHub issue #15 remains open as detailed authority. Automated evidence and the fixed representative-file protocol are recorded in [S-040 validation](../validation/s040_document_ingestion.md). S-041 through S-043 remain provisional, inactive, and unauthorized.
+`COMPLETED` as `passed` on 2026-07-13, pinned to human-evidence commit `fb618d269f70f5497154f1309db84e69bf8f5451`. The verbatim human results remain in [S-040 validation](../validation/s040_document_ingestion.md). GitHub issue #15 is closed. S-041 through S-043 remain provisional, inactive, and unauthorized.
 
 ## Objective
 
