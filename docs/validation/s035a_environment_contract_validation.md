@@ -30,101 +30,10 @@ configuration, hashes, dependencies, and outputs remain exact comparisons.
 
 ## Human Disposition
 
-Validation failed in the first step of the protocol. Did not proceed to next steps. Returning to CODEX with the pytest failures report appended below.
+After pushing some fixes from CODEX I was able to complete the protocol.
 
-```
-====================================================== FAILURES =======================================================
-______________________________________ test_rule_based_baseline_is_reproducible _______________________________________
+standard venv `passed` health identity: {"chunking":{"active_mode":"parser_assisted","configured_mode":"parser_assisted","fallback":"rule_based","provider":"spacy:3.7.5/en_core_web_sm:3.7.1","provider_available":true,"provider_reason":"available"},"status":"ok"}
 
-    def test_rule_based_baseline_is_reproducible():
-        regenerated = build_baseline_payload()
-        committed = load_json(BASELINE_OUTPUT_PATH)
+core venv `passed` health identity: {"chunking":{"active_mode":"rule_based","configured_mode":"rule_based","fallback":"rule_based","provider":null,"provider_available":false,"provider_reason":"not_configured"},"status":"ok"}
 
->       assert regenerated == committed
-E       AssertionError: assert {'metadata': ...', ...}, ...]} == {'cases': [{'...9.1.1'}, ...}}
-E
-E         Omitting 1 identical items, use -vv to show
-E         Differing items:
-E         {'metadata': {'baseline_commit': '8b50a3049bb5d92a304a03527385c519194ce8da', 'python_version': '3.12.10', 'dependency_...': {'Flask': '3.1.3...
-E
-E         ...Full output truncated (2 lines hidden), use '-vv' to show
-
-tests\test_parser_assisted_chunking_freeze.py:39: AssertionError
-________________________________________ test_freeze_script_check_mode_passes _________________________________________
-
-    def test_freeze_script_check_mode_passes():
-        result = subprocess.run(
-            [sys.executable, "scripts/freeze_chunking_baseline.py", "--check"],
-            text=True,
-            capture_output=True,
-            check=False,
-        )
-
->       assert result.returncode == 0, result.stdout + result.stderr
-E       AssertionError: Rule-based baseline output changed:
-E         --- evaluation\parser_assisted_chunking\baseline\rule_based_baseline.json
-E         +++ regenerated-baseline
-E         @@ -4754,7 +4754,7 @@
-E                "regression": "e9c55c2e957c924d699b57e2622111f044997e821d43d472c7b203b28ba4fe68"
-E              },
-E              "normalization_entry_point": "semantic_rsvp.text.normalize.normalize_text",
-E         -    "python_version": "3.12.13",
-E         +    "python_version": "3.12.10",
-E              "schedule_entry_point": "semantic_rsvp.timing.schedule.schedule_text",
-E              "segmentation_entry_point": "semantic_rsvp.text.segment.split_sentences",
-E              "timing_config": {
-E
-E       assert 1 == 0
-E        +  where 1 = CompletedProcess(args=['D:\\Shy\\semantic-rsvp-reader\\.venv\\Scripts\\python.exe', 'scripts/freeze_chunking_baseline....n     "segmentation_entry_point": "semantic_rsvp.text.segment.split_sentences",\n     "timing_config": {\n', stderr='').returncode
-
-tests\test_parser_assisted_chunking_freeze.py:50: AssertionError
-___________________________ test_s035_service_characterization_is_complete_and_reproducible ___________________________
-
-    def test_s035_service_characterization_is_complete_and_reproducible():
-        report = build_report()
-
-        assert report["hard_failures"] == []
->       assert report["default_state"]["configured_mode"] == "parser_assisted"
-E       AssertionError: assert 'rule_based' == 'parser_assisted'
-E
-E         - parser_assisted
-E         + rule_based
-
-tests\test_s035_service_surfaces_characterization.py:10: AssertionError
--------------------------------------------------- Captured log call --------------------------------------------------
-WARNING  semantic_rsvp.chunking.selection:selection.py:71 Parser-assisted chunker fell back to rule_based; reason_category=parser_unavailable
-_____________________ test_standard_profile_api_contracts_use_real_pinned_parser_and_json_records _____________________
-
-    def test_standard_profile_api_contracts_use_real_pinned_parser_and_json_records():
-        app = create_app({"TESTING": True})
-        client = app.test_client()
-
-        health = client.get("/health")
-        assert health.status_code == 200
->       assert health.get_json()["chunking"]["configured_mode"] == "parser_assisted"
-E       AssertionError: assert 'rule_based' == 'parser_assisted'
-E
-E         - parser_assisted
-E         + rule_based
-
-tests\test_standard_profile_api.py:23: AssertionError
-___________________________________ test_app_creation_uses_parser_assisted_default ____________________________________
-
-    def test_app_creation_uses_parser_assisted_default():
-        app = create_app({"TESTING": True})
-
->       assert app.config["RSVP_CHUNKER_MODE"] == "parser_assisted"
-E       AssertionError: assert 'rule_based' == 'parser_assisted'
-E
-E         - parser_assisted
-E         + rule_based
-
-tests\test_web_chunking_integration.py:9: AssertionError
-=============================================== short test summary info ===============================================
-FAILED tests/test_parser_assisted_chunking_freeze.py::test_rule_based_baseline_is_reproducible - AssertionError: assert {'metadata': ...', ...}, ...]} == {'cases': [{'...9.1.1'}, ...}}
-FAILED tests/test_parser_assisted_chunking_freeze.py::test_freeze_script_check_mode_passes - AssertionError: Rule-based baseline output changed:
-FAILED tests/test_s035_service_surfaces_characterization.py::test_s035_service_characterization_is_complete_and_reproducible - AssertionError: assert 'rule_based' == 'parser_assisted'
-FAILED tests/test_standard_profile_api.py::test_standard_profile_api_contracts_use_real_pinned_parser_and_json_records - AssertionError: assert 'rule_based' == 'parser_assisted'
-FAILED tests/test_web_chunking_integration.py::test_app_creation_uses_parser_assisted_default - AssertionError: assert 'rule_based' == 'parser_assisted'
-=========================================== 5 failed, 286 passed in 18.09s ============================================
-```
+The configuration contract was fulfilled correctly.
