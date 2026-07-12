@@ -35,4 +35,4 @@ Record `passed`, `partially_passed`, `failed`, or `inconclusive`. For a failure,
 
 ## Human Disposition
 
-Pending. S-035 remains `AWAITING_HUMAN_VALIDATION`, owned by the human.
+Human reports passed on all GET method tests. /health API calls and sample loading worked in both standard and core environments. All disallowed GET method API calls weren't made. Don't hand off API custom requests and response validations to human, do them yourself before completing the slice or add them to the appropriate CI workflows.

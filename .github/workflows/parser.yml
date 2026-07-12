@@ -46,7 +46,7 @@ jobs:
             requirements-core.txt
             requirements-nlp-spike.txt
       - run: pip install -r requirements.txt
-      - run: python -m pip
+      - run: python -m pip check
       - name: Verify pinned parser dependencies
         run: python -c "import importlib.metadata as m; assert m.version('spacy') == '3.7.5'; assert m.version('en-core-web-sm') == '3.7.1'; assert m.version('Click') == '8.1.8'"
       - name: Validate parser integration and frozen parity
