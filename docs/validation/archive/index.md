@@ -2,6 +2,10 @@
 
 These documents are preserved as historical evidence. They are not the current project-management authority.
 
+## S-031
+
+- [S-031 Playback and Adaptation Validation](s031_playback_adaptation_validation.md)
+
 ## S-030
 
 - [Observed Defects Review](s030_observed_semantic_structural_defects.md)

@@ -2,6 +2,10 @@
 
 These documents are preserved as historical evidence. They are not the current project-management authority.
 
+## S-031
+
+- [S-031 Playback and Adaptation](s031_playback_adaptation.md)
+
 ## S-030
 
 - [S-030 Semantic Output and Structural Integrity](s030_semantic_output_structural_integrity.md)

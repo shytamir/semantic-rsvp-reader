@@ -8,7 +8,7 @@ The repeatable characterization command is:
 python scripts/characterize_s031_playback_adaptation.py --check
 ```
 
-The committed [machine-readable record](../../evaluation/playback_adaptation/s031_characterization.json) checks the shipped JavaScript source for the playback lifecycle, timer replacement and cancellation, visibility pause, fixed speed levels, session reset, conservative adaptation thresholds and suppression, progress seeking, and observable session-summary fields.
+The committed [machine-readable record](../../../evaluation/playback_adaptation/s031_characterization.json) checks the shipped JavaScript source for the playback lifecycle, timer replacement and cancellation, visibility pause, fixed speed levels, session reset, conservative adaptation thresholds and suppression, progress seeking, and observable session-summary fields.
 
 No S-031 defect was reproduced during automated preparation. No playback, timing, or adaptation behavior was changed, and the passed S-029 dwell calibration remains intact. This source characterization supplements the existing Python and JavaScript checks; it is not a substitute for the phone-browser gate below.
 

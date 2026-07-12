@@ -1,5 +1,9 @@
 # S-034 Evidence Capture and Reproducibility
 
+## Status
+
+Active at `AWAITING_HUMAN_VALIDATION`, owned by the human. Automated synthetic capture and reproducibility checks pass without a reproduced defect. S-035 remains scheduled and inactive.
+
 ## Objective
 
 Validate that defect reports and management/evaluation records capture complete, private, reviewable, and reproducible evidence.

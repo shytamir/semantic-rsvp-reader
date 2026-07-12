@@ -1,0 +1,58 @@
+{
+  "captures": [
+    {
+      "category": "bad_chunk_split",
+      "generated_filename": true,
+      "gzip_readable": true,
+      "html_sensitive_text_escaped": true,
+      "required_sections_present": true,
+      "saved": true,
+      "status_code": 200
+    },
+    {
+      "category": "rushed_dense_chunk",
+      "generated_filename": true,
+      "gzip_readable": true,
+      "html_sensitive_text_escaped": true,
+      "required_sections_present": true,
+      "saved": true,
+      "status_code": 200
+    },
+    {
+      "category": "gesture_interference",
+      "generated_filename": true,
+      "gzip_readable": true,
+      "html_sensitive_text_escaped": true,
+      "required_sections_present": true,
+      "saved": true,
+      "status_code": 200
+    },
+    {
+      "category": "layout_or_visibility_issue",
+      "generated_filename": true,
+      "gzip_readable": true,
+      "html_sensitive_text_escaped": true,
+      "required_sections_present": true,
+      "saved": true,
+      "status_code": 200
+    }
+  ],
+  "categories": [
+    "bad_chunk_split",
+    "rushed_dense_chunk",
+    "gesture_interference",
+    "layout_or_visibility_issue"
+  ],
+  "generated_reports_committed": false,
+  "hard_failures": [],
+  "human_validation_required": true,
+  "method": "temporary_synthetic_capture_and_review_characterization",
+  "private_blind_material_used": false,
+  "review_tool": {
+    "included_reports": 4,
+    "returncode": 0
+  },
+  "slice": "S-034",
+  "stabilized_defects": [],
+  "synthetic_report_count": 4
+}

@@ -2,7 +2,7 @@
 
 ## Status
 
-Active at `AWAITING_HUMAN_VALIDATION`, owned by the human. The committed characterization passes without a reproduced presentation defect; the fixed phone-browser protocol is ready. S-034 remains scheduled and inactive.
+Completed as `passed` from human-owned evidence commit `3488946`. All eight checks passed on the documented Samsung Galaxy S23 Ultra / Android 16 / Mozilla Firefox 152 setup with no acceptance-blocking defect. The non-blocking coarse-seek touch-target observation is tracked in GitHub issue #11.
 
 ## Objective
 
