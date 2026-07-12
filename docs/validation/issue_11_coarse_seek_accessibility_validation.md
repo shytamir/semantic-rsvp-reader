@@ -18,4 +18,6 @@ Record `passed`, `partially_passed`, `failed`, or `inconclusive`, including devi
 
 ## Human Disposition
 
-Pending. Issue #11 remains `AWAITING_HUMAN_VALIDATION`, owned by the human.
+Using the same device and OS/Browser human performed all 5 protocols and reports `passed` for all but Number 2.
+Human reports 2nd protocol `partially_passed` and requests creating an issue hiding the Defects Reported:# display in landscape since it blocks most of the hit lane around the 50% area. The new issue should reference this issue (#11) and created with a low priority.
+Human is disposed to close #11 and proceed with the next slice.
