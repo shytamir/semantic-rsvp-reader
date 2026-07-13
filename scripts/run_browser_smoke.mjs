@@ -101,16 +101,26 @@ async function runSmoke(page) {
   );
 
   const canonicalId = "a".repeat(64);
+  const epubRequests = { unchanged: 0, normalized: 0, rejected: 0 };
   await page.route("**/api/epub/schedule", async (route) => {
     const request = route.request();
     assert(request.method() === "POST", "EPUB bridge did not use POST.");
     assert(request.headers()["content-type"] === "application/epub+zip", "EPUB bridge changed its dedicated media type.");
     assert(request.headers()["x-epub-filename"] === "smoke.epub", "EPUB filename metadata was not bounded to the dedicated request.");
+    const requestText = request.postDataBuffer().toString();
+    if (requestText.includes("rejected")) {
+      epubRequests.rejected += 1;
+      await route.fulfill({ status: 400, contentType: "application/json", body: JSON.stringify({ error: "Encrypted or DRM-protected EPUBs are not supported." }) });
+      return;
+    }
+    const mode = requestText.includes("normalized") ? "normalized" : "unchanged";
+    epubRequests[mode] += 1;
     await route.fulfill({
       status: 200,
       contentType: "application/json",
       body: JSON.stringify({
         document: { document_id: canonicalId, source_type: "epub", display_name: "Smoke EPUB", source_name: "smoke.epub" },
+        preparation: { mode, epub_version: "3.0", discarded_resources: mode === "normalized" ? 2 : 0, changes: mode === "normalized" ? ["removed_link", "removed_meta"] : [] },
         sentence_count: 3,
         sentences: ["# Opening", "EPUB reader bridge smoke content.", "## Continuation"],
         schedule: [
@@ -160,6 +170,28 @@ async function runSmoke(page) {
   assert(saved.documents[0].source_type === "epub", "EPUB continuity did not preserve source type.");
   assert(saved.documents[0].position === 2, "Heading jump was not persisted through existing continuity.");
   assert(!JSON.stringify(saved).includes("browser smoke fixture"), "EPUB bytes leaked into continuity storage.");
+
+  await page.locator("#back-button").click();
+  await page.locator("#epub-input").setInputFiles({
+    name: "smoke.epub",
+    mimeType: "application/epub+zip",
+    buffer: Buffer.from("browser smoke normalized"),
+  });
+  await page.locator("#prepare-epub-button").click();
+  await page.locator("#reader-mode").waitFor({ state: "visible" });
+  assert((await page.locator("#progress-indicator").textContent()) === "3 / 3", "Normalized EPUB did not restore continuity through canonical identity.");
+  assert((await page.locator("#play-pause-button").textContent()) === "Play", "Normalized EPUB continuity restore did not remain paused.");
+
+  await page.locator("#back-button").click();
+  await page.locator("#epub-input").setInputFiles({
+    name: "smoke.epub",
+    mimeType: "application/epub+zip",
+    buffer: Buffer.from("browser smoke rejected"),
+  });
+  await page.locator("#prepare-epub-button").click();
+  await page.locator("#status-message").filter({ hasText: "Encrypted or DRM-protected" }).waitFor();
+  assert(await page.locator("#reader-mode").isHidden(), "Rejected EPUB unexpectedly opened the reader.");
+  assert(epubRequests.unchanged === 1 && epubRequests.normalized === 1 && epubRequests.rejected === 1, "Browser smoke did not exercise all preparation outcomes once.");
 }
 
 const flask = spawn(

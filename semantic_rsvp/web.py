@@ -8,6 +8,7 @@ from werkzeug.exceptions import RequestEntityTooLarge
 from semantic_rsvp.application.schedule_service import ScheduleService
 from semantic_rsvp.application.document_ingestion import DocumentIngestionError
 from semantic_rsvp.application.epub_ingestion import MAX_EPUB_BYTES, ingest_epub_document
+from semantic_rsvp.application.epub_preparation import prepare_epub
 from semantic_rsvp.chunking.selection import (
     DEFAULT_CHUNKER_MODE,
     create_chunker,
@@ -46,6 +47,8 @@ def create_app(config: dict | None = None) -> Flask:
     schedule_service = ScheduleService(chunker=create_chunker(chunker_mode))
     app.config["SCHEDULE_SERVICE"] = schedule_service
     app.config["CHUNKING_STATE"] = chunking_state
+    app.config.setdefault("EPUB_PREPARER", prepare_epub)
+    app.config.setdefault("EPUB_INGESTOR", ingest_epub_document)
     logging.getLogger(__name__).info(
         "Configured RSVP chunking mode: %s; provider_available=%s; provider_reason=%s",
         chunking_state.configured_mode,
@@ -200,7 +203,12 @@ def create_app(config: dict | None = None) -> Flask:
         if request.mimetype != "application/epub+zip":
             return jsonify({"error": "Expected application/epub+zip bytes."}), 415
         try:
-            document = ingest_epub_document(request.get_data(cache=False), source_name=source_name)
+            preparation = app.config["EPUB_PREPARER"](
+                request.get_data(cache=False), source_name=source_name
+            )
+            document = app.config["EPUB_INGESTOR"](
+                preparation.data, source_name=source_name
+            )
         except DocumentIngestionError as error:
             return jsonify({"error": str(error)}), 400
         result = app.config["SCHEDULE_SERVICE"].generate(document.text)
@@ -214,6 +222,12 @@ def create_app(config: dict | None = None) -> Flask:
                     "source_type": document.source_type,
                     "display_name": provenance.get("title") or source_name,
                     "source_name": source_name,
+                },
+                "preparation": {
+                    "mode": preparation.mode,
+                    "epub_version": preparation.epub_version,
+                    "discarded_resources": preparation.discarded_resources,
+                    "changes": list(preparation.changes),
                 },
                 "schedule": [
                     _scheduled_chunk_to_dict(scheduled_chunk)

@@ -69,7 +69,9 @@ Preparation returns exact original bytes as `unchanged` when this final adapter 
 
 Normalization removes executable and presentation content, unrelated resources, remote attributes, and legacy doctypes while preserving readable linear order, supported blocks, and H1/H2 structure. H3–H6 text is retained without promotion. Every successful result is verified through this adapter and the existing schedule service before return. This is deliberately lossy preparation, not general conversion or ebook rendering.
 
-The CLI refuses identical paths and existing outputs unless `--overwrite` is explicit, writes through a same-directory temporary file, and replaces the destination only after successful verification. It performs no network access or telemetry. S-043A1 does not connect preparation to Flask or the browser; that remains provisional S-043A2 work.
+The CLI refuses identical paths and existing outputs unless `--overwrite` is explicit, writes through a same-directory temporary file, and replaces the destination only after successful verification. It performs no network access or telemetry.
+
+S-043A2 connects the same component to the existing **Prepare EPUB** request path. Raw request bytes remain subject to the dedicated 20 MB limit, then preparation runs before final ingestion. `unchanged` bytes pass through exactly; `normalized` bytes exist only transiently and are passed to the unchanged final adapter. The response exposes only bounded preparation mode/version/category metadata alongside the existing schedule and canonical identity. Neither source nor normalized archive bytes are returned, persisted, or written to server disk, and no converted download is provided. Encrypted, unsafe, ambiguous, and otherwise rejected input retains the existing bounded error path. The browser still opens successful documents paused and restores position/breakpoints only through canonical identity.
 
 ## Lightweight Contents Navigation
 
