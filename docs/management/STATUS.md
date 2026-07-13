@@ -2,12 +2,12 @@
 
 ```yaml
 current_slice: S-043
-active_scope: none
-name: Portfolio Demonstration and Interview Readiness
-state: SUSPENDED
-owner: Human
-agent_action: explicitly activate S-043A3 or provide other direction
-blocked_on: explicit management activation of S-043A3
+active_scope: S-043A3
+name: Demonstration Package Revalidation and Rehearsal Re-entry
+state: READY_FOR_IMPLEMENTATION
+owner: Codex
+agent_action: implement only S-043A3 under GitHub issue #29
+blocked_on: none
 started: 2026-07-12
 scope: docs/management/s043a_epub_preparation_chain.md
 parent_slice: S-043
@@ -16,7 +16,7 @@ previous_slice: S-042
 
 ## Current Slice
 
-The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-043 remains the current parent slice, but its Human-owned rehearsal is suspended until the ordered S-043A1 → S-043A2 → S-043A3 blocking chain completes. S-043A1 and S-043A2 completed as `passed` from objective evidence. No scope is active. S-043A3 remains provisional, inactive, and unauthorized under issue #29 pending explicit activation. Issues #18, #27, and #28 remain open.
+The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-043 remains the current parent slice, but its Human-owned rehearsal is suspended until the ordered S-043A1 → S-043A2 → S-043A3 blocking chain completes. S-043A1 and S-043A2 completed as `passed` from their recorded objective and terminal CI evidence. S-043A3 is the sole active scope at `READY_FOR_IMPLEMENTATION`, owned by Codex, with GitHub issue #29 as detailed authority. Issues #18, #27, and #28 remain open.
 
 Historical demonstration SHA `2d16a91fdfc95c384094de5f6cf0d59f666dcd8c` and its evidence remain immutable. It is not the active rehearsal target while the gate is suspended; no replacement SHA has been designated.
 
@@ -102,7 +102,7 @@ S-034 completed as `passed` on 2026-07-12 from human-owned evidence commit `eafa
 
 ## Next Actions
 
-- Await explicit management activation of S-043A3; do not implement or activate it automatically.
+- Implement only S-043A3 under issue #29; do not perform the Human rehearsal or record its disposition.
 - Keep the S-043 human rehearsal suspended and preserve the historical demonstration SHA until S-043A3 establishes a separately validated replacement.
 - Keep the private A/B identity key out of Git.
 

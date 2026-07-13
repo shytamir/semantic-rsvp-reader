@@ -28,4 +28,4 @@ S-043A2 completed as `passed` on 2026-07-13 from objective evidence. Issues #27 
 - Local JavaScript syntax via the repository wrapper reported Node unavailable; direct managed-Node syntax validation is recorded after the final edit.
 - Optional security tools Bandit, pip-audit, Semgrep, Gitleaks, and detect-secrets were unavailable and reported as skips.
 
-Terminal remote CI, browser-smoke, Parser CI, and CodeQL evidence is recorded on issues #27 and #28 after the implementation commit completes.
+Terminal remote evidence for implementation commit `a7731af361fab49aaca7025643d9f1d38b15c1ec` is recorded on issues #27 and #28: CI run `29219544902` passed core, integrity, and extended browser smoke; Parser CI run `29219544919` passed; CodeQL run `29219544707` passed Actions, Python, and JavaScript/TypeScript analyses.
