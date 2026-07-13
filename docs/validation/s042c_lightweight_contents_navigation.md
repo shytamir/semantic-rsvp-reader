@@ -48,44 +48,47 @@ infer unobserved details.
 
 1. Select and prepare the supported EPUB through the local EPUB control. Confirm
    the reader opens paused.
-   Evidence: _Human to record._
+   Evidence: Human reports failure to open first attempted EPUB file with displayed 
+	message `Unsupported HTML element <link>.` Second attempted EPUB file failed to 
+	open with the message `Only the HTML5 doctype is supported` Third attempted 
+	file failed with `Unsupported HTML element: <meta>.` Switched to repo owned
+	script produced fixture instead. Human confirmed the reader opens paused.
 2. Read enough RSVP output to confirm extracted chapter order is readable and
    consistent with the supported subset.
-   Evidence: _Human to record._
+   Evidence: Human confirmed chapter order is readable and consistent with the supported subset.
 3. Open Contents. Confirm the expected supported H1/H2 headings appear once and
    in document order.
-   Evidence: _Human to record._
+   Evidence: Human confirms the supported headings appear once and in document order, properly indented.
 4. Jump forward and backward between headings. Confirm each jump lands at the
    intended section and remains paused.
-   Evidence: _Human to record._
+   Evidence: Human confirmed.
 5. After a heading jump, press Play once. Confirm normal playback begins, then
    pause it.
-   Evidence: _Human to record._
+   Evidence: Human confirmed.
 6. Confirm progress, active structure label, and an existing breakpoint remain
    coherent after navigation.
-   Evidence: _Human to record._
+   Evidence: Human confirmed.
 7. Select Edit, reselect the same EPUB, and confirm position and breakpoints
    restore while playback remains paused.
-   Evidence: _Human to record._
+   Evidence: Human confirmed.
 8. Rename or recompress an otherwise equivalent EPUB, reselect it, and confirm
    identity-based restoration still occurs.
-   Evidence: _Human to record._
+   Evidence: Human confirmed.
 9. Reselect an EPUB whose extracted text has changed. Confirm it opens as a
    different document rather than restoring the prior position.
-   Evidence: _Human to record._
+   Evidence: Human confirmed. Used repo scripts to produce near identical EPUB with 2 characters difference and it opened as a new document at the first chunk.
 10. Reload without reselecting an EPUB. Confirm the saved reference does not
     reconstruct the missing source.
-    Evidence: _Human to record._
+    Evidence: Human reports upon reload same EPUB is still selected.
 11. Select an unsupported or malformed representative EPUB. Confirm the
     documented bounded failure is clear and the reader does not open.
-    Evidence: _Human to record._
+    Evidence: Human confirmed. See evidence in step 1 of this protocol.
 12. In the existing phone environment, confirm Contents remains keyboard/focus
     operable and does not create catastrophic narrow-screen overflow.
-    Evidence: _Human to record._
+    Evidence: Human confirmed.
 
-Disposition: _Human must record exactly one of `passed`, `partially_passed`,
-`failed`, or `inconclusive`._
+Disposition: Human recorded `passed`
 
-Defects or limitations observed: _Human to record._
+Defects or limitations observed: Human found none.
 
-Authorization to complete S-042 or proceed: _Human to record._
+Authorization to complete S-042 or proceed: Human gives authorization.
