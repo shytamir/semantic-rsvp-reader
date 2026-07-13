@@ -4,18 +4,18 @@
 current_slice: S-043
 active_scope: S-043
 name: Portfolio Demonstration and Interview Readiness
-state: READY_FOR_IMPLEMENTATION
+state: STABILIZATION_IN_PROGRESS
 owner: Codex
-agent_action: prepare the authorized portfolio demonstration materials and rehearsal handoff
-blocked_on: none
+agent_action: validate the immutable demonstration package and prepare the human rehearsal handoff
+blocked_on: terminal automated evidence for the demonstration package commit
 started: 2026-07-12
-scope: docs/management/s042_epub_long_document_navigation.md
+scope: docs/management/s043_portfolio_demonstration_and_interview_readiness.md
 previous_slice: S-042
 ```
 
 ## Current Slice
 
-The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-043 is the sole active scope at `READY_FOR_IMPLEMENTATION`, owned by Codex, with GitHub issue #18 as detailed authority. S-042 completed as `passed`; GitHub issue #17 is closed.
+The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-043 is the sole active scope at `STABILIZATION_IN_PROGRESS`, owned by Codex, with GitHub issue #18 as detailed authority. The complete demonstration package is undergoing objective validation before its immutable commit is handed to Human for rehearsal. S-042 completed as `passed`; GitHub issue #17 is closed.
 
 ## S-042 Outcome
 
@@ -99,7 +99,7 @@ S-034 completed as `passed` on 2026-07-12 from human-owned evidence commit `eafa
 
 ## Next Actions
 
-- Implement only the S-043 portfolio-demonstration preparation authorized by issue #18.
+- Validate and pin the complete S-043 demonstration package, then prepare the fixed human rehearsal handoff authorized by issue #18.
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks

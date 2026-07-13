@@ -6,10 +6,11 @@ Semantic RSVP Reader is a mobile-first Flask + HTML5 prototype for reading text 
 
 - Status: stabilized prototype; S-036 disposition `ready` with no acceptance-blocking defect.
 - Current phase: Document Reader Productization Program.
-- Active scope: S-043 Portfolio Demonstration and Interview Readiness (`READY_FOR_IMPLEMENTATION`), owned by Codex.
-- Primary focus: prepare the authorized portfolio demonstration and rehearsal handoff under issue #18; no release tag or rehearsal is part of this activation.
+- Active scope: S-043 Portfolio Demonstration and Interview Readiness (`STABILIZATION_IN_PROGRESS`), owned by Codex.
+- Primary focus: validate and pin the authorized portfolio demonstration package before the Human-owned rehearsal under issue #18; no release tag or rehearsal is part of this stage.
 - Timing, playback, navigation, and adaptation semantics are intentionally stable during this phase.
 - Canonical status and roadmap live in [docs/management/](docs/management/index.md).
+- The [portfolio demonstration package](docs/demonstration/README.md) provides reproducible short and full walkthroughs, project-owned inputs, fallback material, and supported claims.
 
 ## Core Capabilities
 
@@ -22,6 +23,7 @@ Semantic RSVP Reader is a mobile-first Flask + HTML5 prototype for reading text 
 - In-app compressed Markdown defect reports with security hardening.
 - Quote/parenthetical display-state metadata.
 - Passive spatial anchor, coarse seek, breakpoint traversal, ghost previous chunk, drift recovery, and structural hierarchy anchor.
+- Bounded local text/Markdown/clean-HTML and EPUB ingestion, H1/H2 contents navigation, and paused browser-local continuity.
 - Validation corpus, defect taxonomy, and review utilities.
 
 ## Quick Start
@@ -71,6 +73,7 @@ More details:
 - [Feature docs](docs/index.md#features)
 - [Parser-assisted chunking experiment](docs/experiments/parser_assisted_chunking/README.md)
 - [Validation docs](docs/validation/index.md)
+- [Portfolio demonstration package](docs/demonstration/README.md)
 - [Management docs](docs/management/index.md)
 - [Defect taxonomy](docs/validation/defect_taxonomy.md)
 - [Validation corpus](docs/validation/corpus.md)
@@ -83,7 +86,7 @@ See [docs/management/STATUS.md](docs/management/STATUS.md) for the active slice 
 
 - No public performance claims.
 - No permanent universal commitment to spaCy or any single parser provider.
-- No frontend framework, npm toolchain, or browser automation.
+- No frontend framework, npm application toolchain, or broad browser-automation product surface; CI uses one bounded Playwright smoke harness.
 - No accounts, analytics, service workers, database, or cloud sync.
 - No native app, PDF ingestion, or production-grade deployment infrastructure in the current phase.
 

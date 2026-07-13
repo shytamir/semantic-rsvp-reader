@@ -34,7 +34,7 @@ Current focus:
 11. S-035A, S-035B, and S-036 completed as `passed`; S-036 recorded prototype disposition `ready`, completing the stabilization program.
 12. Parser-assisted chunking remains frozen unless a new authorized evaluation slice changes it.
 13. S-037 completed as `passed` at human-evidence commit `b95df256c0b26a8ff51e37e539f1a859bf31a56c` with disposition `retain_parser_default_with_mandatory_automatic_fallback`. The correction concerns evidence classification, not a parser regression or reduced fallback safety; unsafe mapping and unscorable output remain accepted limitations.
-14. S-038 through S-040 completed as `passed`. S-041 is active under GitHub issue #16; S-042 and S-043 remain provisional, inactive, and unauthorized.
+14. S-038 through S-042 completed as `passed`. S-043 is active under GitHub issue #18 and its fixed Human-owned rehearsal record is [S-043 Portfolio Demonstration Rehearsal](s043_portfolio_demonstration_rehearsal.md).
 
 ## Defect Reporting Workflow
 

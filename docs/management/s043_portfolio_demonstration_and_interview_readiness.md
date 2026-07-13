@@ -2,7 +2,9 @@
 
 ## Status
 
-`READY_FOR_IMPLEMENTATION`, active, and owned by Codex under open GitHub issue #18. This activation prepares portfolio demonstration materials and the rehearsal handoff; it does not create a release tag or perform the human rehearsal.
+`STABILIZATION_IN_PROGRESS`, active, and owned by Codex under open GitHub issue #18. The complete repository-owned demonstration package is undergoing objective validation before its immutable commit is handed to Human. No release tag or human rehearsal is part of this stage.
+
+Prepared materials are indexed by the [portfolio demonstration package](../demonstration/README.md); the fixed gate is the [S-043 rehearsal record](../validation/s043_portfolio_demonstration_rehearsal.md).
 
 ## Objective
 
