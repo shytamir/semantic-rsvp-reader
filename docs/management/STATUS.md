@@ -2,11 +2,11 @@
 
 ```yaml
 current_slice: S-042
-active_scope: none
-name: EPUB Reader Application Integration
-state: COMPLETED
-owner: none
-agent_action: await separate successor authorization
+active_scope: S-042C
+name: Lightweight Contents Navigation and Integrated EPUB Validation
+state: READY_FOR_IMPLEMENTATION
+owner: Codex
+agent_action: implement lightweight H1/H2 contents navigation and prepare the human handoff
 blocked_on: none
 started: 2026-07-12
 scope: docs/management/s042_epub_long_document_navigation.md
@@ -15,7 +15,7 @@ previous_slice: S-041
 
 ## Current Slice
 
-The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-042B completed as `passed`; there is no active scope. GitHub issue #17 remains open as S-042 umbrella authority. S-042C and S-043 remain provisional, inactive, and unauthorized.
+The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-042C is the sole active scope at `READY_FOR_IMPLEMENTATION`, owned by Codex. GitHub issue #17 remains open as S-042 umbrella authority. S-043 remains provisional, inactive, and unauthorized.
 
 ## S-042B Outcome
 
@@ -95,7 +95,7 @@ S-034 completed as `passed` on 2026-07-12 from human-owned evidence commit `eafa
 
 ## Next Actions
 
-- Await separate authorization for a successor scope.
+- Implement only S-042C and prepare its fixed human EPUB protocol.
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks

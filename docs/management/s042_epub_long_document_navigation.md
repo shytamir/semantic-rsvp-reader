@@ -2,7 +2,7 @@
 
 ## Status
 
-S-042 is split into bounded lettered scopes under open umbrella issue #17. S-042A and S-042B completed as `passed` on 2026-07-13. No scope is active. S-042C remains provisional, inactive, and unauthorized.
+S-042 is split into bounded lettered scopes under open umbrella issue #17. S-042A and S-042B completed as `passed` on 2026-07-13. S-042C is the sole active scope at `READY_FOR_IMPLEMENTATION`, owned by Codex. S-043 remains provisional, inactive, and unauthorized.
 
 ## Objective
 
@@ -77,7 +77,7 @@ S-042B does not own:
 
 ### S-042C: Lightweight Contents Navigation and Integrated EPUB Validation
 
-`PROVISIONAL`, inactive, and unauthorized. It does not activate automatically.
+`READY_FOR_IMPLEMENTATION`, active, and owned by Codex.
 
 S-042C depends on completed S-042B application integration.
 
