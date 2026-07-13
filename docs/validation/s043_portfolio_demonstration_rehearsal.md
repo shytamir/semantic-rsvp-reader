@@ -2,7 +2,7 @@
 
 ## Rehearsal Suspension
 
-This Human-owned rehearsal is suspended until S-043A1, S-043A2, and S-043A3 complete in order. Do not execute this protocol or record a disposition during the suspension.
+This Human-owned rehearsal remains suspended while active S-043A3 revalidates the updated three-path package. Do not execute this protocol or record a disposition during the suspension.
 
 Demonstration SHA `2d16a91fdfc95c384094de5f6cf0d59f666dcd8c` and all evidence below remain immutable historical evidence. That SHA is not the active rehearsal target while the gate is suspended. No replacement SHA has been designated; S-043A3 owns replacement identity and rehearsal re-entry.
 
@@ -44,7 +44,7 @@ Human records observations without changing the twelve steps:
    - Evidence:
 4. Complete the full protocol without undocumented recovery steps.
    - Evidence:
-5. Confirm both prepared text and EPUB paths behave as documented.
+5. Confirm the prepared text plus unchanged, normalized, and bounded-failure EPUB paths behave as documented.
    - Evidence:
 6. Confirm contents navigation, heading jumps, and paused continuity remain coherent.
    - Evidence:

@@ -5,11 +5,17 @@ This is the repository-owned S-043 package for a local portfolio demonstration. 
 ## Run It
 
 1. Use the `standard` profile in the [environment contract](../development/environment_contract.md) with Python 3.12 and clear any inherited `RSVP_CHUNKER_MODE` override.
-2. Verify the committed EPUB with `python scripts/build_portfolio_demo_epub.py --check`.
+2. Verify all three committed EPUB paths with `python scripts/build_portfolio_demo_epub.py --check`.
 3. Start with `python -m flask --app semantic_rsvp.web:create_app run` and open `http://127.0.0.1:5000`.
-4. Use [portfolio-demo.md](../../samples/portfolio-demo.md) and [portfolio-demo.epub](../../samples/portfolio-demo.epub) with the [short](short_protocol.md) or [full](full_protocol.md) protocol.
+4. Use [portfolio-demo.md](../../samples/portfolio-demo.md) and the three EPUB paths below with the [short](short_protocol.md) or [full](full_protocol.md) protocol.
 
-The EPUB can be regenerated only when its project-owned source elements intentionally change: `python scripts/build_portfolio_demo_epub.py --write`. The script fixes entry order, timestamps, permissions, and compression choices so `--check` compares exact bytes.
+## EPUB Paths
+
+- [Unchanged](../../samples/portfolio-demo.epub): already demo-safe and passed through byte-for-byte.
+- [Normalized](../../samples/portfolio-demo-normalization-required.epub): legacy doctype, `<link>`, `<meta>`, CSS, and style attributes are simplified transiently before final ingestion.
+- [Bounded failure](../../samples/portfolio-demo-encrypted-rejected.epub): synthetic encryption declaration is rejected without opening the reader.
+
+The EPUBs can be regenerated only when their project-owned source elements intentionally change: `python scripts/build_portfolio_demo_epub.py --write`. The script fixes entry order, timestamps, permissions, and compression choices so `--check` compares exact bytes.
 
 ## Package Map
 
