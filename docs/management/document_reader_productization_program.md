@@ -2,7 +2,7 @@
 
 ## Status And Authority
 
-The program is active under human authorization D-010, committed in `4baf3e8`, after S-036 completed with prototype disposition `ready`. S-037 through S-042B completed as `passed`. S-042C is the sole active scope; S-043 remains provisional until separately activated.
+The program is active under human authorization D-010, committed in `4baf3e8`, after S-036 completed with prototype disposition `ready`. S-037 through S-042B completed as `passed`. S-042C is the sole active scope at `AWAITING_HUMAN_VALIDATION`, owned by Human; S-043 remains provisional until separately activated.
 
 ## Entry Authorization And Architecture Clarification
 
@@ -22,7 +22,7 @@ Move the validated RSVP prototype toward a bounded local-first document reader w
 4. **[S-039: Application-Service Boundary and Source-Document Contract](archive/s039_application_service_source_document_contract.md)** — completed as `passed` at human-evidence commit `806dbaea92d9638cc7cea439fe33ce9168f97c58`; GitHub issues #2 and #14 are closed.
 5. **[S-040: Plain Text, Markdown, and Bounded Clean-HTML Ingestion](s040_document_ingestion.md)** — completed as `passed` at human-evidence commit `fb618d269f70f5497154f1309db84e69bf8f5451`; GitHub issue #15 is closed.
 6. **[S-041: Local Reading Continuity](s041_local_reading_continuity.md)** — completed as `passed` at human-evidence commit `a865f563b50b9fa62bc65cb8e618ddcac04b0c6f`; GitHub issue #16 is closed.
-7. **[S-042: EPUB Ingestion and Long-Document Navigation](s042_epub_long_document_navigation.md)** — split under open umbrella issue #17: S-042A and S-042B completed as `passed`; S-042C is `READY_FOR_IMPLEMENTATION`, owned by Codex.
+7. **[S-042: EPUB Ingestion and Long-Document Navigation](s042_epub_long_document_navigation.md)** — split under open umbrella issue #17: S-042A and S-042B completed as `passed`; S-042C is `AWAITING_HUMAN_VALIDATION`, owned by Human.
 8. **[S-043: Limited Beta Distribution and External Trial](s043_limited_beta_external_trial.md)** — `PROVISIONAL`, inactive, and unauthorized; its external-trial gate is not interpreted or advanced by S-037 activation.
 
 ## Program Boundaries

@@ -17,7 +17,7 @@ Historical slice scopes are preserved in the [management archive](archive/index.
 - S-035 through S-036 completed as `passed`; S-036 recorded prototype disposition `ready`. Human decision D-010 authorizes entry into the **Document Reader Productization Program**.
 - The [Prototype Validation and Stabilization Program](prototype_validation_stabilization_program.md) schedules S-030 through S-036 in strict order.
 - Root scope documents: [S-033](archive/s033_mobile_presentation_accessibility.md), [S-034](archive/s034_evidence_capture_reproducibility.md), [S-035](archive/s035_service_surfaces_fallback.md), [S-035A](s035a_development_environment_contract.md), [S-035B](s035b_qa_authority_verification_framework.md), and [S-036](archive/s036_end_to_end_prototype_readiness.md).
-- S-037 through S-042B completed as `passed`. S-042C is the sole active scope at `READY_FOR_IMPLEMENTATION`, owned by Codex. GitHub issue #17 remains open as S-042 umbrella authority. S-043 remains provisional, inactive, and unauthorized.
+- S-037 through S-042B completed as `passed`. S-042C is the sole active scope at `AWAITING_HUMAN_VALIDATION`, owned by Human. GitHub issue #17 remains open as S-042 umbrella authority. S-043 remains provisional, inactive, and unauthorized.
 
 ## Document Reader Productization Program
 

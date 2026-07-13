@@ -24,6 +24,16 @@ check-only characterization JSON still held the pre-S-042C `app.js` source hash.
 This scope-caused evidence maintenance gap changes no playback or evaluation
 meaning. CodeQL run `29214665388` passed all three analyses.
 
+After refreshing only the S-031 `app.js` source identity, terminal evidence for
+commit `5e04e54d50da47be1e2cab81f659ac1c864320bc` passed:
+
+- CI run `29214755155`: Core, integrity, and browser-smoke jobs passed;
+- CodeQL run `29214754680`: Actions, Python, and JavaScript/TypeScript analyses
+  passed.
+
+S-042C is therefore ready for the human gate below. Automated evidence does not
+declare the human disposition.
+
 The contents view is shown only for EPUB schedules. It has a bounded scroll area,
 keyboard-operable buttons, retained focus after jumps, and an explicit empty
 state. It adds no navigation-document parsing, ingestion path, source persistence,

@@ -4,9 +4,9 @@
 current_slice: S-042
 active_scope: S-042C
 name: Lightweight Contents Navigation and Integrated EPUB Validation
-state: STABILIZATION_IN_PROGRESS
-owner: Codex
-agent_action: inspect terminal remote validation for the implemented S-042C scope
+state: AWAITING_HUMAN_VALIDATION
+owner: Human
+agent_action: run the fixed twelve-step integrated EPUB protocol and record a disposition
 blocked_on: none
 started: 2026-07-12
 scope: docs/management/s042_epub_long_document_navigation.md
@@ -15,7 +15,7 @@ previous_slice: S-041
 
 ## Current Slice
 
-The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-042C is the sole active scope in Codex-owned stabilization. GitHub issue #17 remains open as S-042 umbrella authority. S-043 remains provisional, inactive, and unauthorized.
+The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-042C is the sole active scope at `AWAITING_HUMAN_VALIDATION`, owned by Human. GitHub issue #17 remains open as S-042 umbrella authority. S-043 remains provisional, inactive, and unauthorized.
 
 ## S-042B Outcome
 
@@ -95,7 +95,7 @@ S-034 completed as `passed` on 2026-07-12 from human-owned evidence commit `eafa
 
 ## Next Actions
 
-- Implement only S-042C and prepare its fixed human EPUB protocol.
+- Run the fixed [S-042C integrated EPUB protocol](../validation/s042c_lightweight_contents_navigation.md) and record exactly one disposition.
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks
