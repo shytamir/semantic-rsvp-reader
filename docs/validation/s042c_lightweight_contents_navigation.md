@@ -18,6 +18,12 @@ and Playwright execution were unavailable because Node was not installed; CI is
 the authoritative browser execution. Terminal remote evidence is recorded after
 the implementation push.
 
+Initial remote CI run `29214665717` passed browser smoke and integrity and ran
+all 329 dependency-light tests successfully, then failed because the S-031
+check-only characterization JSON still held the pre-S-042C `app.js` source hash.
+This scope-caused evidence maintenance gap changes no playback or evaluation
+meaning. CodeQL run `29214665388` passed all three analyses.
+
 The contents view is shown only for EPUB schedules. It has a bounded scroll area,
 keyboard-operable buttons, retained focus after jumps, and an explicit empty
 state. It adds no navigation-document parsing, ingestion path, source persistence,
