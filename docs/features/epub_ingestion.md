@@ -57,6 +57,20 @@ This application boundary completed S-042B as `passed` after terminal Core,
 integrity, browser-smoke, and CodeQL evidence. Contents and heading navigation
 remain outside this boundary and require separate S-042C activation.
 
+## Offline Demo-Safe Preparation
+
+S-043A1 adds the framework-independent `prepare_epub` component and the local-only command:
+
+```text
+python scripts/convert_epub_to_demo_subset.py INPUT.epub OUTPUT.epub
+```
+
+Preparation returns exact original bytes as `unchanged` when this final adapter already accepts the EPUB. ZIP ordering, metadata, compression, unrelated resources, hashes, and canonical reader identity therefore remain untouched. Safely simplifiable EPUB 2/3 content returns deterministic `normalized` bytes containing only required package metadata and linear UTF-8 XHTML spine content. Unsafe, encrypted, malformed, over-limit, or semantically ambiguous input raises bounded `EpubPreparationError` without exposing source text.
+
+Normalization removes executable and presentation content, unrelated resources, remote attributes, and legacy doctypes while preserving readable linear order, supported blocks, and H1/H2 structure. H3–H6 text is retained without promotion. Every successful result is verified through this adapter and the existing schedule service before return. This is deliberately lossy preparation, not general conversion or ebook rendering.
+
+The CLI refuses identical paths and existing outputs unless `--overwrite` is explicit, writes through a same-directory temporary file, and replaces the destination only after successful verification. It performs no network access or telemetry. S-043A1 does not connect preparation to Flask or the browser; that remains provisional S-043A2 work.
+
 ## Lightweight Contents Navigation
 
 S-042C uses only the H1/H2 structure already attached to scheduled chunks. For

@@ -36,6 +36,8 @@ elements. Attributes are never fetched or rendered.
 No PDF, EPUB, remote URL, arbitrary scraping, full Markdown/HTML rendering,
 embedded media, persistence, parser adjustment, or API change is included.
 
+EPUB remains a separate bounded adapter and contract. The S-043A1 offline preparation engine may simplify local EPUB bytes before that final adapter, but it does not broaden this local-document adapter, persist source content, fetch remote resources, or add an application route.
+
 ## Local Inspection
 
 Inspect a project-owned fixture through the adapter and existing reader service:

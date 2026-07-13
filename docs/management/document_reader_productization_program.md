@@ -2,7 +2,7 @@
 
 ## Status And Authority
 
-The program is active under human authorization D-010, committed in `4baf3e8`, after S-036 completed with prototype disposition `ready`. S-037 through S-042 completed as `passed`. S-043 remains the current parent slice under issue #18, but its rehearsal is suspended behind the ordered S-043A1 → S-043A2 → S-043A3 chain. Only S-043A1 is active at `READY_FOR_IMPLEMENTATION`, owned by Codex under issue #27.
+The program is active under human authorization D-010, committed in `4baf3e8`, after S-036 completed with prototype disposition `ready`. S-037 through S-042 and S-043A1 completed as `passed`. S-043 remains the current parent under issue #18, with rehearsal suspended behind the S-043A chain. No scope is active; S-043A2 awaits explicit activation.
 
 ## Entry Authorization And Architecture Clarification
 
@@ -24,13 +24,13 @@ Move the validated RSVP prototype toward a bounded local-first document reader w
 6. **[S-041: Local Reading Continuity](s041_local_reading_continuity.md)** — completed as `passed` at human-evidence commit `a865f563b50b9fa62bc65cb8e618ddcac04b0c6f`; GitHub issue #16 is closed.
 7. **[S-042: EPUB Ingestion and Long-Document Navigation](s042_epub_long_document_navigation.md)** — completed as `passed` at human-evidence commit `6b85767b79fad7330403774a005eef465f2b4a0a`; GitHub issue #17 is closed.
 8. **[S-043: Portfolio Demonstration and Interview Readiness](s043_portfolio_demonstration_and_interview_readiness.md)** — current parent under open issue #18; Human rehearsal suspended by the [S-043A chain](s043a_epub_preparation_chain.md).
-   1. **S-043A1: Core Demo-Safe EPUB Preparation Engine and CLI** — `READY_FOR_IMPLEMENTATION`, owned by Codex; issue #27.
+   1. **S-043A1: Core Demo-Safe EPUB Preparation Engine and CLI** — completed as `passed`; issue #27 remains open.
    2. **S-043A2: Prepare EPUB Application Integration** — `PROVISIONAL`, inactive, and unauthorized; issue #28; depends on S-043A1.
    3. **S-043A3: Demonstration Package Revalidation and Rehearsal Re-entry** — `PROVISIONAL`, inactive, and unauthorized; issue #29; depends on S-043A2.
 
 ## Program Boundaries
 
-- Only one scope may be active through [STATUS](STATUS.md); S-043A1 is active within parent S-043. GitHub issue #24 is an authorized non-blocking follow-up and is not active.
+- Only one scope may be active through [STATUS](STATUS.md); no scope is active within parent S-043. GitHub issue #24 is an authorized non-blocking follow-up and is not active.
 - Later scopes may be revised or declined when S-034, S-035, or S-036 evidence changes their assumptions.
 - PDF extraction remains a separate later research and validation problem.
 - Accounts, cloud sync, analytics, native packaging, frontend-framework migration, broad browser automation, production infrastructure, public performance claims, broad handwritten grammar expansion, and unauthorized optimizer retuning remain outside this program.
