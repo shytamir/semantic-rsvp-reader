@@ -2,7 +2,7 @@
 
 ## Status And Authority
 
-The program is active under human authorization D-010, committed in `4baf3e8`, after S-036 completed with prototype disposition `ready`. S-037 through S-042 completed as `passed`. S-043 Portfolio Demonstration and Interview Readiness is the sole active scope at `STABILIZATION_IN_PROGRESS`, owned by Codex, under issue #18 while its complete demonstration package receives objective validation before human rehearsal.
+The program is active under human authorization D-010, committed in `4baf3e8`, after S-036 completed with prototype disposition `ready`. S-037 through S-042 completed as `passed`. S-043 Portfolio Demonstration and Interview Readiness is the sole active scope at `AWAITING_HUMAN_VALIDATION`, owned by Human, under issue #18 with immutable demonstration SHA `2d16a91fdfc95c384094de5f6cf0d59f666dcd8c`.
 
 ## Entry Authorization And Architecture Clarification
 
@@ -23,7 +23,7 @@ Move the validated RSVP prototype toward a bounded local-first document reader w
 5. **[S-040: Plain Text, Markdown, and Bounded Clean-HTML Ingestion](archive/s040_document_ingestion.md)** — completed as `passed` at human-evidence commit `fb618d269f70f5497154f1309db84e69bf8f5451`; GitHub issue #15 is closed.
 6. **[S-041: Local Reading Continuity](s041_local_reading_continuity.md)** — completed as `passed` at human-evidence commit `a865f563b50b9fa62bc65cb8e618ddcac04b0c6f`; GitHub issue #16 is closed.
 7. **[S-042: EPUB Ingestion and Long-Document Navigation](s042_epub_long_document_navigation.md)** — completed as `passed` at human-evidence commit `6b85767b79fad7330403774a005eef465f2b4a0a`; GitHub issue #17 is closed.
-8. **[S-043: Portfolio Demonstration and Interview Readiness](s043_portfolio_demonstration_and_interview_readiness.md)** — `STABILIZATION_IN_PROGRESS`, owned by Codex, under open GitHub issue #18.
+8. **[S-043: Portfolio Demonstration and Interview Readiness](s043_portfolio_demonstration_and_interview_readiness.md)** — `AWAITING_HUMAN_VALIDATION`, owned by Human, under open GitHub issue #18.
 
 ## Program Boundaries
 

@@ -5,8 +5,8 @@ This roadmap is the priority-order view. [STATUS](STATUS.md) is the authority fo
 ## Now
 
 1. **S-043: Portfolio Demonstration and Interview Readiness**
-   - State: `STABILIZATION_IN_PROGRESS`
-   - Owner: Codex
+   - State: `AWAITING_HUMAN_VALIDATION`
+   - Owner: Human
    - Scope: [S-043](s043_portfolio_demonstration_and_interview_readiness.md); detailed authority: GitHub issue #18.
 
 ## Next
@@ -24,7 +24,7 @@ Human decision D-010 authorizes program entry after the recorded S-036 `ready` d
 5. **S-040: Plain Text, Markdown, and Bounded Clean-HTML Ingestion** — completed as `passed`; [scope](archive/s040_document_ingestion.md); human-evidence commit `fb618d269f70f5497154f1309db84e69bf8f5451`; GitHub issue #15.
 6. **S-041: Local Reading Continuity** — completed as `passed`; [scope](s041_local_reading_continuity.md); GitHub issue #16 is closed.
 7. **S-042: EPUB Ingestion and Long-Document Navigation** — completed as `passed`; [scope](s042_epub_long_document_navigation.md); issue #17 is closed.
-8. **S-043: Portfolio Demonstration and Interview Readiness** — `STABILIZATION_IN_PROGRESS`; [scope](s043_portfolio_demonstration_and_interview_readiness.md); issue #18.
+8. **S-043: Portfolio Demonstration and Interview Readiness** — `AWAITING_HUMAN_VALIDATION`, owned by Human; [scope](s043_portfolio_demonstration_and_interview_readiness.md); issue #18.
 
 The [Document Reader Productization Program](document_reader_productization_program.md) defines dependency order and shared boundaries. Only S-043 is active. GitHub issue #24 is an authorized non-blocking follow-up and is not active.
 

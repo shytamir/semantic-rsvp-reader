@@ -2,7 +2,7 @@
 
 ## Status
 
-`STABILIZATION_IN_PROGRESS`, active, and owned by Codex under open GitHub issue #18. The complete repository-owned demonstration package is undergoing objective validation before its immutable commit is handed to Human. No release tag or human rehearsal is part of this stage.
+`AWAITING_HUMAN_VALIDATION`, active, and owned by Human under open GitHub issue #18. The complete repository-owned demonstration package is pinned to immutable commit `2d16a91fdfc95c384094de5f6cf0d59f666dcd8c`; applicable local validation, CI, browser smoke, and CodeQL passed. The fixed rehearsal has not been performed and no readiness disposition has been declared. No release tag was created.
 
 Prepared materials are indexed by the [portfolio demonstration package](../demonstration/README.md); the fixed gate is the [S-043 rehearsal record](../validation/s043_portfolio_demonstration_rehearsal.md).
 

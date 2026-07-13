@@ -4,10 +4,10 @@
 current_slice: S-043
 active_scope: S-043
 name: Portfolio Demonstration and Interview Readiness
-state: STABILIZATION_IN_PROGRESS
-owner: Codex
-agent_action: validate the immutable demonstration package and prepare the human rehearsal handoff
-blocked_on: terminal automated evidence for the demonstration package commit
+state: AWAITING_HUMAN_VALIDATION
+owner: Human
+agent_action: perform the fixed twelve-step S-043 portfolio rehearsal and record one permitted disposition
+blocked_on: human portfolio demonstration rehearsal
 started: 2026-07-12
 scope: docs/management/s043_portfolio_demonstration_and_interview_readiness.md
 previous_slice: S-042
@@ -15,7 +15,7 @@ previous_slice: S-042
 
 ## Current Slice
 
-The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-043 is the sole active scope at `STABILIZATION_IN_PROGRESS`, owned by Codex, with GitHub issue #18 as detailed authority. The complete demonstration package is undergoing objective validation before its immutable commit is handed to Human for rehearsal. S-042 completed as `passed`; GitHub issue #17 is closed.
+The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-043 is the sole active scope at `AWAITING_HUMAN_VALIDATION`, owned by Human, with GitHub issue #18 as detailed authority. Immutable demonstration SHA `2d16a91fdfc95c384094de5f6cf0d59f666dcd8c` passed applicable local validation, CI, browser smoke, and CodeQL; the fixed twelve-step rehearsal remains unperformed. S-042 completed as `passed`; GitHub issue #17 is closed.
 
 ## S-042 Outcome
 
@@ -99,7 +99,7 @@ S-034 completed as `passed` on 2026-07-12 from human-owned evidence commit `eafa
 
 ## Next Actions
 
-- Validate and pin the complete S-043 demonstration package, then prepare the fixed human rehearsal handoff authorized by issue #18.
+- Human performs the fixed S-043 portfolio rehearsal against demonstration SHA `2d16a91fdfc95c384094de5f6cf0d59f666dcd8c` and records exactly one permitted disposition.
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks
