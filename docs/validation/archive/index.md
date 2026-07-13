@@ -2,6 +2,10 @@
 
 These documents are preserved as historical evidence. They are not the current project-management authority.
 
+## S-040
+
+- [S-040 Bounded Document Ingestion Validation](s040_document_ingestion.md)
+
 ## S-039
 
 - [S-039 Application-Service and Source-Document Contract Validation](s039_application_service_source_document_contract.md)

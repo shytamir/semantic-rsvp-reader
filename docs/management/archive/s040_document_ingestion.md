@@ -2,7 +2,7 @@
 
 ## Status
 
-`COMPLETED` as `passed` on 2026-07-13, pinned to human-evidence commit `fb618d269f70f5497154f1309db84e69bf8f5451`. The verbatim human results remain in [S-040 validation](../validation/s040_document_ingestion.md). GitHub issue #15 is closed. S-041 through S-043 remain provisional, inactive, and unauthorized.
+`COMPLETED` as `passed` on 2026-07-13, pinned to human-evidence commit `fb618d269f70f5497154f1309db84e69bf8f5451`. The verbatim human results remain in [S-040 validation](../../validation/archive/s040_document_ingestion.md). GitHub issue #15 is closed. S-041 through S-043 remain provisional, inactive, and unauthorized.
 
 ## Objective
 
@@ -26,7 +26,7 @@ All adapters return the accepted immutable `SourceDocument` with source type, so
 
 ## Human Handoff
 
-Follow the fixed protocol in [S-040 validation](../validation/s040_document_ingestion.md). Judge only extracted text, supported headings, bounded provenance, reader-path readability, and the named failure messages.
+Follow the fixed protocol in [S-040 validation](../../validation/archive/s040_document_ingestion.md). Judge only extracted text, supported headings, bounded provenance, reader-path readability, and the named failure messages.
 
 ## Permissible Narrow Work
 
