@@ -1,21 +1,25 @@
 # Project Status
 
 ```yaml
-current_slice: S-042
-active_scope: S-042C
-name: Lightweight Contents Navigation and Integrated EPUB Validation
-state: AWAITING_HUMAN_VALIDATION
-owner: Human
-agent_action: run the fixed twelve-step integrated EPUB protocol and record a disposition
+current_slice: S-043
+active_scope: S-043
+name: Portfolio Demonstration and Interview Readiness
+state: READY_FOR_IMPLEMENTATION
+owner: Codex
+agent_action: prepare the authorized portfolio demonstration materials and rehearsal handoff
 blocked_on: none
 started: 2026-07-12
 scope: docs/management/s042_epub_long_document_navigation.md
-previous_slice: S-041
+previous_slice: S-042
 ```
 
 ## Current Slice
 
-The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-042C is the sole active scope at `AWAITING_HUMAN_VALIDATION`, owned by Human. GitHub issue #17 remains open as S-042 umbrella authority. S-043 remains provisional, inactive, and unauthorized.
+The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-043 is the sole active scope at `READY_FOR_IMPLEMENTATION`, owned by Codex, with GitHub issue #18 as detailed authority. S-042 completed as `passed`; GitHub issue #17 is closed.
+
+## S-042 Outcome
+
+S-042C and S-042 completed as `passed` on 2026-07-13, pinned to human-evidence commit `6b85767b79fad7330403774a005eef465f2b4a0a`. The commit's mistaken `S-043C` subject does not alter the authoritative S-042C validation record. The human confirmed the twelve-step integrated EPUB protocol and authorization to proceed. Three ordinary EPUBs were rejected respectively for unsupported `<link>`, non-HTML5 doctype, and unsupported `<meta>` content before the project-owned fixture passed; this remains an explicit limitation of the deliberately narrow supported subset for portfolio presentation, not an acceptance-blocking defect. GitHub issue #17 is closed.
 
 ## S-042B Outcome
 
@@ -95,7 +99,7 @@ S-034 completed as `passed` on 2026-07-12 from human-owned evidence commit `eafa
 
 ## Next Actions
 
-- Run the fixed [S-042C integrated EPUB protocol](../validation/s042c_lightweight_contents_navigation.md) and record exactly one disposition.
+- Implement only the S-043 portfolio-demonstration preparation authorized by issue #18.
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks

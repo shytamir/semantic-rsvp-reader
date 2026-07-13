@@ -2,7 +2,7 @@
 
 ## Status And Authority
 
-The program is active under human authorization D-010, committed in `4baf3e8`, after S-036 completed with prototype disposition `ready`. S-037 through S-042B completed as `passed`. S-042C is the sole active scope at `AWAITING_HUMAN_VALIDATION`, owned by Human; S-043 remains provisional until separately activated.
+The program is active under human authorization D-010, committed in `4baf3e8`, after S-036 completed with prototype disposition `ready`. S-037 through S-042 completed as `passed`. S-043 Portfolio Demonstration and Interview Readiness is the sole active scope at `READY_FOR_IMPLEMENTATION`, owned by Codex, under issue #18.
 
 ## Entry Authorization And Architecture Clarification
 
@@ -22,12 +22,12 @@ Move the validated RSVP prototype toward a bounded local-first document reader w
 4. **[S-039: Application-Service Boundary and Source-Document Contract](archive/s039_application_service_source_document_contract.md)** — completed as `passed` at human-evidence commit `806dbaea92d9638cc7cea439fe33ce9168f97c58`; GitHub issues #2 and #14 are closed.
 5. **[S-040: Plain Text, Markdown, and Bounded Clean-HTML Ingestion](s040_document_ingestion.md)** — completed as `passed` at human-evidence commit `fb618d269f70f5497154f1309db84e69bf8f5451`; GitHub issue #15 is closed.
 6. **[S-041: Local Reading Continuity](s041_local_reading_continuity.md)** — completed as `passed` at human-evidence commit `a865f563b50b9fa62bc65cb8e618ddcac04b0c6f`; GitHub issue #16 is closed.
-7. **[S-042: EPUB Ingestion and Long-Document Navigation](s042_epub_long_document_navigation.md)** — split under open umbrella issue #17: S-042A and S-042B completed as `passed`; S-042C is `AWAITING_HUMAN_VALIDATION`, owned by Human.
-8. **[S-043: Limited Beta Distribution and External Trial](s043_limited_beta_external_trial.md)** — `PROVISIONAL`, inactive, and unauthorized; its external-trial gate is not interpreted or advanced by S-037 activation.
+7. **[S-042: EPUB Ingestion and Long-Document Navigation](s042_epub_long_document_navigation.md)** — completed as `passed` at human-evidence commit `6b85767b79fad7330403774a005eef465f2b4a0a`; GitHub issue #17 is closed.
+8. **[S-043: Portfolio Demonstration and Interview Readiness](s043_portfolio_demonstration_and_interview_readiness.md)** — `READY_FOR_IMPLEMENTATION`, owned by Codex, under open GitHub issue #18.
 
 ## Program Boundaries
 
-- Only one scope may be active through [STATUS](STATUS.md); S-042C is active. S-043 remains provisional until separately activated. GitHub issue #24 is an authorized non-blocking follow-up and is not active.
+- Only one scope may be active through [STATUS](STATUS.md); S-043 is active. GitHub issue #24 is an authorized non-blocking follow-up and is not active.
 - Later scopes may be revised or declined when S-034, S-035, or S-036 evidence changes their assumptions.
 - PDF extraction remains a separate later research and validation problem.
 - Accounts, cloud sync, analytics, native packaging, frontend-framework migration, broad browser automation, production infrastructure, public performance claims, broad handwritten grammar expansion, and unauthorized optimizer retuning remain outside this program.

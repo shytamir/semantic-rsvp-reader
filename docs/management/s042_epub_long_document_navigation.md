@@ -2,7 +2,7 @@
 
 ## Status
 
-S-042 is split into bounded lettered scopes under open umbrella issue #17. S-042A and S-042B completed as `passed` on 2026-07-13. S-042C is the sole active scope at `READY_FOR_IMPLEMENTATION`, owned by Codex. S-043 remains provisional, inactive, and unauthorized.
+S-042 completed as `passed` on 2026-07-13, pinned to human-evidence commit `6b85767b79fad7330403774a005eef465f2b4a0a`. S-042A, S-042B, and S-042C are complete; GitHub issue #17 is closed. S-043 is active separately under issue #18.
 
 ## Objective
 
@@ -77,7 +77,7 @@ S-042B does not own:
 
 ### S-042C: Lightweight Contents Navigation and Integrated EPUB Validation
 
-`AWAITING_HUMAN_VALIDATION`, active, and owned by Human after successful terminal automated evidence.
+`COMPLETED` as `passed` on 2026-07-13. The human record remains verbatim in [S-042C validation](../validation/s042c_lightweight_contents_navigation.md). Its three ordinary-EPUB rejections remain a supported-subset limitation and do not change the human disposition.
 
 Implementation evidence and the fixed twelve-step human handoff are recorded in [S-042C validation](../validation/s042c_lightweight_contents_navigation.md).
 

@@ -2,7 +2,7 @@
 
 ## Status
 
-Provisional post-S-042 scope. Not active or authorized.
+`READY_FOR_IMPLEMENTATION`, active, and owned by Codex under open GitHub issue #18. This activation prepares portfolio demonstration materials and the rehearsal handoff; it does not create a release tag or perform the human rehearsal.
 
 ## Objective
 
