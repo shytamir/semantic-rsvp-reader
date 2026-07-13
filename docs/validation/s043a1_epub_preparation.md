@@ -25,4 +25,4 @@ S-043A1 completed as `passed` on 2026-07-13. The parent S-043 Human rehearsal re
 - Frozen rule-based baseline and S-037 characterization: reproducible.
 - Optional security tools Bandit, pip-audit, Semgrep, Gitleaks, and detect-secrets: unavailable and reported as skips.
 
-Remote evidence is recorded on issue #27 after the implementation commit reaches terminal GitHub Actions state.
+Terminal remote evidence for implementation commit `22c9a8b68ef222473eaca25deeca643291e06fae` is recorded on issue #27: CI run `29218777855`, Parser CI run `29218777861`, and CodeQL run `29218777624` all completed successfully.

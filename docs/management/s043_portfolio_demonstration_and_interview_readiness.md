@@ -2,7 +2,7 @@
 
 ## Status
 
-S-043 remains the current parent slice under open GitHub issue #18, but its Human-owned rehearsal is suspended while the ordered [S-043A1 → S-043A2 → S-043A3 blocking chain](s043a_epub_preparation_chain.md) completes. Only S-043A1 is active at `READY_FOR_IMPLEMENTATION`, owned by Codex under issue #27. No rehearsal or readiness disposition has been performed.
+S-043 remains the current parent slice under open GitHub issue #18, but its Human-owned rehearsal is suspended while the ordered [S-043A1 → S-043A2 → S-043A3 blocking chain](s043a_epub_preparation_chain.md) completes. S-043A1 completed as `passed`; only S-043A2 is active at `READY_FOR_IMPLEMENTATION`, owned by Codex under issue #28. S-043A3 remains provisional and inactive. No rehearsal or readiness disposition has been performed.
 
 The original repository-owned demonstration package remains immutable historical evidence at commit `2d16a91fdfc95c384094de5f6cf0d59f666dcd8c`. It is not the active rehearsal target during suspension and has not been replaced. No release tag was created.
 
