@@ -2,7 +2,7 @@
 
 ## Outcome
 
-S-043A2 completed as `passed` on 2026-07-13 from objective evidence. Issues #27 and #28 remain open pending the next management transition. Parent S-043 rehearsal remains suspended, historical demonstration SHA `2d16a91fdfc95c384094de5f6cf0d59f666dcd8c` remains immutable and is not the active rehearsal target, and S-043A3 remains provisional, inactive, and unauthorized.
+S-043A2 completed as `passed` on 2026-07-13 from objective evidence. At S-043A2 completion, issues #27 and #28 remained open, the parent rehearsal remained suspended, and S-043A3 remained provisional. Final chain reconciliation is recorded in the S-043A3 validation.
 
 ## Implemented Boundary
 

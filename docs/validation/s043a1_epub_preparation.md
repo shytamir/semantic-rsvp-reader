@@ -2,7 +2,7 @@
 
 ## Outcome
 
-S-043A1 completed as `passed` on 2026-07-13. The parent S-043 Human rehearsal remains suspended, historical demonstration SHA `2d16a91fdfc95c384094de5f6cf0d59f666dcd8c` remains immutable evidence and is not the active target, issue #27 remains open, and S-043A2 awaits explicit management activation.
+S-043A1 completed as `passed` on 2026-07-13. The parent S-043 Human rehearsal remains suspended, historical demonstration SHA `2d16a91fdfc95c384094de5f6cf0d59f666dcd8c` remains immutable evidence and is not the active target. At S-043A1 completion, the parent rehearsal remained suspended, issue #27 remained open, and S-043A2 awaited explicit activation. Final chain reconciliation is recorded in the S-043A3 validation.
 
 ## Implemented Boundary
 
