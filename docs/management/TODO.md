@@ -21,7 +21,7 @@ The authoritative order is in the [roadmap](roadmap.md). These are approved dest
 4. S-040: Plain Text, Markdown, and Bounded Clean-HTML Ingestion.
 5. S-041: Local Reading Continuity without accounts or cloud services.
 6. S-042: EPUB Ingestion and Long-Document Navigation with heading navigation and a lightweight contents view.
-7. S-043: Limited Beta Distribution and External Trial with explicit prototype/privacy limitations.
+7. S-043: Portfolio Demonstration and Interview Readiness
 
 These scopes are defined by the [Document Reader Productization Program](document_reader_productization_program.md). S-037 is active under D-010; S-038 through S-043 remain provisional and unauthorized. PDF is not bundled with EPUB; its extraction and reading-order quality remain a separate post-S-043 evaluation problem.
 
