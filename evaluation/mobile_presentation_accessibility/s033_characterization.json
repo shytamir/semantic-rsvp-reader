@@ -30,8 +30,8 @@
   "method": "static_shell_characterization_with_fixed_human_viewport_matrix",
   "slice": "S-033",
   "sources": {
-    "static/css/app.css": "1964863fb5f9c6ff975818fa4ef81fa30ff23f7ced564461c8f5eb78302997e2",
-    "templates/index.html": "7ac26ab47de89f22d479005a038e660f8cc2206b720f990998bfb715cef89cd6"
+    "static/css/app.css": "ef9eca770ffe0d1a08dab7ba6b1d533f7f8fd65627fbdf57df541b9429c7b7d9",
+    "templates/index.html": "ad95088fa2ea3c40344f81afb58e867e2f5480d2be2be33c31c8207a0e65f976"
   },
   "stabilized_defects": [],
   "viewport_content_matrix": [

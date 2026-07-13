@@ -5,7 +5,7 @@ This roadmap is the priority-order view. [STATUS](STATUS.md) is the authority fo
 ## Now
 
 1. **S-042: EPUB Ingestion and Long-Document Navigation**
-   - State: S-042C `READY_FOR_IMPLEMENTATION`
+   - State: S-042C `STABILIZATION_IN_PROGRESS`
    - Owner: Codex
    - Active scope: S-042C Lightweight Contents Navigation and Integrated EPUB Validation.
    - Scope: [S-042](s042_epub_long_document_navigation.md); umbrella authority: GitHub issue #17.

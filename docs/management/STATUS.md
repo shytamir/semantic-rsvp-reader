@@ -4,9 +4,9 @@
 current_slice: S-042
 active_scope: S-042C
 name: Lightweight Contents Navigation and Integrated EPUB Validation
-state: READY_FOR_IMPLEMENTATION
+state: STABILIZATION_IN_PROGRESS
 owner: Codex
-agent_action: implement lightweight H1/H2 contents navigation and prepare the human handoff
+agent_action: inspect terminal remote validation for the implemented S-042C scope
 blocked_on: none
 started: 2026-07-12
 scope: docs/management/s042_epub_long_document_navigation.md
@@ -15,7 +15,7 @@ previous_slice: S-041
 
 ## Current Slice
 
-The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-042C is the sole active scope at `READY_FOR_IMPLEMENTATION`, owned by Codex. GitHub issue #17 remains open as S-042 umbrella authority. S-043 remains provisional, inactive, and unauthorized.
+The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-042C is the sole active scope in Codex-owned stabilization. GitHub issue #17 remains open as S-042 umbrella authority. S-043 remains provisional, inactive, and unauthorized.
 
 ## S-042B Outcome
 

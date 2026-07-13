@@ -56,3 +56,15 @@ reselects an EPUB whose extracted normalized text yields the same canonical ID.
 This application boundary completed S-042B as `passed` after terminal Core,
 integrity, browser-smoke, and CodeQL evidence. Contents and heading navigation
 remain outside this boundary and require separate S-042C activation.
+
+## Lightweight Contents Navigation
+
+S-042C uses only the H1/H2 structure already attached to scheduled chunks. For
+each supported heading, the contents view maps to the first schedule item marked
+as that header chunk. It does not inspect EPUB navigation documents or NCX.
+
+Selecting a heading cancels pending playback or drift recovery, moves to that
+existing schedule index, refreshes progress and the structure anchor, persists
+the position through normal continuity, and remains paused. Contents buttons
+retain keyboard focus. EPUBs without supported headings show an explicit empty
+state; the list is height-bounded and scrollable on narrow screens.

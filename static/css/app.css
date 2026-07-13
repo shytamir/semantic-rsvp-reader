@@ -119,6 +119,7 @@ button:disabled {
 button:focus-visible,
 select:focus-visible,
 textarea:focus-visible,
+.contents-panel summary:focus-visible,
 .reader-area:focus-visible {
   outline: 3px solid #2f73d8;
   outline-offset: 3px;
@@ -149,6 +150,50 @@ textarea:focus-visible,
 .sample-list {
   display: grid;
   gap: 12px;
+}
+
+.contents-panel {
+  max-width: 100%;
+  border: 1px solid #d5d5cc;
+  border-radius: 8px;
+  padding: 6px 8px;
+  background: #ffffff;
+}
+
+.contents-panel summary {
+  min-height: 36px;
+  cursor: pointer;
+  font-weight: 800;
+  line-height: 36px;
+}
+
+.contents-list {
+  display: grid;
+  max-height: min(32vh, 240px);
+  margin: 4px 0 0;
+  padding: 0;
+  gap: 4px;
+  overflow-y: auto;
+  list-style: none;
+}
+
+.contents-link {
+  width: 100%;
+  min-height: 38px;
+  padding: 6px 10px;
+  text-align: left;
+  line-height: 1.25;
+}
+
+.contents-level-2 {
+  padding-left: 24px;
+  background: #305f56;
+}
+
+.contents-empty {
+  margin: 4px 0;
+  color: var(--muted);
+  font-size: 0.9rem;
 }
 
 .sample-collection-title {

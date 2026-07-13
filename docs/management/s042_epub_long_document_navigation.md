@@ -77,7 +77,9 @@ S-042B does not own:
 
 ### S-042C: Lightweight Contents Navigation and Integrated EPUB Validation
 
-`READY_FOR_IMPLEMENTATION`, active, and owned by Codex.
+`STABILIZATION_IN_PROGRESS`, active, and owned by Codex pending terminal automated evidence.
+
+Implementation evidence and the fixed twelve-step human handoff are recorded in [S-042C validation](../validation/s042c_lightweight_contents_navigation.md).
 
 S-042C depends on completed S-042B application integration.
 

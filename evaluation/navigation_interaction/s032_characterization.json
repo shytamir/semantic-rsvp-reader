@@ -4,6 +4,7 @@
     "adaptation_toggle",
     "back_to_input",
     "breakpoint_toggle",
+    "contents_jump",
     "defect_report",
     "defect_submit",
     "load_epub_schedule",
@@ -129,7 +130,7 @@
   "presentation_findings_for_s033": [],
   "slice": "S-032",
   "source": "static/js/app.js",
-  "source_sha256": "3236af0aeb14004c81a6b8fa7e4a85b227d86a79ffc1ce39fb632144f33f9399",
+  "source_sha256": "1523b178ae5f2bf546ad6e4f06157618e5e13f49d77144b80e226d42ad5b51b8",
   "stabilized_defects": [
     {
       "after": "ordinary and breakpoint traversal share left-previous and right-next semantics",

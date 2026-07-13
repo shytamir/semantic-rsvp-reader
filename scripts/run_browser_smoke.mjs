@@ -111,23 +111,31 @@ async function runSmoke(page) {
       contentType: "application/json",
       body: JSON.stringify({
         document: { document_id: canonicalId, source_type: "epub", display_name: "Smoke EPUB", source_name: "smoke.epub" },
-        sentence_count: 1,
-        sentences: ["EPUB reader bridge smoke content."],
-        schedule: [{
-          index: 0,
-          sentence_index: 0,
-          text: "EPUB reader bridge smoke content.",
-          content_word_count: 5,
-          char_length: 33,
-          syntactic_hint: null,
-          duration_ms: 900,
-          in_quote: false,
-          quote_boundary: null,
-          in_parenthetical: false,
-          parenthetical_depth: 0,
-          navigation: { progress_percent: 100, paragraph_index: 0, source_start: 0, source_end: 33 },
-          structure: { active_h1: null, active_h2: null, active_path: [], is_header_chunk: false },
-        }],
+        sentence_count: 3,
+        sentences: ["# Opening", "EPUB reader bridge smoke content.", "## Continuation"],
+        schedule: [
+          {
+            index: 0, sentence_index: 0, text: "# Opening", content_word_count: 1,
+            char_length: 9, syntactic_hint: null, duration_ms: 700, in_quote: false,
+            quote_boundary: null, in_parenthetical: false, parenthetical_depth: 0,
+            navigation: { progress_percent: 20, paragraph_index: 0, source_start: 0, source_end: 9 },
+            structure: { active_h1: "Opening", active_h2: null, active_path: ["Opening"], is_header_chunk: true, header_level: 1 },
+          },
+          {
+            index: 1, sentence_index: 1, text: "EPUB reader bridge smoke content.", content_word_count: 5,
+            char_length: 33, syntactic_hint: null, duration_ms: 900, in_quote: false,
+            quote_boundary: null, in_parenthetical: false, parenthetical_depth: 0,
+            navigation: { progress_percent: 70, paragraph_index: 1, source_start: 11, source_end: 44 },
+            structure: { active_h1: "Opening", active_h2: null, active_path: ["Opening"], is_header_chunk: false, header_level: null },
+          },
+          {
+            index: 2, sentence_index: 2, text: "## Continuation", content_word_count: 1,
+            char_length: 15, syntactic_hint: null, duration_ms: 700, in_quote: false,
+            quote_boundary: null, in_parenthetical: false, parenthetical_depth: 0,
+            navigation: { progress_percent: 100, paragraph_index: 2, source_start: 46, source_end: 61 },
+            structure: { active_h1: "Opening", active_h2: "Continuation", active_path: ["Opening", "Continuation"], is_header_chunk: true, header_level: 2 },
+          },
+        ],
       }),
     });
   });
@@ -139,10 +147,18 @@ async function runSmoke(page) {
   });
   await page.locator("#prepare-epub-button").click();
   await page.locator("#reader-mode").waitFor({ state: "visible" });
-  assert((await page.locator("#chunk-display").textContent()) === "EPUB reader bridge smoke content.", "EPUB response did not enter the existing reader.");
+  assert((await page.locator("#chunk-display").textContent()) === "# Opening", "EPUB response did not enter the existing reader.");
+  await page.locator("#contents-panel summary").click();
+  assert((await page.locator("#contents-list button").count()) === 2, "Supported H1/H2 contents targets were not mapped once in order.");
+  const continuation = page.getByRole("button", { name: "Continuation" });
+  await continuation.click();
+  assert((await page.locator("#progress-indicator").textContent()) === "3 / 3", "Heading jump did not land on its first scheduled chunk.");
+  assert((await page.locator("#play-pause-button").textContent()) === "Play", "Heading jump did not remain paused.");
+  assert(await continuation.evaluate((element) => element === document.activeElement), "Heading jump did not preserve keyboard focus.");
   const saved = await page.evaluate(() => JSON.parse(localStorage.getItem("semantic-rsvp-reader.documents.v1")));
   assert(saved.documents[0].document_id === canonicalId, "EPUB continuity did not use the canonical server identity.");
   assert(saved.documents[0].source_type === "epub", "EPUB continuity did not preserve source type.");
+  assert(saved.documents[0].position === 2, "Heading jump was not persisted through existing continuity.");
   assert(!JSON.stringify(saved).includes("browser smoke fixture"), "EPUB bytes leaked into continuity storage.");
 }
 

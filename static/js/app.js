@@ -72,6 +72,9 @@ const previousChunkDisplay = document.querySelector("#previous-chunk");
 const removeContinuityButton = document.querySelector("#remove-continuity-button");
 const clearContinuityButton = document.querySelector("#clear-continuity-button");
 const continuityStatus = document.querySelector("#continuity-status");
+const contentsPanel = document.querySelector("#contents-panel");
+const contentsList = document.querySelector("#contents-list");
+const contentsEmpty = document.querySelector("#contents-empty");
 const continuityApi = window.SemanticRSVPContinuity;
 let continuityStore = null;
 try {
@@ -154,6 +157,7 @@ adaptationToggle.addEventListener("click", () => setAdaptationEnabled(!adaptatio
 adaptationReset.addEventListener("click", resetAdaptationWindowFromControl);
 removeContinuityButton.addEventListener("click", removeCurrentDocumentContinuity);
 clearContinuityButton.addEventListener("click", clearAllContinuity);
+contentsList.addEventListener("click", handleContentsClick);
 speedOverlay.addEventListener("pointerdown", stopOverlayGesturePropagation);
 speedOverlay.addEventListener("pointermove", stopOverlayGesturePropagation);
 speedOverlay.addEventListener("pointerup", stopOverlayGesturePropagation);
@@ -1012,7 +1016,87 @@ function enterReaderMode() {
   updateProgressAnchor({ force: true });
   renderSessionDebug();
   renderDefectCount();
+  renderContentsNavigation();
   readerArea.focus();
+}
+
+function getContentsTargets() {
+  if (currentDocumentSourceType !== "epub") {
+    return [];
+  }
+  const targets = [];
+  let previousHeaderKey = null;
+  for (const item of schedule) {
+    const structure = item && item.structure;
+    if (!structure || !structure.is_header_chunk) {
+      previousHeaderKey = null;
+      continue;
+    }
+    const level = Number(structure.header_level);
+    const label = level === 1 ? structure.active_h1 : level === 2 ? structure.active_h2 : null;
+    const key = `${level}\0${label || ""}`;
+    if (!label || previousHeaderKey === key) {
+      continue;
+    }
+    previousHeaderKey = key;
+    targets.push({ index: item.index, label, level });
+  }
+  return targets;
+}
+
+function renderContentsNavigation() {
+  if (!contentsPanel || !contentsList || !contentsEmpty) {
+    return;
+  }
+  const isEpub = currentDocumentSourceType === "epub";
+  contentsPanel.classList.toggle("is-hidden", !isEpub);
+  contentsList.replaceChildren();
+  if (!isEpub) {
+    contentsEmpty.hidden = true;
+    return;
+  }
+  const targets = getContentsTargets();
+  contentsEmpty.hidden = targets.length > 0;
+  for (const target of targets) {
+    const item = document.createElement("li");
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `contents-link contents-level-${target.level}`;
+    button.dataset.chunkIndex = String(target.index);
+    button.textContent = target.label;
+    item.appendChild(button);
+    contentsList.appendChild(item);
+  }
+}
+
+function handleContentsClick(event) {
+  const button = event.target.closest("button[data-chunk-index]");
+  if (!button || !contentsList.contains(button)) {
+    return;
+  }
+  jumpToContentsIndex(Number(button.dataset.chunkIndex));
+}
+
+function jumpToContentsIndex(nextIndex) {
+  if (!Number.isInteger(nextIndex) || schedule.length === 0) {
+    return false;
+  }
+  cancelPendingDriftRecovery("contents_jump");
+  clearPendingSingleTapTimer();
+  const oldIndex = currentIndex;
+  pause({ record: false, render: false });
+  currentIndex = clampIndex(nextIndex);
+  smoothChunkRun = 0;
+  adaptationSuppressedUntilEventCount = sessionEvents.length + 3;
+  resetAdaptationWindow();
+  renderCurrentChunk();
+  updateProgressAnchor({ force: true });
+  recordSessionEvent("contents_jump", {
+    from_index: oldIndex,
+    to_index: currentIndex,
+  });
+  setBreakpointStatus(`Contents jump ${currentIndex + 1}`);
+  return true;
 }
 
 function showError(message) {
