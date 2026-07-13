@@ -2,7 +2,9 @@
 
 ## Status
 
-`AWAITING_HUMAN_VALIDATION`, active, and owned by Human under open GitHub issue #18. The complete repository-owned demonstration package is pinned to immutable commit `2d16a91fdfc95c384094de5f6cf0d59f666dcd8c`; applicable local validation, CI, browser smoke, and CodeQL passed. The fixed rehearsal has not been performed and no readiness disposition has been declared. No release tag was created.
+S-043 remains the current parent slice under open GitHub issue #18, but its Human-owned rehearsal is suspended while the ordered [S-043A1 → S-043A2 → S-043A3 blocking chain](s043a_epub_preparation_chain.md) completes. Only S-043A1 is active at `READY_FOR_IMPLEMENTATION`, owned by Codex under issue #27. No rehearsal or readiness disposition has been performed.
+
+The original repository-owned demonstration package remains immutable historical evidence at commit `2d16a91fdfc95c384094de5f6cf0d59f666dcd8c`. It is not the active rehearsal target during suspension and has not been replaced. No release tag was created.
 
 Prepared materials are indexed by the [portfolio demonstration package](../demonstration/README.md); the fixed gate is the [S-043 rehearsal record](../validation/s043_portfolio_demonstration_rehearsal.md).
 

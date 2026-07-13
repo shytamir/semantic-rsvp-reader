@@ -1,5 +1,11 @@
 # S-043 Portfolio Demonstration Rehearsal
 
+## Rehearsal Suspension
+
+This Human-owned rehearsal is suspended until S-043A1, S-043A2, and S-043A3 complete in order. Do not execute this protocol or record a disposition during the suspension.
+
+Demonstration SHA `2d16a91fdfc95c384094de5f6cf0d59f666dcd8c` and all evidence below remain immutable historical evidence. That SHA is not the active rehearsal target while the gate is suspended. No replacement SHA has been designated; S-043A3 owns replacement identity and rehearsal re-entry.
+
 ## Immutable Demonstration Identity
 
 - Demonstration SHA: `2d16a91fdfc95c384094de5f6cf0d59f666dcd8c`.
