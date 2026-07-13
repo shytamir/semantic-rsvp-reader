@@ -1,14 +1,14 @@
 # S-043 Portfolio Demonstration Rehearsal
 
-## Rehearsal Suspension
+## Rehearsal Re-entry
 
-This Human-owned rehearsal remains suspended while active S-043A3 revalidates the updated three-path package. Do not execute this protocol or record a disposition during the suspension.
+The S-043A chain completed as `passed`. Human must restart this fixed protocol from step 1 against the replacement identity below. No prior Human observation, evidence, timing, or disposition carries into this rehearsal.
 
-Demonstration SHA `2d16a91fdfc95c384094de5f6cf0d59f666dcd8c` and all evidence below remain immutable historical evidence. That SHA is not the active rehearsal target while the gate is suspended. No replacement SHA has been designated; S-043A3 owns replacement identity and rehearsal re-entry.
+Historical demonstration SHA `2d16a91fdfc95c384094de5f6cf0d59f666dcd8c` and its original evidence remain immutable but are withdrawn only as the active target.
 
 ## Immutable Demonstration Identity
 
-- Demonstration SHA: `2d16a91fdfc95c384094de5f6cf0d59f666dcd8c`.
+- Demonstration SHA: `88cc5433d85c6dcfc632412f6796af25702e1c7b`.
 - Profile: `standard` (`parser_assisted` default; mandatory automatic rule-based fallback).
 - Runtime: Python 3.12.x and the exact accepted dependencies in the [environment contract](../development/environment_contract.md).
 - Startup: `python -m flask --app semantic_rsvp.web:create_app run`.
@@ -30,11 +30,22 @@ The complete package commit was validated without changing application behavior:
 - GitHub Actions CI run [29216823831](https://github.com/shytamir/semantic-rsvp-reader/actions/runs/29216823831): terminal success for core, integrity, and browser-smoke jobs.
 - GitHub CodeQL run [29216823472](https://github.com/shytamir/semantic-rsvp-reader/actions/runs/29216823472): terminal success for Actions, Python, and JavaScript/TypeScript analyses.
 
+Replacement-package revalidation:
+
+- Deterministic unchanged, normalization-required, and encrypted-rejection EPUB builder check: passed.
+- Focused package/preparation/application tests: 19 passed.
+- Complete Python suite: 347 passed, 1 existing skip.
+- Direct managed-Node syntax, Markdown links, repository integrity, frozen rule-based baseline, S-037 characterization, standard-profile dependency identity, `/health`, and Flask smoke: passed.
+- Standard identity: Python `3.12.13`; Flask `3.1.3`; pytest `9.1.1`; Click `8.1.8`; spaCy `3.7.5`; `en-core-web-sm` `3.7.1`; configured/active `parser_assisted`, provider available, `rule_based` fallback.
+- Optional security tools Bandit, pip-audit, Semgrep, Gitleaks, and detect-secrets: unavailable and reported as skips.
+- GitHub Actions CI run [29220233534](https://github.com/shytamir/semantic-rsvp-reader/actions/runs/29220233534): terminal success for core, integrity, and extended browser smoke.
+- GitHub CodeQL run [29220233356](https://github.com/shytamir/semantic-rsvp-reader/actions/runs/29220233356): terminal success for Actions, Python, and JavaScript/TypeScript analyses.
+
 This is objective package/startup evidence, not human rehearsal evidence. No screenshots, recording, rehearsal timings, or qualitative observations were fabricated.
 
 ## Fixed Human Rehearsal Protocol
 
-Human records observations without changing the twelve steps:
+Human records new observations without changing the twelve steps. All fields are intentionally blank:
 
 1. Confirm the pinned SHA opens in the intended Windows environment.
    - Evidence:

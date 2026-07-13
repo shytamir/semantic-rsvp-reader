@@ -2,18 +2,18 @@
 
 ## Status And Authority
 
-S-043 remains the current parent slice under open GitHub issue #18. Its Human-owned portfolio rehearsal is suspended until these stages complete in strict order:
+S-043 remains the current parent slice under open GitHub issue #18. The ordered blocking chain completed in strict order and the Human-owned portfolio rehearsal has returned to its gate:
 
-1. **S-043A1: Core Demo-Safe EPUB Preparation Engine and CLI** — completed as `passed` from objective evidence in [S-043A1 validation](../validation/s043a1_epub_preparation.md); GitHub issue #27 remains open as chain authority.
-2. **S-043A2: Prepare EPUB Application Integration** — completed as `passed` from objective evidence in [S-043A2 validation](../validation/s043a2_epub_application_integration.md); GitHub issue #28 remains open pending the next management transition.
-3. **S-043A3: Demonstration Package Revalidation and Rehearsal Re-entry** — `READY_FOR_IMPLEMENTATION`, active, and owned by Codex; GitHub issue #29 is detailed authority; S-043A2 dependency satisfied.
+1. **S-043A1: Core Demo-Safe EPUB Preparation Engine and CLI** — completed as `passed` from objective evidence in [S-043A1 validation](../validation/s043a1_epub_preparation.md); GitHub issue #27 is closed.
+2. **S-043A2: Prepare EPUB Application Integration** — completed as `passed` from objective evidence in [S-043A2 validation](../validation/s043a2_epub_application_integration.md); GitHub issue #28 is closed.
+3. **S-043A3: Demonstration Package Revalidation and Rehearsal Re-entry** — completed as `passed` from [S-043A3 objective evidence](../validation/s043a3_demonstration_package_revalidation.md); GitHub issue #29 is closed.
 
-S-043A3 is the sole active stage. Its activation is this explicit management transition, not an automatic consequence of S-043A2 completion. Detailed requirements and acceptance criteria remain in issues #27–#29 and are not duplicated here.
+The S-043A chain is complete as `passed`. Issues #27, #28, and #29 are closed after final reconciliation. S-043 is again the sole active scope at its Human-owned rehearsal gate.
 
 ## Demonstration Identity Boundary
 
-Commit `2d16a91fdfc95c384094de5f6cf0d59f666dcd8c` remains immutable historical demonstration evidence. It is withdrawn only as the active rehearsal target during suspension. This transition creates no replacement demonstration SHA; S-043A3 owns that later revalidation and replacement.
+Commit `2d16a91fdfc95c384094de5f6cf0d59f666dcd8c` remains immutable historical demonstration evidence and is withdrawn only as the active rehearsal target. Complete revalidated package commit `88cc5433d85c6dcfc632412f6796af25702e1c7b` is the replacement immutable identity.
 
 ## Transition Boundary
 
-S-043A1 and S-043A2 completed as `passed`. This transition activates S-043A3 but does not refresh demonstration materials, run revalidation, perform the Human rehearsal, designate a replacement SHA, close issues, or record a Human disposition.
+S-043A1, S-043A2, and S-043A3 completed as `passed`. S-043A3 revalidated the three-path package and returned the parent to Human without performing the rehearsal, filling evidence fields, recording a disposition, or activating a successor.

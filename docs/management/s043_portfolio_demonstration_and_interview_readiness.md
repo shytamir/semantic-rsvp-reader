@@ -2,9 +2,9 @@
 
 ## Status
 
-S-043 remains the current parent slice under open GitHub issue #18, but its Human-owned rehearsal is suspended while the ordered [S-043A1 → S-043A2 → S-043A3 blocking chain](s043a_epub_preparation_chain.md) completes. S-043A1 and S-043A2 completed as `passed`; only S-043A3 is active at `READY_FOR_IMPLEMENTATION`, owned by Codex under issue #29. No revalidation, replacement identity, rehearsal, or readiness disposition is part of this activation.
+`AWAITING_HUMAN_VALIDATION`, active, and owned by Human under open GitHub issue #18. The [S-043A chain](s043a_epub_preparation_chain.md) completed as `passed`; issues #27–#29 are closed. The fixed rehearsal restarts from step 1 against replacement immutable identity `88cc5433d85c6dcfc632412f6796af25702e1c7b`. No Human evidence or readiness disposition has been recorded.
 
-The original repository-owned demonstration package remains immutable historical evidence at commit `2d16a91fdfc95c384094de5f6cf0d59f666dcd8c`. It is not the active rehearsal target during suspension and has not been replaced. No release tag was created.
+The original repository-owned demonstration package remains immutable historical evidence at commit `2d16a91fdfc95c384094de5f6cf0d59f666dcd8c`; it is withdrawn only as the active rehearsal target. Replacement commit `88cc5433d85c6dcfc632412f6796af25702e1c7b` contains the complete unchanged, normalized, and bounded-failure package. No release tag was created.
 
 Prepared materials are indexed by the [portfolio demonstration package](../demonstration/README.md); the fixed gate is the [S-043 rehearsal record](../validation/s043_portfolio_demonstration_rehearsal.md).
 

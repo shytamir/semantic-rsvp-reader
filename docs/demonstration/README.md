@@ -1,6 +1,6 @@
 # Portfolio Demonstration Package
 
-This is the repository-owned S-043 package for a local portfolio demonstration. It is deterministic, offline after dependency setup, and limited to the validated prototype. The immutable demonstration SHA is recorded in the [S-043 handoff](../validation/s043_portfolio_demonstration_rehearsal.md) after the package commit exists.
+This is the repository-owned S-043 package for a local portfolio demonstration. It is deterministic, offline after dependency setup, and limited to the validated prototype. Replacement immutable demonstration SHA `88cc5433d85c6dcfc632412f6796af25702e1c7b` is the active rehearsal identity. Original SHA `2d16a91fdfc95c384094de5f6cf0d59f666dcd8c` remains immutable historical evidence and is withdrawn only as the active target. See the [S-043 handoff](../validation/s043_portfolio_demonstration_rehearsal.md).
 
 ## Run It
 

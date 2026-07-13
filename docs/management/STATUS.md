@@ -2,23 +2,23 @@
 
 ```yaml
 current_slice: S-043
-active_scope: S-043A3
-name: Demonstration Package Revalidation and Rehearsal Re-entry
-state: READY_FOR_IMPLEMENTATION
-owner: Codex
-agent_action: implement only S-043A3 under GitHub issue #29
-blocked_on: none
+active_scope: S-043
+name: Portfolio Demonstration and Interview Readiness
+state: AWAITING_HUMAN_VALIDATION
+owner: Human
+agent_action: restart the fixed twelve-step portfolio rehearsal from step 1 and record one permitted disposition
+blocked_on: human portfolio demonstration rehearsal
 started: 2026-07-12
-scope: docs/management/s043a_epub_preparation_chain.md
+scope: docs/management/s043_portfolio_demonstration_and_interview_readiness.md
 parent_slice: S-043
 previous_slice: S-042
 ```
 
 ## Current Slice
 
-The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-043 remains the current parent slice, but its Human-owned rehearsal is suspended until the ordered S-043A1 → S-043A2 → S-043A3 blocking chain completes. S-043A1 and S-043A2 completed as `passed` from their recorded objective and terminal CI evidence. S-043A3 is the sole active scope at `READY_FOR_IMPLEMENTATION`, owned by Codex, with GitHub issue #29 as detailed authority. Issues #18, #27, and #28 remain open.
+The **Document Reader Productization Program** is active under human authorization D-010 from commit `4baf3e8`. S-043A1, S-043A2, and S-043A3 completed as `passed`; issues #27, #28, and #29 are closed after final chain reconciliation. S-043 is again the sole active scope at `AWAITING_HUMAN_VALIDATION`, owned by Human, under open issue #18. The fixed twelve-step rehearsal restarts from step 1 with no Human evidence or disposition carried forward.
 
-Historical demonstration SHA `2d16a91fdfc95c384094de5f6cf0d59f666dcd8c` and its evidence remain immutable. It is not the active rehearsal target while the gate is suspended; no replacement SHA has been designated.
+Replacement demonstration SHA `88cc5433d85c6dcfc632412f6796af25702e1c7b` is the active rehearsal identity. Historical SHA `2d16a91fdfc95c384094de5f6cf0d59f666dcd8c` and its evidence remain immutable but are withdrawn only as the active target.
 
 ## S-042 Outcome
 
@@ -102,8 +102,7 @@ S-034 completed as `passed` on 2026-07-12 from human-owned evidence commit `eafa
 
 ## Next Actions
 
-- Implement only S-043A3 under issue #29; do not perform the Human rehearsal or record its disposition.
-- Keep the S-043 human rehearsal suspended and preserve the historical demonstration SHA until S-043A3 establishes a separately validated replacement.
+- Human restarts the fixed S-043 portfolio rehearsal from step 1 against replacement SHA `88cc5433d85c6dcfc632412f6796af25702e1c7b` and records exactly one permitted disposition.
 - Keep the private A/B identity key out of Git.
 
 ## Active Risks
